@@ -2,30 +2,21 @@ import { StatusBar } from 'expo-status-bar';
 import { Provider } from 'react-native-paper'
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
-
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {ExamplePage} from "./src/pages"
 
-const Stack = createStackNavigator()
+const Stack = createNativeStackNavigator()
 
 export default function App({navigation}) {
   return (
-    <View style={styles.container}>
-      <Provider>
-        <NavigationContainer>
-          <Stack.Navigator
-            initialRouteName="ExamplePage"
-            screenOptions={{
-              headerShown: false,
-            }}
-          >
-            <Stack.Screen name="ExamplePage" component={ExamplePage} />
-            {/* add your screens here! */}
-          </Stack.Navigator>
-        </NavigationContainer>
-      </Provider>
-      <Text>Hi Friends! Edit this page to display your new page from your ticket!</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{
+            headerShown: false,
+          }}>
+        <Stack.Screen name="example page" component={ExamplePage} />
+      </Stack.Navigator>
+    </NavigationContainer>
+    
   );
 }
 
