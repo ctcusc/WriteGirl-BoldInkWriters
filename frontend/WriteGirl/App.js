@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {ExamplePage} from "./src/pages" 
 // TODO: add your page here!
+import {WritingExperiments} from "./src/pages"
 
 const Stack = createNativeStackNavigator()
 
@@ -12,10 +13,11 @@ export default function App({navigation}) {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{
-            headerShown: false,
+            headerShown: true,
           }}>
-        <Stack.Screen name="example page" component={ExamplePage} />
+        {/* <Stack.Screen name="example page" component={ExamplePage} /> */}
         {/* TODO: add your page here! */}
+        <Stack.Screen name="writing experiments" component={WritingExperiments} />
       </Stack.Navigator>
     </NavigationContainer>
     
