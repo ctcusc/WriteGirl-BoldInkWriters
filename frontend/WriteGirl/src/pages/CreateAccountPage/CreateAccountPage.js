@@ -1,19 +1,42 @@
-import { Text, View, TextInput, Button, Alert, Pressable } from "react-native";
+import { Text, ScrollView, TextInput, Button, Alert, Pressable, Picker } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import { styles } from "./CreateAccountPageStyles.js";
+import Countries from "./countries.json";
+{/* npm install @hookform/resolvers yup 
+    yup documentation: https://github.com/jquense/yup#schemanotoneofarrayofvalues-arrayany-message-string--function */}
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup"; 
 
 export default function CreateAccountPage() {
+    const schema = yup.object({ 
+        firstName: yup.string().required('First name is required.'),
+        lastName: yup.string().required('Last name is required.'),
+        birthday: yup.date().required().typeError('Enter a valid birthdate in the format: MM/DD/YYY').max(new Date(), "Enter a valid birthdate."),
+        email: yup.string().email('Enter a valid email.'),
+        password: yup.string().required('Password is required.'),
+        repeatpassword: yup.string().oneOf([yup.ref('password'), null]).typeError('Passwords do not match.'),
+        country: yup.string().required().notOneOf(['Select a Country'], 'Country is required.'),
+    })
+    
     const { register, setValue, reset, control, handleSubmit, formState: { errors } } = useForm ({
         defaultValues: { //setting default values
             firstName: '',
-            lastName: ''
-        }
+            lastName: '',
+            birthday: '',
+            email: '',
+            password: '',
+            repeatpassword: '',
+            country: 'Select a Country',
+            state: '',
+            city: '',
+        },
+        resolver: yupResolver(schema)
     });
 
     const onSubmit = data => console.log(data);
 
     return (
-        <View style = {styles.container}>
+        <ScrollView style = {styles.container}>
 
             <Text style = {styles.title}>Create an account</Text>
 
@@ -114,13 +137,28 @@ export default function CreateAccountPage() {
             />     
 
             {/* COUNTRY FIELD */}
+            <Text style = {styles.label}>Country</Text>
+            <Controller
+                name = "country"
+                control = { control }
+                rules = {{ required: true, }}
+                render = {({ field: {onChange, onBlur, value }}) => (
+                    <Picker
+                        style = { styles.input }
+                        onValueChange = {onChange}
+                        selectedValue = {value} 
+                    >
+                        {Countries.map((country) => <Picker.Item label={country.name} value={country.name}></Picker.Item>)}
+                    </Picker>
+                )}
+            />
 
             {/* STATE FIELD */}
             <Text style = {styles.label}>State</Text>
             <Controller
                 name = "state"
                 control = { control }
-                rules = {{ required: true, }}
+                rules = {{  }}
                 render = {({ field: {onChange, onBlur, value }}) => (
                     <TextInput
                         style = { styles.input } //add stylesheet later
@@ -136,7 +174,7 @@ export default function CreateAccountPage() {
             <Controller
                 name = "city"
                 control = { control }
-                rules = {{ required: true, }}
+                rules = {{  }}
                 render = {({ field: {onChange, onBlur, value }}) => (
                     <TextInput
                         style = { styles.input } //add stylesheet later
@@ -153,14 +191,15 @@ export default function CreateAccountPage() {
             </Pressable>
 
             {/* ERROR MESSAGES */}
-            { errors.firstName && <Text>Please enter your first name.</Text> }
-            { errors.lastName && <Text>Please enter your last name.</Text> }
-            { errors.birthday && <Text>Please enter your birthday.</Text>}
-            { errors.email && <Text>Please enter an email.</Text>}
-            { errors.password && <Text>Please enter a password.</Text>}
-            { errors.repeatpassword && <Text>Please repeat your password.</Text>}
+            { errors.firstName && <Text>{errors.firstName.message}</Text> }
+            { errors.lastName && <Text>{errors.lastName.message}</Text> }
+            { errors.birthday && <Text>{errors.birthday.message}</Text>}
+            { errors.email && <Text>{errors.email.message}</Text>}
+            { errors.password && <Text>{errors.password.message}</Text>}
+            { errors.repeatpassword && <Text>{errors.repeatpassword.message}</Text>}
+            { errors.country && <Text>{errors.country.message}</Text>}
 
-        </View>
+        </ScrollView>
     )
 
 

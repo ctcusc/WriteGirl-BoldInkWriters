@@ -23,6 +23,7 @@ input: {
     backgroundColor: '#FFFFFF',
     borderColor: '#000',
     borderWidth: 2,
+    fontSize: 20,
     height: 60,
     padding: 10,
     marginTop: 5,
