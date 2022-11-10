@@ -39,8 +39,6 @@ export default function CreateAccountPage() {
     return (
         <ScrollView style={styles.container}>
 
-
-
             <Text style={styles.title}>Create an account</Text>
 
 
@@ -148,13 +146,25 @@ export default function CreateAccountPage() {
                 render={({ field: { onChange, onBlur, value } }) => (
                     <View style={styles.picker}>
                         <Picker
-                            // style={styles.input}
+                            style={styles.input}
                             onValueChange={itemValue => setValue("country", itemValue)
                             }
                             selectedValue={value}
                         >
                             {Countries.map((country) => <Picker.Item key={country.code} label={country.name} value={country.name}></Picker.Item>)}
                         </Picker>
+
+                        {/* <Select
+                            ref="COUNTRIES"
+                            optionListRef = {this._getOptionList.bind(this)}
+                            defaultValue = "Select a Country"
+                            onSelect = {}
+                            // onSelect = {this.} //would i need this _
+                        >
+                            {Countries.map((country) => <Option>{country.name}</Option>)}
+                        </Select> */}
+
+
                     </View>
                 )
                 }
