@@ -1,8 +1,8 @@
-import { Text, ScrollView, TextInput, Button, Alert, Pressable, View } from "react-native";
+import { Text, ScrollView, TextInput, Button, Alert, Pressable, View, KeyboardAvoidingView, Platform } from "react-native";
 import { Picker } from "@react-native-picker/picker"
 import { useForm, Controller } from "react-hook-form";
 import { styles } from "./CreateAccountPageStyles.js";
-import Countries from "./countries.json";
+
 {/* npm install @hookform/resolvers yup 
     yup documentation: https://github.com/jquense/yup#schemanotoneofarrayofvalues-arrayany-message-string--function */}
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -15,8 +15,8 @@ export default function CreateAccountPage() {
         birthday: yup.date().required().typeError('Enter a valid birthdate in the format: MM/DD/YYY').max(new Date(), "Enter a valid birthdate."),
         email: yup.string().email('Enter a valid email.'),
         password: yup.string().required('Password is required.'),
-        repeatpassword: yup.string().oneOf([yup.ref('password'), null]).typeError('Passwords do not match.'),
-        country: yup.string().required().notOneOf(['Select a Country'], 'Country is required.'),
+        repeatpassword: yup.string().oneOf([yup.ref('password'), null], 'Passwords do not match.'),
+        country: yup.string().required('Enter your country'),
     })
 
     const { register, setValue, reset, control, handleSubmit, formState: { errors } } = useForm({
@@ -27,20 +27,22 @@ export default function CreateAccountPage() {
             email: '',
             password: '',
             repeatpassword: '',
-            country: 'Select a Country',
+            country: '',
             state: '',
             city: '',
         },
         resolver: yupResolver(schema)
     });
 
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        console.log(data);
+    }
 
     return (
+        <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}>
         <ScrollView style={styles.container}>
 
             <Text style={styles.title}>Create an account</Text>
-
 
             {/* FIRST NAME FIELD */}
             <Text style={styles.label}>First Name</Text>
@@ -57,6 +59,7 @@ export default function CreateAccountPage() {
                     />
                 )}
             />
+
             {/* LAST NAME FIELD */}
             <Text style={styles.label}>Last Name</Text>
             <Controller
@@ -144,34 +147,17 @@ export default function CreateAccountPage() {
                 control={control}
                 rules={{ required: true, }}
                 render={({ field: { onChange, onBlur, value } }) => (
-                    <View style={styles.picker}>
-                        <Picker
-                            style={styles.input}
-                            onValueChange={itemValue => setValue("country", itemValue)
-                            }
-                            selectedValue={value}
-                        >
-                            {Countries.map((country) => <Picker.Item key={country.code} label={country.name} value={country.name}></Picker.Item>)}
-                        </Picker>
-
-                        {/* <Select
-                            ref="COUNTRIES"
-                            optionListRef = {this._getOptionList.bind(this)}
-                            defaultValue = "Select a Country"
-                            onSelect = {}
-                            // onSelect = {this.} //would i need this _
-                        >
-                            {Countries.map((country) => <Option>{country.name}</Option>)}
-                        </Select> */}
-
-
-                    </View>
-                )
-                }
+                    <TextInput
+                        style={styles.input} //add stylesheet later
+                        onBlur={onBlur}
+                        onChangeText={onChange}
+                        value={value}
+                    />
+                )}
             />
 
             {/* STATE FIELD */}
-            <Text style={styles.label}>State</Text>
+            <Text style={styles.label}>State/Province</Text>
             <Controller
                 name="state"
                 control={control}
@@ -204,7 +190,7 @@ export default function CreateAccountPage() {
 
             {/* SUBMIT BUTTON */}
             <Pressable style={styles.button} onPress={handleSubmit(onSubmit)}>
-                <Text style={styles.label}>Create Account</Text>
+                <Text style={styles.buttonLabel}>Create Account</Text>
             </Pressable>
 
 
@@ -218,6 +204,8 @@ export default function CreateAccountPage() {
             {errors.country && <Text>{errors.country.message}</Text>}
 
         </ScrollView >
+        </KeyboardAvoidingView>
+
 
     )
 

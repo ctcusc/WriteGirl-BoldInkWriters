@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
 container: {
     backgroundColor: '#FFF',
     padding: 40,
+    display: 'flex',
 },
 
 title: {
@@ -31,14 +32,20 @@ input: {
 },
 
 button: {
-    backgroundColor: 'white',
-    borderWidth: 2,
-    height: 60,
+    backgroundColor: '#688175',
+    height: 'auto',
+    width: '50%',
     padding: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    elevation: 3,
     marginVertical: 20,
+    marginBottom: 100,
+    borderRadius: 30,
+},
+
+buttonLabel: {
+    color: 'white',
+    fontSize: 20,
 },
 
 
