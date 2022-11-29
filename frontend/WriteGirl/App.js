@@ -8,6 +8,7 @@ import {CreateAccountPage, ExamplePage} from "./src/pages"
 import {HomePage} from "./src/pages" 
 
 
+
 const Stack = createNativeStackNavigator()
 
 export default function App({navigation}) {
@@ -18,8 +19,9 @@ export default function App({navigation}) {
           }}>
         {/* <Stack.Screen name="example page" component={ExamplePage} /> */}
         {/* TODO: add your page here! */}
-        <Stack.Screen name="Create Account Page" component={CreateAccountPage} />
         <Stack.Screen name="home page" component={HomePage} />
+        {/* <Stack.Screen name="Create Account Page" component={CreateAccountPage} /> */}
+        
       </Stack.Navigator>
     </NavigationContainer>
     
