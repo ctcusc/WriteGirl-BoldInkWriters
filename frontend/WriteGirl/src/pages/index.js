@@ -14,7 +14,9 @@ const Tab = createBottomTabNavigator();
 
 export default function NavBar() {
     return (
-    <Tab.Navigator>
+    <Tab.Navigator
+        
+    >
         <Tab.Screen name="Home" component={HomePage} />
         <Tab.Screen name="Resources" component={RandomPage1} />
         <Tab.Screen name="Writing Experiments" component={WritingExperiments} />
