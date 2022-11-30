@@ -201,13 +201,15 @@ export default function CreateAccountPage() {
 
 
                 {/* ERROR MESSAGES */}
-                {errors.firstName && <Text>{errors.firstName.message}</Text>}
-                {errors.lastName && <Text>{errors.lastName.message}</Text>}
-                {errors.birthday && <Text>{errors.birthday.message}</Text>}
-                {errors.email && <Text>{errors.email.message}</Text>}
-                {errors.password && <Text>{errors.password.message}</Text>}
-                {errors.repeatpassword && <Text>{errors.repeatpassword.message}</Text>}
-                {errors.country && <Text>{errors.country.message}</Text>}
+                <View style={styles.errorMessages}>
+                    {errors.firstName && <Text>{errors.firstName.message}</Text>}
+                    {errors.lastName && <Text>{errors.lastName.message}</Text>}
+                    {errors.birthday && <Text>{errors.birthday.message}</Text>}
+                    {errors.email && <Text>{errors.email.message}</Text>}
+                    {errors.password && <Text>{errors.password.message}</Text>}
+                    {errors.repeatpassword && <Text>{errors.repeatpassword.message}</Text>}
+                    {errors.country && <Text>{errors.country.message}</Text>}
+                </View>
 
             </KeyboardAwareScrollView >
             {/* </KeyboardAvoidingView> */}

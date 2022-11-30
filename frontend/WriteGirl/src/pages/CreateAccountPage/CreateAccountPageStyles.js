@@ -34,10 +34,10 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: '#688175',
         height: 'auto',
-        width: '50%',
+        width: '100%',
         padding: 10,
         marginVertical: 20,
-        marginBottom: 100,
+        marginBottom: 30,
         borderRadius: 30,
     },
 
@@ -52,8 +52,11 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         flexDirection: 'row',
-    }
+    },
 
+    errorMessages: {
+        marginBottom: 50,
+    },
 
 });
 
