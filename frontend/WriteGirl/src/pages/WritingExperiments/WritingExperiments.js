@@ -3,18 +3,20 @@ import { TouchableHighlight } from 'react-native-gesture-handler';
 
 export default function WritingExperiments() {
   return (
+
+    
+    
     <SafeAreaView style={styles.container}>
 
-
       <View style = {styles.page}>  
-        <div stlye={styles.cont}>
+        <View stlye={styles.cont}>
           <Text style={styles.title}>Reflection Prompt Placeholder</Text>
             <View style={styles.fixToText}>
               <TouchableOpacity style={styles.smallButtons}>
                 <Text>R</Text>
               </TouchableOpacity>
             </View>
-        </div>
+        </View>
         
         <View >
           <TouchableOpacity style={styles.otherButtons}>
