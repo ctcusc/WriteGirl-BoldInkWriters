@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // TODO: add your page here!
-import {CreateAccountPage, HomePage, WritingExperiments, NavBar, ExamplePage} from "./src/pages" 
+import NavBar, {CreateAccountPage, HomePage, WritingExperiments, ExamplePage} from "./src/pages" 
 
 const Stack = createNativeStackNavigator()
 
