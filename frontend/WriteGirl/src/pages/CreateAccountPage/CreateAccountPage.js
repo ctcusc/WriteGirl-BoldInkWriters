@@ -1,5 +1,5 @@
-import { Text, ScrollView, TextInput, Button, Alert, SafeAreaView, Pressable, View, KeyboardAvoidingView, Platform } from "react-native";
-import { Picker } from "@react-native-picker/picker"
+import { Text, ScrollView, TextInput, Button, Alert, SafeAreaView, Pressable, View, KeyboardAvoidingView, Platform, Modal, } from "react-native";
+import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { styles } from "./CreateAccountPageStyles.js";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
@@ -10,6 +10,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
 export default function CreateAccountPage() {
+    const [modalVisible, setModalVisible] = useState(false);
+
     const schema = yup.object({
         firstName: yup.string().required('First name is required.'),
         lastName: yup.string().required('Last name is required.'),
@@ -36,15 +38,18 @@ export default function CreateAccountPage() {
     });
 
     const onSubmit = data => {
-        console.log(data);
+        console.log("data", data)
+    }
+    const onInvalid = (errors) => {
+        setModalVisible(true)
+        console.log("errors", errors) 
     }
 
     return (
         <SafeAreaView >
             {/* <KeyboardAvoidingView
                 behavior={Platform.OS === "ios" ? "padding" : "height"}> */}
-            <KeyboardAwareScrollView style={styles.container}
-            >
+            <KeyboardAwareScrollView style={styles.container}>
 
                 <Text style={styles.title}>Create an account</Text>
 
@@ -194,22 +199,45 @@ export default function CreateAccountPage() {
 
                 {/* SUBMIT BUTTON */}
                 <View style={styles.buttonWrapper}>
-                    <Pressable style={styles.button} onPress={handleSubmit(onSubmit)}>
+                    <Pressable style={styles.button} onPress={handleSubmit(onSubmit, onInvalid)}>
                         <Text style={styles.buttonLabel}>Create Account</Text>
                     </Pressable>
                 </View>
 
 
-                {/* ERROR MESSAGES */}
-                <View style={styles.errorMessages}>
-                    {errors.firstName && <Text>{errors.firstName.message}</Text>}
-                    {errors.lastName && <Text>{errors.lastName.message}</Text>}
-                    {errors.birthday && <Text>{errors.birthday.message}</Text>}
-                    {errors.email && <Text>{errors.email.message}</Text>}
-                    {errors.password && <Text>{errors.password.message}</Text>}
-                    {errors.repeatpassword && <Text>{errors.repeatpassword.message}</Text>}
-                    {errors.country && <Text>{errors.country.message}</Text>}
+                {/* ERROR ALERT MESSAGES */}
+                <View style={styles.alertContainer}>
+                <Modal
+                    transparent={true}
+                    visible={modalVisible}
+                    style={styles.alertModal}
+                    animationType="fade"
+                    onRequestClose={() => {
+                        console.log("closed modal")
+                        Alert.alert('Modal has been closed.');
+                        setModalVisible(!modalVisible)
+                    }}>
+                    <Pressable onPress={(event) => { if(event.target == event.currentTarget) {setModalVisible(false)} }}>
+                        <View style={styles.alertView}>
+
+                            <Pressable style={styles.closeButton} onPress={() => setModalVisible(false)}>
+                                <Text style={styles.closeText}>X</Text>
+                            </Pressable>
+                            <View style={styles.messageContainer}>
+                                {errors.firstName && <Text style={styles.errorText}>{errors.firstName.message}</Text>}
+                                {errors.lastName && <Text style={styles.errorText}>{errors.lastName.message}</Text>}
+                                {errors.birthday && <Text style={styles.errorText}>{errors.birthday.message}</Text>}
+                                {errors.email && <Text style={styles.errorText}>{errors.email.message}</Text>}
+                                {errors.password && <Text style={styles.errorText}>{errors.password.message}</Text>}
+                                {errors.repeatpassword && <Text style={styles.errorText}>{errors.repeatpassword.message}</Text>}
+                                {errors.country && <Text style={styles.errorText}>{errors.country.message}</Text>}
+                            </View>
+
+                        </View>
+                    </Pressable>
+                </Modal>
                 </View>
+
 
             </KeyboardAwareScrollView >
             {/* </KeyboardAvoidingView> */}

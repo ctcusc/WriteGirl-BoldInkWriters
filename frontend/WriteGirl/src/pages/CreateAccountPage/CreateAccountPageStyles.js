@@ -54,8 +54,46 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
 
-    errorMessages: {
-        marginBottom: 50,
+    alertContainer: {
+        backgroundColor: '#FFF',
+        height: '20%',
+    },
+
+    alertModal: {
+        height: '10%',
+    },
+
+    alertView: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: '7%',
+        marginBottom: 40,
+        height: 'auto',
+        backgroundColor: '#688175',
+    },
+
+    closeButton: {
+        backgroundColor: '#688175',
+        height: 'auto',
+        width: 'auto',
+        padding: '2%',
+    },
+
+    closeText: {
+        color: 'white',
+        fontSize: 20,
+    },
+
+    messageContainer: {
+        paddingTop: '2%',
+        paddingBottom: '5%',
+        paddingLeft: '3%',
+        paddingRight: '3%',
+    },
+
+    errorText: {
+        color: '#FFF',
+        fontSize: 15,
     },
 
 });
