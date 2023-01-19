@@ -56,18 +56,17 @@ const styles = StyleSheet.create({
 
     alertContainer: {
         backgroundColor: '#FFF',
-        height: '20%',
+        height: 'auto',
     },
 
     alertModal: {
-        height: '10%',
+        height: 'auto',
     },
 
     alertView: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: '7%',
-        marginBottom: 40,
+        marginBottom: '100%',
         height: 'auto',
         backgroundColor: '#688175',
     },
@@ -76,7 +75,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#688175',
         height: 'auto',
         width: 'auto',
-        padding: '2%',
+        marginTop: 10,
+        marginRight: 20,
+        alignSelf: 'flex-end',
     },
 
     closeText: {
@@ -85,15 +86,20 @@ const styles = StyleSheet.create({
     },
 
     messageContainer: {
-        paddingTop: '2%',
-        paddingBottom: '5%',
+        paddingBottom: 20,
         paddingLeft: '3%',
         paddingRight: '3%',
     },
 
     errorText: {
-        color: '#FFF',
-        fontSize: 15,
+        color: 'white',
+        fontSize: 20,
+    },
+
+    successText: {
+        color: 'white',
+        fontSize: 20,
+        alignSelf: 'center',
     },
 
 });

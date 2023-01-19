@@ -10,7 +10,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
 export default function CreateAccountPage() {
-    const [modalVisible, setModalVisible] = useState(false);
+    const [errorModalVisible, setErrorModalVisible] = useState(false);
+    const [successModalVisible, setSuccessModalVisible] = useState(false);
 
     const schema = yup.object({
         firstName: yup.string().required('First name is required.'),
@@ -38,10 +39,11 @@ export default function CreateAccountPage() {
     });
 
     const onSubmit = data => {
+        setSuccessModalVisible(true)
         console.log("data", data)
     }
     const onInvalid = (errors) => {
-        setModalVisible(true)
+        setErrorModalVisible(true)
         console.log("errors", errors) 
     }
 
@@ -209,18 +211,18 @@ export default function CreateAccountPage() {
                 <View style={styles.alertContainer}>
                 <Modal
                     transparent={true}
-                    visible={modalVisible}
+                    visible={errorModalVisible}
                     style={styles.alertModal}
                     animationType="fade"
                     onRequestClose={() => {
                         console.log("closed modal")
                         Alert.alert('Modal has been closed.');
-                        setModalVisible(!modalVisible)
+                        setErrorModalVisible(!errorModalVisible)
                     }}>
-                    <Pressable onPress={(event) => { if(event.target == event.currentTarget) {setModalVisible(false)} }}>
+                    <Pressable onPress={(event) => {if(event.target === event.currentTarget) { setErrorModalVisible(false) }}}>
                         <View style={styles.alertView}>
 
-                            <Pressable style={styles.closeButton} onPress={() => setModalVisible(false)}>
+                            <Pressable style={styles.closeButton} onPress={() => setErrorModalVisible(false)}>
                                 <Text style={styles.closeText}>X</Text>
                             </Pressable>
                             <View style={styles.messageContainer}>
@@ -231,6 +233,33 @@ export default function CreateAccountPage() {
                                 {errors.password && <Text style={styles.errorText}>{errors.password.message}</Text>}
                                 {errors.repeatpassword && <Text style={styles.errorText}>{errors.repeatpassword.message}</Text>}
                                 {errors.country && <Text style={styles.errorText}>{errors.country.message}</Text>}
+                            </View>
+
+                        </View>
+                    </Pressable>
+                </Modal>
+                </View>
+
+                {/* SUCCESSFUL SUBMIT ALERT MESSAGE */}
+                <View style={styles.alertContainer}>
+                <Modal
+                    transparent={true}
+                    visible={successModalVisible}
+                    style={styles.alertModal}
+                    animationType="fade"
+                    onRequestClose={() => {
+                        console.log("closed modal")
+                        Alert.alert('Modal has been closed.');
+                        setSuccessModalVisible(!successModalVisible)
+                    }}>
+                    <Pressable onPress={(event) => {if(event.target === event.currentTarget) { setSuccessModalVisible(false) }}}>
+                        <View style={styles.alertView}>
+
+                            <Pressable style={styles.closeButton} onPress={() => setSuccessModalVisible(false)}>
+                                <Text style={styles.closeText}>X</Text>
+                            </Pressable>
+                            <View style={styles.messageContainer}>
+                                <Text style={styles.successText}>Account Successfully Created!</Text>
                             </View>
 
                         </View>
