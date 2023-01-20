@@ -11,7 +11,7 @@ export default function WritingExperiments() {
           <TouchableOpacity disabled={true} style={styles.reflectionButton}>
             <Text style={styles.title}>Reflection Prompt Placeholder</Text>
             <View style={styles.fixToText}>
-              <TouchableOpacity style={styles.smallButtons}>
+              <TouchableOpacity disabled={false} style={styles.smallButtons}>
                 <Text style={styles.generate}>Generate!</Text>
               </TouchableOpacity>
             </View>
@@ -43,9 +43,7 @@ export default function WritingExperiments() {
 
 const styles = StyleSheet.create({
   container: {
-    //flex: 1,
     justifyContent: 'center',
-    //marginHorizontal: 16,
   },
   page:{
   
@@ -71,11 +69,10 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   cont: {
-    backgroundColor: '#f00',
-    //paddingBottom: 10,
-    // height: 130,
+    
   },
   reflectionButton: {
+    position: 'absolute',
     width: 295,
     height: 160,
     left: 47,
@@ -87,9 +84,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     
   },
-  //avoid double borders for reflection butt
+  
   otherButtons: {
-    position: 'flex',
+    position: 'top',
     width: 295,
     height: 113,
     left: 47,
@@ -105,8 +102,6 @@ const styles = StyleSheet.create({
   smallButtons: {
     width: 120,
     height: 33,
-    // left: 206,
-    // top: 222,
     filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
     backgroundColor: '#73857B',
     borderRadius: 30,
@@ -117,7 +112,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'right',
     paddingRight: 10,
-    paddingBottom: 10,
-    
   }
 });
