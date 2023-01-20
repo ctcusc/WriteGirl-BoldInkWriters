@@ -2,34 +2,33 @@ import {View, Text, Button, StyleSheet, SafeAreaView, TouchableOpacity} from 're
 import { TouchableHighlight } from 'react-native-gesture-handler';
 
 export default function WritingExperiments() {
+
   return (
     <SafeAreaView style={styles.container}>
 
 
       <View style = {styles.page}>  
-        <div stlye={styles.cont}>
-          <TouchableOpacity disabled={true} style={styles.reflectionButton}>
+          <View style={styles.reflectionDiv}>
             <Text style={styles.title}>Reflection Prompt Placeholder</Text>
             <View style={styles.fixToText}>
               <TouchableOpacity disabled={false} style={styles.smallButtons}>
-                <Text style={styles.generate}>Generate!</Text>
+                  <Text style={styles.generate}>Generate!</Text>
               </TouchableOpacity>
             </View>
+          </View>
+          
+        
+        
+          <TouchableOpacity style={styles.otherButtons}>
+            <Text style={styles.title}>Spin the Randomizer Wheel!</Text>
+          </TouchableOpacity>
+        
+        
+        
+          <TouchableOpacity style={styles.otherButtons}>
+            <Text style={styles.title}>Open the Doors!</Text>
           </TouchableOpacity>
           
-        </div>
-        
-        <div>
-          <TouchableOpacity style={styles.otherButtons}>
-          <Text style={styles.title}>Spin the Randomizer Wheel!</Text>
-          </TouchableOpacity>
-        </div>
-        
-        <div>
-          <TouchableOpacity style={styles.otherButtons}>
-          <Text style={styles.title}>Open the Doors!</Text>
-          </TouchableOpacity>
-        </div>  
         
           <TouchableOpacity style={styles.otherButtons}>
           <Text style={styles.title}>Find your inspiration!</Text>
@@ -44,15 +43,16 @@ export default function WritingExperiments() {
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
+    height: '100%',
   },
   page:{
-  
     backgroundColor: '#F5F5F5',
+    height: '100%',
+    overflow: 'scroll'
   },
   title: {
     textAlign: 'center',
     marginVertical: 8,
-
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontWeight: 400,
@@ -60,20 +60,17 @@ const styles = StyleSheet.create({
     textColor: '#0D4D5E',
   },
   generate:{
-    position: 'absolute',
     textAlign: 'center',
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontWeight: 400,
-    fontSize: 25,
+    fontSize: "35px",
     color: 'white',
   },
-  cont: {
-    
-  },
+ 
   reflectionButton: {
     position: 'absolute',
-    width: 295,
+    width: "50%",
     height: 160,
     left: 47,
     top: 106,
@@ -84,11 +81,33 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     
   },
+
+  reflectionDiv: {
+    position: 'absolute',
+    width: "70%",
+    height: "20%",
+    left: 47,
+    top: 106,
+    backgroundColor: '#FFFFFF',
+    marginTop: 20,
+    borderRadius: 30,
+
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
+
+
+    overflow: 'hidden',
+
+    
+  },
   
   otherButtons: {
     position: 'top',
-    width: 295,
-    height: 113,
+    width: "70%",
+    height: "20%",
     left: 47,
     top: 307,
     backgroundColor: '#FFFFFF',
@@ -100,17 +119,19 @@ const styles = StyleSheet.create({
   },
 
   smallButtons: {
-    width: 120,
-    height: 33,
+    width: '21vw',
+    minWidth: '120px',
+    height: '6vh',
     filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
     backgroundColor: '#73857B',
     borderRadius: 30,
     alignItems: 'center',
-    
+    marginRight: 0,
   },
+
   fixToText: {
     flexDirection: 'row',
     justifyContent: 'right',
-    paddingRight: 10,
+    marginLeft: "50%",
   }
 });
