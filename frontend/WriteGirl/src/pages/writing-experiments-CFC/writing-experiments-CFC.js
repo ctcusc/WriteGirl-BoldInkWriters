@@ -5,31 +5,25 @@ export default function WritingExperiments() {
 
   return (
     <SafeAreaView style={styles.container}>
-
-
       <View style = {styles.page}>  
           <View style={styles.reflectionDiv}>
             <Text style={styles.title}>Reflection Prompt Placeholder</Text>
+            <View style={styles.buttonPadding} />
             <View style={styles.fixToText}>
               <TouchableOpacity disabled={false} style={styles.smallButtons}>
                   <Text style={styles.generate}>Generate!</Text>
               </TouchableOpacity>
             </View>
           </View>
-          
-        
         
           <TouchableOpacity style={styles.otherButtons}>
             <Text style={styles.title}>Spin the Randomizer Wheel!</Text>
           </TouchableOpacity>
         
-        
-        
           <TouchableOpacity style={styles.otherButtons}>
             <Text style={styles.title}>Open the Doors!</Text>
           </TouchableOpacity>
           
-        
           <TouchableOpacity style={styles.otherButtons}>
           <Text style={styles.title}>Find your inspiration!</Text>
           </TouchableOpacity>
@@ -45,11 +39,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: '100%',
   },
+
   page:{
     backgroundColor: '#F5F5F5',
     height: '100%',
-    overflow: 'scroll'
   },
+
   title: {
     textAlign: 'center',
     marginVertical: 8,
@@ -59,15 +54,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     textColor: '#0D4D5E',
   },
-  generate:{
-    textAlign: 'center',
-    fontFamily: 'Poppins',
-    fontStyle: 'normal',
-    fontWeight: 400,
-    fontSize: "35px",
-    color: 'white',
-  },
- 
+  
   reflectionButton: {
     position: 'absolute',
     width: "50%",
@@ -83,55 +70,69 @@ const styles = StyleSheet.create({
   },
 
   reflectionDiv: {
-    position: 'absolute',
+    position: 'relative',
     width: "70%",
-    height: "20%",
-    left: 47,
-    top: 106,
+    minHeight: "20%",
+    margin: "auto",
     backgroundColor: '#FFFFFF',
-    marginTop: 20,
     borderRadius: 30,
-
     display: 'flex',
-    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
-
-
-    overflow: 'hidden',
-
-    
   },
   
   otherButtons: {
-    position: 'top',
+    position: 'relative',
     width: "70%",
     height: "20%",
-    left: 47,
-    top: 307,
+    margin: 'auto',
     backgroundColor: '#FFFFFF',
-    padding: 30,
-    marginVertical: 20,
     borderRadius: 30,
+    display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
     filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
   },
 
-  smallButtons: {
-    width: '21vw',
-    minWidth: '120px',
-    height: '6vh',
-    filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
-    backgroundColor: '#73857B',
-    borderRadius: 30,
-    alignItems: 'center',
-    marginRight: 0,
+  buttonPadding: {
+    paddingVertical: "1%",
+    paddingHorizontal: "5%",
+    height: "5vh",
   },
 
   fixToText: {
-    flexDirection: 'row',
-    justifyContent: 'right',
-    marginLeft: "50%",
+    // Absolutely positioned to `reflectionDiv` container
+    position: 'absolute',
+    width: "100%",
+    height: "100%",
+  },
+
+  smallButtons: {
+    // Absolutely positioned to `fixToText` container
+    position:'absolute',
+    right: "3vw",
+    bottom: "1.5vh",
+    filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
+    backgroundColor: '#0D4D5E',
+    borderRadius: 30,
+    paddingVertical: "1%",
+    paddingHorizontal: "5%",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: "auto"
+  },
+
+  generate:{
+    textAlign: 'center',
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontWeight: 400,
+    fontSize: "1.5em",
+    color: 'white',
+    margin: 0,
+    padding: 0,
   }
+ 
 });
