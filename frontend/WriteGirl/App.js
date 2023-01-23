@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // TODO: add your page here!
-import NavBar, {CreateAccountPage, HomePage, WritingExperiments, ExamplePage} from "./src/pages" 
+import NavBar, {CreateAccountPage, HomePage, WritingExperiments, ExamplePage, MonthlyExercises} from "./src/pages" 
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator();
@@ -20,6 +20,7 @@ export default function App({navigation}) {
           <Tab.Screen name="Create Account" component={CreateAccountPage} />
           <Tab.Screen name="Writing Experiments" component={WritingExperiments} />
           <Tab.Screen name="Profile" component={ExamplePage} />
+          <Tab.Screen name="Monthly Exercises" component={MonthlyExercises} />
       </Tab.Navigator>
     </NavigationContainer>
     // <NavigationContainer>
