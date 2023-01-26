@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         flexDirection: 'row',
+        marginBottom: 30,
     },
 
     alertContainer: {
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
     },
 
     errorText: {
-        color: 'white',
+        color: 'black',
         fontSize: 20,
     },
 
@@ -100,6 +101,13 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 20,
         alignSelf: 'center',
+    },
+
+    errorToast: {
+        backgroundColor: '#688175',
+        padding: '1em',
+        width: 'auto',
+        color: '#000',
     },
 
 });

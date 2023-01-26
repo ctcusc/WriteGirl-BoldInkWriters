@@ -1,13 +1,47 @@
 import { Text, ScrollView, TextInput, Button, Alert, SafeAreaView, Pressable, View, KeyboardAvoidingView, Platform, Modal, } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { styles } from "./CreateAccountPageStyles.js";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import  SignUpToast  from './SignUpToast'
+import { useToast, Box, NativeBaseProvider } from "native-base";
 
 {/* npm install @hookform/resolvers yup 
     yup documentation: https://github.com/jquense/yup#schemanotoneofarrayofvalues-arrayany-message-string--function */}
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+
+const Toast = (errors) => {
+    const toast = useToast();
+    const handlePress = () => {
+        console.log("TOAsT OPENED")
+        console.log(errors)
+        const success = "Successful Submit"
+        toast.show({
+            placement: "top",
+            render: () => {
+                return <Box style={styles.errorToast}>
+                    {errors.errors === "none" ? success : null}
+                    {errors.errors.firstName ? errors.errors.firstName.message : null}
+                    {errors.errors.lastName ? errors.errors.lastName.message : null}
+                    {errors.errors.birthday ? errors.errors.birthday.message : null}
+                    {errors.errors.email ? errors.errors.email.message : null}
+                    {errors.errors.password ? errors.errors.password.message : null}
+                    {errors.errors.repeatpassword ? errors.errors.repeatpassword.message : null}
+                    {errors.errors.country ? errors.errors.country.message : null}
+                </Box>;
+            }
+        });
+    }
+    return (
+        <Box style={styles.buttonWrapper}>
+            <Pressable style={styles.button} onPress={() => handlePress("hello")}>
+                <Text style={styles.buttonLabel}>PRESS ME</Text>
+            </Pressable>
+        </Box>
+    )
+}
+
 
 export default function CreateAccountPage() {
     const [errorModalVisible, setErrorModalVisible] = useState(false);
@@ -48,6 +82,7 @@ export default function CreateAccountPage() {
     }
 
     return (
+        <NativeBaseProvider>
         <SafeAreaView >
             {/* <KeyboardAvoidingView
                 behavior={Platform.OS === "ios" ? "padding" : "height"}> */}
@@ -206,9 +241,24 @@ export default function CreateAccountPage() {
                     </Pressable>
                 </View>
 
+                <Toast errors={errors}/>
+
 
                 {/* ERROR ALERT MESSAGES */}
-                <View style={styles.alertContainer}>
+
+                <View >
+                    {errors.firstName && <Text style={styles.errorText}>{errors.firstName.message}</Text>}
+                    {errors.lastName && <Text style={styles.errorText}>{errors.lastName.message}</Text>}
+                    {errors.birthday && <Text style={styles.errorText}>{errors.birthday.message}</Text>}
+                    {errors.email && <Text style={styles.errorText}>{errors.email.message}</Text>}
+                    {errors.password && <Text style={styles.errorText}>{errors.password.message}</Text>}
+                    {errors.repeatpassword && <Text style={styles.errorText}>{errors.repeatpassword.message}</Text>}
+                    {errors.country && <Text style={styles.errorText}>{errors.country.message}</Text>}
+                </View>
+
+
+
+                {/* <View style={styles.alertContainer}>
                 <Modal
                     transparent={true}
                     visible={errorModalVisible}
@@ -238,10 +288,10 @@ export default function CreateAccountPage() {
                         </View>
                     </Pressable>
                 </Modal>
-                </View>
+                </View> */}
 
                 {/* SUCCESSFUL SUBMIT ALERT MESSAGE */}
-                <View style={styles.alertContainer}>
+                {/* <View style={styles.alertContainer}>
                 <Modal
                     transparent={true}
                     visible={successModalVisible}
@@ -265,13 +315,13 @@ export default function CreateAccountPage() {
                         </View>
                     </Pressable>
                 </Modal>
-                </View>
+                </View> */}
 
 
             </KeyboardAwareScrollView >
             {/* </KeyboardAvoidingView> */}
         </SafeAreaView >
-
+        </NativeBaseProvider>
 
 
     )
