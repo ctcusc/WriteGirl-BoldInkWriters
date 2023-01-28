@@ -7,6 +7,7 @@ import {ExamplePage} from "./src/pages"
 // TODO: add your page here!
 import {WritingExperiments} from "./src/pages"
 import {DoorActivity} from "./src/pages"
+import {DoorOpened} from "./src/pages"
 
 const Stack = createNativeStackNavigator()
 
@@ -19,6 +20,8 @@ export default function App({navigation}) {
         {/* <Stack.Screen name="example page" component={ExamplePage} /> */}
         {/* TODO: add your page here! */}
         <Stack.Screen name="writing experiments" component={WritingExperiments} />
+        <Stack.Screen name="door activity" component={DoorActivity} />
+        <Stack.Screen name="door opened" component={DoorOpened} />
       </Stack.Navigator>
     </NavigationContainer>
     

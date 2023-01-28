@@ -1,6 +1,6 @@
 import {styles} from './dastyle'
 
-export default function DoorActivity() {
+export default function DoorOpened() {
 
     return(
         <SafeAreaView style={styles.container}>
