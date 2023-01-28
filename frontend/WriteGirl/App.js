@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {ExamplePage} from "./src/pages" 
 // TODO: add your page here!
 import {WritingExperiments} from "./src/pages"
+import {DoorActivity} from "./src/pages"
 
 const Stack = createNativeStackNavigator()
 
