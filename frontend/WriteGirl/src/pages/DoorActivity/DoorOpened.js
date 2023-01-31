@@ -6,11 +6,11 @@ export default function DoorOpened() {
     return(
         <SafeAreaView style={styles.container}>
             <View style={styles.page} >
-                <View style = {styles.buttonPadding}>
+                <View style = {styles.openDiv}>
                     <TouchableOpacity style={styles.openDoor}>
-                    <Text>Door Opened!</Text> 
+                        <Text style = {styles.openText}>Door Opened!</Text> 
                     </TouchableOpacity>
-                </View>    
+                </View>   
             </View>
         </SafeAreaView>
     )
