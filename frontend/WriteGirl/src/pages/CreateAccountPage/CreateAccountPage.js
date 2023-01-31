@@ -43,7 +43,7 @@ const Toast = (errors) => {
 }
 
 
-export default function CreateAccountPage() {
+export default function CreateAccountPage({ navigation }) {
     const [errorModalVisible, setErrorModalVisible] = useState(false);
     const [successModalVisible, setSuccessModalVisible] = useState(false);
 
