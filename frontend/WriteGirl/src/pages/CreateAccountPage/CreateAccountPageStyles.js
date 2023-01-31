@@ -105,7 +105,8 @@ const styles = StyleSheet.create({
 
     errorToast: {
         backgroundColor: '#688175',
-        padding: '1em',
+        // padding: '1em',
+        padding: 1,
         width: 'auto',
         color: '#000',
     },
