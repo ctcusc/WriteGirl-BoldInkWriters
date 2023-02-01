@@ -52,6 +52,52 @@ const styles = StyleSheet.create({
         // bottom: 0,
     },
 
+    timerText: {
+        fontSize: height/20,
+    },
+
+    button: {
+        backgroundColor: '#0D4D5E',
+        height: 'auto',
+        width: '60%',
+        padding: 10,
+        marginVertical: 20,
+        marginBottom: 30,
+        borderRadius: 30,
+        alignSelf: 'center',
+    },
+
+    buttonLabel: {
+        color: 'white',
+        fontSize: 20,
+        textAlign: 'center',
+    },
+
+
+    // SCREEN SAVER PAGE STYLES
+    screensaverContainer: {
+        flex: 1,
+    },
+    
+    screensaverBg: {
+        flex: 1,
+        opacity: 0.7,
+    },
+
+    timeText: {
+        color: 'white',
+        fontSize: height/10,
+        alignSelf: 'center',
+        fontWeight: 'bold',
+        marginTop: height/12,
+    }, 
+
+    promptText: {
+        color: 'white',
+        fontSize: height/20,
+        textAlign: 'center',
+    },
+
 });
 
 export { styles };
