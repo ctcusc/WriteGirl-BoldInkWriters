@@ -1,13 +1,16 @@
 import {styles} from './dastyle'
+import { useState } from 'react';
 import {View, SafeAreaView, FlatList, Image, TouchableOpacity, Text} from 'react-native';
+import { Alert, Collapse, NativeBaseProvider } from 'native-base';
 const imgArr = new Array(9).fill("https://placeimg.com/635/360/tech");
 
 export default function DoorActivity() {
+    const [show, setShow] = useState(false);
 
     return(
         <SafeAreaView style={styles.container}>
             <View style = {styles.page}>
-                <Text style={styles.openText}>Choose a Door!</Text>
+                <Text style={styles.chooseText}>Choose a Door!</Text>
                 <FlatList
                     data={imgArr}
                     renderItem={renderItem}
@@ -16,9 +19,24 @@ export default function DoorActivity() {
                     key={3}
                 />
 
-                <TouchableOpacity style={styles.helpButton}>
+                <NativeBaseProvider>
+                    {show &&
+                <View>
+                    <Alert maxW="400" status="info">
+                            <Text fontSize="md" fontWeight="medium" _dark={{
+                            color: "coolGray.800"
+                        }}>
+                            Welcome to the Door Activity!
+                            </Text>
+                            <TouchableOpacity style={styles.helpButton} onPress={() => setShow(false)}>H</TouchableOpacity>
+                    </Alert>
+                </View>}
+                <TouchableOpacity style={styles.helpButton} onPress={() => setShow(true)}>
                     <Text style={styles.helpText}>Need any help?</Text>
                 </TouchableOpacity>
+
+                </NativeBaseProvider>
+
             </View>
 
             
@@ -33,3 +51,4 @@ function renderItem({item}) {
     }
     />;
 }
+

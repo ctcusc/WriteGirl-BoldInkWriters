@@ -9,7 +9,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#F5F5F5',
         height: '100%',
         overflow: 'scroll',
-        justifyContent: 'center',
+        
+      },
+      chooseText:{
+        color: '#0D4D5E',
+        fontFamily: 'Droid Sans',
+        fontStyle: 'normal',
+        fontSize: '27px',
+        fontWeight: 700,
+        lineHeight: '32px',
       },
     popup: {
         filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
