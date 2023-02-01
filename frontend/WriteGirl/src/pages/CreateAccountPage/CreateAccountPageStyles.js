@@ -104,11 +104,13 @@ const styles = StyleSheet.create({
     },
 
     errorToast: {
-        backgroundColor: '#688175',
-        // padding: '1em',
-        padding: 1,
+        backgroundColor: '#F0EBE8',
+        padding: 10,
         width: 'auto',
         color: '#000',
+        borderWidth: 2,
+        borderColor: '#000',
+        borderRadius: 10, 
     },
 
 });

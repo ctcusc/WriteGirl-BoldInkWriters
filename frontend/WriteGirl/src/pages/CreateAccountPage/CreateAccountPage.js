@@ -11,37 +11,6 @@ import { Toast, useToast, Box, NativeBaseProvider } from "native-base";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
-// const Toast = (errors) => {
-//     const toast = useToast();
-//     const handlePress = () => {
-//         console.log("TOAsT OPENED")
-//         console.log(errors)
-//         const success = "Successful Submit"
-//         toast.show({
-//             placement: "top",
-//             render: () => {
-//                 return <Box style={styles.errorToast}>
-//                     {errors.errors === "none" ? success : null}
-//                     {errors.errors.firstName ? errors.errors.firstName.message : null}
-//                     {errors.errors.lastName ? errors.errors.lastName.message : null}
-//                     {errors.errors.birthday ? errors.errors.birthday.message : null}
-//                     {errors.errors.email ? errors.errors.email.message : null}
-//                     {errors.errors.password ? errors.errors.password.message : null}
-//                     {errors.errors.repeatpassword ? errors.errors.repeatpassword.message : null}
-//                     {errors.errors.country ? errors.errors.country.message : null}
-//                 </Box>;
-//             }
-//         });
-//     }
-//     return (
-//         <Box style={styles.buttonWrapper}>
-//             <Pressable style={styles.button} onPress={() => handlePress("hello")}>
-//                 <Text style={styles.buttonLabel}>PRESS ME</Text>
-//             </Pressable>
-//         </Box>
-//     )
-// }
-
 
 export default function CreateAccountPage() {
     const [errorModalVisible, setErrorModalVisible] = useState(false);
@@ -104,8 +73,6 @@ export default function CreateAccountPage() {
     return (
         <NativeBaseProvider>
             <SafeAreaView >
-                {/* <KeyboardAvoidingView
-                behavior={Platform.OS === "ios" ? "padding" : "height"}> */}
                 <KeyboardAwareScrollView style={styles.container}>
 
                     <Text style={styles.title}>Create an account</Text>
@@ -266,7 +233,7 @@ export default function CreateAccountPage() {
 
                     {/* ERROR ALERT MESSAGES */}
 
-                    <View >
+                    {/* <View >
                         {errors.firstName && <Text style={styles.errorText}>{errors.firstName.message}</Text>}
                         {errors.lastName && <Text style={styles.errorText}>{errors.lastName.message}</Text>}
                         {errors.birthday && <Text style={styles.errorText}>{errors.birthday.message}</Text>}
@@ -274,7 +241,7 @@ export default function CreateAccountPage() {
                         {errors.password && <Text style={styles.errorText}>{errors.password.message}</Text>}
                         {errors.repeatpassword && <Text style={styles.errorText}>{errors.repeatpassword.message}</Text>}
                         {errors.country && <Text style={styles.errorText}>{errors.country.message}</Text>}
-                    </View>
+                    </View> */}
 
 
 
@@ -339,7 +306,6 @@ export default function CreateAccountPage() {
 
 
                 </KeyboardAwareScrollView >
-                {/* </KeyboardAvoidingView> */}
             </SafeAreaView >
         </NativeBaseProvider>
 
