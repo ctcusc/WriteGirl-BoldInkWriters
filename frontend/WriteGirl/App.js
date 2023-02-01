@@ -20,8 +20,8 @@ export default function App({navigation}) {
         {/* <Stack.Screen name="example page" component={ExamplePage} /> */}
         {/* TODO: add your page here! */}
         {/* <Stack.Screen name="home page" component={HomePage} /> */}
-        {/* <Stack.Screen name="Create Account Page" component={CreateAccountPage} /> */}
-        <Stack.Screen name="Screen Saver Setup" component={ScreenSaverSetup} />
+        <Stack.Screen name="Create Account Page" component={CreateAccountPage} />
+        {/* <Stack.Screen name="Screen Saver Setup" component={ScreenSaverSetup} /> */}
         <Stack.Screen name="Screen Saver Page" component={ScreenSaverPage} />
       </Stack.Navigator>
     </NavigationContainer>

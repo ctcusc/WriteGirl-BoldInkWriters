@@ -1,9 +1,8 @@
-import { Text, ScrollView, TextInput, Button, Alert, SafeAreaView, Pressable, View, KeyboardAvoidingView, Platform, Modal, } from "react-native";
+import { Text, ScrollView, TextInput, Button, Alert, SafeAreaView, Pressable, View, KeyboardAvoidingView, Platform, Modal, Image, ImageBackground } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { styles } from "./CreateAccountPageStyles.js";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import SignUpToast from './SignUpToast'
 import { Toast, useToast, Box, NativeBaseProvider } from "native-base";
 
 {/* npm install @hookform/resolvers yup 
@@ -46,17 +45,25 @@ export default function CreateAccountPage({ navigation }) {
     const onSubmit = data => {
         setSuccessModalVisible(true)
         console.log("data", data)
+
+        const success = "Account successfully created!"
+        Toast.show({
+            placement: "top",
+            render: () => {
+                return <Box style={styles.successToast}>
+                    {data ? success : null}
+                </Box>;
+            }
+        });
     }
     const onInvalid = (errors) => {
         setErrorModalVisible(true)
         console.log("errors", errors)
 
-        const success = "Successful Submit"
         Toast.show({
             placement: "top",
             render: () => {
                 return <Box style={styles.errorToast}>
-                    {errors === "none" ? success : null}
                     {errors.firstName ? errors.firstName.message : null}
                     {errors.lastName ? errors.lastName.message : null}
                     {errors.birthday ? errors.birthday.message : null}
@@ -74,7 +81,9 @@ export default function CreateAccountPage({ navigation }) {
         <NativeBaseProvider>
             <SafeAreaView >
                 <KeyboardAwareScrollView style={styles.container}>
+                <ImageBackground source={require('./bg_img.png')} resizeMode="cover" style={styles.screensaverBg}> 
 
+                <View style={styles.contentContainer}>
                     <Text style={styles.title}>Create an account</Text>
 
                     {/* FIRST NAME FIELD */}
@@ -227,84 +236,8 @@ export default function CreateAccountPage({ navigation }) {
                             <Text style={styles.buttonLabel}>Create Account</Text>
                         </Pressable>
                     </View>
-
-                    {/* <Toast errors={errors} /> */}
-
-
-                    {/* ERROR ALERT MESSAGES */}
-
-                    {/* <View >
-                        {errors.firstName && <Text style={styles.errorText}>{errors.firstName.message}</Text>}
-                        {errors.lastName && <Text style={styles.errorText}>{errors.lastName.message}</Text>}
-                        {errors.birthday && <Text style={styles.errorText}>{errors.birthday.message}</Text>}
-                        {errors.email && <Text style={styles.errorText}>{errors.email.message}</Text>}
-                        {errors.password && <Text style={styles.errorText}>{errors.password.message}</Text>}
-                        {errors.repeatpassword && <Text style={styles.errorText}>{errors.repeatpassword.message}</Text>}
-                        {errors.country && <Text style={styles.errorText}>{errors.country.message}</Text>}
-                    </View> */}
-
-
-
-                    {/* <View style={styles.alertContainer}>
-                <Modal
-                    transparent={true}
-                    visible={errorModalVisible}
-                    style={styles.alertModal}
-                    animationType="fade"
-                    onRequestClose={() => {
-                        console.log("closed modal")
-                        Alert.alert('Modal has been closed.');
-                        setErrorModalVisible(!errorModalVisible)
-                    }}>
-                    <Pressable onPress={(event) => {if(event.target === event.currentTarget) { setErrorModalVisible(false) }}}>
-                        <View style={styles.alertView}>
-
-                            <Pressable style={styles.closeButton} onPress={() => setErrorModalVisible(false)}>
-                                <Text style={styles.closeText}>X</Text>
-                            </Pressable>
-                            <View style={styles.messageContainer}>
-                                {errors.firstName && <Text style={styles.errorText}>{errors.firstName.message}</Text>}
-                                {errors.lastName && <Text style={styles.errorText}>{errors.lastName.message}</Text>}
-                                {errors.birthday && <Text style={styles.errorText}>{errors.birthday.message}</Text>}
-                                {errors.email && <Text style={styles.errorText}>{errors.email.message}</Text>}
-                                {errors.password && <Text style={styles.errorText}>{errors.password.message}</Text>}
-                                {errors.repeatpassword && <Text style={styles.errorText}>{errors.repeatpassword.message}</Text>}
-                                {errors.country && <Text style={styles.errorText}>{errors.country.message}</Text>}
-                            </View>
-
-                        </View>
-                    </Pressable>
-                </Modal>
-                </View> */}
-
-                    {/* SUCCESSFUL SUBMIT ALERT MESSAGE */}
-                    {/* <View style={styles.alertContainer}>
-                <Modal
-                    transparent={true}
-                    visible={successModalVisible}
-                    style={styles.alertModal}
-                    animationType="fade"
-                    onRequestClose={() => {
-                        console.log("closed modal")
-                        Alert.alert('Modal has been closed.');
-                        setSuccessModalVisible(!successModalVisible)
-                    }}>
-                    <Pressable onPress={(event) => {if(event.target === event.currentTarget) { setSuccessModalVisible(false) }}}>
-                        <View style={styles.alertView}>
-
-                            <Pressable style={styles.closeButton} onPress={() => setSuccessModalVisible(false)}>
-                                <Text style={styles.closeText}>X</Text>
-                            </Pressable>
-                            <View style={styles.messageContainer}>
-                                <Text style={styles.successText}>Account Successfully Created!</Text>
-                            </View>
-
-                        </View>
-                    </Pressable>
-                </Modal>
-                </View> */}
-
-
+                </View>
+                </ImageBackground>
                 </KeyboardAwareScrollView >
             </SafeAreaView >
         </NativeBaseProvider>

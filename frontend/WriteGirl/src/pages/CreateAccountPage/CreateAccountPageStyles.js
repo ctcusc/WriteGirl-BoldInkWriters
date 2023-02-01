@@ -1,13 +1,18 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+const { width, height } = Dimensions.get('window');
 
 
 const styles = StyleSheet.create({
 
     container: {
         backgroundColor: '#FFF',
-        padding: 40,
+        // padding: 40,
         display: 'flex',
-    },
+    }, 
+
+    contentContainer: {
+        padding: 40,
+    },  
 
     title: {
         fontSize: 40,
@@ -32,7 +37,7 @@ const styles = StyleSheet.create({
     },
 
     button: {
-        backgroundColor: '#688175',
+        backgroundColor: '#49A5AD',
         height: 'auto',
         width: '100%',
         padding: 10,
@@ -92,24 +97,34 @@ const styles = StyleSheet.create({
         paddingRight: '3%',
     },
 
-    errorText: {
-        color: 'black',
-        fontSize: 20,
-    },
+    // errorText: {
+    //     color: 'black',
+    //     fontSize: 20,
+    // },
 
-    successText: {
-        color: 'white',
-        fontSize: 20,
-        alignSelf: 'center',
-    },
+    // successText: {
+    //     color: 'white',
+    //     fontSize: 20,
+    //     alignSelf: 'center',
+    // },
 
     errorToast: {
-        backgroundColor: '#F0EBE8',
+        backgroundColor: '#FFA1A1', //tan background: F0EBE8
         padding: 10,
         width: 'auto',
         color: '#000',
-        borderWidth: 2,
-        borderColor: '#000',
+        // borderWidth: 2,
+        // borderColor: '#000',
+        borderRadius: 10, 
+    },
+
+    successToast: {
+        backgroundColor: '#C5DA01', //tan background: F0EBE8
+        padding: 10,
+        width: 'auto',
+        color: '#000',
+        // borderWidth: 2,
+        // borderColor: '#000',
         borderRadius: 10, 
     },
 
