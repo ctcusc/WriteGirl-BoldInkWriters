@@ -7,6 +7,8 @@ export default function DoorOpened() {
         <SafeAreaView style={styles.container}>
             <View style={styles.page}>
                 <View style = {styles.openDiv}>
+                {/* Back arrow */}
+                
                     <View style={styles.openDoor}>
                         <Text style = {styles.openText}>Door Opened!</Text>
                         <Text style = {styles.prompt}>Write a story about the door opening!</Text>
@@ -16,7 +18,7 @@ export default function DoorOpened() {
                     </View>
                     {/* Complete Button */}
                     <TouchableOpacity style={styles.compButton}>
-                        <Text style={styles.compText}>Complete</Text>
+                        <Text style={styles.compText}>complete</Text>
                     </TouchableOpacity>
 
                 </View>   

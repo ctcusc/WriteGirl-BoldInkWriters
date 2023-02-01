@@ -8,7 +8,8 @@ const styles = StyleSheet.create({
     page:{
         backgroundColor: '#F5F5F5',
         height: '100%',
-        overflow: 'scroll'
+        overflow: 'scroll',
+        justifyContent: 'center',
       },
     popup: {
         filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
@@ -84,6 +85,22 @@ const styles = StyleSheet.create({
         fontSize: '25px',
         lineHeight: '30px',
         fontColor: '#FFFFFF',
+      },
+      helpButton:{
+        position: 'relative',
+        marginLeft: '45%',
+        marginRight: '10%',
+        marginBottom: '50px',
+        backgroundColor: '#FFFFFF',
+        borderRadius: 20,
+        filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
+      },
+      helpText:{
+        paddingVertical: '5%',
+        textAlign: 'center',
+        fontFamily: 'Hubballi',
+        fontColor: '#0D4D5E',
+        fontSize: '20px',
       }
 });
 
