@@ -1,4 +1,4 @@
-import {styles} from './dastyle'
+import {styles} from './Style'
 import {Text, View, SafeAreaView, TouchableOpacity} from 'react-native';
 
 export default function DoorOpened() {
@@ -8,6 +8,9 @@ export default function DoorOpened() {
             <View style={styles.page}>
                 <View style = {styles.openDiv}>
                 {/* Back arrow */}
+                <TouchableOpacity style={styles.backArrow}>
+                    <Text style={styles.backText}>←</Text>
+                </TouchableOpacity>
                 
                     <View style={styles.openDoor}>
                         <Text style = {styles.openText}>Door Opened!</Text>

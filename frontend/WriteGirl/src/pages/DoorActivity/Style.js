@@ -11,14 +11,15 @@ const styles = StyleSheet.create({
         overflow: 'scroll',
         
       },
-      chooseText:{
-        color: '#0D4D5E',
-        fontFamily: 'Droid Sans',
-        fontStyle: 'normal',
-        fontSize: '27px',
-        fontWeight: 700,
-        lineHeight: '32px',
-      },
+    chooseText:{
+      color: '#0D4D5E',
+      fontFamily: 'Droid Sans',
+      fontStyle: 'normal',
+      fontSize: '27px',
+      fontWeight: 700,
+      lineHeight: '32px',
+      textAlign: 'center',
+    },
     popup: {
         filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
       },
@@ -28,6 +29,11 @@ const styles = StyleSheet.create({
       minHeight: "20%",
       margin: "auto",
       alignItems: 'center',
+    },
+    doorDiv:{
+
+      width: "90%",
+      margin: "auto",
     },
     openDoor: {
       position: 'relative',
@@ -94,6 +100,7 @@ const styles = StyleSheet.create({
         lineHeight: '30px',
         fontColor: '#FFFFFF',
       },
+
       helpButton:{
         position: 'relative',
         marginLeft: '45%',
@@ -103,13 +110,35 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
       },
+      exploreButton:{
+        position: 'relative',
+        borderRadius: 30,
+        backgroundColor: '#0D4D5E',
+      },
+      exploreText:{
+        color: '#FFFFFF',
+        fontFamily: 'Poppins',
+        paddingVertical: '5%',
+        paddingHorizontal: '10%',
+
+      },
       helpText:{
         paddingVertical: '5%',
         textAlign: 'center',
         fontFamily: 'Hubballi',
         fontColor: '#0D4D5E',
         fontSize: '20px',
-      }
+      },
+      backArrow:{
+        position: 'relative',
+        right: '45%',
+        bottom: '5%',
+      },
+      backText:{
+        fontSize: '35px',
+        fontWeight: 500,
+        color: '#49A5AD',
+      },
 });
 
 export {styles}
