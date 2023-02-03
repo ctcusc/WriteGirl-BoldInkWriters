@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
     doorDiv:{
-
       width: "90%",
       margin: "auto",
     },
@@ -114,13 +113,23 @@ const styles = StyleSheet.create({
         position: 'relative',
         borderRadius: 30,
         backgroundColor: '#0D4D5E',
+        minWidth: '20%',
       },
       exploreText:{
         color: '#FFFFFF',
         fontFamily: 'Poppins',
         paddingVertical: '5%',
         paddingHorizontal: '10%',
+        textAlign: 'center',
 
+      },
+      doorActivityText:{
+        fontFamily: 'Poppins',
+        fontStyle: 'normal',
+        fontWeight: 400,
+        fontSize: '20px',
+        lineHeight: '30px',
+        fontColor: '#0D4D5E',
       },
       helpText:{
         paddingVertical: '5%',
@@ -128,6 +137,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Hubballi',
         fontColor: '#0D4D5E',
         fontSize: '20px',
+        fontColor: '#49A5AD',
       },
       backArrow:{
         position: 'relative',
@@ -139,6 +149,13 @@ const styles = StyleSheet.create({
         fontWeight: 500,
         color: '#49A5AD',
       },
+      alert:{
+        maxW:"400",
+        maxH:"800",
+        borderRadius:30,
+        backgroundColor:"#FFFFFF",
+        filter:"drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25))",
+      }
 });
 
 export {styles}

@@ -25,10 +25,8 @@ export default function DoorActivity() {
                     <NativeBaseProvider>
                         {show &&
                     <View>
-                        <Alert maxW="400" maxH="800" status="info" borderRadius={30} backgroundColor="#FFFFFF" filter="drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25))">
-                                <Text fontFamily="Poppins" fontColor="#0D4D5E" fontSize="md" fontWeight="medium" _dark={{
-                                color: "coolGray.800"
-                            }}>
+                        <Alert status="info" style={styles.alert}>
+                                <Text style={styles.doorActivityText}>
                                 Welcome to the Door Activity!
                                 </Text>
                                 <TouchableOpacity style={styles.exploreButton} onPress={() => setShow(false)}>
