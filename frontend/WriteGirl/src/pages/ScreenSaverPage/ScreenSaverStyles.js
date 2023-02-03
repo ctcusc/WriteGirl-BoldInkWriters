@@ -20,25 +20,33 @@ const styles = StyleSheet.create({
         color: '#FFF',
         fontSize: width / 12,
         textAlign: 'center',
-        padding: '10%',
+        paddingTop: '10%',
+        paddingBottom: '5%',
     },
 
     cardContainer: {
         // height: height/4,
         height: 'auto',
-        borderWidth: 2, 
+        // borderWidth: 2, 
         borderColor: '#000',
         borderRadius: 15,
-        backgroundColor: '#FFF',
         // padding: '2vh',
+    },
+
+    promptText: {
+        fontSize: 20,
+        paddingBottom: 8,
+        textAlign: 'center',
     },
 
     img: {
         maxWidth: width*0.8,
-        height: height/3,
-        // height: ,
+        height: height*0.4,
         resizeMode: 'cover',
-        marginTop: 3,
+        borderRadius: 15,
+        borderWidth: 2, 
+        borderColor: '#000',
+        borderRadius: 15,
     },
 
     timerContainer: {
@@ -52,8 +60,16 @@ const styles = StyleSheet.create({
         // bottom: 0,
     },
 
+    timerPicker: {
+        flex: 1,
+        flexDirection: 'row',
+    },
+
     timerText: {
-        fontSize: height/20,
+        // fontSize: height/20,
+        fontSize: 30,
+        color: '#000',
+        alignSelf: 'center',
     },
 
     button: {
@@ -86,16 +102,18 @@ const styles = StyleSheet.create({
 
     timeText: {
         color: 'white',
-        fontSize: height/10,
-        alignSelf: 'center',
+        fontSize: height/8,
+        textAlign: 'center',
         fontWeight: 'bold',
-        marginTop: height/12,
+        marginTop: height/10,
     }, 
 
-    promptText: {
-        color: 'white',
-        fontSize: height/20,
+    screensaverPrompt: {
+        fontSize: height/40,
         textAlign: 'center',
+        color: 'white',
+        marginTop: '10',
+        fontWeight: 'bold',
     },
 
 });

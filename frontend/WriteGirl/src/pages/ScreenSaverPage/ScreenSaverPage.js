@@ -6,6 +6,8 @@ import data from './screenSaverData.json'
 import React, { useEffect, useState } from "react";
 
 export default function ScreenSaverPage({ navigation, route }) {
+    const [timeEnded, setTimeEnded] = useState(false)
+    
     const promptId = route.params.promptId;
     const prompt = data.at(promptId).prompt;
     const img = data.at(promptId).img
@@ -33,7 +35,10 @@ export default function ScreenSaverPage({ navigation, route }) {
             setTime([mins, secs - 1]);
         }
     }
-    const reset = () => setTime([parseInt(minutes), parseInt(seconds)])
+    // const reset = () => setTime([parseInt(minutes), parseInt(seconds)])
+    const reset = () => {
+        alert('done')
+    }
 
     useEffect(() => {
         const timerId = setInterval(() => tick(), 1000)
@@ -58,7 +63,7 @@ export default function ScreenSaverPage({ navigation, route }) {
 
             {/* PROMPT */}
             <View>
-                <Text style={styles.timeText}>{prompt}</Text>
+                <Text style={styles.screensaverPrompt}>{prompt}</Text>
             </View>
 
         </ImageBackground>
