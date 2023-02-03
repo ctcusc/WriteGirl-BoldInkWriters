@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
         position: 'relative',
         borderRadius: 30,
         backgroundColor: '#0D4D5E',
-        minWidth: '20%',
+        minWidth: '22%',
       },
       exploreText:{
         color: '#FFFFFF',
@@ -150,6 +150,7 @@ const styles = StyleSheet.create({
         color: '#49A5AD',
       },
       alert:{
+        margin: '10%',
         maxW:"400",
         maxH:"800",
         borderRadius:30,
