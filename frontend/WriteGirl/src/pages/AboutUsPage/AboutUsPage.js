@@ -1,5 +1,5 @@
-import { useState } from "react";
-import {Animated, Text, View, Image, TextInput, TouchableOpacity, ScrollView} from "react-native";
+import {useEffect, useRef, useState } from "react";
+import {Animated, Dimensions, Easing, Text, View, Image, TextInput, TouchableOpacity, ScrollView} from "react-native";
 
 import styles from './AboutUsPageStyles.js';
 const books = require('./AboutPageBooks.png');
@@ -12,8 +12,31 @@ const fold = require('./AboutUsFold.png');
 
 export default function AboutPage() {
     const [donation, setDonation] = useState("");
-    const [isOpenBottom, setIsOpenBottom] = useState(false);
-    const foldBottom = () => setIsOpenBottom(isOpenBottom != isOpenBottom);
+    const [isFolded, setIsFolded] = useState(false);
+    const folded = new Animated.Value(0);
+    const foldedRef = useRef(folded);
+
+    const foldDown = () => {
+        Animated.timing(foldedRef.current, {
+            toValue: 180,
+            duration: 1000,
+            useNativeDriver: true,
+        }).start(() => {setIsFolded(true)});
+    };
+
+    const foldUp = () => {
+        Animated.timing(foldedRef.current, {
+            toValue: 0,
+            duration: 1000,
+            useNativeDriver: true,
+        }).start(() => {setIsFolded(false)});
+        // setIsFolded(!isFolded);
+    };
+
+    const move = () => isFolded ? foldUp() : foldDown();
+    const cornerImage = isFolded ? fold : arrow;
+    
+
     return (
         <View style={styles.container}>
             <ScrollView contentContainerStyle={styles.topLayout}>
@@ -54,13 +77,13 @@ export default function AboutPage() {
                 </Text>
             </ScrollView>
 
-            <Animated.View style={styles.bottomLayout}>
+            <Animated.View style={[styles.bottomLayout, {transform: [{translateY: folded}] }]}>
                 <View style={styles.bottomTitleLayout}>
                     <Text style={styles.bottomTitle}>
                         <Text style={{fontWeight: "bold"}}>Learn</Text> More
                     </Text>
-                    <TouchableOpacity style={styles.arrowStyle} onPress={foldBottom}>
-                        <Image source={arrow} style={styles.arrow}/>
+                    <TouchableOpacity style={styles.arrowStyle} onPress={ move }>
+                        <Image source={cornerImage} style={styles.arrow}/>
                     </TouchableOpacity>
                 </View>
 
