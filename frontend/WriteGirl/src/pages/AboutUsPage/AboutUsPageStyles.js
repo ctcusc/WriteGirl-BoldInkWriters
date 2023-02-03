@@ -1,27 +1,29 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+
 container: {
-    flex: 1,
-    backgroundColor: "#f5f5f5",
+    height: "100%",
+    width: "100%",
     alignItems: "center",
     justifyContent: "flex-start",
 },
 
-top: {
+topLayout: {
     width: "100%",
-    height: "25%",
-    marginBottom: "5%",
-},
-
-middleLayout: {
-    maginTop: "5%",
-    width: "100%",
-    height: "75%",
+    height: "100%",
     alignItems: "flex-start",
     justifyContent: "flex-start",
     backgroundColor: "#49A5AD",
-    borderRadius: 30,
+    zIndex: 1,
+},
+
+flap: {
+    padding: 10,
+    margin: 5,
+    height: 25,
+    width: 25,
+    resizeMode: 'stretch',
 },
 
 title: {
@@ -36,100 +38,131 @@ title: {
 subtitle: {
     color: "#FFF",
     marginLeft: "10%",
-    fontSize: 12,
+    fontSize: 14,
     marginBottom: "7%",
+    marginRight: "10%",
+    marginTop: "5%",
 },
 
 bottomLayout: {
     backgroundColor: "#FFF",
-    borderRadius: 30,
-    height: "80%",
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
+    height: "50%",
     width: "100%",
     alignItems: "flex-start",
     justifyContent: "flex-start",
+    marginTop: "-50%",
+    zIndex: 2,
+},
+
+bottomTitleLayout: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
+    height: "15%",
+    width: "90%",
+    marginTop: "5%",
+    marginLeft: "5%",
+    marginRight: "5%",
+},
+
+bottomBottomTitleLayout: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
+    height: "15%",
+    width: "90%",
+    marginLeft: "5%",
+    marginRight: "5%",
 },
 
 bottomTitle: {
     color: "#0d4d5e",
-    fontSize: 20,
-    fontWeight: "bold",
-    marginTop: "7%",
-    marginLeft: "10%",
+    height: "100%",
+    adjustsFontSizeToFit: "true",
+    allowFontScaling: "true",
+    fontSize: 19,
+},
+
+arrowStyle: {
+    width: "40px",
+    height: "20px",
+    marginLeft: "65%",
+},
+
+arrow: {
+    height: "100%",
+    width: "100%",
+    resizeMode: 'stretch',
 },
 
 learnMoreLayout: {
-    marginLeft: "33%",
     flexDirection: "row",
     alignItems: "center",
-    marginTop: "5%",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     height: "30%",
-    width: "30%",
+    width: "60%",
+    marginLeft: "20%",
 },
 
 learnMoreButton: {
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
-    marginLeft: "20%",
-    height: "50%",
-    width: "50%",
+    height: "50px",
+    width: "60px",
+    marginRight: "20%",
 },
 
 iconText: {
-    fontSize: 10,
+    fontSize: 12,
     color: "0d4d5e",
 },
 
 booksButton: {
     borderRadius: 15,
     backgroundColor: "#f0f5bb",
+    width: "80%",
     height: "100%",
-    width: "100%",
     alignItems: "center",
     justifyContent: "center",
 },
 
 booksImage: {
-    padding: 10,
-    margin: 5,
-    height: "70%",
-    width: "70%",
+    height: "80%",
+    width: "80%",
     resizeMode: 'stretch',
 },
 
 mainPageButton: {
     backgroundColor: "#f6ed93",
-    borderRadius: 10,
+    borderRadius: 15,
+    width: "80%",
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
 },
 
 mainPageImage: {
-    padding: 10,
-    margin: 5,
-    height: 25,
-    width: 25,
+    height: "80%",
+    width: "80%",
     resizeMode: 'stretch',
 },
 
 otherProgButton: {
     backgroundColor: "#f7db93",
-    borderRadius: 10,
+    borderRadius: 15,
+    width: "80%",
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
 },
 
 otherProgImage: {
-    padding: 10,
-    margin: 5,
-    height: 25,
-    width: 25,
+    height: "80%",
+    width: "80%",
     resizeMode: 'stretch',
-},
-
-topDonateLayout: {
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-    height: "30%",
-    width: "100%",
 },
 
 donateInputLayout: {
@@ -138,16 +171,16 @@ donateInputLayout: {
     borderRadius: 90,
     justifyContent: "flex-start",
     alignItems: "center",
-    height: "40%",
-    width: "30%",
-    marginLeft: "10%",
-    marginTop: "7%",
+    height: "35px",
+    width: "120px",
+    marginLeft: "40%",
 },
 
 moneyBag: {
-    padding: 5,
-    height: "20%",
-    width: "20%",
+    padding: 10,
+    margin: "5%",
+    height: "75%",
+    width: "25%",
     backgroundColor: "#f0f5bb",
     resizeMode: "stretch",
     borderRadius: 90,
@@ -155,6 +188,7 @@ moneyBag: {
 
 dollarSign: {
     color: "#49a5ad",
+    fontSize: 16,
 },
 
 donateInput: {
@@ -164,33 +198,35 @@ donateInput: {
 
 bottomDonateLayout: {
     flexDirection: "row",
-    marginLeft: "10%",
-    marginRight: "10%",
+    marginLeft: "5%",
+    marginRight: "5%",
     height: "20%",
-    width: "80%",
+    width: "90%",
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
+    marginTop: "1%",
 },
 
 donationDescription: {
     color: "#49a5ad",
-    fontSize: 10,
+    fontSize: 13,
+    marginRight: "10%",
 },
 
 donateButton: {
     backgroundColor: "#c5da01",
-    height: "80%",
-    width: "20%",
-    borderRadius: 70,
+    height: "50px",
+    width: "80px",
+    borderRadius: 90,
     alignItems: "center",
     justifyContent: "center",
+    marginRight: "10%",
 },
 
 donateImage: {
-    padding: 10,
-    margin: 5,
-    height: 25,
-    width: 35,
-    resizeMode: 'stretch',
+    height: "60%",
+    width: "60%",
     backgroundColor: "#f0f5bb",
-    borderRadius: 90,
+    borderRadius: 100,
 },
 });

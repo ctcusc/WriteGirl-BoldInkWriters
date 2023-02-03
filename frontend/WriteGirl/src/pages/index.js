@@ -10,3 +10,5 @@ import RandomPage1 from './RandomPage1';
 import RandomPage2 from './RandomPage2';
 import RandomPage3 from './RandomPage3';
   
+export { default as SignInPage } from './SignInPage/SignInPage'
+export { default as AboutUsPage } from './AboutUsPage/AboutUsPage.js'
