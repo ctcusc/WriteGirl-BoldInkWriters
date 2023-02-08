@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
 
     img: {
         maxWidth: width*0.8,
-        height: height*0.4,
+        height: height*0.35,
         resizeMode: 'cover',
         borderRadius: 15,
         borderWidth: 2, 
@@ -57,12 +57,14 @@ const styles = StyleSheet.create({
         height: height,
         flex: 1,
         justifyContent: 'flex-end',
-        // bottom: 0,
+        bottom: 0,
+        // paddingTop: 3,
     },
 
     timerPicker: {
         flex: 1,
         flexDirection: 'row',
+        marginTop: 25,
     },
 
     timerText: {

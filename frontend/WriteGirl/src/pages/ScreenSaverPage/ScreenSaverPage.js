@@ -1,9 +1,9 @@
-import { NativeBaseProvider } from "native-base";
+import { Toast, useToast, Box, NativeBaseProvider } from "native-base";
 import { SafeAreaView, View, Text, Pressable, ImageBackground } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { styles } from "./ScreenSaverStyles.js";
 import data from './screenSaverData.json'
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 export default function ScreenSaverPage({ navigation, route }) {
     const [timeEnded, setTimeEnded] = useState(false)
@@ -12,23 +12,16 @@ export default function ScreenSaverPage({ navigation, route }) {
     const prompt = data.at(promptId).prompt;
     const img = data.at(promptId).img
 
-    // const time = route.params.timer
-    // const [timer, setTimer] = useState(60);
-
-    // useEffect(() => {
-    //     const count = timer > 0 && setTimeout(() => setTimer(timer - 1), 1000)
-    // }, [timer])
-
     // from https://medium.com/bb-tutorials-and-thoughts/how-to-create-a-countdown-timer-in-react-app-e99916046292
     const minSecs = route.params.time;
     const{ minutes = 0, seconds = 60 } = minSecs;
     const [ [mins, secs], setTime ] = useState( [minutes, seconds] )
+    const [done, setDone] = useState(false)
 
     const tick = () => {
-        if (mins === 0 && secs === 0) 
-            reset()
-        else if (mins === 0 && secs === 0) {
-            setTime([59, 59]);
+        if ((mins === 0 || mins === '00') && (secs === 0)) {
+            // reset()
+            setDone(true)
         } else if (secs === 0) {
             setTime([mins - 1, 59]);
         } else {
@@ -37,13 +30,28 @@ export default function ScreenSaverPage({ navigation, route }) {
     }
     // const reset = () => setTime([parseInt(minutes), parseInt(seconds)])
     const reset = () => {
-        alert('done')
+        // alert('done')
+        
     }
 
     useEffect(() => {
         const timerId = setInterval(() => tick(), 1000)
         return () => clearInterval(timerId)
-    })
+    }, [mins, secs])
+
+    useEffect(() => {
+        if(done) {
+            Toast.show({
+                placement: "top",
+                render: () => {
+                    return <Box style={styles.successToast}>
+                        Time's Up!
+                    </Box>;
+                }
+            });
+        } 
+    }, [done])
+
 
     return (
         <NativeBaseProvider>
@@ -57,7 +65,11 @@ export default function ScreenSaverPage({ navigation, route }) {
 
             {/* TIMER */}
             <View> 
-                {/* <Text style={styles.timeText}>{timer}</Text> */}
+                {/* {done ?
+                    <Text style={styles.timeUpText}>Time's Up!</Text>
+                :
+                    <Text style={styles.timeText}>{`${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`}</Text>
+                } */}
                 <Text style={styles.timeText}>{`${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`}</Text>
             </View>
 

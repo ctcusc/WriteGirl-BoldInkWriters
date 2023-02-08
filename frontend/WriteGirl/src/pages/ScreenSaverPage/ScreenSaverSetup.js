@@ -1,4 +1,4 @@
-import { NativeBaseProvider } from "native-base";
+import { NativeBaseProvider, Toast, Box } from "native-base";
 import { SafeAreaView, View, Text, Image, ScrollView, Dimensions, Pressable, FlatList } from "react-native";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
@@ -18,8 +18,8 @@ const timerNumbers = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09'
     '50', '51', '52', '53', '54', '55', '56', '57', '58', '59']
 
 const { width, height } = Dimensions.get('window');
-const PROMPT_SIZE = width * 0.85
-const PROMPT_HEIGHT = height * 0.9
+const PROMPT_SIZE = width * 0.75
+const PROMPT_HEIGHT = height * 0.2
 const SPACING = 10
 const FULLSIZE = PROMPT_SIZE + (SPACING * 2)
 const START_END_PADDING = (width - PROMPT_SIZE) / 2 + 2
@@ -27,50 +27,30 @@ const TIMER_ITEM_HEIGHT = 50
 
 
 // timer component
-const TimerList = React.forwardRef(({ changeType, onMinChange, onTimerChange }, ref) => {
+const TimerList = React.forwardRef(({ setType }, ref) => {
     return (
 
-        <FlatList
-            data={timerNumbers}
-            showsVerticalScrollIndicator={false}
-            bounces={false}
-            snapToInterval={TIMER_ITEM_HEIGHT}
-            onItemIndexChange={onTimerChange} //changed this
-            decelerationRate="fast"
-            onMomentumScrollEnd={e => {
-                const newIndex = Math.round(e.nativeEvent.contentOffset.y / TIMER_ITEM_HEIGHT)
-                // console.log("newIndex", newIndex)
-                // if(changeType) {
-                //     console.log(changeType, newIndex)
-                //     changeType(newIndex)
-                // }
-                console.log("newIndex", newIndex)
-                if (onTimerChange) {
-                    console.log(onTimerChange, newIndex)
-                    changeType(newIndex)
-                }
+        <ScrollPicker 
+            dataSource={timerNumbers}
+            selectedIndex={0}
+            renderItem={(data, index, isSelected) => {
+                return (
+                    // <Text style={styles.timerText}>{data}</Text>
+                    <Text>{data}</Text>
+                )
             }}
-            contentContainerStyle={{
-                // height: 100,
-                // paddingTop: height / 8 - TIMER_ITEM_HEIGHT / 2,
-                // paddingBottom: height / 8 - TIMER_ITEM_HEIGHT / 2,
-                paddingTop: TIMER_ITEM_HEIGHT / 2,
-                paddingBottom: TIMER_ITEM_HEIGHT / 2,
-                paddingHorizontal: 20,
-                // borderWidth: 2,
-                // backgroundColor: '#FFF'
+            onValueChange={(data, selectedIndex) => {
+                // console.log("just selected", selectedIndex)
+                setType(data)
             }}
-            style={{
-                // position: 'absolute',
-                // backgroundColor: '#D2D2D2',
-                // height: TIMER_ITEM_HEIGHT,
-                // width: width/2,
-                // top: height / 8 - TIMER_ITEM_HEIGHT / 2,
+            style = {{
+                backgroundColor: '#fff',
             }}
-            ref={ref}
-            renderItem={({ item, index }) => (
-                <Text style={styles.timerText}>{item}</Text>
-            )}
+            // wrapperBackground={'#000'}
+            activeItemColor={'#e31919'}
+            wrapperHeight={height/12}
+            highlightColor='#000'
+
         />
     )
 })
@@ -81,7 +61,7 @@ export default function ScreenSaverSetup({ navigation }) {
 
 
     //for timer picker
-    const [min, setMin] = useState(1)
+    const [min, setMin] = useState(0)
     const [sec, setSec] = useState(0)
     // const minSecs = {minutes: min, seconds: sec} 
     const onTimerChange = useCallback(setMin, [])
@@ -102,18 +82,6 @@ export default function ScreenSaverSetup({ navigation }) {
         }
     })
 
-    // for timer picker
-    // const timerConfigRef = React.useRef({ itemVisiblePercentThreshold: 30})
-    // const minChanged = useRef(( viewableItems, changed ) => {
-    //     try {
-    //         console.log("items", viewableItems)
-    //         console.log(viewableItems.viewableItems[0].index)
-    //         setPromptIndex(viewableItems.viewableItems[0].index)
-    //     } catch (e) {
-    //         console.log("scrolling")
-    //     }
-    // })
-
     return (
         <NativeBaseProvider>
             <SafeAreaView style={styles.container}>
@@ -129,12 +97,9 @@ export default function ScreenSaverSetup({ navigation }) {
 
                 {/* <View style={styles.carouselContainer}> */}
                 <FlatList
-                    style={{
+                    contentContainerStyle={{
                         paddingLeft: START_END_PADDING,
-                        // paddingRight: START_END_PADDING,
-                        // paddingHorizontal: START_END_PADDING,
-                        // paddingEnd: START_END_PADDING,
-                        // padding: START_END_PADDING
+                        paddingRight: START_END_PADDING,
                     }}
                     data={data}
                     horizontal
@@ -151,7 +116,7 @@ export default function ScreenSaverSetup({ navigation }) {
                         <View
                             style={{
                                 width: PROMPT_SIZE,
-                                height: PROMPT_SIZE * 0.5,
+                                height: PROMPT_HEIGHT,
                                 paddingHorizontal: SPACING,
                             }}
                         >
@@ -172,11 +137,12 @@ export default function ScreenSaverSetup({ navigation }) {
                     {/* TIMER SETUP */}
 
                     <View style={styles.timerPicker}>
-                        {/* <TimerList changeType={onMinChange} />
-                <TimerList changeType={onSecChange}/> */}
-                        <TimerList changeType={onMinChange} onTimerChange={onTimerChange} />
-                        <TimerList changeType={onSecChange} onTimerChange={onTimerChange} />
+                        <TimerList setType={setMin} />
+                        <TimerList setType={setSec} />
                     </View>
+
+
+                    
 
 
                     {/* BUTTON */}
@@ -184,8 +150,18 @@ export default function ScreenSaverSetup({ navigation }) {
                         <Pressable style={styles.button} onPress={() => {
                             console.log("min", min, ' : sec', sec)
                             const minSecs = { minutes: min, seconds: sec }
-                            console.log("setup", minSecs)
-                            navigation.navigate('Screen Saver Page', { promptId: promptIndex, time: minSecs })
+                            if(min === 0 && sec === 0) {
+                                Toast.show({
+                                    placement: "top",
+                                    render: () => {
+                                        return <Box style={styles.successToast}>
+                                            Please select a time!
+                                        </Box>;
+                                    }
+                                });
+                            } else {
+                                navigation.navigate('Screen Saver Page', { promptId: promptIndex, time: minSecs })
+                            }
                         }}>
                             <Text style={styles.buttonLabel}>Set Timer</Text>
                         </Pressable>
