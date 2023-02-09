@@ -114,6 +114,15 @@ const styles = StyleSheet.create({
         marginTop: '5%',
     }, 
 
+    timeUpText: {
+        color: 'white',
+        backgroundColor: 'red',
+        fontSize: '50%',
+        textAlign: 'center',
+        fontWeight: 'bold',
+        marginTop: '5%',
+    }, 
+
     screensaverPrompt: {
         fontSize: '15%',
         textAlign: 'center',

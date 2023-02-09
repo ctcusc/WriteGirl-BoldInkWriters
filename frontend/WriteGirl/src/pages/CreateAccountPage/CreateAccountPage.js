@@ -55,6 +55,7 @@ export default function CreateAccountPage({ navigation }) {
                 </Box>;
             }
         });
+        reset();
     }
     const onInvalid = (errors) => {
         setErrorModalVisible(true)

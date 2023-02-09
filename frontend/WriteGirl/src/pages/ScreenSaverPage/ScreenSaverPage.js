@@ -24,9 +24,14 @@ export default function ScreenSaverPage({ navigation, route }) {
     // }, [])
     React.useEffect(() => {
         navigation.addListener('focus', () => {
-          console.log("reloaded");
+            console.log(route.params.time)
+            // const minSecs = route.params.time
+            const{ minutes = 0, seconds = 0 } = route.params.time;
+            setTime([minutes, seconds])
+            setDone(false);
+            Toast.closeAll()
         });
-      }, [route]);
+      }, [route.params.time]);
 
     const tick = () => {
         if ((mins === 0 || mins === '00') && (secs === 0 || secs === '00')) {
@@ -49,18 +54,18 @@ export default function ScreenSaverPage({ navigation, route }) {
         return () => clearInterval(timerId)
     }, [mins, secs])
 
-    useEffect(() => {
-        if(done) {
-            Toast.show({
-                placement: "top",
-                render: () => {
-                    return <Box style={styles.successToast}>
-                        Time's Up!
-                    </Box>;
-                }
-            });
-        } 
-    }, [done])
+    // useEffect(() => {
+    //     if(done) {
+    //         Toast.show({
+    //             placement: "top",
+    //             render: () => {
+    //                 return <Box style={styles.successToast}>
+    //                     Time's Up!
+    //                 </Box>;
+    //             }
+    //         });
+    //     } 
+    // }, [done])
 
 
     return (
@@ -71,12 +76,12 @@ export default function ScreenSaverPage({ navigation, route }) {
             {/* BACK ARROW */}
             <View>
                 {/* BACK ARROW GO HERE */}
-                {/* <Pressable style={styles.button} onPress={() => {
+                <Pressable style={styles.button} onPress={() => {
                     const minSecs = { minutes: 0, seconds: 0 }
                     navigation.navigate('Screen Saver Setup')
                 }}>
                     <Text style={styles.buttonLabel}>Set Timer</Text>
-                </Pressable> */}
+                </Pressable>
                 <SvgUri
                     width="100%"
                     height="100%"
@@ -86,12 +91,12 @@ export default function ScreenSaverPage({ navigation, route }) {
 
             {/* TIMER */}
             <View> 
-                {/* {done ?
+                {done ?
                     <Text style={styles.timeUpText}>Time's Up!</Text>
                 :
                     <Text style={styles.timeText}>{`${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`}</Text>
-                } */}
-                <Text style={styles.timeText}>{`${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`}</Text>
+                }
+                {/* <Text style={styles.timeText}>{`${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`}</Text> */}
             </View>
 
             {/* PROMPT */}
