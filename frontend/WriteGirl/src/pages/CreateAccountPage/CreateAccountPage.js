@@ -59,7 +59,7 @@ export default function CreateAccountPage({ navigation }) {
     }
     const onInvalid = (errors) => {
         setErrorModalVisible(true)
-        console.log("errors", errors)
+        // console.log("errors", errors)
 
         Toast.show({
             placement: "top",

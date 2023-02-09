@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         color: '#FFF',
         fontSize: '20%',
         textAlign: 'center',
-        paddingTop: '10%',
+        paddingTop: '1%',
         paddingBottom: '3%',
         width: '70%',
         alignSelf: 'center',
@@ -106,29 +106,41 @@ const styles = StyleSheet.create({
         opacity: 0.7,
     },
 
+    arrContainer: {
+        // paddingLeft: '2%',
+        paddingTop: '2%',
+    },
+
+    backArrow: {
+        // height: '100%',
+        width: '10%',
+        marginLeft: '3%',
+        resizeMode: 'cover',
+    },  
+
     timeText: {
         color: 'white',
         fontSize: '70%',
         textAlign: 'center',
-        fontWeight: 'bold',
-        marginTop: '5%',
+        // fontWeight: 'bold',
+        marginTop: '2%',
     }, 
 
-    timeUpText: {
-        color: 'white',
-        backgroundColor: 'red',
-        fontSize: '50%',
-        textAlign: 'center',
-        fontWeight: 'bold',
-        marginTop: '5%',
-    }, 
+    // timeUpText: {
+    //     color: 'white',
+    //     backgroundColor: 'red',
+    //     fontSize: '50%',
+    //     textAlign: 'center',
+    //     fontWeight: 'bold',
+    //     marginTop: '5%',
+    // }, 
 
     screensaverPrompt: {
         fontSize: '15%',
         textAlign: 'center',
         color: 'white',
-        marginTop: '10',
-        fontWeight: 'bold',
+        // marginTop: '1%',
+        // fontWeight: 'bold',
     },
 
 });

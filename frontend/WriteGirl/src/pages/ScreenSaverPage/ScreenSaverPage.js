@@ -1,5 +1,5 @@
 import { Toast, useToast, Box, NativeBaseProvider } from "native-base";
-import { SafeAreaView, View, Text, Pressable, ImageBackground } from "react-native";
+import { SafeAreaView, View, Text, Pressable, ImageBackground, Image } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { styles } from "./ScreenSaverStyles.js";
 import data from './screenSaverData.json'
@@ -24,7 +24,7 @@ export default function ScreenSaverPage({ navigation, route }) {
     // }, [])
     React.useEffect(() => {
         navigation.addListener('focus', () => {
-            console.log(route.params.time)
+            // console.log(route.params.time)
             // const minSecs = route.params.time
             const{ minutes = 0, seconds = 0 } = route.params.time;
             setTime([minutes, seconds])
@@ -54,18 +54,18 @@ export default function ScreenSaverPage({ navigation, route }) {
         return () => clearInterval(timerId)
     }, [mins, secs])
 
-    // useEffect(() => {
-    //     if(done) {
-    //         Toast.show({
-    //             placement: "top",
-    //             render: () => {
-    //                 return <Box style={styles.successToast}>
-    //                     Time's Up!
-    //                 </Box>;
-    //             }
-    //         });
-    //     } 
-    // }, [done])
+    useEffect(() => {
+        if(done) {
+            Toast.show({
+                placement: "top",
+                render: () => {
+                    return <Box style={styles.successToast}>
+                        Time's Up!
+                    </Box>;
+                }
+            });
+        } 
+    }, [done])
 
 
     return (
@@ -74,29 +74,21 @@ export default function ScreenSaverPage({ navigation, route }) {
         <ImageBackground source={{uri: img}} resizeMode="cover" style={styles.screensaverBg}> 
 
             {/* BACK ARROW */}
-            <View>
-                {/* BACK ARROW GO HERE */}
-                <Pressable style={styles.button} onPress={() => {
-                    const minSecs = { minutes: 0, seconds: 0 }
-                    navigation.navigate('Screen Saver Setup')
-                }}>
-                    <Text style={styles.buttonLabel}>Set Timer</Text>
-                </Pressable>
-                <SvgUri
-                    width="100%"
-                    height="100%"
-                    uri='./arrow.svg'
+            <Pressable style={styles.arrContainer} onPress={() => { navigation.navigate('Screen Saver Setup') }}>
+                <Image
+                    style={styles.backArrow}
+                    source={require('./backArrowIcon.png')}
                 />
-            </View>
+            </Pressable>
 
             {/* TIMER */}
             <View> 
-                {done ?
+                {/* {done ?
                     <Text style={styles.timeUpText}>Time's Up!</Text>
                 :
                     <Text style={styles.timeText}>{`${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`}</Text>
-                }
-                {/* <Text style={styles.timeText}>{`${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`}</Text> */}
+                } */}
+                <Text style={styles.timeText}>{`${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`}</Text>
             </View>
 
             {/* PROMPT */}

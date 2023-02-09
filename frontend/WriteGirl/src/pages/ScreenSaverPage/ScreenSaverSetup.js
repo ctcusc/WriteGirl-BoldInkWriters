@@ -86,9 +86,19 @@ export default function ScreenSaverSetup({ navigation }) {
             <SafeAreaView style={styles.container}>
                 {/* <KeyboardAwareScrollView style={styles.container}> */}
 
-                {/* <View>
-                <Image style={styles.backarrow} source={'./backArrowIcon.png'}/>
-            </View> */}
+                {/* <View style={styles.arrContainer}> */}
+                    {/* <Image style={styles.backarrow} source={'./backArrowIcon.png'}/> */}
+                    {/* <Image
+                        style={styles.backArrow}
+                        source={require('./backArrowIcon.png')}
+                    /> */}
+                <Pressable style={styles.arrContainer} onPress={() => { navigation.navigate('Writing Experiments') }}>
+                    <Image
+                        style={styles.backArrow}
+                        source={require('./backArrowIcon.png')}
+                    />
+                </Pressable>
+                {/* </View> */}
 
                 <View>
                     <Text style={styles.title}>Pick a prompt and set a timer!</Text>
@@ -147,7 +157,7 @@ export default function ScreenSaverSetup({ navigation }) {
                     {/* BUTTON */}
                     <View style={styles.buttonWrapper}>
                         <Pressable style={styles.button} onPress={() => {
-                            console.log("min", min, ' : sec', sec)
+                            // console.log("min", min, ' : sec', sec)
                             const minSecs = { minutes: min, seconds: sec }
                             if(min === 0 && sec === 0) {
                                 Toast.show({
