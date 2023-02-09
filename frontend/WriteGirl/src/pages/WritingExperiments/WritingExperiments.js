@@ -1,7 +1,7 @@
 import {View, Text, Button, StyleSheet, SafeAreaView, TouchableOpacity} from 'react-native';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 
-export default function WritingExperiments() {
+export default function WritingExperiments({navigation}) {
 
   return (
     <SafeAreaView style={styles.container}>
@@ -10,7 +10,10 @@ export default function WritingExperiments() {
             <Text style={styles.title}>Reflection Prompt Placeholder</Text>
             <View style={styles.buttonPadding} />
             <View style={styles.fixToText}>
-              <TouchableOpacity disabled={false} style={styles.smallButtons}>
+              <TouchableOpacity disabled={false} style={styles.smallButtons} onPress={() => {
+                console.log("eojafsdj")
+                navigation.navigate('Screen Saver Setup')
+              }}>
                   <Text style={styles.generate}>Generate!</Text>
               </TouchableOpacity>
             </View>

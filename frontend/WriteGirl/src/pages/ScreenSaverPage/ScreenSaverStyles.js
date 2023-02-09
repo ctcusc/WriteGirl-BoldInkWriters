@@ -18,10 +18,12 @@ const styles = StyleSheet.create({
 
     title: {
         color: '#FFF',
-        fontSize: width / 12,
+        fontSize: '20%',
         textAlign: 'center',
         paddingTop: '10%',
-        paddingBottom: '5%',
+        paddingBottom: '3%',
+        width: '70%',
+        alignSelf: 'center',
     },
 
     cardContainer: {
@@ -30,12 +32,11 @@ const styles = StyleSheet.create({
         // borderWidth: 2, 
         borderColor: '#000',
         borderRadius: 15,
-        // padding: '2vh',
     },
 
     promptText: {
-        fontSize: 20,
-        paddingBottom: 8,
+        fontSize: '12%',
+        paddingBottom: '1%',
         textAlign: 'center',
     },
 
@@ -51,43 +52,46 @@ const styles = StyleSheet.create({
 
     timerContainer: {
         // marginTop: height / 20,
-        backgroundColor: '#FFF',
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
+        backgroundColor: '#FAFAFA',
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
         height: height,
         flex: 1,
         justifyContent: 'flex-end',
         bottom: 0,
         // paddingTop: 3,
+        marginTop: '3%',
+        paddingBottom: height/4,
     },
 
     timerPicker: {
         flex: 1,
         flexDirection: 'row',
-        marginTop: 25,
+        marginTop: '5%',
     },
 
-    timerText: {
-        // fontSize: height/20,
-        fontSize: 30,
-        color: '#000',
-        alignSelf: 'center',
-    },
+    // timerText: {
+    //     // fontSize: 'auto',
+    //     width: '80%',
+    //     fontSize: '5%',
+    //     color: '#000',
+    //     alignSelf: 'center',
+    // },
 
     button: {
         backgroundColor: '#0D4D5E',
         height: 'auto',
         width: '60%',
         padding: 10,
-        marginVertical: 20,
-        marginBottom: 30,
+        // marginVertical: 20,
+        // marginBottom: '5%',
         borderRadius: 30,
         alignSelf: 'center',
     },
 
     buttonLabel: {
         color: 'white',
-        fontSize: 20,
+        fontSize: '10%',
         textAlign: 'center',
     },
 
@@ -104,14 +108,14 @@ const styles = StyleSheet.create({
 
     timeText: {
         color: 'white',
-        fontSize: height/8,
+        fontSize: '70%',
         textAlign: 'center',
         fontWeight: 'bold',
-        marginTop: height/10,
+        marginTop: '5%',
     }, 
 
     screensaverPrompt: {
-        fontSize: height/40,
+        fontSize: '15%',
         textAlign: 'center',
         color: 'white',
         marginTop: '10',

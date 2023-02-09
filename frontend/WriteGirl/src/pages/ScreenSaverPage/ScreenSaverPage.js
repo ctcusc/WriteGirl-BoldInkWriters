@@ -4,6 +4,7 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { styles } from "./ScreenSaverStyles.js";
 import data from './screenSaverData.json'
 import React, { useCallback, useEffect, useState } from "react";
+import { SvgUri } from 'react-native-svg';
 
 export default function ScreenSaverPage({ navigation, route }) {
     const [timeEnded, setTimeEnded] = useState(false)
@@ -14,12 +15,21 @@ export default function ScreenSaverPage({ navigation, route }) {
 
     // from https://medium.com/bb-tutorials-and-thoughts/how-to-create-a-countdown-timer-in-react-app-e99916046292
     const minSecs = route.params.time;
-    const{ minutes = 0, seconds = 60 } = minSecs;
+    const{ minutes = 0, seconds = 0 } = minSecs;
     const [ [mins, secs], setTime ] = useState( [minutes, seconds] )
     const [done, setDone] = useState(false)
 
+    // useEffect(() => {
+    //     console.log("in page", mins, secs)
+    // }, [])
+    React.useEffect(() => {
+        navigation.addListener('focus', () => {
+          console.log("reloaded");
+        });
+      }, [route]);
+
     const tick = () => {
-        if ((mins === 0 || mins === '00') && (secs === 0)) {
+        if ((mins === 0 || mins === '00') && (secs === 0 || secs === '00')) {
             // reset()
             setDone(true)
         } else if (secs === 0) {
@@ -61,6 +71,17 @@ export default function ScreenSaverPage({ navigation, route }) {
             {/* BACK ARROW */}
             <View>
                 {/* BACK ARROW GO HERE */}
+                {/* <Pressable style={styles.button} onPress={() => {
+                    const minSecs = { minutes: 0, seconds: 0 }
+                    navigation.navigate('Screen Saver Setup')
+                }}>
+                    <Text style={styles.buttonLabel}>Set Timer</Text>
+                </Pressable> */}
+                <SvgUri
+                    width="100%"
+                    height="100%"
+                    uri='./arrow.svg'
+                />
             </View>
 
             {/* TIMER */}

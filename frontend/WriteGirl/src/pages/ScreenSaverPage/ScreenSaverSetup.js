@@ -35,7 +35,6 @@ const TimerList = React.forwardRef(({ setType }, ref) => {
             selectedIndex={0}
             renderItem={(data, index, isSelected) => {
                 return (
-                    // <Text style={styles.timerText}>{data}</Text>
                     <Text>{data}</Text>
                 )
             }}
