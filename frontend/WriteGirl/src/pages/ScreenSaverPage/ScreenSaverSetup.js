@@ -159,7 +159,7 @@ export default function ScreenSaverSetup({ navigation }) {
                         <Pressable style={styles.button} onPress={() => {
                             // console.log("min", min, ' : sec', sec)
                             const minSecs = { minutes: min, seconds: sec }
-                            if(min === 0 && sec === 0) {
+                            if((min === 0 || min === '00') && (sec === 0 || sec === '00')) {
                                 Toast.show({
                                     placement: "top",
                                     render: () => {

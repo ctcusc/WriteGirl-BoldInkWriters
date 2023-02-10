@@ -57,7 +57,7 @@ export default function ScreenSaverPage({ navigation, route }) {
     useEffect(() => {
         if(done) {
             Toast.show({
-                placement: "top",
+                placement: "top-right",
                 render: () => {
                     return <Box style={styles.successToast}>
                         Time's Up!
