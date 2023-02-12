@@ -1,6 +1,7 @@
 import path from "path"
 import { Sequelize } from "sequelize-typescript"
 import { User } from "./models/User"
+import { DoorActivity } from "./models/DoorActivity"
 
 export const sequelize = new Sequelize({
   dialect: "postgres",
@@ -9,4 +10,4 @@ export const sequelize = new Sequelize({
   password: process.env.POSTGRES_PASSWORD
 })
 
-sequelize.addModels([User])
+sequelize.addModels([User, DoorActivity])
