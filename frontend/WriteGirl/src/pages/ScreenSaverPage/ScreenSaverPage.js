@@ -59,7 +59,7 @@ export default function ScreenSaverPage({ navigation, route }) {
             Toast.show({
                 placement: "top-right",
                 render: () => {
-                    return <Box style={styles.successToast}>
+                    return <Box style={styles.timeUpToast}>
                         Time's Up!
                     </Box>;
                 }

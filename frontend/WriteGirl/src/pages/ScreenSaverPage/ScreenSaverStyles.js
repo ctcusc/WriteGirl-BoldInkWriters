@@ -95,8 +95,16 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
 
+    setupToast: {
+        backgroundColor: '#FFA1A1', //tan background: F0EBE8
+        padding: 10,
+        width: 'auto',
+        color: '#000',
+        borderRadius: 10, 
+    },
 
-    // SCREEN SAVER PAGE STYLES
+
+    // ------------------ SCREEN SAVER PAGE STYLES ------------------ //
     screensaverContainer: {
         flex: 1,
     },
@@ -141,6 +149,14 @@ const styles = StyleSheet.create({
         color: 'white',
         // marginTop: '1%',
         // fontWeight: 'bold',
+    },
+
+    timeUpToast: {
+        backgroundColor: '#FFA1A1', //tan background: F0EBE8
+        padding: 10,
+        width: 'auto',
+        color: '#000',
+        borderRadius: 10, 
     },
 
 });

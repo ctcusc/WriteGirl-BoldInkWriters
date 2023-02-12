@@ -163,7 +163,7 @@ export default function ScreenSaverSetup({ navigation }) {
                                 Toast.show({
                                     placement: "top",
                                     render: () => {
-                                        return <Box style={styles.successToast}>
+                                        return <Box style={styles.setupToast}>
                                             Please select a time!
                                         </Box>;
                                     }

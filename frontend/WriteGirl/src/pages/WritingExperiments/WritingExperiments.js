@@ -11,7 +11,6 @@ export default function WritingExperiments({navigation}) {
             <View style={styles.buttonPadding} />
             <View style={styles.fixToText}>
               <TouchableOpacity disabled={false} style={styles.smallButtons} onPress={() => {
-                console.log("eojafsdj")
                 navigation.navigate('Screen Saver Setup')
               }}>
                   <Text style={styles.generate}>Generate!</Text>
