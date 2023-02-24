@@ -1,14 +1,22 @@
-import { Text, ScrollView, TextInput, Button, Alert, Pressable, View, KeyboardAvoidingView, Platform } from "react-native";
-import { Picker } from "@react-native-picker/picker"
+import { Text, ScrollView, TextInput, Button, Alert, SafeAreaView, Pressable, View, KeyboardAvoidingView, Platform, Modal, Image, ImageBackground } from "react-native";
+import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { styles } from "./CreateAccountPageStyles.js";
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { Toast, useToast, Box, NativeBaseProvider } from "native-base";
 
 {/* npm install @hookform/resolvers yup 
     yup documentation: https://github.com/jquense/yup#schemanotoneofarrayofvalues-arrayany-message-string--function */}
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
-export default function CreateAccountPage() {
+
+export default function CreateAccountPage({ navigation }) {
+    const [errorModalVisible, setErrorModalVisible] = useState(false);
+    const [successModalVisible, setSuccessModalVisible] = useState(false);
+    const toast = useToast();
+
+
     const schema = yup.object({
         firstName: yup.string().required('First name is required.'),
         lastName: yup.string().required('Last name is required.'),
@@ -35,176 +43,204 @@ export default function CreateAccountPage() {
     });
 
     const onSubmit = data => {
-        console.log(data);
+        setSuccessModalVisible(true)
+        console.log("data", data)
+
+        const success = "Account successfully created!"
+        Toast.show({
+            placement: "top",
+            render: () => {
+                return <Box style={styles.successToast}>
+                    {data ? success : null}
+                </Box>;
+            }
+        });
+    }
+    const onInvalid = (errors) => {
+        setErrorModalVisible(true)
+        console.log("errors", errors)
+
+        Toast.show({
+            placement: "top",
+            render: () => {
+                return <Box style={styles.errorToast}>
+                    {errors.firstName ? errors.firstName.message : null}
+                    {errors.lastName ? errors.lastName.message : null}
+                    {errors.birthday ? errors.birthday.message : null}
+                    {errors.email ? errors.email.message : null}
+                    {errors.password ? errors.password.message : null}
+                    {errors.repeatpassword ? errors.repeatpassword.message : null}
+                    {errors.country ? errors.country.message : null}
+                </Box>;
+            }
+        });
+
     }
 
     return (
-        <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}>
-        <ScrollView style={styles.container}>
+        <NativeBaseProvider>
+            <SafeAreaView >
+                <KeyboardAwareScrollView style={styles.container}>
+                <ImageBackground source={require('./bg_img.png')} resizeMode="cover" style={styles.screensaverBg}> 
 
-            <Text style={styles.title}>Create an account</Text>
+                <View style={styles.contentContainer}>
+                    <Text style={styles.title}>Create an account</Text>
 
-            {/* FIRST NAME FIELD */}
-            <Text style={styles.label}>First Name</Text>
-            <Controller
-                name="firstName"
-                control={control}
-                rules={{ required: true, }}
-                render={({ field: { onChange, onBlur, value } }) => (
-                    <TextInput
-                        style={styles.input} //add stylesheet later
-                        onBlur={onBlur}
-                        onChangeText={onChange}
-                        value={value}
+                    {/* FIRST NAME FIELD */}
+                    <Text style={styles.label}>First Name</Text>
+                    <Controller
+                        name="firstName"
+                        control={control}
+                        rules={{ required: true, }}
+                        render={({ field: { onChange, onBlur, value } }) => (
+                            <TextInput
+                                style={styles.input} //add stylesheet later
+                                onBlur={onBlur}
+                                onChangeText={onChange}
+                                value={value}
+                            />
+                        )}
                     />
-                )}
-            />
 
-            {/* LAST NAME FIELD */}
-            <Text style={styles.label}>Last Name</Text>
-            <Controller
-                name="lastName"
-                control={control}
-                rules={{ required: true, }}
-                render={({ field: { onChange, onBlur, value } }) => (
-                    <TextInput
-                        style={styles.input} //add stylesheet later
-                        onBlur={onBlur}
-                        onChangeText={onChange}
-                        value={value}
+                    {/* LAST NAME FIELD */}
+                    <Text style={styles.label}>Last Name</Text>
+                    <Controller
+                        name="lastName"
+                        control={control}
+                        rules={{ required: true, }}
+                        render={({ field: { onChange, onBlur, value } }) => (
+                            <TextInput
+                                style={styles.input} //add stylesheet later
+                                onBlur={onBlur}
+                                onChangeText={onChange}
+                                value={value}
+                            />
+                        )}
                     />
-                )}
-            />
 
-            {/* BIRTHDAY FIELD */}
-            <Text style={styles.label}>Birthday (MM/DD/YYYY)</Text>
-            <Controller
-                name="birthday"
-                control={control}
-                rules={{ required: true, }}
-                render={({ field: { onChange, onBlur, value } }) => (
-                    <TextInput
-                        style={styles.input} //add stylesheet later
-                        onBlur={onBlur}
-                        onChangeText={onChange}
-                        value={value}
+                    {/* BIRTHDAY FIELD */}
+                    <Text style={styles.label}>Birthday (MM/DD/YYYY)</Text>
+                    <Controller
+                        name="birthday"
+                        control={control}
+                        rules={{ required: true, }}
+                        render={({ field: { onChange, onBlur, value } }) => (
+                            <TextInput
+                                style={styles.input} //add stylesheet later
+                                onBlur={onBlur}
+                                onChangeText={onChange}
+                                value={value}
+                            />
+                        )}
                     />
-                )}
-            />
 
-            {/* EMAIL FIELD */}
-            <Text style={styles.label}>Email</Text>
-            <Controller
-                name="email"
-                control={control}
-                rules={{ required: true, }}
-                render={({ field: { onChange, onBlur, value } }) => (
-                    <TextInput
-                        style={styles.input} //add stylesheet later
-                        onBlur={onBlur}
-                        onChangeText={onChange}
-                        value={value}
+                    {/* EMAIL FIELD */}
+                    <Text style={styles.label}>Email</Text>
+                    <Controller
+                        name="email"
+                        control={control}
+                        rules={{ required: true, }}
+                        render={({ field: { onChange, onBlur, value } }) => (
+                            <TextInput
+                                style={styles.input} //add stylesheet later
+                                onBlur={onBlur}
+                                onChangeText={onChange}
+                                value={value}
+                            />
+                        )}
                     />
-                )}
-            />
 
-            {/* PASSWORD FIELD */}
-            <Text style={styles.label}>Password</Text>
-            <Controller
-                name="password"
-                control={control}
-                rules={{ required: true, }}
-                render={({ field: { onChange, onBlur, value } }) => (
-                    <TextInput
-                        style={styles.input} //add stylesheet later
-                        onBlur={onBlur}
-                        onChangeText={onChange}
-                        value={value}
+                    {/* PASSWORD FIELD */}
+                    <Text style={styles.label}>Password</Text>
+                    <Controller
+                        name="password"
+                        control={control}
+                        rules={{ required: true, }}
+                        render={({ field: { onChange, onBlur, value } }) => (
+                            <TextInput
+                                style={styles.input} //add stylesheet later
+                                onBlur={onBlur}
+                                onChangeText={onChange}
+                                value={value}
+                            />
+                        )}
                     />
-                )}
-            />
 
-            {/* REPEAT PASSWORD FIELD */}
-            <Text style={styles.label}>Repeat Password</Text>
-            <Controller
-                name="repeatpassword"
-                control={control}
-                rules={{ required: true, }}
-                render={({ field: { onChange, onBlur, value } }) => (
-                    <TextInput
-                        style={styles.input} //add stylesheet later
-                        onBlur={onBlur}
-                        onChangeText={onChange}
-                        value={value}
+                    {/* REPEAT PASSWORD FIELD */}
+                    <Text style={styles.label}>Repeat Password</Text>
+                    <Controller
+                        name="repeatpassword"
+                        control={control}
+                        rules={{ required: true, }}
+                        render={({ field: { onChange, onBlur, value } }) => (
+                            <TextInput
+                                style={styles.input} //add stylesheet later
+                                onBlur={onBlur}
+                                onChangeText={onChange}
+                                value={value}
+                            />
+                        )}
                     />
-                )}
-            />
 
-            {/* COUNTRY FIELD */}
-            <Text style={styles.label}>Country</Text>
-            <Controller
-                name="country"
-                control={control}
-                rules={{ required: true, }}
-                render={({ field: { onChange, onBlur, value } }) => (
-                    <TextInput
-                        style={styles.input} //add stylesheet later
-                        onBlur={onBlur}
-                        onChangeText={onChange}
-                        value={value}
+                    {/* COUNTRY FIELD */}
+                    <Text style={styles.label}>Country</Text>
+                    <Controller
+                        name="country"
+                        control={control}
+                        rules={{ required: true, }}
+                        render={({ field: { onChange, onBlur, value } }) => (
+                            <TextInput
+                                style={styles.input} //add stylesheet later
+                                onBlur={onBlur}
+                                onChangeText={onChange}
+                                value={value}
+                            />
+                        )}
                     />
-                )}
-            />
 
-            {/* STATE FIELD */}
-            <Text style={styles.label}>State/Province</Text>
-            <Controller
-                name="state"
-                control={control}
-                rules={{}}
-                render={({ field: { onChange, onBlur, value } }) => (
-                    <TextInput
-                        style={styles.input} //add stylesheet later
-                        onBlur={onBlur}
-                        onChangeText={onChange}
-                        value={value}
+                    {/* STATE FIELD */}
+                    <Text style={styles.label}>State/Province</Text>
+                    <Controller
+                        name="state"
+                        control={control}
+                        rules={{}}
+                        render={({ field: { onChange, onBlur, value } }) => (
+                            <TextInput
+                                style={styles.input} //add stylesheet later
+                                onBlur={onBlur}
+                                onChangeText={onChange}
+                                value={value}
+                            />
+                        )}
                     />
-                )}
-            />
 
-            {/* CITY FIELD */}
-            <Text style={styles.label}>City</Text>
-            <Controller
-                name="city"
-                control={control}
-                rules={{}}
-                render={({ field: { onChange, onBlur, value } }) => (
-                    <TextInput
-                        style={styles.input} //add stylesheet later
-                        onBlur={onBlur}
-                        onChangeText={onChange}
-                        value={value}
+                    {/* CITY FIELD */}
+                    <Text style={styles.label}>City</Text>
+                    <Controller
+                        name="city"
+                        control={control}
+                        rules={{}}
+                        render={({ field: { onChange, onBlur, value } }) => (
+                            <TextInput
+                                style={styles.input} //add stylesheet later
+                                onBlur={onBlur}
+                                onChangeText={onChange}
+                                value={value}
+                            />
+                        )}
                     />
-                )}
-            />
 
-            {/* SUBMIT BUTTON */}
-            <Pressable style={styles.button} onPress={handleSubmit(onSubmit)}>
-                <Text style={styles.buttonLabel}>Create Account</Text>
-            </Pressable>
-
-
-            {/* ERROR MESSAGES */}
-            {errors.firstName && <Text>{errors.firstName.message}</Text>}
-            {errors.lastName && <Text>{errors.lastName.message}</Text>}
-            {errors.birthday && <Text>{errors.birthday.message}</Text>}
-            {errors.email && <Text>{errors.email.message}</Text>}
-            {errors.password && <Text>{errors.password.message}</Text>}
-            {errors.repeatpassword && <Text>{errors.repeatpassword.message}</Text>}
-            {errors.country && <Text>{errors.country.message}</Text>}
-
-        </ScrollView >
-        </KeyboardAvoidingView>
+                    {/* SUBMIT BUTTON */}
+                    <View style={styles.buttonWrapper}>
+                        <Pressable style={styles.button} onPress={handleSubmit(onSubmit, onInvalid)}>
+                            <Text style={styles.buttonLabel}>Create Account</Text>
+                        </Pressable>
+                    </View>
+                </View>
+                </ImageBackground>
+                </KeyboardAwareScrollView >
+            </SafeAreaView >
+        </NativeBaseProvider>
 
 
     )
