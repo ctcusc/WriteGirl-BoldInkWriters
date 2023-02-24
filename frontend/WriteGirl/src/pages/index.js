@@ -7,6 +7,8 @@ export { default as ScreenSaverPage } from './ScreenSaverPage/ScreenSaverPage'
 export { default as SignInPage } from './SignInPage/SignInPage'
 export { default as WritingExperiments} from './WritingExperiments/WritingExperiments'
 export {default as MonthlyExercises} from './MonthlyExercises/MonthlyExercises'
+export {default as DoorActivity} from './DoorActivity/DoorActivity'
+export {default as DoorOpened} from './DoorActivity/DoorOpened'
 
 import ExamplePage from './ExamplePage';
 import RandomPage1 from './RandomPage1';
