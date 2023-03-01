@@ -55,10 +55,11 @@ export default function CreateAccountPage({ navigation }) {
                 </Box>;
             }
         });
+        reset();
     }
     const onInvalid = (errors) => {
         setErrorModalVisible(true)
-        console.log("errors", errors)
+        // console.log("errors", errors)
 
         Toast.show({
             placement: "top",
