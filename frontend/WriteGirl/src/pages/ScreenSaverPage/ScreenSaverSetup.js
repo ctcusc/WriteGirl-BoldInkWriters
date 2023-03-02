@@ -58,59 +58,65 @@ const TimerList = React.forwardRef(({ setType }, ref) => {
 
 export default function ScreenSaverSetup({ navigation }) {
 
-
     //for timer picker
     const [min, setMin] = useState(0)
     const [sec, setSec] = useState(0)
-    // const minSecs = {minutes: min, seconds: sec} 
-    const onTimerChange = useCallback(setMin, [])
-    const onMinChange = useCallback(setMin, [])
-    const onSecChange = useCallback(setSec, [])
+    // const onTimerChange = useCallback(setMin, [])
+    // const onMinChange = useCallback(setMin, [])
+    // const onSecChange = useCallback(setSec, [])
 
 
     // for carousel gallery
+    const [prompts, setPrompts] = useState([])
     const [promptIndex, setPromptIndex] = useState(0)
     const viewConfigRef = React.useRef({ itemVisiblePercentThreshold: 50 })
     const promptChanged = React.useRef((viewableItems) => {
         // console.log(viewableItems)
         try {
-            // console.log(viewableItems.viewableItems[0].index)
-            setPromptIndex(viewableItems.viewableItems[0].index)
+            // console.log(viewableItems.viewableItems[0])
+            setPromptIndex(viewableItems.viewableItems[0].item.id)
         } catch (e) {
             console.log("scrolling")
         }
     })
 
+    // get prompts and content from database
+    useEffect(() => {
+        fetch(`http://localhost:8000/api/screen-saver-prompt`, {
+            method: "GET",
+        })
+        .then((res) => {
+            return res.json()
+        })
+        .then((data) => {
+            // console.log(data)
+            setPrompts(data);
+        })
+    }, [])
+
     return (
         <NativeBaseProvider>
             <SafeAreaView style={styles.container}>
-                {/* <KeyboardAwareScrollView style={styles.container}> */}
 
-                {/* <View style={styles.arrContainer}> */}
-                    {/* <Image style={styles.backarrow} source={'./backArrowIcon.png'}/> */}
-                    {/* <Image
-                        style={styles.backArrow}
-                        source={require('./backArrowIcon.png')}
-                    /> */}
+                {/* BACK ARROW */}
                 <Pressable style={styles.arrContainer} onPress={() => { navigation.navigate('Writing Experiments') }}>
                     <Image
                         style={styles.backArrow}
                         source={require('./backArrowIcon.png')}
                     />
                 </Pressable>
-                {/* </View> */}
 
                 <View>
                     <Text style={styles.title}>Pick a prompt and set a timer!</Text>
                 </View>
 
-                {/* <View style={styles.carouselContainer}> */}
+                {/* PROMPT CAROUSEL */}
                 <FlatList
                     contentContainerStyle={{
                         paddingLeft: START_END_PADDING,
                         paddingRight: START_END_PADDING,
                     }}
-                    data={data}
+                    data={prompts}
                     horizontal
                     // contentContainerStyle={{ alignItems: 'center' }}
                     showsHorizontalScrollIndicator={false}
@@ -130,28 +136,26 @@ export default function ScreenSaverSetup({ navigation }) {
                             }}
                         >
                             <View style={styles.cardContainer}>
-                                <Text style={styles.promptText}> {item.prompt} </Text>
+                                <Text style={styles.promptText}> {item.title} </Text>
                                 <View style={styles.imgContainer}>
-                                    <Image style={styles.img} source={{ uri: item.img }} />
+                                    <Image style={styles.img} source={{ uri: item.videoURL }} />
                                 </View>
                             </View>
                         </View>
                     )}
                 />
-                {/* </View> */}
 
 
 
+                {/* BOTTOM HALF OF STUFF */}
                 <View style={styles.timerContainer}>
+                    
                     {/* TIMER SETUP */}
-
                     <View style={styles.timerPicker}>
                         <TimerList setType={setMin} />
                         <TimerList setType={setSec} />
                     </View>
 
-
-                    
 
 
                     {/* BUTTON */}
