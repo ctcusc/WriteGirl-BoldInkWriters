@@ -9,9 +9,10 @@ export { default as WritingExperiments} from './WritingExperiments/WritingExperi
 export {default as MonthlyExercises} from './MonthlyExercises/MonthlyExercises'
 export {default as DoorActivity} from './DoorActivity/DoorActivity'
 export {default as DoorOpened} from './DoorActivity/DoorOpened'
+export { default as RandomizerWheelPage } from './RandomizerWheelPage/RandomizerWheelPage'
 
 import ExamplePage from './ExamplePage';
 import RandomPage1 from './RandomPage1';
 import RandomPage2 from './RandomPage2';
 import RandomPage3 from './RandomPage3';
-  
+
