@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-      marginTop: 80,
       marginLeft: 40,
       marginRight:40,
       marginBottom: 80,
@@ -16,7 +15,7 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 40,
         height: '20%',
         paddingLeft: 30,
-        paddingTop: 20
+        paddingTop: 50
     },
     welcometext1: {
         fontSize: 20,
