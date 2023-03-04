@@ -9,7 +9,6 @@ import { StatusCodes } from "http-status-codes"
 
   export const postDoorActivity = async (req: Request, res: Response) => {
     const dooractivity = new DoorActivity({
-        id: req.body.id,
         title: req.body.title,
         instruction: req.body.instruction,
         has_link: req.body.has_link,
@@ -27,7 +26,7 @@ import { StatusCodes } from "http-status-codes"
   
   export const getDoorActivity = async (req: Request, res: Response) => {
     const result = await DoorActivity.findOne({
-        where: {title: req.params.title },
+        where: {id: req.params.id },
     })
     return res.json(result)
   }

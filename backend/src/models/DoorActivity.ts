@@ -11,10 +11,6 @@ import {
 
 @Table
 export class DoorActivity extends Model {
-  @Unique
-  @Column
-  id!: number
-  
   @Column
   title!: string
 

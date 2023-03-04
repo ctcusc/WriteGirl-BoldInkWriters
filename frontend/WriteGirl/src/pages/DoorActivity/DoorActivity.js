@@ -1,5 +1,5 @@
 import {styles} from './Style'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {View, SafeAreaView, FlatList, Image, TouchableOpacity, Text} from 'react-native';
 import navigation from '@react-navigation/native';
 import { Alert, Collapse, NativeBaseProvider } from 'native-base';
@@ -8,6 +8,25 @@ const imgArr = new Array(9).fill("https://placeimg.com/635/360/tech");
 
 export default function DoorActivity() {
     const [show, setShow] = useState(false);
+    // Variable to hold random prompt id
+    const [data, setData] = useState();
+    useEffect(() => {
+        // Get random prompt id
+        let url = "http://localhost:8000/api/dooractivity/" + "1";
+        fetch(url, {
+            method: "GET",
+        })
+        .then((res) => {
+            return res.json()
+        })
+        .then((data) => {
+            if(data == null) { throw new Error("No data found"); }
+            setData(data.instruction);
+            console.log(data);
+        })
+    }, []);
+
+
 
     return(
         <SafeAreaView style={styles.container}>
