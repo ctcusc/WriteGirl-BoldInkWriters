@@ -9,6 +9,7 @@ import { StatusCodes } from "http-status-codes"
 
   export const postDoorActivity = async (req: Request, res: Response) => {
     const dooractivity = new DoorActivity({
+        id: req.body.id,
         title: req.body.title,
         instruction: req.body.instruction,
         has_link: req.body.has_link,

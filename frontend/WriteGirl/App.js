@@ -22,7 +22,7 @@ export default function App({navigation}) {
           <Tab.Screen name="Profile" component={ExamplePage} />
           <Tab.Screen name="Monthly Exercises" component={MonthlyExercises} />
           <Tab.Screen name="Door Activity" component={DoorActivity} />
-          <Tab.Screen name="Door Opened" component={DoorOpened} />
+          <Tab.Screen name="DoorOpened" component={DoorOpened} />
       </Tab.Navigator>
     </NavigationContainer>
     // <NavigationContainer>

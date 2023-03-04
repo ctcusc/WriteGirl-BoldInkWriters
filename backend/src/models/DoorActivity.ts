@@ -6,10 +6,15 @@ import {
   ForeignKey,
   CreatedAt,
   UpdatedAt,
+  Unique,
 } from "sequelize-typescript"
 
 @Table
 export class DoorActivity extends Model {
+  @Unique
+  @Column
+  id!: number
+  
   @Column
   title!: string
 
