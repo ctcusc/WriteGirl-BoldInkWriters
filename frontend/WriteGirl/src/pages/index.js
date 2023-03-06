@@ -5,6 +5,7 @@ export { default as HomePage } from './HomePage/HomePage'
 export { default as SignInPage } from './SignInPage/SignInPage'
 export { default as WritingExperiments} from './WritingExperiments/WritingExperiments'
 export {default as MonthlyExercises} from './MonthlyExercises/MonthlyExercises'
+export {default as ResourcesPage } from './ResourcesPage/ResourcesPage'
 
 import ExamplePage from './ExamplePage';
 import RandomPage1 from './RandomPage1';
