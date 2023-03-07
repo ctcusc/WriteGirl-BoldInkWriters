@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator, BottomTabBar } from '@react-navigation/bottom-tabs';
 
 // TODO: add your page here!
-import NavBar, {CreateAccountPage, HomePage, WritingExperiments, ExamplePage, MonthlyExercises, ScreenSaverSetup, ScreenSaverPage} from "./src/pages" 
+import NavBar, {CreateAccountPage, HomePage, WritingExperiments, ExamplePage, MonthlyExercises, SignInPage, ScreenSaverPage, ScreenSaverSetup, DoorActivity, DoorOpened, RandomizerWheelPage} from "./src/pages" 
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator();
@@ -16,26 +16,32 @@ export default function App({navigation}) {
   return (
     <NavigationContainer>
       <Tab.Navigator 
-        screenOptions={({ route }) => ({
-          tabBarButton: [
-            "Screen Saver Setup",
-            "Screen Saver Page"
-          ].includes(route.name) 
-            ? () => {
-                return null;
-              }
-            : undefined,
-        })}
+      screenOptions={{
+        headerShown: false
+      }}
+        
+        // screenOptions={({ route }) => ({
+        //   tabBarButton: [
+        //     "Screen Saver Setup",
+        //     "Screen Saver Page"
+        //   ].includes(route.name) 
+        //     ? () => {
+        //         return null;
+        //       }
+        //     : undefined,
+        // })}
       >
           <Tab.Screen name="Home" component={HomePage} />
           <Tab.Screen name="Create Account" component={CreateAccountPage} />
-          <Tab.Screen name="Writing Experiments" component={WritingExperiments} />
-          <Tab.Screen name="Profile" component={ExamplePage} />
+          {/* <Tab.Screen name="Writing Experiments" component={WritingExperiments} /> */}
+          {/* <Tab.Screen name="Sign In Page" component={SignInPage} /> */}
           <Tab.Screen name="Monthly Exercises" component={MonthlyExercises} />
           <Tab.Screen name="Screen Saver Setup" component={ScreenSaverSetup} />
-          <Tab.Screen name="Screen Saver Page" component={ScreenSaverPage} />
+          <Tab.Screen name="Screen Saver Page" component={ScreenSaverPage} />      
+          {/* <Tab.Screen name="Door Activity" component={DoorActivity} />
+          <Tab.Screen name="Door Opened" component={DoorOpened} />
+          <Tab.Screen name="Randomizer Wheel" component={RandomizerWheelPage} /> */}
       </Tab.Navigator>
-      
     </NavigationContainer>
     // <NavigationContainer>
     //   <Stack.Navigator screenOptions={{
