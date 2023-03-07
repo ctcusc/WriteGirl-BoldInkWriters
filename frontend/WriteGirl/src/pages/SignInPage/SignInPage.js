@@ -1,9 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity, } from "react-native";
 import { useState } from "react";
+import {CreateAccountPage} from "../" 
+
 // const logo = require('...../assets/adaptive-icon.png');
 
-export default function Sign_In_Page() {
+export default function Sign_In_Page({navigation}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     return (
@@ -28,13 +30,13 @@ export default function Sign_In_Page() {
                     onChangeText={(password) => setPassword(password)}
                 />
             </View>
-            <TouchableOpacity style={styles.subButtons}>
+            <TouchableOpacity style={styles.subButtons} >
                 <Text style={styles.subButtonText}>Forgot your Password?</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.subButtons}>
+            <TouchableOpacity style={styles.subButtons} onPress={() => navigation.navigate("Create Account")}>
                 <Text style={styles.subButtonText}>Create An Account</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.loginBtn}>
+            <TouchableOpacity style={styles.loginBtn}  onPress={() => navigation.navigate("Home Tabs")}>
                 <Text style={styles.loginText}>Start Writing</Text>
             </TouchableOpacity>
         </View>

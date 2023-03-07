@@ -11,8 +11,10 @@ import NavBar, {CreateAccountPage, HomePage, WritingExperiments, ExamplePage, Mo
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator();
 
-function HomeTabs() {
+
+export default function App({navigation}) {
   return (
+    <NavigationContainer>
       <Tab.Navigator 
       screenOptions={{
         headerShown: false
@@ -30,31 +32,33 @@ function HomeTabs() {
         // })}
       >
           <Tab.Screen name="Home" component={HomePage} />
-          <Tab.Screen name="Writing Experiments" component={WritingExperiments} />
+          <Tab.Screen name="Create Account" component={CreateAccountPage} />
+          {/* <Tab.Screen name="Writing Experiments" component={WritingExperiments} /> */}
+          {/* <Tab.Screen name="Sign In Page" component={SignInPage} /> */}
+          <Tab.Screen name="Monthly Exercises" component={MonthlyExercises} />
           <Tab.Screen name="Resources" component={ResourcesPage} />
+          <Tab.Screen name="Screen Saver Setup" component={ScreenSaverSetup} />
+          {/* <Tab.Screen name="Screen Saver Page" component={ScreenSaverPage} />       */}
           <Tab.Screen name="About Us Page" component={AboutUsPage} />  
+          <Tab.Screen name="Randomizer Wheel" component={RandomizerWheelPage} />
+          {/* <Tab.Screen name="Door Activity" component={DoorActivity} />
+          <Tab.Screen name="Door Opened" component={DoorOpened} />
+          <Tab.Screen name="Randomizer Wheel" component={RandomizerWheelPage} /> */}
       </Tab.Navigator>
-  );
-}
-
-
-export default function App({navigation}) {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{
-            headerShown: false,
-          }}>
-            <Stack.Screen name="Sign In" component={SignInPage} />
-            <Stack.Screen name="Create Account" component={CreateAccountPage} />
-            <Stack.Screen name="Home Tabs" component={HomeTabs} />
-            <Stack.Screen name="Monthly Exercises" component={MonthlyExercises} />
-            <Stack.Screen name="Screen Saver Setup" component={ScreenSaverSetup} />
-            <Stack.Screen name="Screen Saver Page" component={ScreenSaverPage} />
-            <Stack.Screen name="Randomizer Wheel" component={RandomizerWheelPage} />
-            <Stack.Screen name="Door Activity" component={DoorActivity} />
-            <Stack.Screen name="Door Opened" component={DoorOpened} />
-      </Stack.Navigator>
     </NavigationContainer>
+    // <NavigationContainer>
+    //   <Stack.Navigator screenOptions={{
+    //         headerShown: false,
+    //       }}>
+    //     {/* <Stack.Screen name="example page" component={ExamplePage} /> */}
+    //     <Stack.Screen name="NavBar page" component={NavBar} />
+    //     {/* TODO: add your page here! */}
+    //     {/* <Stack.Screen name="Create Account Page" component={CreateAccountPage} /> */}
+    //     {/* <Stack.Screen name="home page" component={HomePage} /> */}
+    //     {/* <Stack.Screen name="writing experiments" component={WritingExperiments} /> */}
+    //   </Stack.Navigator>
+    // </NavigationContainer>
+    
   );
 }
 
