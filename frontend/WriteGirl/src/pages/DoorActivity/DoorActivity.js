@@ -11,7 +11,9 @@ export default function DoorActivity() {
         <SafeAreaView style={styles.container}>
             <View style = {styles.page}>
                 <View style = {styles.doorDiv}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => {
+            navigation.navigate('HomeTabs')
+          }}>
                         <Text style={styles.backText}>←</Text>
                     </TouchableOpacity>
                     <Text style={styles.chooseText}>Choose a Door!</Text>
