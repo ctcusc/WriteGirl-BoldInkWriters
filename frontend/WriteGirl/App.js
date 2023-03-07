@@ -37,7 +37,7 @@ export default function App({navigation}) {
           {/* <Tab.Screen name="Sign In Page" component={SignInPage} /> */}
           <Tab.Screen name="Monthly Exercises" component={MonthlyExercises} />
           <Tab.Screen name="Screen Saver Setup" component={ScreenSaverSetup} />
-          <Tab.Screen name="Screen Saver Page" component={ScreenSaverPage} />      
+          {/* <Tab.Screen name="Screen Saver Page" component={ScreenSaverPage} />       */}
           <Tab.Screen name="About Us Page" component={AboutUsPage} />  
           {/* <Tab.Screen name="Door Activity" component={DoorActivity} />
           <Tab.Screen name="Door Opened" component={DoorOpened} />
