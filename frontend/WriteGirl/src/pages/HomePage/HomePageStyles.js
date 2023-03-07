@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     },
     tiptext: {
         color: '#0D4D5E',
-        fontSize: "0.8em",
+        fontSize: "12.8px",
         paddingRight: 30,
         paddingLeft: 30,
         paddingBottom: '15%'
