@@ -21,7 +21,7 @@ export default function HomePage() {
             <View style={styles.tip}>
                 <Text style={styles.tipbox}></Text>
                 <View style={styles.tipimagecontainer} >
-                    <ImageBackground style={styles.tipimage} source={require('./assets/speech-bubble.png')}>
+                    <ImageBackground style={styles.tipimage} source={require('./speech-bubble.png')}>
                         <Text style={styles.tiptext}>Listening to music is a great way to set the mood for writing</Text>
                     </ImageBackground>
                 </View>
@@ -29,7 +29,7 @@ export default function HomePage() {
 
             <View style={styles.jumpstart}>
                 <TouchableOpacity style={styles.jumpstartbutton} onPress={() => navigation.navigate('JumpstartPage')}>
-                    <Image style={styles.jumpstartarrow} source={require('./assets/Vector3.png')}/>
+                    <Image style={styles.jumpstartarrow} source={require('./Vector3.png')}/>
                 </TouchableOpacity>
                 <Text style={styles.jumpstarttext}>jumpstart your writing</Text>
             </View>
