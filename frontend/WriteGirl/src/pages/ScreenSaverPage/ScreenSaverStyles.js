@@ -18,63 +18,93 @@ const styles = StyleSheet.create({
 
     title: {
         color: '#FFF',
-        fontSize: width / 12,
+        fontSize: '20%',
         textAlign: 'center',
-        padding: '10%',
+        paddingTop: '1%',
+        paddingBottom: '3%',
+        width: '70%',
+        alignSelf: 'center',
     },
 
     cardContainer: {
         // height: height/4,
         height: 'auto',
-        borderWidth: 2, 
+        // borderWidth: 2, 
         borderColor: '#000',
         borderRadius: 15,
-        backgroundColor: '#FFF',
-        // padding: '2vh',
+    },
+
+    promptText: {
+        fontSize: '12%',
+        paddingBottom: '1%',
+        textAlign: 'center',
     },
 
     img: {
         maxWidth: width*0.8,
-        height: height/3,
-        // height: ,
+        height: height*0.35,
         resizeMode: 'cover',
-        marginTop: 3,
+        borderRadius: 15,
+        borderWidth: 2, 
+        borderColor: '#000',
+        borderRadius: 15,
     },
 
     timerContainer: {
         // marginTop: height / 20,
-        backgroundColor: '#FFF',
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
+        backgroundColor: '#FAFAFA',
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
         height: height,
         flex: 1,
         justifyContent: 'flex-end',
-        // bottom: 0,
+        bottom: 0,
+        // paddingTop: 3,
+        marginTop: '3%',
+        paddingBottom: height/4,
     },
 
-    timerText: {
-        fontSize: height/20,
+    timerPicker: {
+        flex: 1,
+        flexDirection: 'row',
+        marginTop: '5%',
     },
+
+    // timerText: {
+    //     // fontSize: 'auto',
+    //     width: '80%',
+    //     fontSize: '5%',
+    //     color: '#000',
+    //     alignSelf: 'center',
+    // },
 
     button: {
         backgroundColor: '#0D4D5E',
         height: 'auto',
         width: '60%',
         padding: 10,
-        marginVertical: 20,
-        marginBottom: 30,
+        // marginVertical: 20,
+        // marginBottom: '5%',
         borderRadius: 30,
         alignSelf: 'center',
     },
 
     buttonLabel: {
         color: 'white',
-        fontSize: 20,
+        fontSize: '10%',
         textAlign: 'center',
     },
 
+    setupToast: {
+        backgroundColor: '#FFA1A1', //tan background: F0EBE8
+        padding: 10,
+        width: 'auto',
+        color: '#000',
+        borderRadius: 10, 
+    },
 
-    // SCREEN SAVER PAGE STYLES
+
+    // ------------------ SCREEN SAVER PAGE STYLES ------------------ //
     screensaverContainer: {
         flex: 1,
     },
@@ -84,18 +114,49 @@ const styles = StyleSheet.create({
         opacity: 0.7,
     },
 
+    arrContainer: {
+        // paddingLeft: '2%',
+        paddingTop: '2%',
+    },
+
+    backArrow: {
+        // height: '100%',
+        width: '10%',
+        marginLeft: '3%',
+        resizeMode: 'cover',
+    },  
+
     timeText: {
         color: 'white',
-        fontSize: height/10,
-        alignSelf: 'center',
-        fontWeight: 'bold',
-        marginTop: height/12,
+        fontSize: '70%',
+        textAlign: 'center',
+        // fontWeight: 'bold',
+        marginTop: '2%',
     }, 
 
-    promptText: {
-        color: 'white',
-        fontSize: height/20,
+    // timeUpText: {
+    //     color: 'white',
+    //     backgroundColor: 'red',
+    //     fontSize: '50%',
+    //     textAlign: 'center',
+    //     fontWeight: 'bold',
+    //     marginTop: '5%',
+    // }, 
+
+    screensaverPrompt: {
+        fontSize: '15%',
         textAlign: 'center',
+        color: 'white',
+        // marginTop: '1%',
+        // fontWeight: 'bold',
+    },
+
+    timeUpToast: {
+        backgroundColor: '#FFA1A1', //tan background: F0EBE8
+        padding: 10,
+        width: 'auto',
+        color: '#000',
+        borderRadius: 10, 
     },
 
 });
