@@ -13,6 +13,7 @@
     "@expo/webpack-config": "^0.17.0",
     "@hookform/resolvers": "^2.9.10",
     "@react-native-picker/picker": "2.4.8",
+    "@react-native/assets-registry": "^0.72.0",
     "@react-navigation/bottom-tabs": "^6.5.4",
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/native-stack": "^6.9.1",
