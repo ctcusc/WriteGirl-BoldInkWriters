@@ -171,6 +171,21 @@ const styles = StyleSheet.create({
           marginBottom: "10%",
           position: "absolute",
       },
+      doorIcon:{
+        width: "28%", 
+        height: 90,
+        marginVertical: 20, 
+        marginHorizontal: 10, 
+        marginLeft: 10, 
+        borderRadius: 20, 
+        filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))'
+      },
+      doorImage: {
+        resizeMode: 'stretch',
+        width: "100%",
+        height: "100%",
+      },
+      
 });
 
 export {styles}
