@@ -2,6 +2,8 @@ import { useState, useRef } from 'react';
 import { Text, View, Image, TouchableOpacity, Modal, Animated, Easing, SafeAreaView } from 'react-native';
 import { styles } from "./RandomizerWheelPageStyles.js";
 
+const backButtonImage = require('../../../assets/BackButton.png');
+
 export default function RandomizerWheelPage() {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isSpinning, setIsSpinning] = useState(false);
@@ -46,6 +48,7 @@ export default function RandomizerWheelPage() {
 
     return (
         <SafeAreaView style={styles.container}>
+            
             <View style={styles.header}>
                 <Text style={styles.headertext}>Randomizer</Text>
             </View>
@@ -81,6 +84,12 @@ export default function RandomizerWheelPage() {
                     </View>
                 </TouchableOpacity>
             </Modal>
+
+            <TouchableOpacity style={styles.backButton} onPress={() => {
+                    navigation.navigate('Home Tabs')
+                    }}>
+                    <Image style={styles.backImage} source={backButtonImage} />
+            </TouchableOpacity>
         </SafeAreaView>
     )
 }

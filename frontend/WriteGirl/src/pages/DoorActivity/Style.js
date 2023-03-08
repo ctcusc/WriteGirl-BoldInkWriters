@@ -156,7 +156,21 @@ const styles = StyleSheet.create({
         borderRadius:30,
         backgroundColor:"#FFFFFF",
         filter:"drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25))",
-      }
+      },
+      backImage: {
+          resizeMode: 'stretch',
+          width: "100%",
+          height: "100%",
+      },
+
+      backButton: {
+          width: "33px",
+          height: "27px",
+          marginRight: "85%",
+          marginTop: "20px",
+          marginBottom: "10%",
+          position: "absolute",
+      },
 });
 
 export {styles}

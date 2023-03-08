@@ -3,6 +3,7 @@ import { useState } from 'react';
 import {View, SafeAreaView, FlatList, Image, TouchableOpacity, Text} from 'react-native';
 import { Alert, Collapse, NativeBaseProvider } from 'native-base';
 const imgArr = new Array(9).fill("https://placeimg.com/635/360/tech");
+const doorImage = require('../../../assets/door.png');
 
 export default function DoorActivity() {
     const [show, setShow] = useState(false);
@@ -20,7 +21,7 @@ export default function DoorActivity() {
                     <FlatList
                         data={imgArr}
                         renderItem={renderItem}
-                        ItemSeparatorComponent={() => <View style={{height: 3}} />}
+                        ItemSeparatorComponent={() => <View/>}
                         numColumns={3}
                         key={3}
                     />
@@ -47,10 +48,18 @@ export default function DoorActivity() {
 }
 
 function renderItem({item}) {
-    return <Image
+
+
+    return <TouchableOpacity  onPress={() => {
+        navigation.navigate('Door Opened')
+        }}>
+            <Image
         source={require('../../../assets/whitevertical.png')}
         style={{width: "28%", height: 90, marginVertical: 20, marginHorizontal: 10, marginLeft: 10, borderRadius: 20, filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))' }
     }
     />;
+        </TouchableOpacity>;
+
+
 }
 
