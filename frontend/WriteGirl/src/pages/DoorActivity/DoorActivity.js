@@ -5,7 +5,7 @@ import { Alert, Collapse, NativeBaseProvider } from 'native-base';
 const imgArr = new Array(9).fill("https://placeimg.com/635/360/tech");
 const doorImage = require('../../../assets/door.png');
 
-export default function DoorActivity() {
+export default function DoorActivity({navigation}) {
     const [show, setShow] = useState(false);
 
     return(
@@ -13,8 +13,8 @@ export default function DoorActivity() {
             <View style = {styles.page}>
                 <View style = {styles.doorDiv}>
                     <TouchableOpacity onPress={() => {
-            navigation.navigate('HomeTabs')
-          }}>
+                        navigation.navigate('Home Tabs', { screen: 'Writing Experiments' });
+                    }}>
                         <Text style={styles.backText}>←</Text>
                     </TouchableOpacity>
                     <Text style={styles.chooseText}>Choose a Door!</Text>
@@ -47,11 +47,12 @@ export default function DoorActivity() {
     )
 }
 
-function renderItem({item}) {
+function renderItem({navigation}) {
 
 
     return (<TouchableOpacity  style={styles.doorIcon} onPress={() => {
         navigation.navigate('Door Opened')
+        console.log("open door")
         }}>
             <Image source={doorImage} style={styles.doorImage}/>
         </TouchableOpacity>);

@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     loginText: {
         fontWeights: "bold",
         color: "#fff",
-        fontSize: 23,
+        fontSize: "50%",
     },
     titleText: {
         fontWeights: "bold",

@@ -21,7 +21,8 @@ function HomeTabs() {
         // screenOptions={({ route }) => ({
         //   tabBarButton: [
         //     "Screen Saver Setup",
-        //     "Screen Saver Page"
+        //     "Screen Saver Page",
+        //     "Door Opened"
         //   ].includes(route.name) 
         //     ? () => {
         //         return null;
@@ -41,9 +42,19 @@ function HomeTabs() {
 export default function App({navigation}) {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{
-            headerShown: false,
-          }}>
+      <Stack.Navigator screenOptions={({ route }) => ({
+          tabBarButton: [
+            "Screen Saver Setup",
+            "Screen Saver Page",
+            "Door Opened",
+            "Door Activity"
+          ].includes(route.name) 
+            ? () => {
+                return null;
+              }
+            : undefined,
+        })}>
+            
             <Stack.Screen name="Sign In" component={SignInPage} />
             <Stack.Screen name="Create Account" component={CreateAccountPage} />
             <Stack.Screen name="Home Tabs" component={HomeTabs} />
@@ -51,8 +62,9 @@ export default function App({navigation}) {
             <Stack.Screen name="Screen Saver Setup" component={ScreenSaverSetup} />
             <Stack.Screen name="Screen Saver Page" component={ScreenSaverPage} />
             <Stack.Screen name="Randomizer Wheel" component={RandomizerWheelPage} />
-            <Stack.Screen name="Door Activity" component={DoorActivity} />
             <Stack.Screen name="Door Opened" component={DoorOpened} />
+            <Stack.Screen name="Door Activity" component={DoorActivity} />
+            
       </Stack.Navigator>
     </NavigationContainer>
   );

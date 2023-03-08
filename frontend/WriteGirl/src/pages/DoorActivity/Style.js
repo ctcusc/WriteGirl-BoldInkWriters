@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
       },
       openText: {
         color: '#0D4D5E', 
-        font: 'Droid Sans',
+        // font: 'Droid Sans',
         fontStyle: 'normal',
         fontWeight: 700,
         fontSize: '30px',
