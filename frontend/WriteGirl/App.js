@@ -3,10 +3,10 @@ import { Provider } from 'react-native-paper'
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator, BottomTabBar } from '@react-navigation/bottom-tabs';
 
 // TODO: add your page here!
-import NavBar, {CreateAccountPage, HomePage, WritingExperiments, ExamplePage, MonthlyExercises, ScreenSaverSetup, ScreenSaverPage, SignInPage, DoorActivity, DoorOpened, OpenedExercise} from "./src/pages" 
+import NavBar, {CreateAccountPage, HomePage, WritingExperiments, ExamplePage, MonthlyExercises, SignInPage, ScreenSaverPage, ScreenSaverSetup, DoorActivity, DoorOpened, RandomizerWheelPage, AboutUsPage, ResourcesPage, OpenedExercise} from "./src/pages" 
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator();
@@ -16,28 +16,34 @@ export default function App({navigation}) {
   return (
     <NavigationContainer>
       <Tab.Navigator 
-        screenOptions={({ route }) => ({
-          tabBarButton: [
-            "Screen Saver Setup",
-            "Screen Saver Page",
-            "Monthly Exercise Opened"
-          ].includes(route.name) 
-            ? () => {
-                return null;
-              }
-            : undefined,
-        })}
+        screenOptions={{
+          headerShown: false
+        }}
+        
+        // screenOptions={({ route }) => ({
+        //   tabBarButton: [
+        //     "Screen Saver Setup",
+        //     "Screen Saver Page"
+        //   ].includes(route.name) 
+        //     ? () => {
+        //         return null;
+        //       }
+        //     : undefined,
+        // })}
       >
           <Tab.Screen name="Home" component={HomePage} />
           <Tab.Screen name="Create Account" component={CreateAccountPage} />
           <Tab.Screen name="Writing Experiments" component={WritingExperiments} />
           <Tab.Screen name="Sign In Page" component={SignInPage} />
           <Tab.Screen name="Monthly Exercises" component={MonthlyExercises} />
-          <Tab.Screen name="Screen Saver Setup" component={ScreenSaverSetup} />
-          <Tab.Screen name="Screen Saver Page" component={ScreenSaverPage} />
-          <Tab.Screen name="Door Activity" component={DoorActivity} />
-          <Tab.Screen name="Door Opened" component={DoorOpened} />
           <Tab.Screen name="Monthly Exercise Opened" component={OpenedExercise} />
+          <Tab.Screen name="Resources" component={ResourcesPage} />
+          <Tab.Screen name="Screen Saver Setup" component={ScreenSaverSetup} />
+          {/* <Tab.Screen name="Screen Saver Page" component={ScreenSaverPage} />       */}
+          <Tab.Screen name="About Us Page" component={AboutUsPage} />  
+          {/* <Tab.Screen name="Door Activity" component={DoorActivity} />
+          <Tab.Screen name="Door Opened" component={DoorOpened} />
+          <Tab.Screen name="Randomizer Wheel" component={RandomizerWheelPage} /> */}
       </Tab.Navigator>
     </NavigationContainer>
     // <NavigationContainer>
