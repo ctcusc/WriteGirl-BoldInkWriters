@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
+        paddingTop: "10%",
         backgroundColor: "#49a5ad",
         flex: 1,
         flexDirection: 'column',
@@ -40,10 +41,9 @@ const styles = StyleSheet.create({
         borderRadius: "30px",
         justifyContent: "flex-start",
         alignItems: "center",
-        width: "220px",
-        height: "200px",
-        marginTop: "12%",
-        position: "absolute",
+        width: "70%",
+        height: "30%",
+        marginTop: "20%",
     },
 
     tipTitle: {
@@ -70,10 +70,10 @@ const styles = StyleSheet.create({
     },
 
     pepTalkView: {
-        position: "absolute",
-        width: "220px",
-        height: "200px",
-        marginTop: "54%",
+        // position: "absolute",
+        width: "70%",
+        height: "30%",
+        marginTop: "20%",
         backgroundColor: "#fff",
         borderRadius: "30px",
         justifyContent: "flex-start",
@@ -100,7 +100,8 @@ const styles = StyleSheet.create({
         position: "absolute",
         width: "140px",
         height: "33px",
-        marginTop: "70%",
+        marginTop: "60%",
+        marginBottom: "5%",
 
         backgroundColor: "#c5da01",
         borderRadius: "20px",

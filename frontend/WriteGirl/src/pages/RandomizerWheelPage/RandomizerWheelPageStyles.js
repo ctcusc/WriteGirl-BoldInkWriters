@@ -121,6 +121,21 @@ const styles = StyleSheet.create({
     modaltext: {
         color: '#0D4D5E',
         fontSize: 20
+    },
+
+    backImage: {
+        resizeMode: 'stretch',
+        width: "100%",
+        height: "100%",
+    },
+
+    backButton: {
+        width: "33px",
+        height: "27px",
+        marginRight: "85%",
+        marginTop: "20px",
+        marginBottom: "10%",
+        position: "absolute",
     }
 
 });

@@ -65,9 +65,6 @@ export default function ResourcesPage() {
 
     return (
         <View style = {styles.container}>
-            <TouchableOpacity style={styles.backButton}>
-                <Image style={styles.backImage} source={backButtonImage}/>
-            </TouchableOpacity>
 
             <Text style={styles.title}>
                 Resources 

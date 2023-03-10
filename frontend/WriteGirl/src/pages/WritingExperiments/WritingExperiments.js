@@ -10,23 +10,30 @@ export default function WritingExperiments({navigation}) {
             <Text style={styles.title}>Reflection Prompt Placeholder</Text>
             <View style={styles.buttonPadding} />
             <View style={styles.fixToText}>
-              <TouchableOpacity disabled={false} style={styles.smallButtons} onPress={() => {
-                navigation.navigate('Screen Saver Setup')
-              }}>
+              <TouchableOpacity disabled={false} style={styles.smallButtons} >
                   <Text style={styles.generate}>Generate!</Text>
               </TouchableOpacity>
             </View>
           </View>
         
-          <TouchableOpacity style={styles.otherButtons}>
+          <TouchableOpacity style={styles.otherButtons}
+          onPress={() => {
+            navigation.navigate('Randomizer Wheel')
+          }}
+          >
             <Text style={styles.title}>Spin the Randomizer Wheel!</Text>
           </TouchableOpacity>
         
           <TouchableOpacity style={styles.otherButtons}>
-            <Text style={styles.title}>Open the Doors!</Text>
+            <Text style={styles.title} onPress={() => {
+                navigation.navigate('Door Activity')
+              }}>
+                Open the Doors!</Text>
           </TouchableOpacity>
           
-          <TouchableOpacity style={styles.otherButtons}>
+          <TouchableOpacity style={styles.otherButtons} onPress={() => {
+                navigation.navigate('Screen Saver Setup')
+              }}>
           <Text style={styles.title}>Find your inspiration!</Text>
           </TouchableOpacity>
         
