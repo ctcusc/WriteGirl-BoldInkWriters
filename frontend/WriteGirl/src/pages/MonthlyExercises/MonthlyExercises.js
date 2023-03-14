@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { Text, ScrollView, View, Pressable, Image } from "react-native";
 import { styles } from "./MonthlyExercisesStyles";
-import * as Progress from 'react-native-progress';
 
 export default function MonthlyExercises({ navigation, route }) {
-  const [viewed, setViewed] = useState([true, true, false]) //update this later with useEffect
+  const [viewed, setViewed] = useState([false, false, true]) //update this later with useEffect
   const [data, setData] = useState([])
   const [progress, setProgress] = useState(0)
 
@@ -32,6 +31,7 @@ export default function MonthlyExercises({ navigation, route }) {
     })
   }, [])
 
+  // check viewed array to see how many exercises are done
   useEffect(() => {
     let count = 0;
     viewed.forEach((v) => (v === true && count++));
@@ -39,10 +39,13 @@ export default function MonthlyExercises({ navigation, route }) {
   }, [viewed])
 
   const getProgressCircle = () => {
+    let uri = './assets/progress' + progress + '.png';
+    // console.log(uri)
     return (
       <Image
         style={styles.progressRing}
-        source={require('./assets/progress' + progress + '.png')}
+        source={require('./assets/progress'+progress+'.png')}
+        // source={require('./assets/progress0.png')} //why isn't the line above working with expo bundling
       />
     )
   }

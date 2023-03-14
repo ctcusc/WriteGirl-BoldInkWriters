@@ -1,7 +1,7 @@
 import { Text, View, ImageBackground, Image, TouchableOpacity, SafeAreaView } from 'react-native';
 import { styles } from "./HomePageStyles.js";
 
-export default function HomePage() {
+export default function HomePage({ navigation, route }) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.welcome}>
@@ -13,7 +13,7 @@ export default function HomePage() {
             <View style={styles.exercises}>
                 <Text style={styles.exercisestext1}>November</Text>
                 <Text style={styles.exercisestext2}>Imagine you are walking through the forest</Text>
-                <TouchableOpacity onPress={() => navigation.navigate('ExercisesPage')}>
+                <TouchableOpacity onPress={() => navigation.navigate('Monthly Exercises')}>
                     <Text style={styles.exercisesbutton}>unlock</Text>
                 </TouchableOpacity>
             </View>
