@@ -1,7 +1,7 @@
 import { Text, View, ImageBackground, Image, TouchableOpacity, SafeAreaView } from 'react-native';
 import { styles } from "./HomePageStyles.js";
 
-export default function HomePage({ navigation, route }) {
+export default function HomePage({navigation}) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.welcome}>

@@ -1,7 +1,7 @@
 import {styles} from './Style'
 import {Text, View, SafeAreaView, TouchableOpacity} from 'react-native';
 
-export default function DoorOpened() {
+export default function DoorOpened({navigation}) {
 
     return(
         <SafeAreaView style={styles.container}>
