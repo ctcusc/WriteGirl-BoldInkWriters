@@ -30,14 +30,13 @@ function HomeTabs() {
         //     : undefined,
         // })}
       >
-          <Tab.Screen name="Home" component={HomePage} />
-          <Tab.Screen name="Create Account" component={CreateAccountPage} />
+          {/* <Tab.Screen name="Monthly Exercises" component={MonthlyExercises} /> */}
+          {/* <Tab.Screen name="Monthly Exercise Opened" component={OpenedExercise} /> */}
+          <Tab.Screen name="Home Page" component={HomePage} />
           <Tab.Screen name="Writing Experiments" component={WritingExperiments} />
-          <Tab.Screen name="Sign In Page" component={SignInPage} />
-          <Tab.Screen name="Monthly Exercises" component={MonthlyExercises} />
-          <Tab.Screen name="Monthly Exercise Opened" component={OpenedExercise} />
           <Tab.Screen name="Resources" component={ResourcesPage} />
-          <Tab.Screen name="About Us Page" component={AboutUsPage} />  
+          {/* <Tab.Screen name="Screen Saver Setup" component={ScreenSaverSetup} /> */}
+          <Tab.Screen name="About Us Page" component={AboutUsPage} /> 
       </Tab.Navigator>
   );
 }
@@ -63,6 +62,7 @@ export default function App({navigation}) {
             <Stack.Screen name="Create Account" component={CreateAccountPage} />
             <Stack.Screen name="Home Tabs" component={HomeTabs} />
             <Stack.Screen name="Monthly Exercises" component={MonthlyExercises} />
+            <Stack.Screen name="Monthly Exercise Opened" component={OpenedExercise} />
             <Stack.Screen name="Screen Saver Setup" component={ScreenSaverSetup} />
             <Stack.Screen name="Screen Saver Page" component={ScreenSaverPage} />
             <Stack.Screen name="Randomizer Wheel" component={RandomizerWheelPage} />
