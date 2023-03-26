@@ -13,7 +13,7 @@ export default function HomePage({navigation}) {
             <View style={styles.exercises}>
                 <Text style={styles.exercisestext1}>November</Text>
                 <Text style={styles.exercisestext2}>Imagine you are walking through the forest</Text>
-                <TouchableOpacity onPress={() => navigation.navigate('Monthly Exercises')}>
+                <TouchableOpacity onPress={() => navigation.navigate('Monthly Exercises', {arrId: -1})}>
                     <Text style={styles.exercisesbutton}>unlock</Text>
                 </TouchableOpacity>
             </View>

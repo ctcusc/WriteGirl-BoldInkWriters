@@ -3,6 +3,8 @@ import { Text, ScrollView, View, Pressable, Image, SafeAreaView } from "react-na
 import { styles } from "./OpenedExerciseStyles";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { NativeBaseProvider } from "native-base";
+import Video from 'react-native-video';
+import stockVid from './assets/stockVid.mp4'
 
 export default function OpenedExercise({ navigation, route }) {
     const [data, setData] = useState(route.params.data)
@@ -19,7 +21,19 @@ export default function OpenedExercise({ navigation, route }) {
     
     const renderMedia = () => {
         if(data.mediaType == "video") {
-            return(console.log("video"))
+            try{
+              return(
+                // <Video
+                //   source={stockVid}
+                //   paused={false} //make it auto start
+                //   // style={styles.img}
+                //   controls={true}
+                // />
+                <Text style={styles.img}>VIDEO HERE!!</Text>
+              )
+            } catch (err) {
+              console.log("video render error", err)
+            }
         } else if(data.mediaType == "img" || data.mediaType == "gif") {
             return(<Image
                 style={styles.img}
@@ -75,7 +89,7 @@ export default function OpenedExercise({ navigation, route }) {
                             onPress={() => {
                                 if(done) {
                                     setDone(false)
-                                    navigation.navigate('Monthly Exercises', { id: data.id })
+                                    navigation.navigate('Monthly Exercises', { id: data.id, arrId: route.params.arrId })
                                 } else { setDone(true) }
                             }}
                         >

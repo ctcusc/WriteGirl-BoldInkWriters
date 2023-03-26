@@ -10,14 +10,14 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     backgroundColor: "#F0EBE8",
+    height: height,
   },
   arrContainer: {
-    // paddingLeft: '2%',
     paddingTop: '2%',
   },
   backArrow: {
     // height: '100%',
-    width: '10%',
+    width: '100%',
     marginLeft: '3%',
     resizeMode: 'cover',
   },  
@@ -30,12 +30,12 @@ const styles = StyleSheet.create({
   },
   titleBold: {
     fontSize: width/15,
-    fontWeight: 700,
+    fontWeight: "bold",
     color: "#0D4D5E",
   },
   titleRegular: {
     fontSize: width/16,
-    fontWeight: 400,
+    // fontWeight: 400,
     color: "#0D4D5E",
   },
   ringContainer: {
@@ -76,36 +76,32 @@ const styles = StyleSheet.create({
   },
   exerciseTitle: {
     fontSize: exerciseContw*0.065,
-    fontWeight: 700,
+    fontWeight: "bold",
     color: "#545454",
-    paddingBottom: "3px",
+    paddingBottom: 4,
   },
   activeExerciseTitle: {
     fontSize: exerciseContw*0.065,
-    fontWeight: 700,
+    fontWeight: "bold",
     color: "white",
-    paddingBottom: "3px",
+    paddingBottom: 4,
   },
   exerciseDescription: {
     fontSize: exerciseContw*0.06,
-    fontWeight: 400,
+    // fontWeight: 400,
     color: "#0D4D5E",
   },
   activeExerciseDescription: {
     fontSize: exerciseContw*0.06,
-    fontWeight: 400,
+    // fontWeight: 400,
     color: "white",
   },
   titleRow: {
     flexDirection: "row",
+    justifyContent: "space-between",
   },
   
   playButton: {
-    // width: "auto",
-    // height: 10,
-    // resizeMode: 'cover',
-    // borderTopLeftRadius: 30,
-    // borderTopRightRadius: 30,
   }, 
 });
 

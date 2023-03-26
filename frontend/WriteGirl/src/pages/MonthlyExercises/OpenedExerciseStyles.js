@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
         display: "flex",
         alignItems: "center",
         backgroundColor: "#F0EBE8",
+        height: height,
     },
     backArrow: {
         // height: '100%',
@@ -43,16 +44,16 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 30,
     },
     title: {
-        fontSize: width/12,
+        fontSize: width/15,
         fontWeight: "bold",
         alignSelf: "center",
         flexWrap: "wrap",
-        marginTop: containerHeight/10,
+        marginTop: containerHeight/15,
         marginBottom: containerHeight/20,
         marginHorizontal: 30,
     },
     description: {
-        fontSize: width/20,
+        fontSize: width/25,
         flexWrap: "wrap",
         marginBottom: containerHeight/15,
         marginHorizontal: 30,

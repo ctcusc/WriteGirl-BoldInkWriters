@@ -3,7 +3,7 @@ import { Text, ScrollView, View, Pressable, Image } from "react-native";
 import { styles } from "./MonthlyExercisesStyles";
 
 export default function MonthlyExercises({ navigation, route }) {
-  const [viewed, setViewed] = useState([false, false, true]) //update this later with useEffect
+  const [viewed, setViewed] = useState([false, false, false]) //update this later with useEffect
   const [data, setData] = useState([])
   const [progress, setProgress] = useState(0)
 
@@ -12,16 +12,29 @@ export default function MonthlyExercises({ navigation, route }) {
     "July", "August", "September", "October", "November", "December"
   ];
 
+  useEffect(() => {
+    try {
+      let dex = route.params.arrId
+      if(dex === 0 || dex === 1 || dex === 2) {
+        setProgress(progress+1);
+        let arr = [...viewed]
+        arr[dex] = true;
+        setViewed(arr)
+      }
+    } catch (err) {
+      console.log("error in MonthlyExercises.js", err)
+    }
+  }, [route.params])
+
   // fetch exercise prompts
   useEffect(() => {
-    fetch(`http://localhost:8000/api/monthly-exercise-prompt/`, {
+    fetch(`http://172.20.10.9:8000/api/monthly-exercise-prompt/`, {
       method: "GET",
     })
     .then((res) => {
         return res.json()
     })
     .then((data) => {
-        console.log(data)
         setData(data);
         return data;
     })
@@ -39,27 +52,50 @@ export default function MonthlyExercises({ navigation, route }) {
   }, [viewed])
 
   const getProgressCircle = () => {
-    let uri = './assets/progress' + progress + '.png';
-    // console.log(uri)
-    return (
-      <Image
-        style={styles.progressRing}
-        source={require('./assets/progress'+progress+'.png')}
-        // source={require('./assets/progress0.png')} //why isn't the line above working with expo bundling
-      />
-    )
+    if(progress === 0) { 
+      return (
+        <Image
+          style={styles.progressRing}
+          source={require('./assets/progress0.png')}
+        />
+      )
+    }
+    else if(progress === 1) { 
+      return (
+        <Image
+          style={styles.progressRing}
+          source={require('./assets/progress1.png')}
+        />
+      )
+    }
+    else if(progress === 2) { 
+      return (
+        <Image
+          style={styles.progressRing}
+          source={require('./assets/progress2.png')}
+        />
+      )
+    }
+    else if(progress === 3) { 
+      return (
+        <Image
+          style={styles.progressRing}
+          source={require('./assets/progress3.png')}
+        />
+      )
+    }
   }
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
 
       {/* BACK BUTTON */}
-      <Pressable style={styles.arrContainer} onPress={() => { navigation.navigate('Home') }}>
+      {/* <Pressable style={styles.arrContainer} onPress={() => { navigation.navigate('Home') }}>
           <Image
               style={styles.backArrow}
               source={require('./assets/backArrowIcon.png')}
           />
-      </Pressable>
+      </Pressable> */}
 
 
       {/* TITLE */}
@@ -68,27 +104,12 @@ export default function MonthlyExercises({ navigation, route }) {
         <Text style={styles.titleRegular}> Exercises</Text>
       </View>
 
-      {/* PROGRESS CIRCLE */}
-      {/* <View style={styles.ringContainer}>
-        <Text style={styles.ringTitle}>33%</Text> */}
-        {/* <Progress.Circle 
-          size={183} 
-          progress={progress}
-          animated={true} 
-          color={"yellow"}
-          // unfilledColor={"purple"}
-          borderWidth={10}
-          // borderColor={"red"}
-          showsText={true}
-          fill="#FFF"
 
-        /> */}
-      {/* </View> */}
+      {/* PROGRESS CIRCLE */}
       <View style={styles.ringContainer}>
         {getProgressCircle()}
       </View>
-      
-
+    
 
       {/* EXERCISES */}
       {data.map((datum, i) => {
@@ -101,10 +122,7 @@ export default function MonthlyExercises({ navigation, route }) {
                 : styles.exerciseContainer
             }
             onPress={() => { 
-              // console.log("PRESSED", datum)
-              // setPromptOpened(true)
-              // setActiveItem(datum)
-              navigation.navigate('Monthly Exercise Opened', { data: datum })
+              navigation.navigate('Monthly Exercise Opened', { data: datum, arrId: i })
             }}
           >
             {/* TITLE */}
@@ -117,10 +135,16 @@ export default function MonthlyExercises({ navigation, route }) {
                 {datum.title}
               </Text>
               <Pressable>
-                  <Image
+                  {viewed[i]
+                    ? <Image
+                      style={styles.playButton}
+                      source={require('./assets/check.png')}
+                      />
+                    : <Image
                       style={styles.playButton}
                       source={require('./assets/play.png')}
-                  />
+                      />
+                  }
               </Pressable>
             </View>
 
