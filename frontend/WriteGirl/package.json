@@ -24,6 +24,7 @@
     "expo": "^48.0.5",
     "expo-cli": "^6.3.2",
     "expo-status-bar": "~1.4.0",
+    "firebase": "^9.18.0",
     "hermes-engine": "0.5.2-rc1",
     "native-base": "^3.4.25",
     "react": "18.0.0",
@@ -31,6 +32,7 @@
     "react-hook-form": "^7.43.0",
     "react-native": "0.69.6",
     "react-native-circular-progress-indicator": "^4.4.2",
+    "react-native-dotenv": "^3.4.8",
     "react-native-dropdown": "^0.0.6",
     "react-native-gesture-handler": "~2.5.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
@@ -48,7 +50,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "@react-native-picker/picker": "^2.4.8"
+    "@react-native-picker/picker": "^2.4.8",
+    "metro-react-native-babel-preset": "^0.76.0"
   },
   "private": true
 }

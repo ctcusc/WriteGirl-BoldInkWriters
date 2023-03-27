@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Text, ScrollView, View, Pressable, Image } from "react-native";
 import { styles } from "./MonthlyExercisesStyles";
+import { FIREBASE_KEY } from '@env'
 
 export default function MonthlyExercises({ navigation, route }) {
   const [viewed, setViewed] = useState([false, false, false]) //update this later with useEffect
