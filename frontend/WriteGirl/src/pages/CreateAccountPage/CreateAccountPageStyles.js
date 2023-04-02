@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 
     title: {
         fontSize: 40,
-        marginTop: 30,
+        marginTop: 50,
         marginBottom: 20,
     },
 
@@ -126,6 +126,21 @@ const styles = StyleSheet.create({
         // borderWidth: 2,
         // borderColor: '#000',
         borderRadius: 10, 
+    },
+
+    backImage: {
+        resizeMode: 'stretch',
+        width: "100%",
+        height: "100%",
+    },
+
+    backButton: {
+        width: "33px",
+        height: "27px",
+        marginRight: "85%",
+        marginTop: "20px",
+        marginBottom: "10%",
+        position: "absolute",
     },
 
 });
