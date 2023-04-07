@@ -6,25 +6,11 @@ import { Alert, Collapse, NativeBaseProvider } from 'native-base';
 // import { NavigationContainer } from '@react-navigation/native';
 const imgArr = new Array(9).fill("https://placeimg.com/635/360/tech");
 
-export default function DoorActivity() {
+export default function DoorActivity({navigation}) {
     const [show, setShow] = useState(false);
+
     // Variable to hold random prompt id
-    const [data, setData] = useState();
-    useEffect(() => {
-        // Get random prompt id
-        let url = "http://localhost:8000/api/dooractivity/" + "1";
-        fetch(url, {
-            method: "GET",
-        })
-        .then((res) => {
-            return res.json()
-        })
-        .then((data) => {
-            if(data == null) { throw new Error("No data found"); }
-            setData(data.instruction);
-            console.log(data);
-        })
-    }, []);
+    
 
 
 
@@ -67,7 +53,7 @@ export default function DoorActivity() {
     )
 }
 
-function renderItem({item}, navigation) {
+function renderItem({item, navigation}) {
     return <TouchableOpacity
             style={{width: "28%", height: 90, marginVertical: 20, marginHorizontal: 10, marginLeft: 10}}
             // On press go to door opened page
