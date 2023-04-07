@@ -2,11 +2,12 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-      marginLeft: 40,
-      marginRight:40,
-      marginBottom: 80,
+    //   marginLeft: 40,
+    //   marginRight:40,
+    //   marginBottom: 80,
       flex:1,
       justifyContent:'space-between',
+
     },
     welcome: {
         marginLeft: -40,
@@ -102,29 +103,91 @@ const styles = StyleSheet.create({
     },
 
     jumpstart: {
-        marginLeft: -40,
-        marginRight: -40,
-        height: '20%',
-        backgroundColor: '#49A5AD',
+        marginTop: '80%',
+        position: 'absolute',
+        height: '100%',
+        width: '100%',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
         borderTopLeftRadius: 20,
-        borderTopRightRadius: 20
+        borderTopRightRadius: 20,
     },
     jumpstartarrow: {
-        height: '50%',
-        width: '50%',
-        marginTop: 20,
+        height: '100%',
+        width: '100%',
         alignSelf: 'center',
         resizeMode: 'contain'
     },
     jumpstartbutton: {
-       height: '30%',
-       marginBottom: '5%'
+        justifyContent: 'center',
+       height: '25px',
+       width: '35px',
+       marginTop: '10px',
     },
     jumpstarttext: {
         alignSelf: 'center',
         fontSize: 24,
         color: '#FFFFFF'
+    },
+    todaysJumpstart: {
+        marginTop: '7%',
+        marginBottom: '3%',
+        color: '#ffffff',
+        textAlign: 'center',
+        width: '80%',
+        height: '33px',
+        fontSize: '27px',
+        fontWeight: 150
+    },
+    jumpstartView: {
+        marginTop: '30%',
+        position: 'absolute',
+        backgroundColor: '#272e32',
+        width: '70%',
+        height: '40%',
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+    }, 
+    jumpstartTitle: {
+        color: '#ffffff',
+        fontSize: '20px',
+        fontWeight: 400,
+    },
+    wordJumpstart: {
+        color: '#ffffff',
+        fontSize: '50px',
+        fontWeight: 400,
+        textAlign: 'center',
+    },
+    jumpstartImage: {
+        resizeMode: 'stretch',
+        padding: '10%',
+        height: '50%',
+        width: '70%',
+        alignSelf: 'center',
+    },
+
+
+
+    completeButton: {
+        backgroundColor: '#272e32',
+        width: '332px',
+        height: '44px',
+        alignItems: 'center',
+        borderRadius: '20px',
+        position: 'absolute',
+        marginTop: '80%',
+    },
+    completeText: {
+        color: "#ffffff",
+        fontSize: '25px',
+        fontWeight: 200,
+        textAlign: 'center',
     }
+
+
   });
 
   export { styles };

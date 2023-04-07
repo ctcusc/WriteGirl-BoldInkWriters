@@ -1,9 +1,115 @@
-import { Text, View, ImageBackground, Image, TouchableOpacity, SafeAreaView } from 'react-native';
+import { ScrollView, Animated, Text, View, ImageBackground, Image, TouchableOpacity, SafeAreaView } from 'react-native';
+import { useState, useRef } from 'react';
 import { styles } from "./HomePageStyles.js";
 
+//different titles for the 
+const wordJumpstart = "Use this word for inspiration:";
+const pictureJumpstart = "Use this picture for inspiration:";
+
+
+const dummyImage = require('./assets/JumpstartDummyImage.png');
+const downArrow = require('./assets/downArrow.png');
+const upArrow = require('./assets/Vector3.png');
+
+const wordMode = (
+<Text style={styles.wordJumpstart}>
+    SILLY
+</Text>
+);
+
+const pictureMode = (
+    <Image source={dummyImage} style={styles.jumpstartImage}/>
+);
+
+const downMode = (
+    <View></View>
+);
+const upMode = (
+    <View></View>
+);
+
+//different background colors for the jumpstart
+const blue = '#359fab';
+const black = '#1a1e21';
+
+let modeNumber = 0;
+let up = false;
+
+
 export default function HomePage({navigation}) {
+    {/* mode
+    *  0 = word
+    *  1 = audio
+    *  2 = picture
+    */}
+    const [mode, setMode] = useState(wordMode);
+    const [modeTitle, setModeTitle] = useState(wordJumpstart);
+    const [color, setColor] = useState(blue);
+    const [image, setImage] = useState(upArrow);
+    const moveAnim = useRef(new Animated.Value(0)).current;
+    const fadeAnim = useRef(new Animated.Value(1)).current;
+
+    //changing the modes to either word or picture
+    const changeMode = () => {
+        modeNumber = (modeNumber + 1) % 2;
+        switch(modeNumber) {
+            case 0:
+                setMode(wordMode);
+                setModeTitle(wordJumpstart);
+                break;
+            case 1:
+                setMode(pictureMode);
+                setModeTitle(pictureJumpstart);
+                break;
+        }
+    };
+
+    //changing the color and the position of the jumpstart
+    const shift = () => {
+        if (up) {
+            Animated.parallel([
+                Animated.timing(moveAnim, {
+                    toValue: 0,
+                    duration: 800,
+                    useNativeDriver: true,
+                }),
+                Animated.timing(fadeAnim, {
+                    toValue: 1,
+                    duration: 800,
+                    useNativeDriver: true,
+                })
+            ]).start(() => {
+                setColor(blue);
+                setImage(upArrow);
+            });
+        }
+        else {
+            setColor(black);
+            Animated.parallel([
+                Animated.timing(moveAnim, {
+                    toValue: -400,
+                    duration: 800,
+                    useNativeDriver: true,
+                }),
+                Animated.timing(fadeAnim, {
+                    toValue: 0,
+                    duration: 800,
+                    useNativeDriver: true,
+                })
+            ]).start(() => {
+                setImage(downArrow);
+            });
+        }
+        
+        up = !up;
+    };
+
+
+
+
+// is originally a SafeAreaView
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={{ backgroundColor: "#"}} contentContainerStyle={styles.container}>
             <View style={styles.welcome}>
                 <Text style={styles.welcometext1}>Welcome, Jane</Text>
                 <Text style={styles.welcometext2}>What inspires you today?</Text>
@@ -27,12 +133,46 @@ export default function HomePage({navigation}) {
                 </View>
             </View>
 
-            <View style={styles.jumpstart}>
-                <TouchableOpacity style={styles.jumpstartbutton} onPress={() => navigation.navigate('JumpstartPage')}>
-                    <Image style={styles.jumpstartarrow} source={require('./assets/Vector3.png')}/>
+
+            {/* 
+            * onPress = {() => navigation.navigate('JumpstartPage')}
+            *  use the above if we decide to change pages on the button press
+             */}
+            <Animated.View style={[styles.jumpstart, 
+                {
+                    backgroundColor: color,
+                    transform: [{translateY: moveAnim}]
+                },
+            ]}>
+                <TouchableOpacity style={styles.jumpstartbutton} onPress={shift}>
+                    <Image style={styles.jumpstartarrow} source={image}/>
                 </TouchableOpacity>
-                <Text style={styles.jumpstarttext}>jumpstart your writing</Text>
-            </View>
-        </SafeAreaView>
+                <Animated.Text style={[styles.jumpstarttext,
+                    {
+                        opacity: fadeAnim,
+                    },
+                ]}>
+                jumpstart your writing
+                </Animated.Text>
+
+                <Text style={styles.todaysJumpstart}>
+                    Today's Jumpstart
+                </Text>
+
+                <View style={styles.jumpstartView}>
+                    <Text style={styles.jumpstartTitle}>
+                        {modeTitle}
+                    </Text>
+                    <br></br>
+                    {mode}
+                </View>
+
+                <TouchableOpacity style={styles.completeButton} onPress={changeMode}>
+                    <Text style={styles.completeText}>
+                        complete
+                    </Text>
+                </TouchableOpacity>
+            </Animated.View>
+        </View>
     )
 }
