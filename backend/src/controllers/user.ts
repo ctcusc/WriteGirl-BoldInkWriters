@@ -33,31 +33,28 @@ export const logout = (req: Request, res: Response): void => {
   req.logout()
 }
 
-export const postSignup = async (req: Request, res: Response) => {
-  const existingUser = await User.findOne({
-    where: { email: req.body.email },
-  })
-  if (existingUser) {
-    return res
-      .status(StatusCodes.CONFLICT)
-      .json({ message: `${req.body.email} is already taken` })
-  }
-
+export const postSignup = async (req: Request, res: Response, next: NextFunction) => {
   const user = new User({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    birthday: req.body.birthday,
     email: req.body.email,
     password: req.body.password,
+    country: req.body.country,
+    state: req.body.state,
+    city: req.body.city
   })
   await user.save()
-  req.logIn(user, (err) => {
-    if (err) {
-      throw err
-    }
-  })
+
   return res.status(StatusCodes.CREATED).json(user.toJSON()).send()
 }
 
-export const getAccount = (req: Request, res: Response) => {
-  return res.json(req.user)
+export const getAccount = async (req: Request, res: Response) => {
+  console.log("user.ts", req.user)
+  const result = await User.findOne({
+      where: {email: req.user.email}
+  })
+  return res.json(result)
 }
 
 export const updateAccount = async (req: Request, res: Response) => {

@@ -12,12 +12,30 @@ import {
 
 @Table
 export class User extends Model {
+  @Column
+  firstName!: string
+
+  @Column
+  lastName!: string
+
+  @Column
+  birthday!: Date
+  
   @Unique
   @Column
   email!: string
 
   @Column
   password!: string
+
+  @Column
+  country!: string
+
+  @Column
+  state!: string
+
+  @Column
+  city!: string
 
   @CreatedAt
   @Column
