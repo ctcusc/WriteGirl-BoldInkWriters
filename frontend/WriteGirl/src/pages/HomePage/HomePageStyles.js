@@ -2,55 +2,56 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-      marginLeft: 40,
-      marginRight:40,
-      marginBottom: 80,
+      paddingLeft: 40,
+      paddingRight:40,
+      paddingBottom: 80,
       flex:1,
       justifyContent:'space-between',
+      backgroundColor: '#F0EBE8'
     },
     welcome: {
-        marginLeft: -40,
-        marginRight: -40,
-        backgroundColor: '#49A5AD',
-        borderBottomLeftRadius: 40,
         height: '20%',
-        paddingLeft: 30,
         paddingTop: 50
     },
     welcometext1: {
-        fontSize: 20,
-        color: '#FFFFFF'
+        fontSize: 18,
+        color: '#0D4D5E'
     },
     welcometext2: {
-        paddingTop: 15,
-        fontSize: 25,
-        color: '#FFFFFF'
+        // paddingTop: 10,
+        fontSize: 30,
+        color: '#0D4D5E',
+        alignSelf: 'center'
+    },
+    pic: {
+        width:40,
+        height:40
     },
     horizontal: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        width: '100%'
     },
 
     tip: {
         height: '20%',
-        marginTop: '10%',
+        marginTop: '5%',
+        marginBottom: '5%',
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
     tipbox: {
-        borderWidth: 2,
-        width: '20%',
-        height: 100,
-        alignSelf: 'flex-end',
-        marginRight: '10%',
+        width: 74.72,
+        height: 112.33,
+        alignSelf: 'flex-end'
     },
     tiptext: {
         color: '#0D4D5E',
-        fontSize: "0.8em",
+        fontSize: 18,
         paddingRight: 30,
         paddingLeft: 30,
-        paddingBottom: '15%'
+        paddingBottom: '6%'
     },
     tipimagecontainer: {
         width: "70%",
@@ -69,36 +70,79 @@ const styles = StyleSheet.create({
     },
 
     exercises: {
-        borderWidth: 2,
-        height: '30%',
-        marginTop: '10%',
-        justifyContent: 'space-evenly',
-        paddingTop: 20,
+        borderWidth: 1,
+        height: '40%',
+        // paddingTop: 20,
         paddingBottom: 20,
         alignItems: 'center',
-        borderRadius: 20
+        borderRadius: 20,
+        borderColor: '#FFFFFF',
+        elevation: 5,
+        shadowRadius: 5,
+        shadowColor: '#E1E0DE',
+        shadowOpacity: 1,
+        shadowOffset: {width: 0, height: 4},
+        backgroundColor: "#FFFFFF"
     },
     exercisesbutton: {
         color: '#0D4D5E',
         backgroundColor: '#C5DA01',
         paddingLeft: 30,
         paddingRight: 30,
-        paddingTop: 10,
-        paddingBottom: 10,
+        paddingTop: 5,
+        paddingBottom: 5,
         borderRadius: 20,
         textAlign: 'center',
+        marginTop: '5%',
+        shadowRadius: 5,
+        shadowColor: '#E1E0DE',
+        shadowOpacity: 1,
+        shadowOffset: {width: 0, height: 4},
+        fontSize: 25
     },
     exercisestext1: {
         fontSize: 27,
         fontWeight: 'bold',
-        color: '#0D4D5E'
-    },
-    exercisestext2: {
-        fontSize: 20,
         color: '#0D4D5E',
-        textAlign: 'center',
-        paddingLeft: 30,
-        paddingRight: 30
+    },
+    exerciseimg: {
+        width: '100%',
+        height: '80%',
+        justifySelf: 'flex-start',
+        // aspectRatio: 1,
+        resizeMode: 'cover',
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        borderBottomWidth: 2,
+        borderColor: '#FFFFFF',
+        zIndex: 999,
+        // elevation: 10,
+        // shadowRadius: 51,
+        // shadowColor: '#E1E0DF',
+        // shadowOpacity: 1,
+        // shadowOffset: {width: 0, height: 4},
+    },
+    horizontal2: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '100%',
+        paddingTop: '3%',
+        paddingLeft: 15,
+        paddingRight: 15,
+    },
+    rating: {
+        color: '#0D4D5E',
+        backgroundColor: '#C5DA01',
+        borderBottomLeftRadius: 30,
+        borderTopLeftRadius: 30,
+        paddingLeft: 6,
+        paddingRight: 6,
+        fontSize: 25,
+        position: 'absolute',
+        alignSelf: 'flex-end',
+        marginTop: '10%',
+        zIndex: 999,
     },
 
     jumpstart: {

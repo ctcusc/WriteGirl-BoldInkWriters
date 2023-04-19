@@ -2,6 +2,7 @@ import { Text, ScrollView, View } from "react-native";
 import { styles } from "./MonthlyExercisesStyles";
 
 export default function MonthlyExercises() {
+
   const data = [
     {
       title: "Exercise 1",
