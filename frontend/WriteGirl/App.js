@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator, BottomTabBar } from '@react-navigation/bottom-tabs';
 
 // TODO: add your page here!
-import NavBar, {CreateAccountPage, HomePage, WritingExperiments, ExamplePage, MonthlyExercises, SignInPage, ScreenSaverPage, ScreenSaverSetup, DoorActivity, DoorOpened, RandomizerWheelPage, AboutUsPage, ResourcesPage, OpenedExercise} from "./src/pages" 
+import NavBar, {CreateAccountPage, HomePage, WritingExperiments, ExamplePage, ProfilePage, MonthlyExercises, SignInPage, ScreenSaverPage, ScreenSaverSetup, DoorActivity, DoorOpened, RandomizerWheelPage, AboutUsPage, ResourcesPage, OpenedExercise} from "./src/pages" 
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator();
@@ -37,6 +37,7 @@ function HomeTabs() {
           <Tab.Screen name="Resources" component={ResourcesPage} />
           {/* <Tab.Screen name="Screen Saver Setup" component={ScreenSaverSetup} /> */}
           <Tab.Screen name="About Us Page" component={AboutUsPage} /> 
+          <Tab.Screen name="Profile Page" component={ProfilePage} />
       </Tab.Navigator>
   );
 }
@@ -61,6 +62,7 @@ export default function App({navigation}) {
             <Stack.Screen name="Sign In" component={SignInPage} />
             <Stack.Screen name="Create Account" component={CreateAccountPage} />
             <Stack.Screen name="Home Tabs" component={HomeTabs} />
+            <Stack.Screen name="Profile Page" component={ProfilePage} />  
             <Stack.Screen name="Monthly Exercises" component={MonthlyExercises} />
             <Stack.Screen name="Monthly Exercise Opened" component={OpenedExercise} />
             <Stack.Screen name="Screen Saver Setup" component={ScreenSaverSetup} />
