@@ -2,28 +2,30 @@ import { useState, useRef } from 'react';
 import { Text, View, Image, TouchableOpacity, Modal, Animated, Easing, SafeAreaView } from 'react-native';
 import { styles } from "./RandomizerWheelPageStyles.js";
 
-const backButtonImage = require('../../../assets/BackButton.png');
-
-export default function RandomizerWheelPage({navigation}) {
+export default function RandomizerWheelPage({ navigation, route }) {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isSpinning, setIsSpinning] = useState(false);
     const [selectedWordIndex, setSelectedWordIndex] = useState(0);
     const words = ['Adjective', 'Name', 'Location', 'Time'];
     const rotation = useRef(new Animated.Value(0)).current;
+    const [rotationNumber, setRotationNumber] = useState(1);
+    const [selectedWord, setSelectedWord] = useState(0);
 
     const startSpin = () => {
         if (isSpinning) return;
 
         setIsSpinning(true);
+        getPrompt();
 
         Animated.timing(rotation, {
-            toValue: 1,
+            toValue: rotationNumber,
             duration: 3000,
             easing: Easing.out(Easing.ease),
             useNativeDriver: true,
         }).start(() => {
             setIsModalVisible(true);
             setIsSpinning(false);
+            setRotationNumber(rotationNumber + 1);
         });
     };
     const rotate = rotation.interpolate({
@@ -46,16 +48,17 @@ export default function RandomizerWheelPage({navigation}) {
         }
     };
 
+    const getPrompt = async() => {
+        const response = await fetch("http://localhost:3000/api/randomizer-wheel-prompt/" + words[selectedWordIndex], {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'}
+        })
+        const response_data = await response.json();
+        setSelectedWord(response_data["prompt"]);
+    }
+
     return (
         <SafeAreaView style={styles.container}>
-
-            <TouchableOpacity style={styles.backButton} onPress={() => {
-                            navigation.navigate('Home Tabs', { screen: 'Writing Experiments' });
-                        }}>
-                        <Image style={styles.backImage} source={backButtonImage} />
-            </TouchableOpacity>
-            
-
             <View style={styles.header}>
                 <Text style={styles.headertext}>Randomizer</Text>
             </View>
@@ -87,12 +90,10 @@ export default function RandomizerWheelPage({navigation}) {
                     <View style={styles.modalcontent}>
                         <Text style={styles.modaltext}>Congratulations!</Text>
                         <Text style={styles.modaltext}>You got this adjective:</Text>
-                        <Text style={styles.modaltext}>Goofy</Text>
+                        <Text style={styles.modaltext}>{selectedWord}</Text>
                     </View>
                 </TouchableOpacity>
             </Modal>
-
-            
         </SafeAreaView>
     )
 }
