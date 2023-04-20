@@ -1,88 +1,108 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from 'react-native';
+
+const { width, height } = Dimensions.get('window');
+const circleContainerSize = width*0.4;
+const exerciseContw = width*0.75;
+const exerciseConth = height*0.11
 
 const styles = StyleSheet.create({
   container: {
     display: "flex",
     alignItems: "center",
+    backgroundColor: "#F0EBE8",
+    height: height,
   },
+  arrContainer: {
+    paddingTop: '2%',
+  },
+  backArrow: {
+    // height: '100%',
+    width: '100%',
+    marginLeft: '3%',
+    resizeMode: 'cover',
+  },  
   titleContainer: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: "16.5pt",
+    marginBottom: "8%",
     marginTop: "15%"
   },
   titleBold: {
-    fontSize: "20.25pt",
-    fontWeight: 700,
+    fontSize: width/15,
+    fontWeight: "bold",
     color: "#0D4D5E",
   },
   titleRegular: {
-    fontSize: "27px",
-    fontWeight: 400,
+    fontSize: width/16,
+    // fontWeight: 400,
     color: "#0D4D5E",
   },
   ringContainer: {
-    width: "18%",
-    height: "18%",
-    marginBottom: "40px",
+    width: circleContainerSize,
+    height: circleContainerSize,
+    marginBottom: "10%",
     textAlign: "center",
     justifyContent: "center",
-    backgroundColor: "green",
+    alignContent: "center",
   },
-  ringTitle: {
-    fontSize: "40px",
-    fontWeight: 700,
-    color: "#49A5AD",
-  },
+  progressRing: {
+    height: circleContainerSize,
+    width: "auto",
+  },  
   exerciseContainer: {
-    width: "70%",
-    height: "30%",
+    width: exerciseContw,
+    height: exerciseConth,
     backgroundColor: "white",
     marginBottom: "5%",
-    paddingLeft: "5%",
-    paddingTop: "5%",
-    borderRadius: "20px",
+    padding: "5%",
+    borderRadius: 20,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 4,
     shadowOpacity: 0.25,
   },
   activeExerciseContainer: {
-    width: "70%",
-    height: "30%",
-    backgroundColor: "#49A5AD",
+    width: exerciseContw,
+    height: exerciseConth,
+    backgroundColor: "#0D4D5E",
     marginBottom: "5%",
-    paddingLeft: "5%",
-    paddingTop: "5%",
-    borderRadius: "20px",
+    padding: "5%",
+    borderRadius: 20,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 4,
     shadowOpacity: 0.25,
   },
   exerciseTitle: {
-    fontSize: "20px",
-    fontWeight: 700,
-    color: "#73857B",
-    paddingBottom: "3px",
+    fontSize: exerciseContw*0.065,
+    fontWeight: "bold",
+    color: "#545454",
+    paddingBottom: 4,
   },
   activeExerciseTitle: {
-    fontSize: "20px",
-    fontWeight: 700,
+    fontSize: exerciseContw*0.065,
+    fontWeight: "bold",
     color: "white",
-    paddingBottom: "3px",
+    paddingBottom: 4,
   },
   exerciseDescription: {
-    fontSize: "18px",
-    fontWeight: 400,
-    color: "#49A5AD",
+    fontSize: exerciseContw*0.06,
+    // fontWeight: 400,
+    color: "#0D4D5E",
   },
   activeExerciseDescription: {
-    fontSize: '18px',
-    fontWeight: 400,
+    fontSize: exerciseContw*0.06,
+    // fontWeight: 400,
     color: "white",
   },
+  titleRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  
+  playButton: {
+  }, 
 });
 
 export { styles };

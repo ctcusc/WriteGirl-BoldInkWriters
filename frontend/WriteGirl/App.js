@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator, BottomTabBar } from '@react-navigation/bottom-tabs';
 
 // TODO: add your page here!
-import NavBar, {CreateAccountPage, HomePage, WritingExperiments, ExamplePage, ProfilePage, MonthlyExercises, SignInPage, ScreenSaverPage, ScreenSaverSetup, DoorActivity, DoorOpened, RandomizerWheelPage, AboutUsPage, ResourcesPage} from "./src/pages" 
+import NavBar, {CreateAccountPage, HomePage, WritingExperiments, ExamplePage, ProfilePage, MonthlyExercises, SignInPage, ScreenSaverPage, ScreenSaverSetup, DoorActivity, DoorOpened, RandomizerWheelPage, AboutUsPage, ResourcesPage, OpenedExercise} from "./src/pages" 
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator();
@@ -14,9 +14,9 @@ const Tab = createBottomTabNavigator();
 function HomeTabs() {
   return (
       <Tab.Navigator 
-      screenOptions={{
-        headerShown: false
-      }}
+        screenOptions={{
+          headerShown: false
+        }}
         
         // screenOptions={({ route }) => ({
         //   tabBarButton: [
@@ -30,11 +30,14 @@ function HomeTabs() {
         //     : undefined,
         // })}
       >
-          <Tab.Screen name="Home" component={HomePage} />
-          <Tab.Screen name="Profile Page" component={ProfilePage} />  
+          {/* <Tab.Screen name="Monthly Exercises" component={MonthlyExercises} /> */}
+          {/* <Tab.Screen name="Monthly Exercise Opened" component={OpenedExercise} /> */}
+          <Tab.Screen name="Home Page" component={HomePage} />
           <Tab.Screen name="Writing Experiments" component={WritingExperiments} />
           <Tab.Screen name="Resources" component={ResourcesPage} />
-          <Tab.Screen name="About Us Page" component={AboutUsPage} />  
+          {/* <Tab.Screen name="Screen Saver Setup" component={ScreenSaverSetup} /> */}
+          <Tab.Screen name="About Us Page" component={AboutUsPage} /> 
+          <Tab.Screen name="Profile Page" component={ProfilePage} />
       </Tab.Navigator>
   );
 }
@@ -61,6 +64,7 @@ export default function App({navigation}) {
             <Stack.Screen name="Home Tabs" component={HomeTabs} />
             <Stack.Screen name="Profile Page" component={ProfilePage} />  
             <Stack.Screen name="Monthly Exercises" component={MonthlyExercises} />
+            <Stack.Screen name="Monthly Exercise Opened" component={OpenedExercise} />
             <Stack.Screen name="Screen Saver Setup" component={ScreenSaverSetup} />
             <Stack.Screen name="Screen Saver Page" component={ScreenSaverPage} />
             <Stack.Screen name="Randomizer Wheel" component={RandomizerWheelPage} />
