@@ -3,22 +3,25 @@ import { useState } from 'react';
 import {View, SafeAreaView, FlatList, Image, TouchableOpacity, Text} from 'react-native';
 import { Alert, Collapse, NativeBaseProvider } from 'native-base';
 const imgArr = new Array(9).fill("https://placeimg.com/635/360/tech");
+const doorImage = require('../../../assets/door.png');
 
-export default function DoorActivity() {
+export default function DoorActivity({navigation}) {
     const [show, setShow] = useState(false);
 
     return(
         <SafeAreaView style={styles.container}>
             <View style = {styles.page}>
                 <View style = {styles.doorDiv}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => {
+                        navigation.navigate('Home Tabs', { screen: 'Writing Experiments' });
+                    }}>
                         <Text style={styles.backText}>←</Text>
                     </TouchableOpacity>
                     <Text style={styles.chooseText}>Choose a Door!</Text>
                     <FlatList
                         data={imgArr}
                         renderItem={renderItem}
-                        ItemSeparatorComponent={() => <View style={{height: 3}} />}
+                        ItemSeparatorComponent={() => <View/>}
                         numColumns={3}
                         key={3}
                     />
@@ -44,11 +47,16 @@ export default function DoorActivity() {
     )
 }
 
-function renderItem({item}) {
-    return <Image
-        source={require('../../../assets/whitevertical.png')}
-        style={{width: "28%", height: 90, marginVertical: 20, marginHorizontal: 10, marginLeft: 10, borderRadius: 20, filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))' }
-    }
-    />;
+function renderItem({navigation}) {
+
+
+    return (<TouchableOpacity  style={styles.doorIcon} onPress={() => {
+        navigation.navigate('Door Opened')
+        console.log("open door")
+        }}>
+            <Image source={doorImage} style={styles.doorImage}/>
+        </TouchableOpacity>);
+
+
 }
 

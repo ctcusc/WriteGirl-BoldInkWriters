@@ -1,7 +1,7 @@
 import { Text, View, ImageBackground, Image, TouchableOpacity, SafeAreaView } from 'react-native';
 import { styles } from "./HomePageStyles.js";
 
-export default function HomePage() {
+export default function HomePage({navigation}) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.welcome}>
@@ -13,7 +13,7 @@ export default function HomePage() {
             <View style={styles.exercises}>
                 <Text style={styles.exercisestext1}>November</Text>
                 <Text style={styles.exercisestext2}>Imagine you are walking through the forest</Text>
-                <TouchableOpacity onPress={() => navigation.navigate('ExercisesPage')}>
+                <TouchableOpacity onPress={() => navigation.navigate("Monthly Exercises")}>
                     <Text style={styles.exercisesbutton}>unlock</Text>
                 </TouchableOpacity>
             </View>
@@ -21,7 +21,7 @@ export default function HomePage() {
             <View style={styles.tip}>
                 <Text style={styles.tipbox}></Text>
                 <View style={styles.tipimagecontainer} >
-                    <ImageBackground style={styles.tipimage} source={require('./speech-bubble.png')}>
+                    <ImageBackground style={styles.tipimage} source={require('./assets/speech-bubble.png')}>
                         <Text style={styles.tiptext}>Listening to music is a great way to set the mood for writing</Text>
                     </ImageBackground>
                 </View>
@@ -29,7 +29,7 @@ export default function HomePage() {
 
             <View style={styles.jumpstart}>
                 <TouchableOpacity style={styles.jumpstartbutton} onPress={() => navigation.navigate('JumpstartPage')}>
-                    <Image style={styles.jumpstartarrow} source={require('./Vector3.png')}/>
+                    <Image style={styles.jumpstartarrow} source={require('./assets/Vector3.png')}/>
                 </TouchableOpacity>
                 <Text style={styles.jumpstarttext}>jumpstart your writing</Text>
             </View>

@@ -3,13 +3,15 @@ import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { styles } from "./CreateAccountPageStyles.js";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { Toast, useToast, Box, NativeBaseProvider } from "native-base";
+import { Toast, useToast, Box, NativeBaseProvider} from "native-base";
+import { TouchableOpacity} from "react-native";
 
 {/* npm install @hookform/resolvers yup 
     yup documentation: https://github.com/jquense/yup#schemanotoneofarrayofvalues-arrayany-message-string--function */}
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
+const backButtonImage = require('../../../assets/BackButtonBlue.png');
 
 export default function CreateAccountPage({ navigation }) {
     const [errorModalVisible, setErrorModalVisible] = useState(false);
@@ -83,8 +85,16 @@ export default function CreateAccountPage({ navigation }) {
             <SafeAreaView >
                 <KeyboardAwareScrollView style={styles.container}>
                 <ImageBackground source={require('./bg_img.png')} resizeMode="cover" style={styles.screensaverBg}> 
-
+                
                 <View style={styles.contentContainer}>
+                <TouchableOpacity style={styles.backButton} onPress={() => {
+                        navigation.navigate('Sign In')
+                }}>
+                        <Image style={styles.backImage} source={backButtonImage} />
+                    </TouchableOpacity>
+
+                    
+                    
                     <Text style={styles.title}>Create an account</Text>
 
                     {/* FIRST NAME FIELD */}
