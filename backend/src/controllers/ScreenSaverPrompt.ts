@@ -14,7 +14,12 @@ export const postScreenSaverPrompt = async (req: Request, res: Response) => {
 
 export const getScreenSaverPrompt = async (req: Request, res: Response) => {
     const result = await ScreenSaverPrompt.findOne({
-        where: {title: req.params.title}
+        where: {id: req.params.id}
     })
+    return res.json(result)
+}
+
+export const getAllPrompts = async (req: Request, res: Response) => {
+    const result = await ScreenSaverPrompt.findAll()
     return res.json(result)
 }

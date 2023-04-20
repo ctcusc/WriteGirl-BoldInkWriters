@@ -10,8 +10,27 @@ export default function ScreenSaverPage({ navigation, route }) {
     const [timeEnded, setTimeEnded] = useState(false)
     
     const promptId = route.params.promptId;
-    const prompt = data.at(promptId).prompt;
-    const img = data.at(promptId).img
+    // const prompt = data.at(promptId).prompt;
+    // const img = data.at(promptId).img
+    const [prompt, setPrompts] = useState('')
+    const [img, setUri] = useState('')
+
+    const [data, setData] = useState();
+    useEffect(() => {
+        let url = "http://localhost:8000/api/screen-saver-prompt/" + promptId;
+        fetch(url, {
+            method: "GET",
+        })
+        .then((res) => {
+            return res.json()
+        })
+        .then((data) => {
+            // console.log(data)
+            if(data == null) {throw console.log(data)}
+            setPrompts(data.prompt);
+            setUri(data.videoURL)
+        })
+    }, [])
 
     // from https://medium.com/bb-tutorials-and-thoughts/how-to-create-a-countdown-timer-in-react-app-e99916046292
     const minSecs = route.params.time;
@@ -22,6 +41,7 @@ export default function ScreenSaverPage({ navigation, route }) {
     // useEffect(() => {
     //     console.log("in page", mins, secs)
     // }, [])
+
     React.useEffect(() => {
         navigation.addListener('focus', () => {
             // console.log(route.params.time)
