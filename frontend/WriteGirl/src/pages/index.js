@@ -10,6 +10,7 @@ export {default as MonthlyExercises} from './MonthlyExercises/MonthlyExercises'
 export {default as ResourcesPage } from './ResourcesPage/ResourcesPage'
 export {default as DoorActivity} from './DoorActivity/DoorActivity'
 export {default as DoorOpened} from './DoorActivity/DoorOpened'
+export { default as OpenedExercise } from './MonthlyExercises/OpenedExercise'
 export { default as RandomizerWheelPage } from './RandomizerWheelPage/RandomizerWheelPage'
 export { default as AboutUsPage } from './AboutUsPage/AboutUsPage.js'
 
