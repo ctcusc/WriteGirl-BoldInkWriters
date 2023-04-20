@@ -3,7 +3,8 @@ import { Text, ScrollView, View, Pressable, Image, SafeAreaView } from "react-na
 import { styles } from "./OpenedExerciseStyles";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { NativeBaseProvider } from "native-base";
-import { Video } from 'react-native-video';
+// import { Video } from 'react-native-video';
+//TODO: use this in the future: https://stackoverflow.com/questions/60184592/how-to-fix-import-error-requirenativecomponent-from-react-native-web
 import stockVid from './assets/stockVid.mp4'
 
 export default function OpenedExercise({ navigation, route }) {
