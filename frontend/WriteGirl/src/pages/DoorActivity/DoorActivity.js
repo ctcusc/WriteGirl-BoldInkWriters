@@ -5,11 +5,12 @@ import navigation from '@react-navigation/native';
 import { Alert, Collapse, NativeBaseProvider } from 'native-base';
 // import { NavigationContainer } from '@react-navigation/native';
 const imgArr = new Array(9).fill("https://placeimg.com/635/360/tech");
+//Fill the const
 
 export default function DoorActivity({navigation}) {
     const [show, setShow] = useState(false);
 
-    // Variable to hold random prompt id
+    
     
 
 

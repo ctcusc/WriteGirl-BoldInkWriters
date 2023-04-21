@@ -1,6 +1,7 @@
 import {styles} from './Style'
 import {Text, View, SafeAreaView, TouchableOpacity} from 'react-native';
 import { useEffect, useState } from 'react';
+// Airtable.configure({ apiKey: DOOR_ACTIVITY })
 
 export default function DoorOpened() {
     const [data, setData] = useState();
@@ -20,6 +21,12 @@ export default function DoorOpened() {
             console.log(data);
         })
     }, []);
+
+    // //Airtable API call for prompt
+    // let apiToken = DOOR_ACTIVITY;
+    // let table = base.gerTable("Door Activity Prompts");
+    // let {records}  = table.selectRecordsAsync();
+    // console.log(records);
     
 
     return(
