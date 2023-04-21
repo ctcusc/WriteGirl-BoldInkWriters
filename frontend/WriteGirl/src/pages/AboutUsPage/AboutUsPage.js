@@ -1,5 +1,7 @@
 import { useState } from "react";
 import {Animated, Text, View, Image, TextInput, TouchableOpacity, ScrollView} from "react-native";
+import { signOut } from "firebase/auth";
+import { auth } from "../../../firebaseConfig";
 
 import styles from './AboutUsPageStyles.js';
 const books = require('./AboutPageBooks.png');
@@ -10,10 +12,25 @@ const donateIcon = require('./AboutUsDonateIcon.png');
 const arrow = require('./AboutUsArrow.png');
 const fold = require('./AboutUsFold.png');
 
-export default function AboutPage() {
+export default function AboutPage({ navigation }) {
     const [donation, setDonation] = useState("");
     const [isOpenBottom, setIsOpenBottom] = useState(false);
     const foldBottom = () => setIsOpenBottom(isOpenBottom != isOpenBottom);
+
+
+    // sign out user
+    const onClick = async () => {
+      await signOut(auth).then(() => {
+        // Sign-out successful.
+        // console.log("sign out successful")
+        navigation.navigate('Sign In')
+      }).catch((error) => {
+        // An error happened.
+        console.log("log out error:", error)
+      });
+    }
+
+
     return (
         <View style={styles.container}>
             <ScrollView contentContainerStyle={styles.topLayout}>
@@ -74,7 +91,7 @@ export default function AboutPage() {
                         </Text>
                     </View>
                     <View style={styles.learnMoreButton}>
-                        <TouchableOpacity style={styles.mainPageButton}>
+                        <TouchableOpacity style={styles.mainPageButton} onPress={() => {onClick()}}>
                             <Image source={mainPage} style={styles.mainPageImage}/>
                         </TouchableOpacity>
                         <Text style={styles.iconText}>

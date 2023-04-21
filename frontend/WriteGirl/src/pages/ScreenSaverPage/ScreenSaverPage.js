@@ -75,8 +75,9 @@ export default function ScreenSaverPage({ navigation, route }) {
     }, [mins, secs])
 
     useEffect(() => {
-        if(done) {
+        if(done && !Toast.isActive("error-toast")) {
             Toast.show({
+                id: "error-toast",
                 placement: "top-right",
                 render: () => {
                     return <Box style={styles.timeUpToast}>

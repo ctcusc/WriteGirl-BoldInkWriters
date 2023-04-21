@@ -2,6 +2,7 @@ import { MonthlyExercisePrompt } from "../models/MonthlyExercisePrompt";
 import { Request, Response, NextFunction } from "express"
 import { StatusCodes } from "http-status-codes"
 
+// upload new monthly exercise prompt
 export const postMonthlyExercisePrompt = async (req: Request, res: Response) => {
     const prompt = new MonthlyExercisePrompt({
         title: req.query.title,
@@ -14,6 +15,7 @@ export const postMonthlyExercisePrompt = async (req: Request, res: Response) => 
     return res.status(StatusCodes.CREATED).json(prompt.toJSON()).send()
 }
 
+// get top 3 most recent prompts for monthly exercises
 export const getRecentPrompts = async (req: Request, res: Response) => {
     const result = await MonthlyExercisePrompt.findAll({
         order: [['date', 'DESC']],
