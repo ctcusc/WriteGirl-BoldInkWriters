@@ -7,7 +7,7 @@ import { auth } from "../../../firebaseConfig";
 export default function HomePage({navigation, route}) {
   const[userInfo, setUserInfo] = useState();
   const[userToken, setUserToken] = useState("");
-  const[month, setMonth] = useState("")
+//   const[month, setMonth] = useState("")
 
   const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
@@ -101,6 +101,27 @@ let up = false;
     const moveAnim = useRef(new Animated.Value(0)).current;
     const fadeAnim = useRef(new Animated.Value(1)).current;
 
+    // for fetches from backend
+    const [name, setName] = useState(0);
+    const [month, setMonth] = useState(0);
+    const [tip, setTip] = useState(0);
+
+    // runs on the first render
+    // fetches name, rating, month, tip from backend
+    useEffect(() => {
+        // repeat for each field
+        fetch("http://localhost:3000/api/name/", {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'}
+        })
+        .then((response) => {
+            response.json()
+        })
+        .then((data) => {
+            setName(response_data["prompt"]);
+        })
+    }, [])
+
     //changing the modes to either word or picture
     const changeMode = () => {
         modeNumber = (modeNumber + 1) % 2;
@@ -158,25 +179,22 @@ let up = false;
 
 
 
-
-    // is originally a SafeAreaView
     return (
-        // <SafeAreaView style={{ backgroundColor: "#"}} contentContainerStyle={styles.container}>
         <SafeAreaView style={styles.container}>
             <View style={styles.welcome}>
                 <View style={styles.horizontal}>
                     <View>
                     <Text style={styles.welcometext1}>Welcome, {userInfo ? userInfo.firstName : null}</Text>
                     </View>
-                    <Image style={styles.pic} source={require('./assets/profilePic.png')}/>
+                    {/* <Image style={styles.pic} source={require('./assets/profilePic.png')}/> */}
                 </View>
-                {/* <span role="img" aria-label="wave">👋</span> */}
             </View>
 
             
             <View style={styles.exercises}>
                 <Image style={styles.exerciseimg} source={require('./assets/exerciseImage.png')}/>
                 <Text style={styles.rating}>5.0 ⭐</Text>
+                {/* <Text style={styles.rating}>{rating} ⭐</Text> */}
                 <View style={styles.horizontal2}>
                     <Text style={styles.exercisestext1}>{month}</Text>
                     <TouchableOpacity onPress={() => navigation.navigate('Monthly Exercises', {arrId: -1})}>
@@ -190,6 +208,7 @@ let up = false;
                 <View style={styles.tipimagecontainer} >
                     <ImageBackground style={styles.tipimage} source={require('./assets/speech-bubble.png')}>
                         <Text style={styles.tiptext}>Listening to music is a great way to set the mood for writing 🎼</Text>
+                        {/* <Text style={styles.tiptext}>{tip}</Text> */}
                     </ImageBackground>
                 </View>
             </View>
