@@ -20,7 +20,7 @@ export default function OpenedExercise({ navigation, route }) {
 
     
     const renderMedia = () => {
-        if(data.mediaType == "video") {
+        if(data.mediaType == "Video") {
             try{
               return(
                 // <Video
@@ -34,14 +34,22 @@ export default function OpenedExercise({ navigation, route }) {
             } catch (err) {
               console.log("video render error", err)
             }
-        } else if(data.mediaType == "img" || data.mediaType == "gif") {
+        } else if(data.mediaType == "Picture" || data.mediaType == "gif") {
             return(<Image
                 style={styles.img}
                 source={{
-                    uri: 'https://media1.giphy.com/media/3oEjI4sFlp73fvEYgw/giphy.gif',
+                    uri: data.media[0].url,
                     // uri: data.media,
                 }}
             />)
+        } else if(data.mediaType == "Audio") {
+            return(
+              console.log("AUDIO ONLY MEDIA TYPE")
+            )
+        } else if(data.mediaType == "Text Only") {
+            return(
+              console.log("TEXT ONLY MEDIA TYPE")
+            )
         } else {
             return(console.log("INVALID MEDIA TYPE: ", data.mediaType))
         }

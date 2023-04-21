@@ -6,11 +6,7 @@ export default function MonthlyExercises({ navigation, route }) {
   const [viewed, setViewed] = useState([false, false, false]) //update this later with useEffect
   const [data, setData] = useState([])
   const [progress, setProgress] = useState(0)
-
   const [month, setMonth] = useState()
-  const monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-  ];
 
   useEffect(() => {
     try {
@@ -39,8 +35,8 @@ export default function MonthlyExercises({ navigation, route }) {
         return data;
     })
     .then((data) => {
-      const d = new Date(data[0].date)
-      setMonth(monthNames[d.getMonth()])
+      // get date to display
+      setMonth(data[0].month)
     })
   }, [])
 
