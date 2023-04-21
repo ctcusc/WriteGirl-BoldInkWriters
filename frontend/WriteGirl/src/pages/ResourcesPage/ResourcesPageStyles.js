@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'flex-start',
+        height: "150%",
     },
 
     backButton: {

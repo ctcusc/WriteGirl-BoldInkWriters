@@ -89,7 +89,6 @@ let modeNumber = 0;
 let up = false;
 
 
-// export default function HomePage({navigation}) {
     {/* mode
     *  0 = word
     *  1 = audio
