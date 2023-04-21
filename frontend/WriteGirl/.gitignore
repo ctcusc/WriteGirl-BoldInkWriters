@@ -14,3 +14,6 @@ web-build/
 .DS_Store
 ../.DS_Store
 **/.DS_Store
+
+.env
+yarn.lock

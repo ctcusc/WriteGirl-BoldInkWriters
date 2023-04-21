@@ -21,6 +21,7 @@ coverage
 
 # API keys and secrets
 .env
+config/ServiceAccount.json
 
 # Dependency directory
 node_modules

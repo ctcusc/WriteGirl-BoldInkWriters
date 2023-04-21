@@ -61,9 +61,6 @@ export default function ScreenSaverSetup({ navigation }) {
     //for timer picker
     const [min, setMin] = useState(0)
     const [sec, setSec] = useState(0)
-    // const onTimerChange = useCallback(setMin, [])
-    // const onMinChange = useCallback(setMin, [])
-    // const onSecChange = useCallback(setSec, [])
 
 
     // for carousel gallery
@@ -164,7 +161,9 @@ export default function ScreenSaverSetup({ navigation }) {
                             // console.log("min", min, ' : sec', sec)
                             const minSecs = { minutes: min, seconds: sec }
                             if((min === 0 || min === '00') && (sec === 0 || sec === '00')) {
+                              if (!Toast.isActive("error-toast")) {  
                                 Toast.show({
+                                    id: "error-toast",
                                     placement: "top",
                                     render: () => {
                                         return <Box style={styles.setupToast}>
@@ -172,6 +171,7 @@ export default function ScreenSaverSetup({ navigation }) {
                                         </Box>;
                                     }
                                 });
+                              }
                             } else {
                                 navigation.navigate('Screen Saver Page', { promptId: promptIndex, time: minSecs })
                             }
