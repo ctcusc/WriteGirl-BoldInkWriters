@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
         bottom: 0,
         // paddingTop: 3,
         marginTop: '3%',
-        paddingBottom: height/4,
+        paddingBottom: height/6,
     },
 
     timerPicker: {

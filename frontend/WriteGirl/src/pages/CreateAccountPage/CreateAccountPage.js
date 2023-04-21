@@ -5,6 +5,8 @@ import { styles } from "./CreateAccountPageStyles.js";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { Toast, useToast, Box, NativeBaseProvider} from "native-base";
 import { TouchableOpacity} from "react-native";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../../firebaseConfig";
 
 {/* npm install @hookform/resolvers yup 
     yup documentation: https://github.com/jquense/yup#schemanotoneofarrayofvalues-arrayany-message-string--function */}
@@ -16,13 +18,11 @@ const backButtonImage = require('../../../assets/BackButtonBlue.png');
 export default function CreateAccountPage({ navigation }) {
     const [errorModalVisible, setErrorModalVisible] = useState(false);
     const [successModalVisible, setSuccessModalVisible] = useState(false);
-    const toast = useToast();
-
 
     const schema = yup.object({
         firstName: yup.string().required('First name is required.'),
         lastName: yup.string().required('Last name is required.'),
-        birthday: yup.date().required().typeError('Enter a valid birthdate in the format: MM/DD/YYY').max(new Date(), "Enter a valid birthdate."),
+        birthday: yup.date().required().typeError('Enter a valid birthdate in the format: MM/DD/YYYY').max(new Date(), "Enter a valid birthdate."),
         email: yup.string().email('Enter a valid email.'),
         password: yup.string().required('Password is required.'),
         repeatpassword: yup.string().oneOf([yup.ref('password'), null], 'Passwords do not match.'),
@@ -44,26 +44,89 @@ export default function CreateAccountPage({ navigation }) {
         resolver: yupResolver(schema)
     });
 
-    const onSubmit = data => {
+    async function postUserToDatabase(user, userToken) {
+      try {
+        const myUser = user;
+        // console.log("myuser", user)
+
+        const response = await fetch(`http://localhost:8000/api/signup/`, {
+          method: "POST",
+          headers: { 
+            'Content-Type': 'application/json', 
+            Authorization: `Bearer ${userToken}` 
+          },
+          body: JSON.stringify(user)
+        });
+        const result = await response.json();
+        if(result.errors) { throw new Error('user creation failed', result.errors); }
+        console.log("Success:", result);
+        return true;
+      } catch (error) {
+        console.error("Error:", error);
+        return false;
+      }
+    }
+
+    const onSubmit = async data => {
         setSuccessModalVisible(true)
         console.log("data", data)
 
-        const success = "Account successfully created!"
-        Toast.show({
-            placement: "top",
-            render: () => {
-                return <Box style={styles.successToast}>
-                    {data ? success : null}
-                </Box>;
+        // USER AUTHENTICATION
+        await createUserWithEmailAndPassword(auth, data.email, data.password)
+        .then(async (userCredential) => {
+
+            const user = userCredential.user;
+
+            // ADD USER TO DATABASE
+            if(!await postUserToDatabase(data, user.accessToken)) { throw new Error("postUserToDatabase error"); }
+
+            // DISPLAY TOAST MESSAGE
+            const success = "Account successfully created!"
+            await Toast.show({
+                placement: "top",
+                render: () => {
+                    return <Box style={styles.successToast}>
+                        {data ? success : null}
+                    </Box>;
+                }
+            });
+            reset();
+
+            await navigation.navigate('Home Tabs')
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            // const errorMessage = error.message;
+            // console.log(error.code);
+
+            // USER AUTHENTICATION ERROR HANDLING
+            let toastMsg = "";
+            if(errorCode === "auth/weak-password") { toastMsg="Password should be at least 6 characters."; }
+            else if(errorCode === "auth/invalid-email") { toastMsg = "Invalid email"; }
+            else if(errorCode === "auth/email-already-in-use") { toastMsg = "An account with that email already exists. Sign in instead."; }
+            else { toastMsg = error.message; }
+            if (!Toast.isActive("error-toast")) {
+              Toast.show({
+                  id: "error-toast",
+                  placement: "top",
+                  render: () => {
+                      return <Box style={styles.errorToast}>
+                          {error ? toastMsg : null}
+                      </Box>;
+                  }
+              });
             }
+
         });
-        reset();
+
+        
     }
     const onInvalid = (errors) => {
         setErrorModalVisible(true)
         // console.log("errors", errors)
-
+      if (!Toast.isActive("error-toast")) {
         Toast.show({
+            id: "error-toast",
             placement: "top",
             render: () => {
                 return <Box style={styles.errorToast}>
@@ -77,7 +140,7 @@ export default function CreateAccountPage({ navigation }) {
                 </Box>;
             }
         });
-
+      }
     }
 
     return (
