@@ -14,7 +14,7 @@ const cors = require('cors');
 // Create Express server
 const app = express()
 
-app.use(cors());
+app.use(cors())
 
 // Express configuration
 app.set("port", process.env.PORT || 3000)

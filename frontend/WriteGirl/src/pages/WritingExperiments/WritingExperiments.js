@@ -1,7 +1,7 @@
 import {View, Text, Button, StyleSheet, SafeAreaView, TouchableOpacity} from 'react-native';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 
-export default function WritingExperiments() {
+export default function WritingExperiments({navigation}) {
 
   return (
     <SafeAreaView style={styles.container}>
@@ -10,21 +10,30 @@ export default function WritingExperiments() {
             <Text style={styles.title}>Reflection Prompt Placeholder</Text>
             <View style={styles.buttonPadding} />
             <View style={styles.fixToText}>
-              <TouchableOpacity disabled={false} style={styles.smallButtons}>
+              <TouchableOpacity disabled={false} style={styles.smallButtons} >
                   <Text style={styles.generate}>Generate!</Text>
               </TouchableOpacity>
             </View>
           </View>
         
-          <TouchableOpacity style={styles.otherButtons}>
+          <TouchableOpacity style={styles.otherButtons}
+          onPress={() => {
+            navigation.navigate('Randomizer Wheel')
+          }}
+          >
             <Text style={styles.title}>Spin the Randomizer Wheel!</Text>
           </TouchableOpacity>
         
           <TouchableOpacity style={styles.otherButtons}>
-            <Text style={styles.title}>Open the Doors!</Text>
+            <Text style={styles.title} onPress={() => {
+                navigation.navigate('Door Activity')
+              }}>
+                Open the Doors!</Text>
           </TouchableOpacity>
           
-          <TouchableOpacity style={styles.otherButtons}>
+          <TouchableOpacity style={styles.otherButtons} onPress={() => {
+                navigation.navigate('Screen Saver Setup')
+              }}>
           <Text style={styles.title}>Find your inspiration!</Text>
           </TouchableOpacity>
         
@@ -129,7 +138,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontWeight: 400,
-    fontSize: "1.5em",
+    fontSize: "24px",
     color: 'white',
     margin: 0,
     padding: 0,

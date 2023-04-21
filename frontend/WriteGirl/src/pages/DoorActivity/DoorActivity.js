@@ -5,7 +5,7 @@ import navigation from '@react-navigation/native';
 import { Alert, Collapse, NativeBaseProvider } from 'native-base';
 // import { NavigationContainer } from '@react-navigation/native';
 const imgArr = new Array(9).fill("https://placeimg.com/635/360/tech");
-//Fill the const
+const doorImage = require('../../../assets/door.png');
 
 export default function DoorActivity({navigation}) {
     const [show, setShow] = useState(false);
@@ -19,7 +19,9 @@ export default function DoorActivity({navigation}) {
         <SafeAreaView style={styles.container}>
             <View style = {styles.page }>
                 <View style = {styles.doorDiv}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => {
+                        navigation.navigate('Home Tabs', { screen: 'Writing Experiments' });
+                    }}>
                         <Text style={styles.backText}>←</Text>
                     </TouchableOpacity>
                     <Text style={styles.chooseText}>Choose a Door!</Text>
@@ -28,7 +30,7 @@ export default function DoorActivity({navigation}) {
                     <FlatList
                         data={imgArr}
                         renderItem={renderItem}
-                        ItemSeparatorComponent={() => <View style={{height: 3}} />}
+                        ItemSeparatorComponent={() => <View/>}
                         numColumns={3}
                         key={3}
                     />
@@ -54,21 +56,16 @@ export default function DoorActivity({navigation}) {
     )
 }
 
-function renderItem({item, navigation}) {
-    return <TouchableOpacity
-            style={{width: "28%", height: 90, marginVertical: 20, marginHorizontal: 10, marginLeft: 10}}
-            // On press go to door opened page
-            onPress={() => navigation.navigate('DoorOpened')}
-            ><Image
-            source={require('../../../assets/whitevertical.png')}
-            style={{width: "100%", height: "100%", marginVertical: 20, marginHorizontal: 10, marginLeft: 10, borderRadius: 20, filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))' }
-            }
-            />
-        </TouchableOpacity>;
-}
+function renderItem({navigation}) {
 
-function randomPrompt(){
-    //
+
+    return (<TouchableOpacity  style={styles.doorIcon} onPress={() => {
+        navigation.navigate('Door Opened')
+        console.log("open door")
+        }}>
+            <Image source={doorImage} style={styles.doorImage}/>
+        </TouchableOpacity>);
+
 
 }
 
