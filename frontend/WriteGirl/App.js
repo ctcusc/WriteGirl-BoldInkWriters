@@ -17,8 +17,8 @@ export default function App({navigation}) {
       <Tab.Navigator>
           <Tab.Screen name="Home" component={HomePage} />
           <Tab.Screen name="Create Account" component={CreateAccountPage} />
-          <Tab.Screen name="Writing Experiments" component={WritingExperiments} />
           <Tab.Screen name="Sign In Page" component={SignInPage} />
+          <Tab.Screen name="Writing Experiments" component={WritingExperiments} />
           <Tab.Screen name="Monthly Exercises" component={MonthlyExercises} />
       </Tab.Navigator>
     </NavigationContainer>
