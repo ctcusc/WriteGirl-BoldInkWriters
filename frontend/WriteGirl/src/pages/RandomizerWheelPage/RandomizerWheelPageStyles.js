@@ -122,6 +122,22 @@ const styles = StyleSheet.create({
         color: '#0D4D5E',
         fontSize: 20
     },
+    closebutton: {
+        color: '#0D4D5E',
+        backgroundColor: '#C5DA01',
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingTop: 5,
+        paddingBottom: 5,
+        borderRadius: 20,
+        textAlign: 'center',
+        marginTop: '5%',
+        shadowRadius: 5,
+        shadowColor: '#E1E0DE',
+        shadowOpacity: 1,
+        shadowOffset: {width: 0, height: 4},
+        fontSize: 25
+    },
 
     backImage: {
         resizeMode: 'stretch',
