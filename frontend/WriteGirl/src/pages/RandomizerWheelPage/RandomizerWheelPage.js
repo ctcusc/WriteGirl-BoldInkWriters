@@ -86,11 +86,14 @@ export default function RandomizerWheelPage({ navigation, route }) {
             </View>
 
             <Modal visible={isModalVisible} animationType="fade" transparent onRequestClose={() => setIsModalVisible(false)}>
-                <TouchableOpacity style={styles.modalcontainer} activeOpacity={1} onPress={() => setIsModalVisible(false)}>
+                <TouchableOpacity style={styles.modalcontainer} activeOpacity={1}>
                     <View style={styles.modalcontent}>
                         <Text style={styles.modaltext}>Congratulations!</Text>
                         <Text style={styles.modaltext}>You got this adjective:</Text>
                         <Text style={styles.modaltext}>{selectedWord}</Text>
+                        <TouchableOpacity onPress={() => setIsModalVisible(false)}>
+                            <Text style={styles.closebutton}>close</Text>
+                        </TouchableOpacity>
                     </View>
                 </TouchableOpacity>
             </Modal>

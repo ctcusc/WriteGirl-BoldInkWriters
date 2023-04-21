@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator, BottomTabBar } from '@react-navigation/bottom-tabs';
-
+import { useFonts } from 'expo-font';
 // TODO: add your page here!
 import NavBar, {CreateAccountPage, HomePage, WritingExperiments, ExamplePage, ProfilePage, MonthlyExercises, SignInPage, ScreenSaverPage, ScreenSaverSetup, DoorActivity, DoorOpened, RandomizerWheelPage, AboutUsPage, ResourcesPage, OpenedExercise} from "./src/pages" 
 
@@ -44,6 +44,12 @@ function HomeTabs() {
 
 
 export default function App({navigation}) {
+  const [loaded] = useFonts({
+      DroidSans: require('./assets/fonts/DroidSans.ttf'),
+      DroidSansBold: require('./assets/fonts/DroidSans-Bold.ttf'),
+      Hubballi: require('./assets/fonts/Hubballi-Regular.ttf'),
+  });
+
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={({ route }) => ({
