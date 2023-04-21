@@ -1,5 +1,5 @@
 import { ScrollView, Animated, Text, View, ImageBackground, Image, TouchableOpacity, SafeAreaView } from 'react-native';
-import { useState, useRef, useState, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { styles } from "./HomePageStyles.js";
 import { auth } from "../../../firebaseConfig";
 
