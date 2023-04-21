@@ -6,6 +6,8 @@ import { styles } from "./SignInPageStyles.js";
 import { Toast, useToast, Box, NativeBaseProvider} from "native-base";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebaseConfig";
+import {CreateAccountPage} from "../" 
+
 
 // const logo = require('...../assets/adaptive-icon.png');
 
@@ -53,6 +55,9 @@ export default function Sign_In_Page({navigation}) {
 
             <View style={styles.contentContainer}>
                 {/* <Image style={styles.image} source={logo} />  */}
+                <View style={styles.imageView}>
+                    <Image source={require('./logo.png')} style={styles.image}/>
+                </View>
                 <Text style ={styles.titleText}>Sign-In</Text>
                 <Text style={styles.subTitleText}>Email</Text>
                 <StatusBar style="auto" />
