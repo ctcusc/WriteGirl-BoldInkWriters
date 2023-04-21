@@ -7,11 +7,15 @@ export { default as ScreenSaverPage } from './ScreenSaverPage/ScreenSaverPage'
 export { default as SignInPage } from './SignInPage/SignInPage'
 export { default as WritingExperiments} from './WritingExperiments/WritingExperiments'
 export {default as MonthlyExercises} from './MonthlyExercises/MonthlyExercises'
+export {default as ProfilePage} from './ProfilePage/ProfilePage'
+export {default as MonthlyExerciseOpened} from './MonthlyExercises/MonthlyExerciseOpened'
 export {default as ResourcesPage } from './ResourcesPage/ResourcesPage'
 export {default as DoorActivity} from './DoorActivity/DoorActivity'
 export {default as DoorOpened} from './DoorActivity/DoorOpened'
+export { default as OpenedExercise } from './MonthlyExercises/OpenedExercise'
 export { default as RandomizerWheelPage } from './RandomizerWheelPage/RandomizerWheelPage'
 export { default as AboutUsPage } from './AboutUsPage/AboutUsPage.js'
+
 
 import ExamplePage from './ExamplePage';
 import RandomPage1 from './RandomPage1';

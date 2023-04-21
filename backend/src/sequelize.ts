@@ -1,6 +1,9 @@
 import path from "path"
 import { Sequelize } from "sequelize-typescript"
 import { User } from "./models/User"
+import { RandomizerWheelPrompt } from "./models/RandomizerWheelPrompt"
+import { ScreenSaverPrompt } from "./models/ScreenSaverPrompt"
+import { MonthlyExercisePrompt } from "./models/MonthlyExercisePrompt"
 
 export const sequelize = new Sequelize({
   dialect: "postgres",
@@ -9,4 +12,4 @@ export const sequelize = new Sequelize({
   password: process.env.POSTGRES_PASSWORD
 })
 
-sequelize.addModels([User])
+sequelize.addModels([User, ScreenSaverPrompt, MonthlyExercisePrompt, RandomizerWheelPrompt])

@@ -21,6 +21,7 @@ coverage
 
 # API keys and secrets
 .env
+config/ServiceAccount.json
 
 # Dependency directory
 node_modules
@@ -39,3 +40,6 @@ dist/**/*
 
 # ignore yarn.lock
 yarn.lock
+
+config/ServiceAccount.json
+.env
