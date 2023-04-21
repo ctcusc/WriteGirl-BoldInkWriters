@@ -184,7 +184,8 @@ let up = false;
             <View style={styles.welcome}>
                 <View style={styles.horizontal}>
                     <View>
-                    <Text style={styles.welcometext1}>Welcome, {userInfo ? userInfo.firstName : null}</Text>
+                      <Text style={styles.welcometext1}>Welcome, {userInfo ? userInfo.firstName : null} 👋</Text>
+                      <Text style={styles.welcometext2}>What inspires you today?</Text>
                     </View>
                     {/* <Image style={styles.pic} source={require('./assets/profilePic.png')}/> */}
                 </View>
@@ -198,8 +199,8 @@ let up = false;
                 <View style={styles.horizontal2}>
                     <Text style={styles.exercisestext1}>{month}</Text>
                     <TouchableOpacity onPress={() => navigation.navigate('Monthly Exercises', {arrId: -1})}>
-                        <Text style={styles.exercisesbutton}>unlock</Text>
-                    </TouchableOpacity>
+                      <Text style={styles.exercisesbutton}>unlock</Text>
+                  </TouchableOpacity>
                 </View>
             </View>
             
@@ -254,5 +255,5 @@ let up = false;
                 </TouchableOpacity>
             </Animated.View>
         </SafeAreaView >
-    )
+  )
 }
