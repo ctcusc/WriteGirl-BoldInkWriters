@@ -89,7 +89,7 @@ let modeNumber = 0;
 let up = false;
 
 
-export default function HomePage({navigation}) {
+// export default function HomePage({navigation}) {
     {/* mode
     *  0 = word
     *  1 = audio
@@ -160,7 +160,7 @@ export default function HomePage({navigation}) {
 
 
 
-// is originally a SafeAreaView
+    // is originally a SafeAreaView
     return (
         // <SafeAreaView style={{ backgroundColor: "#"}} contentContainerStyle={styles.container}>
         <SafeAreaView style={styles.container}>
