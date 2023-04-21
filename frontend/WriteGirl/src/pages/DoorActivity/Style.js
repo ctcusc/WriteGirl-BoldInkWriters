@@ -2,10 +2,12 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         justifyContent: 'center',
         height: '100%',
       },
     page:{
+        flex: 1,
         backgroundColor: '#F5F5F5',
         height: '100%',
         overflow: 'scroll',
@@ -31,6 +33,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
     doorDiv:{
+      flex: 1,
       width: "90%",
       margin: "auto",
     },
