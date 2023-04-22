@@ -29,12 +29,12 @@ export const getScreenSaverPrompt = async (req: Request, res: Response) => {
 export const getAllPrompts = async (req: Request, res: Response) => {
     // const result = await ScreenSaverPrompt.findAll()
     // return res.json(result)
-    let prompts = [];
+    let prompts: any = [];
     base('Screen Saver Activity').select({
     }).eachPage(function page(records, fetchNextPage) {
         // This function (`page`) will get called for each page of records.
         records.forEach(function(record) {
-            // console.log('Retrieved', record.get('title'));
+            // console.log('Retrieved', record);
             prompts.push(record.fields)
         });
     
@@ -45,5 +45,7 @@ export const getAllPrompts = async (req: Request, res: Response) => {
     
     }, function done(err) {
         if (err) { console.error(err); return; }
+        console.log(prompts)
+        return res.json(prompts)
     });
 }

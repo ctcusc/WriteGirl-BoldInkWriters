@@ -1,6 +1,7 @@
 import { DoorActivity } from "../models/DoorActivity"
 import { Request, Response, NextFunction } from "express"
 import { StatusCodes } from "http-status-codes"
+import base from "../airtable"
 
   /**
    * Create a new reminder.
@@ -25,8 +26,14 @@ import { StatusCodes } from "http-status-codes"
 
   
   export const getDoorActivity = async (req: Request, res: Response) => {
-    const result = await DoorActivity.findOne({
-        where: {id: req.params.id },
-    })
-    return res.json(result)
+    base('Door Activity Prompts').select({
+      filterByFormula: `id = "${req.params.id}"`
+    }).firstPage((err, records) => {
+      if (err) {
+          console.error(err);
+          return;
+      }
+      // records contains an array of records that match the filter
+      return res.json(records[0].fields)
+    });
   }
