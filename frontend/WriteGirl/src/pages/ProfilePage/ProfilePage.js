@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './ProfilePage.css';
-import { View, Text, TouchableOpacity, ToastAndroid , StyleSheet, Dimensions, Image} from 'react-native';
+import { View, Text, TouchableOpacity, ToastAndroid , StyleSheet, Dimensions, Image, ScrollView} from 'react-native';
 export default function ProfilePage() {
     const handleWriteGirlPress = () => {
         ToastAndroid.show('Welcome to your profile page! Click on the dates to explore your previous writing prompts!', ToastAndroid.SHORT);

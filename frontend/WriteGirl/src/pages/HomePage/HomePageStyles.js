@@ -175,6 +175,11 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+    backgroundView: {
+        flex:1,
+        justifyContent:'space-between',
+        backgroundColor: '#F0EBE8'
+      },
     container: {
       paddingLeft: 40,
       paddingRight:40,
@@ -325,7 +330,7 @@ const styles = StyleSheet.create({
     },
 
     jumpstart: {
-        marginTop: '80%',
+        marginTop: '120%',
         position: 'absolute',
         height: '100%',
         width: '100%',
@@ -361,9 +366,24 @@ const styles = StyleSheet.create({
         fontSize: '27px',
         fontWeight: 150
     },
+    jumpstartModal: {
+        marginTop: '60%',
+        marginLeft: '20%',
+        // position: 'absolute',
+        backgroundColor: '#272e32',
+        width: '70%',
+        height: '40%',
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+    }, 
     jumpstartView: {
         marginTop: '30%',
-        position: 'absolute',
+        // marginLeft: '10%',
+        marginBottom: '60%',
+        alignSelf: 'center',
+        // position: 'absolute',
         backgroundColor: '#272e32',
         width: '70%',
         height: '40%',
@@ -401,6 +421,7 @@ const styles = StyleSheet.create({
         borderRadius: '20px',
         position: 'absolute',
         marginTop: '80%',
+        alignSelf: 'center',
     },
     completeText: {
         color: "#ffffff",
