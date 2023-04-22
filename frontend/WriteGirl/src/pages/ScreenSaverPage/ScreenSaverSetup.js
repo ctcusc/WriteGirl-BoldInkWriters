@@ -26,6 +26,21 @@ const START_END_PADDING = (width - PROMPT_SIZE) / 2 + 2
 const TIMER_ITEM_HEIGHT = 50
 
 
+const renderMedia = (item) => {
+  if(item.mediaType === "Picture" || item.mediaType === "gif") {
+    return(
+      <View style={styles.imgContainer}>
+          <Image style={styles.img} source={{ uri: item.media[0].url }} />
+      </View>
+    )
+  } else if(item.mediaType === "Video") {
+
+  } else {
+    console.log("ERROR in screensaversetup.js")
+    return;
+  }
+}
+
 // timer component
 const TimerList = React.forwardRef(({ setType }, ref) => {
     return (
@@ -86,7 +101,7 @@ export default function ScreenSaverSetup({ navigation }) {
             return res.json()
         })
         .then((data) => {
-            // console.log(data)
+            console.log(data)
             setPrompts(data);
         })
     }, [])
@@ -134,9 +149,7 @@ export default function ScreenSaverSetup({ navigation }) {
                         >
                             <View style={styles.cardContainer}>
                                 <Text style={styles.promptText}> {item.title} </Text>
-                                <View style={styles.imgContainer}>
-                                    <Image style={styles.img} source={{ uri: item.videoURL }} />
-                                </View>
+                                {renderMedia(item)}
                             </View>
                         </View>
                     )}
@@ -160,21 +173,21 @@ export default function ScreenSaverSetup({ navigation }) {
                         <Pressable style={styles.button} onPress={() => {
                             // console.log("min", min, ' : sec', sec)
                             const minSecs = { minutes: min, seconds: sec }
-                            if((min === 0 || min === '00') && (sec === 0 || sec === '00')) {
-                              if (!Toast.isActive("error-toast")) {  
-                                Toast.show({
-                                    id: "error-toast",
-                                    placement: "top",
-                                    render: () => {
-                                        return <Box style={styles.setupToast}>
-                                            Please select a time!
-                                        </Box>;
-                                    }
-                                });
-                              }
-                            } else {
+                            // if((min === 0 || min === '00') && (sec === 0 || sec === '00')) {
+                            //   if (!Toast.isActive("error-toast")) {  
+                            //     Toast.show({
+                            //         id: "error-toast",
+                            //         placement: "top",
+                            //         render: () => {
+                            //             return <Box style={styles.setupToast}>
+                            //                 Please select a time!
+                            //             </Box>;
+                            //         }
+                            //     });
+                            //   }
+                            // } else {
                                 navigation.navigate('Screen Saver Page', { promptId: promptIndex, time: minSecs })
-                            }
+                            // }
                         }}>
                             <Text style={styles.buttonLabel}>Set Timer</Text>
                         </Pressable>

@@ -28,7 +28,7 @@ export default function ScreenSaverPage({ navigation, route }) {
             // console.log(data)
             if(data == null) {throw console.log(data)}
             setPrompts(data.prompt);
-            setUri(data.videoURL)
+            setUri(data.media[0].url)
         })
     }, [])
 

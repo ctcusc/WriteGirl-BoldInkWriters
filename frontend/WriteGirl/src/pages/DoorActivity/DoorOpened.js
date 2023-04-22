@@ -3,12 +3,13 @@ import {Text, View, SafeAreaView, TouchableOpacity} from 'react-native';
 import { useEffect, useState } from 'react';
 // Airtable.configure({ apiKey: DOOR_ACTIVITY })
 
-export default function DoorOpened() {
+export default function DoorOpened({navigation, route}) {
     const [data, setData] = useState();
     useEffect(() => {
         // Get random prompt id
         let randomNum = Math.floor(Math.random() * 9) + 1;
-        let url = "http://localhost:8000/api/dooractivity/" + randomNum.toString();
+        let url = "http://localhost:8000/api/dooractivity/" + route.params.id;
+        console.log(url)
         fetch(url, {
             method: "GET",
         })
@@ -17,10 +18,10 @@ export default function DoorOpened() {
         })
         .then((data) => {
             if(data == null) { throw new Error("No data found"); }
-            setData(data.instruction);
+            setData(data);
             console.log(data);
         })
-    }, []);
+    }, [route]);
 
     // //Airtable API call for prompt
     // let apiToken = DOOR_ACTIVITY;
@@ -40,7 +41,7 @@ export default function DoorOpened() {
                 
                     <View style={styles.openDoor}>
                         <Text style = {styles.openText}>Door Opened!</Text>
-                        <Text style = {styles.prompt}>{data}</Text>
+                        <Text style = {styles.prompt}>{data ? data.instruction : ""}</Text>
                         <TouchableOpacity style={styles.interactive}>
                             <Text style={styles.intText}>see exhibits</Text>
                         </TouchableOpacity>

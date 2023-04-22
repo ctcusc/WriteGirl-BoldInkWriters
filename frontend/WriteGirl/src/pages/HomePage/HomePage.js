@@ -108,19 +108,19 @@ let up = false;
 
     // runs on the first render
     // fetches name, rating, month, tip from backend
-    useEffect(() => {
-        // repeat for each field
-        fetch("http://localhost:3000/api/name/", {
-            method: 'GET',
-            headers: {'Content-Type': 'application/json'}
-        })
-        .then((response) => {
-            response.json()
-        })
-        .then((data) => {
-            setName(response_data["prompt"]);
-        })
-    }, [])
+    // useEffect(() => {
+    //     // repeat for each field
+    //     fetch("http://localhost:3000/api/name/", {
+    //         method: 'GET',
+    //         headers: {'Content-Type': 'application/json'}
+    //     })
+    //     .then((response) => {
+    //         response.json()
+    //     })
+    //     .then((data) => {
+    //         setName(response_data["prompt"]);
+    //     })
+    // }, [])
 
     //changing the modes to either word or picture
     const changeMode = () => {

@@ -2,6 +2,7 @@ import { RandomizerWheelPrompt } from "../models/RandomizerWheelPrompt"
 import { Request, Response, NextFunction } from "express"
 import { StatusCodes } from "http-status-codes"
 import { sequelize } from "../sequelize"
+import base from "../airtable"
   /**
    * Create a new prompt.
    * @route POST /add-randomizer-wheel-prompt
@@ -19,9 +20,22 @@ import { sequelize } from "../sequelize"
 
   
   export const getRandomizerWheelPrompt = async (req: Request, res: Response) => {
-    const result = await RandomizerWheelPrompt.findOne({
-        order: sequelize.random(),
-        where: {category: req.params.category },
-    })
-    return res.json(result)
+    // const result = await RandomizerWheelPrompt.findOne({
+    //     order: sequelize.random(),
+    //     where: {category: req.params.category },
+    // })
+    // return res.json(result)
+
+    base('Randomizer Wheel Prompts').select({
+      filterByFormula: `category = "${req.params.category}"`
+    }).firstPage((err, records) => {
+      if (err) {
+          console.error(err);
+          return;
+      }
+      // records contains an array of all records in the table
+      const randomIndex = Math.floor(Math.random() * records.length);
+      const randomRecord = records[randomIndex];
+      return res.json(randomRecord.fields)
+    });
   }
