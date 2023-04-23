@@ -158,23 +158,6 @@ const styles = StyleSheet.create({
         color: '#000',
         borderRadius: 10, 
     },
-    backArrow:{
-        position: 'relative',
-        right: '45%',
-        bottom: '5%',
-        color:  '#49A5AD',
-        backgroundColor: '#49A5AD',
-        borderColor: '#49A5AD',
-        marginLeft: "3%",
-        marginTop: '3%',
-    },
-    backText:{
-        fontSize: '35px',
-        fontWeight: 500,
-        color: "#FFFFFF",
-        borderColor: '#49A5AD',
-        backgroundColor: '#49A5AD',
-    }
 
 });
 

@@ -271,7 +271,7 @@ let up = false;
                     <Text style={styles.jumpstartTitle}>
                         {modeTitle}
                     </Text>
-                    <br></br>
+                    {/* <br></br> */}
                     {mode}
                 </Animated.View>
 
