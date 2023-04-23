@@ -25,6 +25,7 @@ export default function WritingExperiments({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <View style = {styles.page}>  
+      <Text style={styles.chooseText}>Writing Experiments</Text>
           <View style={styles.reflectionDiv}>
             <Text style={styles.title}>Reflection Prompt Placeholder</Text>
             <Text>{refPrompt === "" ? "Click Generate!" : refPrompt}</Text>
@@ -68,20 +69,30 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: '100%',
   },
+  chooseText:{
+    color: '#0D4D5E',
+    fontFamily: 'DroidSans',
+    fontStyle: 'normal',
+    fontSize: '27px',
+    fontWeight: 700,
+    lineHeight: '32px',
+    textAlign: 'center',
+    marginTop: 50,
+  },
 
   page:{
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#F0EBE8',
     height: '100%',
   },
 
   title: {
     textAlign: 'center',
     marginVertical: 8,
-    fontFamily: 'Poppins',
+    fontFamily: 'DroidSans',
     fontStyle: 'normal',
     fontWeight: 400,
     fontSize: 25,
-    textColor: '#0D4D5E',
+    color: '#0D4D5E',
   },
   
   reflectionButton: {
@@ -140,10 +151,10 @@ const styles = StyleSheet.create({
   smallButtons: {
     // Absolutely positioned to `fixToText` container
     position:'absolute',
-    right: "3vw",
+    right: "20vw",
     bottom: "1.5vh",
     filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
-    backgroundColor: '#0D4D5E',
+    backgroundColor: '#C5DA01',
     borderRadius: 30,
     paddingVertical: "1%",
     paddingHorizontal: "5%",
@@ -159,7 +170,7 @@ const styles = StyleSheet.create({
     fontStyle: 'normal',
     fontWeight: 400,
     fontSize: 24,
-    color: 'white',
+    color: '0D4D5E',
     margin: 0,
     padding: 0,
   }

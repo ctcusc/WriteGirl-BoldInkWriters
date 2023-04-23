@@ -5,7 +5,7 @@ import base from "../airtable"
 
   /**
    * Create a new reminder.
-   * @route POST /add-reminder-info
+   * @route POST /add-reminder-info 
    */
 
   export const postDoorActivity = async (req: Request, res: Response) => {

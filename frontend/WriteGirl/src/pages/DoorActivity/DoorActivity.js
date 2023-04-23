@@ -1,14 +1,13 @@
 import {styles} from './Style'
 import { useEffect, useState } from 'react';
-import {View, SafeAreaView, FlatList, Image, TouchableOpacity, Text} from 'react-native';
+import {View, SafeAreaView, FlatList, Image, Modal, TouchableOpacity, Text} from 'react-native';
 import navigation from '@react-navigation/native';
 import { Alert, Collapse, NativeBaseProvider } from 'native-base';
-const imgArr = new Array(9).fill().map((_, index) => ('../../../assets/door' + index + '.png'));
-
+const imgArr = new Array(9).fill().map((_, index) => `../../../assets/door${index}.png`);
 
 
 export default function DoorActivity({navigation}) {
-    const [show, setShow] = useState(false);
+    const [isModalVisible, setIsModalVisible] = useState(false);
 
     
     
@@ -45,25 +44,28 @@ export default function DoorActivity({navigation}) {
                     key={3}
                     />
 
-                    <NativeBaseProvider>
-                        {show &&
+            <NativeBaseProvider>
+                <Modal visible={isModalVisible} animationType="fade" transparent onRequestClose={() => setIsModalVisible(false)}>
                     <View>
-                        <Alert status="info" style={styles.alert}>
-                                <Text style={styles.doorActivityText}>
-                                Welcome to the Door Activity!
-                                </Text>
-                                <TouchableOpacity style={styles.exploreButton} onPress={() => setShow(false)}>
-                                    <Text style={styles.exploreText}>Explore</Text>
-                                </TouchableOpacity>
-                        </Alert>
-                    </View>}
-                    <TouchableOpacity style={styles.helpButton} onPress={() => setShow(true)}>
-                        <Text style={styles.helpText}>Need any help?</Text>
-                    </TouchableOpacity>
-                    </NativeBaseProvider>
+                            <Alert status="info" style={styles.alert}>
+                                    <Text style={styles.doorActivityText}>
+                                    Click a door to explore the prompt behind it!
+                                    </Text>
+                                    <TouchableOpacity style={styles.exploreButton} onPress={() => setIsModalVisible(false)}>
+                                        <Text style={styles.exploreText}>Explore</Text>
+                                    </TouchableOpacity>
+                            </Alert>
+                        </View>
+                </Modal>
+                <TouchableOpacity style={styles.helpButton} onPress={() => setIsModalVisible(true)}>
+                            <Text style={styles.helpText}>Need any help?</Text>
+                </TouchableOpacity>
+            </NativeBaseProvider>
+
+
                 </View>
             </View>
         </SafeAreaView>
+        
     )
 }
-
