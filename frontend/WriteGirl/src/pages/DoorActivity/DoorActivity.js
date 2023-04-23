@@ -31,7 +31,7 @@ export default function DoorActivity({navigation}) {
                         const doorImage = require(`../../../assets/door${index}.png`);
 
                         return (
-                        <TouchableOpacity onPress={() => navigation.navigate("Door Opened")}
+                        <TouchableOpacity onPress={() => navigation.navigate("Door Opened", {id: index+1})}
                         style={styles.doorIcon} >
                         <Image
                             source={{ uri: doorImage }}
