@@ -32,12 +32,35 @@ function HomeTabs() {
       >
           {/* <Tab.Screen name="Monthly Exercises" component={MonthlyExercises} /> */}
           {/* <Tab.Screen name="Monthly Exercise Opened" component={OpenedExercise} /> */}
-          <Tab.Screen name="Home Page" component={HomePage} />
-          <Tab.Screen name="Writing Experiments" component={WritingExperiments} />
-          <Tab.Screen name="Resources" component={ResourcesPage} />
+          <Tab.Screen name="Home Page" component={HomePage} options={{
+            tabBarOptions: { showIcon: true },
+            tabBarIcon: (focused, tintColor) => (
+              <img 
+                    src={require('./assets/tabs/home.png')} />
+            )    
+          }}/>
+          <Tab.Screen name="Writing Experiments" component={WritingExperiments} options={{
+            tabBarOptions: { showIcon: true },
+            tabBarIcon: (focused, tintColor) => (
+              <img 
+                    src={require('./assets/tabs/exercises.png')} />
+            )    
+          }}/>
+          <Tab.Screen name="Resources" component={ResourcesPage} options={{
+            tabBarOptions: { showIcon: true },
+            tabBarIcon: (focused, tintColor) => (
+              <img 
+                    src={require('./assets/tabs/resources.png')} />
+            )    
+          }}/>
           {/* <Tab.Screen name="Screen Saver Setup" component={ScreenSaverSetup} /> */}
-          <Tab.Screen name="About Us Page" component={AboutUsPage} /> 
-          <Tab.Screen name="Profile Page" component={ProfilePage} />
+          <Tab.Screen name="Profile Page" component={ProfilePage} options={{
+            tabBarOptions: { showIcon: true },
+            tabBarIcon: (focused, tintColor) => (
+              <img 
+                    src={require('./assets/tabs/profile.png')} />
+            )    
+          }}/>
       </Tab.Navigator>
   );
 }
@@ -53,6 +76,7 @@ export default function App({navigation}) {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={({ route }) => ({
+          headerShown: false,
           tabBarButton: [
             "Screen Saver Setup",
             "Screen Saver Page",
@@ -76,6 +100,7 @@ export default function App({navigation}) {
             <Stack.Screen name="Randomizer Wheel" component={RandomizerWheelPage} />
             <Stack.Screen name="Door Opened" component={DoorOpened} />
             <Stack.Screen name="Door Activity" component={DoorActivity} />
+            <Stack.Screen name="About Us Page" component={AboutUsPage} />
             
       </Stack.Navigator>
     </NavigationContainer>
