@@ -8,6 +8,7 @@ export default function HomePage({navigation, route}) {
   const[userInfo, setUserInfo] = useState();
   const[userToken, setUserToken] = useState("");
 //   const[month, setMonth] = useState("")
+  const [advice, setAdvice] = useState("")
 
   const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
@@ -21,6 +22,7 @@ export default function HomePage({navigation, route}) {
     }
     fetchToken()
   }, [])
+
 
   useEffect(() => {
     // get user name and data
@@ -52,6 +54,31 @@ export default function HomePage({navigation, route}) {
     const monthIndex = new Date().getMonth();
     console.log("month", monthNames[monthIndex])
     setMonth(monthNames[monthIndex])
+  }, [])
+
+  // get advice/tip
+  const fetchAdvice = async() => {
+    try{
+      const response = await fetch("http://localhost:8000/api/advice/", {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'}
+        })
+        const response_data = await response.json();
+        setAdvice(response_data.advice)
+        return response_data;
+    } catch (err) {
+      console.log("Advice err", err)
+      return;
+    }
+  }
+
+  useEffect(() => {
+    try{
+      fetchAdvice()
+    } catch (err) {
+      console.log("Advice err", err)
+      return;
+    }
   }, [])
 
 
@@ -245,7 +272,7 @@ let up = false;
                     <Image style={styles.tipbox} source={require('./assets/icon.png')}/>
                     <View style={styles.tipimagecontainer} >
                         <ImageBackground style={styles.tipimage} source={require('./assets/speech-bubble.png')}>
-                            <Text style={styles.tiptext}>Listening to music is a great way to set the mood for writing 🎼</Text>
+                            <Text style={styles.tiptext}>{advice}</Text>
                             {/* <Text style={styles.tiptext}>{tip}</Text> */}
                         </ImageBackground>
                     </View>
