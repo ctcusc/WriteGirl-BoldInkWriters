@@ -25,8 +25,9 @@ const styles = StyleSheet.create({
     },
     imageView: {
         width: '60%',
-        height: '104pt',
+        height: 104,
         marginLeft: '20%',
+        marginTop: '20%'
     },
     image: {
         width: '100%',
@@ -50,13 +51,13 @@ const styles = StyleSheet.create({
         marginTop: '5%',
     },
     TextInput: {
-        placeholderTextColor: "#003f5c",
+        // placeholderTextColor: "#003f5c",
         backgroundColor: '#fff',
         borderColor: '#000',
         borderWidth: 2,
         borderRadius: 15,
-        height: '30pt',
-        width: '150%',
+        // height: "30pt",
+        width: 250,
         padding: 10,
         textAlign: "center",
         marginLeft: '10%',
@@ -77,18 +78,18 @@ const styles = StyleSheet.create({
     loginBtn: {
         width: "60%",
         borderRadius: 25,
-        height: "30pt",
+        height: "5%",
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "#C5DA01",
         color: '#0D4D5E',
         marginLeft: '20%',
-        marginTop: '5%',
+        marginTop: '10%',
     },
     loginText: {
         fontWeight: 600,
         color: "#0d4d5e",
-        fontSize: '100%',
+        fontSize: 25,
     },
     
 });

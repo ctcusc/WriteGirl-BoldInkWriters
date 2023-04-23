@@ -7,6 +7,7 @@ import MonthlyExerciseRouter from "./MonthlyExercisePrompt"
 import DoorActivityRouter from "./DoorActivity"
 import DailyJumpstartRouter from "./DailyJumpstart"
 import AdviceRouter from "./Advice"
+import ReflectionPromptRouter from "./ReflectionPrompt"
 
 const router = Router()
 
@@ -18,6 +19,7 @@ router.use("/monthly-exercise-prompt/", MonthlyExerciseRouter)
 router.use("/dooractivity/", DoorActivityRouter)
 router.use("/jumpstart/", DailyJumpstartRouter)
 router.use("/advice/", AdviceRouter)
+router.use("/reflectionprompt/", ReflectionPromptRouter)
 
 
 export default router

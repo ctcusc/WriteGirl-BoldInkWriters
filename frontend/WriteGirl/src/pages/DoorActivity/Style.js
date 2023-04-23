@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
       color: '#0D4D5E',
       fontFamily: 'Droid Sans',
       fontStyle: 'normal',
-      fontSize: '27px',
+      fontSize: '20pt',
       fontWeight: 700,
       lineHeight: '32px',
       textAlign: 'center',
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Inter',
         fontStyle: 'normal',
         fontWeight: 400,
-        fontSize: '25px',
+        fontSize: '19pt',
         lineHeight: '30px',
         fontColor: '#FFFFFF',
       },
@@ -167,8 +167,8 @@ const styles = StyleSheet.create({
       },
 
       backButton: {
-          width: "33px",
-          height: "27px",
+          width: "25pt",
+          height: "20pt",
           marginRight: "85%",
           marginTop: "15pt",
           marginBottom: "10%",

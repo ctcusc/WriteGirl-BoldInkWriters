@@ -54,10 +54,10 @@ export default function Sign_In_Page({navigation}) {
             <ImageBackground source={require('./background.png')} resizeMode="cover" style={styles.screensaverBg}>
 
             <View style={styles.contentContainer}>
-                {/* <Image style={styles.image} source={logo} />  */}
-                {/* <View style={styles.imageView}>
+                {/* <Image style={styles.image} source={logo} />   */}
+                 <View style={styles.imageView}>
                     <Image source={require('./logo.png')} style={styles.image}/>
-                </View> */}
+                </View>
                 <Text style ={styles.titleText}>Sign-In</Text>
                 <Text style={styles.subTitleText}>Email</Text>
                 <StatusBar style="auto" />
