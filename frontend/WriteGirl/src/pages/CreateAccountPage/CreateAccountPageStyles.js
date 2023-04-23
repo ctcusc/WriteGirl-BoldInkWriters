@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
         width: "33px",
         height: "27px",
         marginRight: "85%",
-        marginTop: "20px",
+        marginTop: "15pt",
         marginBottom: "10%",
         position: "absolute",
     },

@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import {View, SafeAreaView, FlatList, Image, TouchableOpacity, Text} from 'react-native';
 import navigation from '@react-navigation/native';
 import { Alert, Collapse, NativeBaseProvider } from 'native-base';
-const imgArr = new Array(9).fill().map((_, index) => `../../../assets/door${index}.png`);
+const imgArr = new Array(9).fill().map((_, index) => ('../../../assets/door' + index + '.png'));
+
 
 
 export default function DoorActivity({navigation}) {
@@ -28,12 +29,12 @@ export default function DoorActivity({navigation}) {
                     <FlatList
                     data={imgArr}
                     renderItem={({ item, index }) => {
-                        const doorImage = require(`../../../assets/door${index}.png`);
+                        // const doorImage = require('../../../assets/door' + index + '.png');
                         return (
                         <TouchableOpacity onPress={() => navigation.navigate("Door Opened", {id: index+1})}
                         style={styles.doorIcon} >
                         <Image
-                            source={{ uri: doorImage }}
+                            source={{ uri: imgArr[index] }}
                             style={{ width: "100%", height: 120 }}
                         />
                         </TouchableOpacity>

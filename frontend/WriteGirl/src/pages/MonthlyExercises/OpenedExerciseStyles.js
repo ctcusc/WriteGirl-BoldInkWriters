@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
         // height: '100%',
         width: '10%',
         marginLeft: '3%',
+        marginTop: '15%',
         resizeMode: 'cover',
     }, 
     arrContainer: {
@@ -27,6 +28,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFF",
         height: containerHeight,
         width: containerWidth,
+        marginTop: "10%",
         // width: "70%",
         // borderWidth: 2, 
         // borderColor: '#000',

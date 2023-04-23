@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         width: "33px",
         height: "27px",
         marginRight: "85%",
-        marginTop: "20px",
+        marginTop: "15pt",
         position: "absolute",
     },
 
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         marginTop: "5%",
         fontStyle: "normal",
         fontWeight: 400,
-        fontSize: "20px",
+        fontSize: "15pt",
         color: "#fff",
         textAlign: "center",
     },
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
 
     tipTitle: {
         color: "#0d4d5e",
-        fontSize: "20px",
+        fontSize: "15pt",
         fontWeight: 450,
         position: "absolute",
         textAlign: "center",
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
         marginBottom: "5%",
 
         backgroundColor: "#c5da01",
-        borderRadius: "20px",
+        borderRadius: "15pt",
     },
 
     generateText: {
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
         height: "23px",
         fontStyle: "normal",
         fontWeight: 400,
-        fontSize: "20px",
+        fontSize: "15pt",
         color: "#0d4d5e",
         flex: "none",
         textAlign: "center",

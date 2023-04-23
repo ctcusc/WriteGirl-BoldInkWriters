@@ -93,8 +93,8 @@ bottomTitle: {
 },
 
 arrowStyle: {
-    width: "40px",
-    height: "20px",
+    width: "30pt",
+    height: "15pt",
     marginLeft: "65%",
 },
 
@@ -117,8 +117,8 @@ learnMoreButton: {
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
-    height: "50px",
-    width: "60px",
+    height: "38pt",
+    width: "45pt",
     marginRight: "20%",
 },
 
@@ -222,7 +222,7 @@ donationDescription: {
 
 donateButton: {
     backgroundColor: "#c5da01",
-    height: "50px",
+    height: "38pt",
     width: "80px",
     borderRadius: 90,
     alignItems: "center",

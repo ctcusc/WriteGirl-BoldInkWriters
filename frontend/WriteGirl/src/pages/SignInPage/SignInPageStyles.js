@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     },
     imageView: {
         width: '60%',
-        height: '139px',
+        height: '104pt',
         marginLeft: '20%',
     },
     image: {
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
         borderColor: '#000',
         borderWidth: 2,
         borderRadius: 15,
-        height: '40px',
+        height: '30pt',
         width: '150%',
         padding: 10,
         textAlign: "center",
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     loginBtn: {
         width: "60%",
         borderRadius: 25,
-        height: "40px",
+        height: "30pt",
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "#C5DA01",
