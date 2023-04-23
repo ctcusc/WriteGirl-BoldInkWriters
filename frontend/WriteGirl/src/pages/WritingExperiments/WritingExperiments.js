@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontWeight: 400,
-    fontSize: "24px",
+    fontSize: 24,
     color: 'white',
     margin: 0,
     padding: 0,

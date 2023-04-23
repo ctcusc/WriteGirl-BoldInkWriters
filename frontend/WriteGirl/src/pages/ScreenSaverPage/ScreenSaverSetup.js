@@ -108,7 +108,7 @@ export default function ScreenSaverSetup({ navigation }) {
 
     return (
         <NativeBaseProvider>
-            <TouchableOpacity onPress={() => {
+             <TouchableOpacity style={styles.backArrow} onPress={() => {
                     navigation.navigate('Home Tabs', { screen: 'Writing Experiments' });
                 }}>
                     <Text style={styles.backText}>←</Text>
