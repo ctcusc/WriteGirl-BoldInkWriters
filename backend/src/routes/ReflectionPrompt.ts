@@ -5,6 +5,6 @@ const router = Router()
 
 router.get("/:id", promptController.getReflectionPrompt)
 router.post("/", promptController.postReflectionPrompt)
-router.get("", promptController.getAllPrompts)
+router.get("", promptController.getRandomPrompt)
 
 export default router
