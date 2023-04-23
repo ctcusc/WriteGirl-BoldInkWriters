@@ -1,7 +1,7 @@
 
 import React from 'react';
 // import './ProfilePage.css';
-import styles from './ProfilePageStyles.js';
+// import styles from './ProfilePageStyles.js';
 import { View, Text, TouchableOpacity, ToastAndroid , StyleSheet, Dimensions, Image, ScrollView} from 'react-native';
 export default function ProfilePage({ navigation }) {
     // const handleWriteGirlPress = () => {
