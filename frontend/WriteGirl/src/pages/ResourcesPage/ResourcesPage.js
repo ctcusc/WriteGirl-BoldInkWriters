@@ -1,6 +1,6 @@
 import {styles} from './ResourcesPageStyles.js';
 import { Text, Image, TouchableOpacity, View, Animated, state, ScrollView} from "react-native";
-import {useState, useRef} from 'react';
+import {useState, useRef, useEffect} from 'react';
 const backButtonImage = require('../../../assets/BackButton.png');
 const samplePepTalk1 = "Relax and don't forget to breathe :)";
 const samplePepTalk2 = "Keep going, you're on the write track!";
@@ -8,7 +8,8 @@ const samplePepTalk3 = "I like big books and I cannot lie."
 let sampleNumber = 0;
 
 export default function ResourcesPage() {
-    const [pepTalk, setPepTalk] = useState(samplePepTalk1);
+    const [pepTalk, setPepTalk] = useState("Click Generate!");
+    const [tip, setTip] = useState("")
     const fadeAnim = useRef(new Animated.Value(1)).current;
     const springAnim = useRef(new Animated.Value(1)).current;
 
@@ -47,21 +48,39 @@ export default function ResourcesPage() {
 
     // const bounceAnim = useRef(new Animated.Value(0)).current;
 
-    const generatePepTalk = () => {
-        sampleNumber++;
-        sampleNumber %= 3;
-        switch (sampleNumber) {
-            case 0:
-                setPepTalk(samplePepTalk1);
-                break;
-            case 1:
-                setPepTalk(samplePepTalk2);
-                break;
-            case 2:
-                setPepTalk(samplePepTalk3);
-                break;
+    const generatePepTalk = async() => {
+        try{
+          const response = await fetch("http://localhost:8000/api/advice/1", {
+                method: 'GET',
+                headers: {'Content-Type': 'application/json'}
+            })
+            const response_data = await response.json();
+            setPepTalk(response_data.advice)
+            return response_data;
+        } catch (err) {
+          console.log("Advice err", err)
+          return;
         }
     };
+
+    // get writer tip
+    useEffect(() => {
+      const generateTip = async() => {
+          try{
+            const response = await fetch("http://localhost:8000/api/advice/0", {
+                  method: 'GET',
+                  headers: {'Content-Type': 'application/json'}
+              })
+              const response_data = await response.json();
+              setTip(response_data.advice)
+              return response_data;
+          } catch (err) {
+            console.log("Advice err", err)
+            return;
+          }
+      };
+      generateTip()
+    }, [])
 
     return (
         <ScrollView 
@@ -78,7 +97,7 @@ export default function ResourcesPage() {
                     Writer Tip of the Day
                 </Text>
                 <Text style={styles.tip}>
-                    Remember to always sharpen your pencils!
+                    {tip}
                 </Text>
             </View>
 

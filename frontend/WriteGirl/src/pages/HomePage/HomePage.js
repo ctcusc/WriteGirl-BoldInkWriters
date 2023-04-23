@@ -57,23 +57,23 @@ export default function HomePage({navigation, route}) {
   }, [])
 
   // get advice/tip
-  const fetchAdvice = async() => {
-    try{
-      const response = await fetch("http://localhost:8000/api/advice/", {
-            method: 'GET',
-            headers: {'Content-Type': 'application/json'}
-        })
-        const response_data = await response.json();
-        setAdvice(response_data.advice)
-        return response_data;
-    } catch (err) {
-      console.log("Advice err", err)
-      return;
-    }
-  }
-
   useEffect(() => {
+    setAdvice("Loading message...")
     try{
+      const fetchAdvice = async() => {
+        try{
+          const response = await fetch("http://localhost:8000/api/advice/", {
+                method: 'GET',
+                headers: {'Content-Type': 'application/json'}
+            })
+            const response_data = await response.json();
+            setAdvice(response_data.advice)
+            return response_data;
+        } catch (err) {
+          console.log("Advice err", err)
+          return;
+        }
+      }
       fetchAdvice()
     } catch (err) {
       console.log("Advice err", err)
