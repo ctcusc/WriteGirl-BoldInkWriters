@@ -1,5 +1,5 @@
 import {styles} from './Style'
-import {Text, View, SafeAreaView, TouchableOpacity} from 'react-native';
+import {Text, View, SafeAreaView, Image, TouchableOpacity} from 'react-native';
 import { useEffect, useState } from 'react';
 // Airtable.configure({ apiKey: DOOR_ACTIVITY })
 
@@ -46,6 +46,10 @@ export default function DoorOpened({navigation, route}) {
                 </TouchableOpacity>
                 
                     <View style={styles.openDoor}>
+                    {/* <Image
+                        source={{ uri: 'https://example.com/my-image.jpg' }}
+                        style={{ width: '100%', height: 200 }}
+                    /> */}
                         <Text style = {styles.openText}>Door Opened!</Text>
                         <Text style = {styles.prompt}>{data ? data.instruction : ""}</Text>
                         <TouchableOpacity style={styles.interactive}>
