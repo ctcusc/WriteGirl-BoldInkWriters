@@ -1,14 +1,13 @@
 import {styles} from './Style'
 import { useEffect, useState } from 'react';
-import {View, SafeAreaView, FlatList, Image, TouchableOpacity, Text} from 'react-native';
+import {View, SafeAreaView, FlatList, Image, Modal, TouchableOpacity, Text} from 'react-native';
 import navigation from '@react-navigation/native';
 import { Alert, Collapse, NativeBaseProvider } from 'native-base';
-const imgArr = new Array(9).fill().map((_, index) => ('../../../assets/door' + index + '.png'));
-
+const imgArr = new Array(9).fill().map((_, index) => `../../../assets/door${index}.png`);
 
 
 export default function DoorActivity({navigation}) {
-    const [show, setShow] = useState(false);
+    const [isModalVisible, setIsModalVisible] = useState(false);
 
     
     
@@ -29,12 +28,13 @@ export default function DoorActivity({navigation}) {
                     <FlatList
                     data={imgArr}
                     renderItem={({ item, index }) => {
-                        // const doorImage = require('../../../assets/door' + index + '.png');
+                        const doorImage = require(`../../../assets/door${index}.png`);
+
                         return (
-                        <TouchableOpacity onPress={() => navigation.navigate("Door Opened", {id: index+1})}
+                        <TouchableOpacity onPress={() => navigation.navigate("Door Opened")}
                         style={styles.doorIcon} >
                         <Image
-                            source={{ uri: imgArr[index] }}
+                            source={{ uri: doorImage }}
                             style={{ width: "100%", height: 120 }}
                         />
                         </TouchableOpacity>
@@ -45,7 +45,7 @@ export default function DoorActivity({navigation}) {
                     key={3}
                     />
 
-                    <NativeBaseProvider>
+                    {/* <NativeBaseProvider>
                         {show &&
                     <View>
                         <Alert status="info" style={styles.alert}>
@@ -60,10 +60,42 @@ export default function DoorActivity({navigation}) {
                     <TouchableOpacity style={styles.helpButton} onPress={() => setShow(true)}>
                         <Text style={styles.helpText}>Need any help?</Text>
                     </TouchableOpacity>
-                    </NativeBaseProvider>
+                    </NativeBaseProvider> */}
+            <NativeBaseProvider>
+
+           
+            <Modal visible={isModalVisible} animationType="fade" transparent onRequestClose={() => setIsModalVisible(false)}>
+                    {/* <TouchableOpacity style={styles.modalcontainer} activeOpacity={1}>
+                        <View style={styles.modalcontent}>
+                            <Text style={styles.modaltext}>Congratulations!</Text>
+                            <Text style={styles.modaltext}>You got this adjective:</Text>
+                            <Text style={styles.modaltext}>{selectedWord}</Text>
+                            <TouchableOpacity onPress={() => setIsModalVisible(false)}>
+                                <Text style={styles.closebutton}>close</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </TouchableOpacity> */}
+                    <View>
+                            <Alert status="info" style={styles.alert}>
+                                    <Text style={styles.doorActivityText}>
+                                    Click a door to explore the prompt behind it!
+                                    </Text>
+                                    <TouchableOpacity style={styles.exploreButton} onPress={() => setIsModalVisible(false)}>
+                                        <Text style={styles.exploreText}>Explore</Text>
+                                    </TouchableOpacity>
+                            </Alert>
+                        </View>
+                </Modal>
+                <TouchableOpacity style={styles.helpButton} onPress={() => setIsModalVisible(true)}>
+                {/* <TouchableOpacity style={styles.helpButton}> */}
+                            <Text style={styles.helpText}>Need any help?</Text>
+                        </TouchableOpacity>
+            </NativeBaseProvider>
+
+
                 </View>
             </View>
         </SafeAreaView>
+        
     )
 }
-

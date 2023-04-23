@@ -12,7 +12,6 @@ export default function HomePage({navigation, route}) {
   const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
   ];
-
   useEffect(() => {
     // get user token
     const fetchToken = async () => {

@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         height: '100%',
+        backgroundColor: '#F0EBE8'
       },
     page:{
         flex: 1,
@@ -116,7 +117,13 @@ const styles = StyleSheet.create({
         position: 'relative',
         borderRadius: 30,
         backgroundColor: '#0D4D5E',
+        marginTop: '70%',
+        // minHeight: '60%',
         minWidth: '22%',
+        width: '30%',
+        //Increase vertical height
+        // height: '150px',
+
       },
       exploreText:{
         color: '#FFFFFF',
@@ -124,15 +131,17 @@ const styles = StyleSheet.create({
         paddingVertical: '5%',
         paddingHorizontal: '10%',
         textAlign: 'center',
-
+        fontSize: '15pt',
       },
       doorActivityText:{
         fontFamily: 'Poppins',
         fontStyle: 'normal',
         fontWeight: 400,
-        fontSize: '15pt',
+        fontSize: '20pt',
         lineHeight: '30px',
         fontColor: '#0D4D5E',
+        textAlign: 'center',
+        marginTop: '37%',
       },
       helpText:{
         paddingVertical: '5%',
@@ -154,8 +163,10 @@ const styles = StyleSheet.create({
       },
       alert:{
         margin: '10%',
+        marginTop: '20%',
         maxW:"400",
         maxH:"800",
+        height: '80%',
         borderRadius:30,
         backgroundColor:"#FFFFFF",
         filter:"drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25))",
