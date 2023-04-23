@@ -59,6 +59,11 @@ export default function RandomizerWheelPage({ navigation, route }) {
 
     return (
         <SafeAreaView style={styles.container}>
+            <TouchableOpacity onPress={() => {
+                navigation.navigate('Home Tabs', { screen: 'Writing Experiments' });
+            }}>
+                <Text style={styles.backText}>←</Text>
+            </TouchableOpacity>
             <View style={styles.header}>
                 <Text style={styles.headertext}>Randomizer</Text>
             </View>

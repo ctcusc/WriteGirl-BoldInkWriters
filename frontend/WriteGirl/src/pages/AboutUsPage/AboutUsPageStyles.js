@@ -9,6 +9,13 @@ container: {
     justifyContent: "flex-start",
 },
 
+containerFull: {
+    height: "100%",
+    width: "100%",
+    // alignItems: "center",
+    justifyContent: "flex-start",
+},
+
 topLayout: {
     width: "100%",
     height: "100%",
@@ -229,4 +236,21 @@ donateImage: {
     backgroundColor: "#f0f5bb",
     borderRadius: 100,
 },
+backArrow:{
+    position: 'relative',
+    right: '45%',
+    bottom: '5%',
+    color:  '#49A5AD',
+    backgroundColor: '#49A5AD',
+    borderColor: '#49A5AD',
+    marginLeft: "3%",
+    marginTop: '3%',
+},
+backText:{
+    fontSize: '35px',
+    fontWeight: 500,
+    color: "#FFFFFF",
+    borderColor: '#49A5AD',
+    backgroundColor: '#49A5AD',
+}
 });

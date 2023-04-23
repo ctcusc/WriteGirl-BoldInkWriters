@@ -1,5 +1,5 @@
 import { NativeBaseProvider, Toast, Box } from "native-base";
-import { SafeAreaView, View, Text, Image, ScrollView, Dimensions, Pressable, FlatList } from "react-native";
+import { SafeAreaView, View, Text, Image, ScrollView, Dimensions, Pressable, FlatList, TouchableOpacity } from "react-native";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { styles } from "./ScreenSaverStyles.js";
@@ -108,15 +108,20 @@ export default function ScreenSaverSetup({ navigation }) {
 
     return (
         <NativeBaseProvider>
+            <TouchableOpacity onPress={() => {
+                    navigation.navigate('Home Tabs', { screen: 'Writing Experiments' });
+                }}>
+                    <Text style={styles.backText}>←</Text>
+                </TouchableOpacity>
             <SafeAreaView style={styles.container}>
 
                 {/* BACK ARROW */}
-                <Pressable style={styles.arrContainer} onPress={() => { navigation.navigate('Writing Experiments') }}>
+                {/* <Pressable style={styles.arrContainer} onPress={() => { navigation.navigate('Writing Experiments') }}>
                     <Image
                         style={styles.backArrow}
                         source={require('./backArrowIcon.png')}
                     />
-                </Pressable>
+                </Pressable> */}
 
                 <View>
                     <Text style={styles.title}>Pick a prompt and set a timer!</Text>
