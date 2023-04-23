@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Text, ScrollView, View, Pressable, Image } from "react-native";
+import { Text, ScrollView, View, Pressable, Image, TouchableOpacity } from "react-native";
 import { styles } from "./MonthlyExercisesStyles";
 
 export default function MonthlyExercises({ navigation, route }) {
@@ -92,6 +92,12 @@ export default function MonthlyExercises({ navigation, route }) {
               source={require('./assets/backArrowIcon.png')}
           />
       </Pressable> */}
+
+    <TouchableOpacity style={styles.backArrow} onPress={() => {
+          navigation.navigate('Home Tabs', { screen: 'Home Page' });
+      }}>
+          <Text style={styles.backText}>←</Text>
+      </TouchableOpacity>
 
 
       {/* TITLE */}

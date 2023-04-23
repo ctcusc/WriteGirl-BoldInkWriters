@@ -103,6 +103,19 @@ const styles = StyleSheet.create({
   
   playButton: {
   }, 
+
+  backArrow:{
+      position: 'relative',
+      right: '45%',
+      bottom: '5%',
+      marginLeft: "10%",
+      marginTop: '15%',
+  },
+  backText:{
+      fontSize: '35px',
+      fontWeight: 500,
+      color: "#49A5AD",
+  }
 });
 
 export { styles };
