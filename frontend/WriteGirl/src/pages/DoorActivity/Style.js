@@ -55,13 +55,21 @@ const styles = StyleSheet.create({
         fontWeight: 700,
         fontSize: '30px',
       },
+      promptTitle:{
+        color: '#0D4D5E',
+        fontFamily: 'Hubballi',
+        // fontStyle: 'normal',
+        fontSize: 30,
+        fontWeight: 700,
+        paddingTop: 10,
+      },
       prompt:{
         color: '#0D4D5E',
         fontFamily: 'Hubballi',
         fontStyle: 'normal',
-        fontSize: '15pt',
-        lineHeight: '19px',
-        paddingTop: '15pt',
+        fontSize: 30,
+        // lineHeight: '19px',
+        paddingTop: 15,
       },
       interactive: {
         // Absolutely positioned to the `openDoor` container

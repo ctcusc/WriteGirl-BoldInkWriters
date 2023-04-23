@@ -46,14 +46,17 @@ export default function DoorOpened({navigation, route}) {
                 </TouchableOpacity>
                 
                     <View style={styles.openDoor}>
-                        <Text style = {styles.openText}>Door Opened!</Text>
+                        {/* <Text style = {styles.openText}>Door Opened!</Text> */}
+                        <Text style = {styles.openText}>{data ? data.title : ""}</Text>
                         <Text style = {styles.prompt}>{data ? data.instruction : ""}</Text>
-                        <TouchableOpacity style={styles.interactive}>
+                        {/* <TouchableOpacity style={styles.interactive}>
                             <Text style={styles.intText}>see exhibits</Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                     </View>
                     {/* Complete Button */}
-                    <TouchableOpacity style={styles.compButton}>
+                    <TouchableOpacity style={styles.compButton} onPress={() => {
+                        navigation.navigate('Door Activity');
+                    }}>
                         <Text style={styles.compText}>complete</Text>
                     </TouchableOpacity>
 
