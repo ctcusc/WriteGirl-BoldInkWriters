@@ -206,10 +206,11 @@ let up = false;
             <View style={styles.tip}>
                 <Image style={styles.tipbox} source={require('./assets/icon.png')}/>
                 <View style={styles.tipimagecontainer} >
-                    <ImageBackground style={styles.tipimage} source={require('./assets/speech-bubble.png')}>
+                    <Image style={styles.tipimage} source={require('./assets/speech-bubble.png')}/>
+                    <Text style={styles.tiptext}>Listening to music is a great way to set the mood for writing 🎼</Text>
+                    {/* <ImageBackground style={styles.tipimage} source={require('./assets/speech-bubble.png')}>
                         <Text style={styles.tiptext}>Listening to music is a great way to set the mood for writing 🎼</Text>
-                        {/* <Text style={styles.tiptext}>{tip}</Text> */}
-                    </ImageBackground>
+                    </ImageBackground> */}
                 </View>
             </View>
 

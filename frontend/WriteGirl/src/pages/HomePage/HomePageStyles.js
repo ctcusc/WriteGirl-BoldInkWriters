@@ -172,20 +172,26 @@
 
 //   export { styles };
 
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+// const { width, height } = Dimensions.get('window');
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
     container: {
-      paddingLeft: 40,
-      paddingRight:40,
-      paddingBottom: 80,
-      flex:1,
-      justifyContent:'space-between',
-      backgroundColor: '#F0EBE8'
+        paddingLeft: width * 0.1,
+        paddingRight: width * 0.1,
+        paddingTop: height * 0.08,
+    //   paddingBottom: 80,
+        flex:1,
+        justifyContent:'space-between',
+        backgroundColor: '#F0EBE8'
     },
     welcome: {
-        height: '20%',
-        paddingTop: 50
+        // height: '20%',
+        // borderWidth: 2,
+        // paddingTop: height * 0.08,
     },
     welcometext1: {
         fontSize: '1.1rem',
@@ -210,35 +216,43 @@ const styles = StyleSheet.create({
     },
 
     tip: {
+        // borderWidth: 2,
         height: '20%',
+        width: '100%',
         marginTop: '5%',
         marginBottom: '5%',
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
     tipbox: {
-        width: 74.72,
-        height: 112.33,
-        alignSelf: 'flex-end'
+        // width: 74.72,
+        // height: 112.33,
+        width: '30%',
+        height: '85%',
+        resizeMode: 'contain',
+        alignSelf: 'flex-end',
     },
     tiptext: {
         color: '#0D4D5E',
-        fontSize: 18,
-        paddingRight: 30,
-        paddingLeft: 30,
+        fontSize: '1.1rem',
+        paddingRight: 20,
+        paddingLeft: 20,
         paddingBottom: '6%',
-        fontFamily: 'Hubballi'
+        fontFamily: 'Hubballi',
+        position: 'absolute'
     },
     tipimagecontainer: {
         width: "70%",
-        justifyContent: 'flex-start',
-        alignItems: 'flex-end'
+        height: '100%',
+        // justifyContent: 'flex-start',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     tipimage: {
-        // width: '200px',
-        // height: '90px',
-        width: '240px',
-        height: '108px',
+        // width: '240px',
+        // height: '108px',
+        width: '100%',
+        height: '100%',
         resizeMode: 'contain',
         alignItems: 'center',
         textAlign: 'left',
@@ -248,8 +262,9 @@ const styles = StyleSheet.create({
     exercises: {
         borderWidth: 1,
         height: '40%',
+        justifyContent: 'space-between',
         // paddingTop: 20,
-        paddingBottom: 20,
+        // paddingBottom: 20,
         alignItems: 'center',
         borderRadius: 20,
         borderColor: '#FFFFFF',
@@ -263,22 +278,21 @@ const styles = StyleSheet.create({
     exercisesbutton: {
         color: '#0D4D5E',
         backgroundColor: '#C5DA01',
-        paddingLeft: 30,
-        paddingRight: 30,
+        paddingLeft: width * 0.05,
+        paddingRight: width * 0.05,
         paddingTop: 5,
         paddingBottom: 5,
         borderRadius: 20,
         textAlign: 'center',
-        marginTop: '5%',
         shadowRadius: 5,
         shadowColor: '#E1E0DE',
         shadowOpacity: 1,
         shadowOffset: {width: 0, height: 4},
-        fontSize: 25,
+        fontSize: '1.4rem',
         fontFamily: 'DroidSans'
     },
     exercisestext1: {
-        fontSize: 27,
+        fontSize: '1.7rem',
         fontWeight: 'bold',
         color: '#0D4D5E',
         fontFamily: 'DroidSans'
@@ -287,27 +301,21 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '80%',
         justifySelf: 'flex-start',
-        // aspectRatio: 1,
         resizeMode: 'cover',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         borderBottomWidth: 2,
         borderColor: '#FFFFFF',
         zIndex: 999,
-        // elevation: 10,
-        // shadowRadius: 51,
-        // shadowColor: '#E1E0DF',
-        // shadowOpacity: 1,
-        // shadowOffset: {width: 0, height: 4},
     },
     horizontal2: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
         width: '100%',
-        paddingTop: '3%',
-        paddingLeft: 15,
-        paddingRight: 15,
+        paddingBottom: '3%',
+        paddingLeft: width * 0.03,
+        paddingRight: width * 0.03,
     },
     rating: {
         color: '#0D4D5E',
@@ -316,7 +324,7 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 30,
         paddingLeft: 6,
         paddingRight: 6,
-        fontSize: 25,
+        fontSize: '1.5rem',
         position: 'absolute',
         alignSelf: 'flex-end',
         marginTop: '10%',
@@ -325,12 +333,10 @@ const styles = StyleSheet.create({
     },
 
     jumpstart: {
-        marginTop: '80%',
-        position: 'absolute',
-        height: '100%',
-        width: '100%',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
+        marginLeft: width * -0.1,
+        marginRight: width * -0.1,
+        height: '20%',
+        backgroundColor: '#49A5AD',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
     },
@@ -348,7 +354,7 @@ const styles = StyleSheet.create({
     },
     jumpstarttext: {
         alignSelf: 'center',
-        fontSize: 24,
+        fontSize: '1.4rem',
         color: '#FFFFFF'
     },
     todaysJumpstart: {

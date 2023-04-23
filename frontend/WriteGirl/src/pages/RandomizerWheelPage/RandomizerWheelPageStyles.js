@@ -9,35 +9,48 @@ const styles = StyleSheet.create({
         backgroundColor: '#49A5AD',
         borderBottomLeftRadius: 40,
         borderBottomRightRadius: 40,
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'flex-end'
     },
     headertext: {
-        fontSize: 30,
+        fontSize: '1.7rem',
         color: "#FFFFFF",
-        paddingTop: '25%'
+        paddingBottom: '35%',
+        fontFamily: 'DroidSansBold'
     },
 
     wheelcontainer: {
         height: '50%',
+        marginLeft: '5%',
+        marginRight: '5%',
         alignItems: 'center',
-        marginTop: '-15%'
+        marginTop: '-25%'
     },
     wheelbody: {
-        width: 330,
-        height: 346.46,
+        width: '100%',
+        height: '100%',
+        resizeMode: 'contain',
+        // width: 330,
+        // height: 346.46,
         position: 'absolute'
     },
     wheeltop: {
-        width: 40,
-        height: 55,
+        width: '12%',
+        height: '17%',
+        resizeMode: 'contain',
+        // width: 40,
+        // height: 55,
         zIndex: 5,
         position: 'absolute',
         marginTop: -30,
     },
     wheel: {
-        height: 321.43,
-        width: 321.43,
-        marginTop: 4
+        width: '97.403%',
+        height: '95%',
+        resizeMode: 'contain',
+        // height: 321.43,
+        // width: 321.43,
+        // marginTop: 3
     },
 
     button: {
@@ -50,11 +63,13 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginLeft: '5%',
         marginRight: '5%',
+        marginTop: '10%',
     },
     buttontext: {
         color: '#FFFFFF',
         fontSize: 25,
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily: 'DroidSans'
     },
 
     wordcontainer: {
@@ -89,7 +104,8 @@ const styles = StyleSheet.create({
     },
     wordtext: {
         color: '#0D4D5E',
-        fontSize: 20
+        fontSize: 20,
+        fontFamily: 'DroidSans'
     },
 
     modalcontainer: {
@@ -112,7 +128,7 @@ const styles = StyleSheet.create({
         elevation: 5
     },
     modalcontent: {
-        height: '50%',
+        height: '100%',
         justifyContent: 'space-evenly',
         alignItems: 'center',
         borderRadius: 2,
@@ -120,7 +136,8 @@ const styles = StyleSheet.create({
     },
     modaltext: {
         color: '#0D4D5E',
-        fontSize: 20
+        fontSize: 20,
+        fontFamily: 'DroidSans'
     },
     closebutton: {
         color: '#0D4D5E',
@@ -136,7 +153,8 @@ const styles = StyleSheet.create({
         shadowColor: '#E1E0DE',
         shadowOpacity: 1,
         shadowOffset: {width: 0, height: 4},
-        fontSize: 25
+        fontSize: 25,
+        fontFamily: 'DroidSans'
     },
 
     backImage: {
