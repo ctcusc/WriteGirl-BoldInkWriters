@@ -5,7 +5,7 @@ const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
 
     container: {
-        backgroundColor: '#49A5AD',
+        backgroundColor: '#F0EBE8',
         display: 'flex',
         paddingTop: 50,
         height: height,
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     },
 
     title: {
-        color: '#FFF',
+        color: '#0D4D5E',
         fontSize: '20%',
         textAlign: 'center',
         paddingTop: '1%',
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     // },
 
     button: {
-        backgroundColor: '#0D4D5E',
+        backgroundColor: '#C5DA01',
         height: 'auto',
         width: '60%',
         padding: 10,
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     },
 
     buttonLabel: {
-        color: 'white',
+        color: '#0D4D5E',
         fontSize: '10%',
         textAlign: 'center',
     },
@@ -158,22 +158,22 @@ const styles = StyleSheet.create({
         color: '#000',
         borderRadius: 10, 
     },
-    backArrow:{
-        position: 'relative',
-        right: '45%',
-        bottom: '5%',
-        color:  '#49A5AD',
-        backgroundColor: '#49A5AD',
-        borderColor: '#49A5AD',
-        marginLeft: "3%",
-        marginTop: '3%',
-    },
+    // backArrow:{
+    //     position: 'relative',
+    //     right: '45%',
+    //     bottom: '5%',
+    //     color:  '#0D4D5E',
+    //     backgroundColor: '#49A5AD',
+    //     borderColor: '#49A5AD',
+    //     marginLeft: "3%",
+    //     marginTop: '3%',
+    // },
     backText:{
         fontSize: '35px',
         fontWeight: 500,
-        color: "#FFFFFF",
-        borderColor: '#49A5AD',
-        backgroundColor: '#49A5AD',
+        color: "#0D4D5E",
+        borderColor: '#F0EBE8',
+        backgroundColor: '#F0EBE8',
     }
 
 });

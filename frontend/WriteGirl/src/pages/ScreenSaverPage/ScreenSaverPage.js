@@ -1,5 +1,5 @@
 import { Toast, useToast, Box, NativeBaseProvider } from "native-base";
-import { SafeAreaView, View, Text, Pressable, ImageBackground, Image } from "react-native";
+import { SafeAreaView, View, Text, TouchableOpacity, ImageBackground, Image } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { styles } from "./ScreenSaverStyles.js";
 import data from './screenSaverData.json'
@@ -95,12 +95,17 @@ export default function ScreenSaverPage({ navigation, route }) {
         <ImageBackground source={{uri: img}} resizeMode="cover" style={styles.screensaverBg}> 
 
             {/* BACK ARROW */}
-            <Pressable style={styles.arrContainer} onPress={() => { navigation.navigate('Screen Saver Setup') }}>
+            {/* <Pressable style={styles.arrContainer} onPress={() => { navigation.navigate('Screen Saver Setup') }}>
                 <Image
                     style={styles.backArrow}
                     source={require('./backArrowIcon.png')}
                 />
-            </Pressable>
+            </Pressable> */}
+            <TouchableOpacity onPress={() => {
+                navigation.navigate('Home Tabs', { screen: 'Screen Saver Setup' });
+            }}>
+                <Text style={styles.backText}>←</Text>
+            </TouchableOpacity>
 
             {/* TIMER */}
             <View> 
