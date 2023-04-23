@@ -101,6 +101,7 @@ let up = false;
     const [isModalVisible, setIsModalVisible] = useState(false);
     const moveAnim = useRef(new Animated.Value(0)).current;
     const fadeAnim = useRef(new Animated.Value(1)).current;
+    const appearAnim = useRef(new Animated.Value(0)).current;
 
     // for fetches from backend
     const [name, setName] = useState(0);
@@ -152,11 +153,16 @@ let up = false;
                     toValue: 1,
                     duration: 800,
                     useNativeDriver: true,
+                }),
+                Animated.timing(appearAnim, {
+                    toValue: 0,
+                    duration: 800,
+                    useNativeDriver: true,
                 })
             ]).start(() => {
+                setIsModalVisible(false);
                 setColor(blue);
                 setImage(upArrow);
-                setIsModalVisible(false);
             });
         }
         else {
@@ -171,10 +177,15 @@ let up = false;
                     toValue: 0,
                     duration: 800,
                     useNativeDriver: true,
+                }),
+                Animated.timing(appearAnim, {
+                    toValue: 1,
+                    duration: 800,
+                    useNativeDriver: true,
                 })
             ]).start(() => {
-                setImage(downArrow);
                 setIsModalVisible(true);
+                setImage(downArrow);
             });
         }
         
@@ -245,26 +256,38 @@ let up = false;
                 jumpstart your writing
                 </Animated.Text>
 
-                <Modal style={styles.jumpstartModal} visible={isModalVisible} transparent >
-                    <Text style={styles.todaysJumpstart}>
-                        Today's Jumpstart
+                <Animated.Text style={[styles.todaysJumpstart,
+                {
+                    opacity: appearAnim,
+                },
+                    ]}>
+                    Today's Jumpstart
+                </Animated.Text>
+
+                <Animated.View style={[styles.jumpstartView,
+                {
+                    opacity: appearAnim,
+                },
+                ]}>
+                    <Text style={styles.jumpstartTitle}>
+                        {modeTitle}
                     </Text>
+                    <br></br>
+                    {mode}
+                </Animated.View>
 
-                    <View style={styles.jumpstartView}>
-                        <Text style={styles.jumpstartTitle}>
-                            {modeTitle}
-                        </Text>
-                        <br></br>
-                        {mode}
-                    </View>
+                <TouchableOpacity style={styles.completeButton} onPress={changeMode}>
 
-                    <TouchableOpacity style={styles.completeButton} onPress={changeMode}>
-                        <Text style={styles.completeText}>
-                            complete
-                        </Text>
-                    </TouchableOpacity>
-                </Modal>
-            </Animated.View>
+                    <Animated.Text style={[styles.completeText,
+                    {
+                        opacity: appearAnim,
+                    },
+                    ]}>
+                        complete
+                        </Animated.Text>
+                </TouchableOpacity>
+                </Animated.View>
+            {/* </Animated.View> */}
             {/* </SafeAreaView > */}
             
         </View>

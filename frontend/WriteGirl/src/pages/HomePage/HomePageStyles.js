@@ -330,7 +330,7 @@ const styles = StyleSheet.create({
     },
 
     jumpstart: {
-        marginTop: '120%',
+        marginTop: '180%',
         position: 'absolute',
         height: '100%',
         width: '100%',
@@ -347,9 +347,10 @@ const styles = StyleSheet.create({
     },
     jumpstartbutton: {
         justifyContent: 'center',
-       height: '25px',
-       width: '35px',
-       marginTop: '10px',
+        height: '25px',
+        width: '35px',
+        marginTop: "5%",
+        // marginBottom: "5%",
     },
     jumpstarttext: {
         alignSelf: 'center',
@@ -357,7 +358,7 @@ const styles = StyleSheet.create({
         color: '#FFFFFF'
     },
     todaysJumpstart: {
-        marginTop: '7%',
+        marginTop: '3%',
         marginBottom: '3%',
         color: '#ffffff',
         textAlign: 'center',
@@ -366,27 +367,15 @@ const styles = StyleSheet.create({
         fontSize: '27px',
         fontWeight: 150
     },
-    jumpstartModal: {
-        marginTop: '60%',
-        marginLeft: '20%',
-        // position: 'absolute',
-        backgroundColor: '#272e32',
-        width: '70%',
-        height: '40%',
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-    }, 
     jumpstartView: {
-        marginTop: '30%',
+        // marginTop: '5%',
         // marginLeft: '10%',
-        marginBottom: '60%',
+        marginBottom: '110%',
         alignSelf: 'center',
         // position: 'absolute',
         backgroundColor: '#272e32',
         width: '70%',
-        height: '40%',
+        height: '30%',
         flex: 1,
         flexDirection: 'column',
         alignItems: 'center',
@@ -396,6 +385,7 @@ const styles = StyleSheet.create({
         color: '#ffffff',
         fontSize: '20px',
         fontWeight: 400,
+        marginTop: '10%',
     },
     wordJumpstart: {
         color: '#ffffff',
@@ -420,7 +410,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: '20px',
         position: 'absolute',
-        marginTop: '80%',
+        marginTop: '100%',
         alignSelf: 'center',
     },
     completeText: {
