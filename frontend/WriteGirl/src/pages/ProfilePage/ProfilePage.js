@@ -2,7 +2,7 @@
 import React from 'react';
 import './ProfilePage.css';
 import { View, Text, TouchableOpacity, ToastAndroid , StyleSheet, Dimensions, Image, ScrollView} from 'react-native';
-export default function ProfilePage() {
+export default function ProfilePage({ navigation }) {
     const handleWriteGirlPress = () => {
         ToastAndroid.show('Welcome to your profile page! Click on the dates to explore your previous writing prompts!', ToastAndroid.SHORT);
       };
@@ -50,8 +50,13 @@ export default function ProfilePage() {
                 <Text style={styles.smallText}>she/her</Text>
                 <Text style={styles.medText}>email: jane.doe@example.com</Text>
                 <Text style={styles.medText}>location: los angeles, california</Text>
-                <TouchableOpacity onPress={handleWriteGirlPress} style={{ backgroundColor: '#C5DA01', borderRadius: 10, padding: 15, marginTop: 10 }}>
-                <Text style={{ color: '#0D4D5E', fontSize: 16}}>what is WriteGirl?</Text>
+                <TouchableOpacity 
+                  onPress={() => {
+                    navigation.navigate('About Us Page')
+                  }} 
+                  style={{ backgroundColor: '#C5DA01', borderRadius: 10, padding: 15, marginTop: 10 }}
+                >
+                <Text style={{ color: '#0D4D5E', fontSize: 16}}>What is WriteGirl?</Text>
                 </TouchableOpacity>
                 <Image source={require('./needhelp.png')} style={{ width: 200, height: 240, paddingTop: 10 }} />
             

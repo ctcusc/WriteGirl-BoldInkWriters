@@ -81,7 +81,8 @@ export default function App({navigation}) {
             "Screen Saver Setup",
             "Screen Saver Page",
             "Door Opened",
-            "Door Activity"
+            "Door Activity",
+            "About Us Page"
           ].includes(route.name) 
             ? () => {
                 return null;
