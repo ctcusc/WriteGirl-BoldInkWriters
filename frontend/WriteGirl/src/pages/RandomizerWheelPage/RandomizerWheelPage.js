@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Text, View, Image, TouchableOpacity, Modal, Animated, Easing, SafeAreaView } from 'react-native';
 import { styles } from "./RandomizerWheelPageStyles.js";
 
@@ -6,10 +6,11 @@ export default function RandomizerWheelPage({ navigation, route }) {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isSpinning, setIsSpinning] = useState(false);
     const [selectedWordIndex, setSelectedWordIndex] = useState(0);
-    const words = ['Adjective', 'Name', 'Location', 'Time'];
+    const words = ['Adjective', 'Noun', 'Verb', 'Name', 'Location', 'Time'];
     const rotation = useRef(new Animated.Value(0)).current;
     const [rotationNumber, setRotationNumber] = useState(1);
     const [selectedWord, setSelectedWord] = useState(0);
+    const [data, setData] = useState(-1)
 
     const startSpin = () => {
         if (isSpinning) return;
@@ -23,11 +24,18 @@ export default function RandomizerWheelPage({ navigation, route }) {
             easing: Easing.out(Easing.ease),
             useNativeDriver: true,
         }).start(() => {
-            setIsModalVisible(true);
+            // setIsModalVisible(true);
             setIsSpinning(false);
             setRotationNumber(rotationNumber + 1);
         });
     };
+
+    useEffect(() => {
+      if(!isSpinning && data !== -1) {
+        setIsModalVisible(true)
+      }
+    }, [isSpinning])
+
     const rotate = rotation.interpolate({
         inputRange: [0, 1],
         outputRange: ['0deg', '360deg'],
@@ -36,6 +44,25 @@ export default function RandomizerWheelPage({ navigation, route }) {
     const closeModal = () => {
         setIsModalVisible(false);
     };
+
+    const renderModal = () => {
+      if(isModalVisible) {
+        return(
+          <Modal visible={isModalVisible} animationType="fade" transparent onRequestClose={() => setIsModalVisible(false)}>
+              <TouchableOpacity style={styles.modalcontainer} activeOpacity={1}>
+                  <View style={styles.modalcontent}>
+                      <Text style={styles.modaltext}>Congratulations!</Text>
+                      <Text style={styles.modaltext}>You got this {words[selectedWordIndex].toLowerCase()}:</Text>
+                      <Text style={styles.modaltext}>{selectedWord}</Text>
+                      <TouchableOpacity onPress={() => setIsModalVisible(false)}>
+                          <Text style={styles.closebutton}>close</Text>
+                      </TouchableOpacity>
+                  </View>
+              </TouchableOpacity>
+          </Modal>
+        )
+      }
+    }
 
     const cycleWords = (direction) => {
         if (isSpinning) return;
@@ -49,12 +76,24 @@ export default function RandomizerWheelPage({ navigation, route }) {
     };
 
     const getPrompt = async() => {
-        const response = await fetch("http://localhost:3000/api/randomizer-wheel-prompt/" + words[selectedWordIndex], {
+      try{
+        const response = await fetch("http://localhost:8000/api/randomizer-wheel-prompt/" + words[selectedWordIndex], {
             method: 'GET',
             headers: {'Content-Type': 'application/json'}
         })
         const response_data = await response.json();
+        setData(response_data)
+        if (response_data === -1) { 
+          window.alert("No words available in database for this category.")
+          // console.log("No words in database for this category. Go add more words"); 
+          return;
+        }
         setSelectedWord(response_data["prompt"]);
+      } catch (err) {
+        console.log("err in getPrompt() RandomizerWheel")
+        console.log(err)
+        return;
+      }
     }
 
     return (
@@ -90,18 +129,7 @@ export default function RandomizerWheelPage({ navigation, route }) {
                 </TouchableOpacity>
             </View>
 
-            <Modal visible={isModalVisible} animationType="fade" transparent onRequestClose={() => setIsModalVisible(false)}>
-                <TouchableOpacity style={styles.modalcontainer} activeOpacity={1}>
-                    <View style={styles.modalcontent}>
-                        <Text style={styles.modaltext}>Congratulations!</Text>
-                        <Text style={styles.modaltext}>You got this adjective:</Text>
-                        <Text style={styles.modaltext}>{selectedWord}</Text>
-                        <TouchableOpacity onPress={() => setIsModalVisible(false)}>
-                            <Text style={styles.closebutton}>close</Text>
-                        </TouchableOpacity>
-                    </View>
-                </TouchableOpacity>
-            </Modal>
+            {renderModal()}
         </SafeAreaView>
     )
 }
