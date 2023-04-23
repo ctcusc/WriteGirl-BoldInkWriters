@@ -45,36 +45,8 @@ export default function DoorActivity({navigation}) {
                     key={3}
                     />
 
-                    {/* <NativeBaseProvider>
-                        {show &&
-                    <View>
-                        <Alert status="info" style={styles.alert}>
-                                <Text style={styles.doorActivityText}>
-                                Welcome to the Door Activity!
-                                </Text>
-                                <TouchableOpacity style={styles.exploreButton} onPress={() => setShow(false)}>
-                                    <Text style={styles.exploreText}>Explore</Text>
-                                </TouchableOpacity>
-                        </Alert>
-                    </View>}
-                    <TouchableOpacity style={styles.helpButton} onPress={() => setShow(true)}>
-                        <Text style={styles.helpText}>Need any help?</Text>
-                    </TouchableOpacity>
-                    </NativeBaseProvider> */}
             <NativeBaseProvider>
-
-           
-            <Modal visible={isModalVisible} animationType="fade" transparent onRequestClose={() => setIsModalVisible(false)}>
-                    {/* <TouchableOpacity style={styles.modalcontainer} activeOpacity={1}>
-                        <View style={styles.modalcontent}>
-                            <Text style={styles.modaltext}>Congratulations!</Text>
-                            <Text style={styles.modaltext}>You got this adjective:</Text>
-                            <Text style={styles.modaltext}>{selectedWord}</Text>
-                            <TouchableOpacity onPress={() => setIsModalVisible(false)}>
-                                <Text style={styles.closebutton}>close</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </TouchableOpacity> */}
+                <Modal visible={isModalVisible} animationType="fade" transparent onRequestClose={() => setIsModalVisible(false)}>
                     <View>
                             <Alert status="info" style={styles.alert}>
                                     <Text style={styles.doorActivityText}>
@@ -87,9 +59,8 @@ export default function DoorActivity({navigation}) {
                         </View>
                 </Modal>
                 <TouchableOpacity style={styles.helpButton} onPress={() => setIsModalVisible(true)}>
-                {/* <TouchableOpacity style={styles.helpButton}> */}
                             <Text style={styles.helpText}>Need any help?</Text>
-                        </TouchableOpacity>
+                </TouchableOpacity>
             </NativeBaseProvider>
 
 
