@@ -1,17 +1,9 @@
 import {styles} from './Style'
 import { useEffect, useState } from 'react';
-import {View, SafeAreaView, FlatList, Image, Modal, TouchableOpacity, Text} from 'react-native';
+import {View, SafeAreaView, FlatList, Image, Modal, TouchableOpacity, Text, ImageBackground} from 'react-native';
 import navigation from '@react-navigation/native';
 import { Alert, Collapse, NativeBaseProvider } from 'native-base';
 const imgArr = new Array(9).fill().map((_, index) => `../../../assets/door${index}.png`);
-
-// const [images, setimages] = useState([
-//     require('./assets/image1.png'),
-//     require('./assets/image2.png'),
-//     require('./assets/image3.png'),
-//     require('./assets/image4.png'),
-//     require('./assets/image5.png')
-//   ]);
 
 
 export default function DoorActivity({navigation}) {
@@ -41,20 +33,17 @@ export default function DoorActivity({navigation}) {
         { id: '8', image: doors.image8 }
     ]);
 
-    
-    
-
-
 
     return(
         <SafeAreaView style={styles.container}>
             <View style = {styles.page }>
-                <View style = {styles.doorDiv}>
-                    <TouchableOpacity onPress={() => {
+                <TouchableOpacity onPress={() => {
                         navigation.navigate('Home Tabs', { screen: 'Writing Experiments' });
-                    }}>
-                        <Text style={styles.backText}>←</Text>
-                    </TouchableOpacity>
+                    }} >
+                        <Text style={styles.backText}> ←</Text>
+                </TouchableOpacity>
+                <View style = {styles.doorDiv}>
+                    
                     <Text style={styles.chooseText}>Choose a Door!</Text>
 
                     <FlatList
@@ -67,7 +56,7 @@ export default function DoorActivity({navigation}) {
                         style={styles.doorIcon} >
                         <Image
                             source={ item.image }
-                            style={{ width: "100%", height: 120 }}
+                            style={{ width: "100%" }}
                         />
                         </TouchableOpacity>
                         );
@@ -90,9 +79,18 @@ export default function DoorActivity({navigation}) {
                             </Alert>
                         </View>
                 </Modal>
-                <TouchableOpacity style={styles.helpButton} onPress={() => setIsModalVisible(true)}>
+                {/* <TouchableOpacity style={styles.helpButton} onPress={() => setIsModalVisible(true)}>
                             <Text style={styles.helpText}>Need any help?</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
+                <View style={styles.tip}>
+                    <Image style={styles.tipbox} source={require('../../../assets/helpPuddle.png')}/>
+                    <TouchableOpacity style={styles.tipimagecontainer} onPress={() => setIsModalVisible(true)}>
+                            <ImageBackground style={styles.tipimage} source={require('../../../assets/speech.png')}>
+                                <Text style={styles.tiptext}>Need any help?</Text>
+                            </ImageBackground>
+                    </TouchableOpacity>
+                </View>
+
             </NativeBaseProvider>
 
 

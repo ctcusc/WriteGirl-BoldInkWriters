@@ -37,6 +37,8 @@ const styles = StyleSheet.create({
       flex: 1,
       width: "90%",
       margin: "auto",
+      alignItems: 'center',
+      alignSelf: "center"
     },
     openDoor: {
       position: 'relative',
@@ -195,7 +197,7 @@ const styles = StyleSheet.create({
       doorIcon:{
         width: "28%", 
         height: 90,
-        marginVertical: 20, 
+        marginVertical: 25, 
         marginHorizontal: 10, 
         marginLeft: 10, 
         borderRadius: 20, 
@@ -206,6 +208,48 @@ const styles = StyleSheet.create({
         width: "100%",
         height: "100%",
       },
+    tip: {
+      height: '20%',
+      marginTop: '10%',
+      marginLeft: '5%',
+      marginBottom: '5%',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    tipbox: {
+        // width: 74.72,
+        // height: 112.33,
+        alignSelf: 'flex-end',
+        marginLeft: "5%",
+        resizeMode: 'contain',
+        // marginTop: "20%"
+
+        
+    },
+    tiptext: {
+        color: '#0D4D5E',
+        fontSize: 20,
+        // paddingRight: 30,
+        // paddingLeft: 30,
+        padding: '10%',
+        fontFamily: 'Hubballi',
+        alignSelf: 'center',
+        textAlign: 'center'
+    },
+    tipimagecontainer: {
+        width: "70%",
+        // height: "100%",
+        justifyContent: 'flex-start',
+        alignSelf: 'flex-end',
+        resizeMode: 'contain',
+    },
+    tipimage: {
+        width: "100%",
+        padding: '10%',
+        // height: "100%",
+        // resizeMode: 'contain',
+        alignItems: 'center',
+    },
       
 });
 
