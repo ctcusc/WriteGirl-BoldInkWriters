@@ -145,9 +145,10 @@ export default function CreateAccountPage({ navigation }) {
 
     return (
         <NativeBaseProvider>
+            <ImageBackground source={require('./bg_img.png')} resizeMode="cover" style={styles.screensaverBg}> 
             <SafeAreaView >
                 <KeyboardAwareScrollView style={styles.container}>
-                <ImageBackground source={require('./bg_img.png')} resizeMode="cover" style={styles.screensaverBg}> 
+                
                 
                 <View style={styles.contentContainer}>
                 <TouchableOpacity style={styles.backButton} onPress={() => {
@@ -311,9 +312,10 @@ export default function CreateAccountPage({ navigation }) {
                         </Pressable>
                     </View>
                 </View>
-                </ImageBackground>
+                
                 </KeyboardAwareScrollView >
             </SafeAreaView >
+            </ImageBackground>
         </NativeBaseProvider>
 
 

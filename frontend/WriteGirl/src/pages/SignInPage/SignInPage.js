@@ -49,9 +49,10 @@ export default function Sign_In_Page({navigation}) {
 
     return (         
       <NativeBaseProvider>
+        <ImageBackground source={require('./background.png')} resizeMode="cover" style={styles.screensaverBg}>
         <SafeAreaView >
             <KeyboardAwareScrollView style={styles.container}>
-            <ImageBackground source={require('./background.png')} resizeMode="cover" style={styles.screensaverBg}>
+            
 
             <View style={styles.contentContainer}>
                 {/* <Image style={styles.image} source={logo} />   */}
@@ -89,9 +90,11 @@ export default function Sign_In_Page({navigation}) {
                     <Text style={styles.loginText}>Start Writing</Text>
                 </TouchableOpacity>
             </View>  
-            </ImageBackground>
+            
             </KeyboardAwareScrollView> 
+            
         </SafeAreaView>  
+        </ImageBackground>
       </NativeBaseProvider>  
     );
 }
