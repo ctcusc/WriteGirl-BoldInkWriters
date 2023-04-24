@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator, BottomTabBar } from '@react-navigation/bottom-tabs';
 import { useFonts } from 'expo-font';
 // TODO: add your page here!
-import NavBar, {CreateAccountPage, HomePage, WritingExperiments, ExamplePage, ProfilePage, MonthlyExercises, SignInPage, ScreenSaverPage, ScreenSaverSetup, DoorActivity, DoorOpened, RandomizerWheelPage, AboutUsPage, ResourcesPage, OpenedExercise} from "./src/pages" 
+import NavBar, {CreateAccountPage, HomePage, WritingExperiments, ExamplePage, ProfilePage, MonthlyExercises, SignInPage, ScreenSaverPage, ScreenSaverSetup, DoorActivity, DoorOpened, RandomizerWheelPage, AboutUsPage, ResourcesPage, OpenedExercise, PastMonthlyExercisePage} from "./src/pages" 
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator();
@@ -82,7 +82,8 @@ export default function App({navigation}) {
             "Screen Saver Page",
             "Door Opened",
             "Door Activity",
-            "About Us Page"
+            "About Us Page",
+            "Past Monthly Exercise"
           ].includes(route.name) 
             ? () => {
                 return null;
@@ -102,6 +103,7 @@ export default function App({navigation}) {
             <Stack.Screen name="Door Opened" component={DoorOpened} />
             <Stack.Screen name="Door Activity" component={DoorActivity} />
             <Stack.Screen name="About Us Page" component={AboutUsPage} />
+            <Stack.Screen name="Past Monthly Exercise" component={PastMonthlyExercisePage} />
             
       </Stack.Navigator>
     </NavigationContainer>

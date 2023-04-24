@@ -1,7 +1,7 @@
 
 import React from 'react';
 // import './ProfilePage.css';
-import styles from './ProfilePage.css';
+import styles from './ProfilePageStyles.js';
 import { View, Text, TouchableOpacity, ToastAndroid , StyleSheet, Dimensions, Image, ScrollView} from 'react-native';
 import { useState, useEffect } from 'react';
 import { auth } from "../../../firebaseConfig";
@@ -63,7 +63,10 @@ export default function ProfilePage({ navigation }) {
 
       const DateGrid = ({ activities }) => {
         return (
-          <View style={styles.gridContainer}>
+          <TouchableOpacity onPress={() => {
+            navigation.navigate('Past Monthly Exercise')
+          }}
+          style={styles.gridContainer}>
             {/* map through the activities and create a grid item for each */}
             {activities.map((activity, index) => (
               <View style={styles.item} key={index}>
@@ -73,7 +76,7 @@ export default function ProfilePage({ navigation }) {
                 </View>
               </View>
             ))}
-          </View>
+          </TouchableOpacity>
         );
       };
       function completeFilter(item) {
@@ -98,8 +101,8 @@ export default function ProfilePage({ navigation }) {
     
     
       return (
-        <>
-        <View style =  {styles.container}>
+        <ScrollView>
+          <View style = {styles.container}>
             <View style={styles.internalContainer}>
                 <Text style={styles.bigText}>{userInfo ? (userInfo.firstName + " " + userInfo.lastName) : null}</Text>
                 {/* <Text style={styles.smallText}>she/her</Text> */}
@@ -114,23 +117,17 @@ export default function ProfilePage({ navigation }) {
                 <Text style={{ color: '#0D4D5E', fontSize: 16}}>What is WriteGirl?</Text>
                 </TouchableOpacity>
                 <Image source={require('./needhelp.png')} style={{ width: 200, height: 240, paddingTop: 10 }} />
-            
-
-
-            
-            
             </View>
+          </View>
 
-
-        </View>
-        <Text style={styles.headerText}>In progress</Text>
-        <View>
-            <DateGrid activities={activities.filter(incompleteFilter)}/>
-        </View>
-        <Text style={styles.headerText}>Completed</Text>
-        <View>
-            <DateGrid activities={activities.filter(completeFilter) }/>
-        </View>
-        </>
+          <Text style={styles.headerText}>In progress</Text>
+          <View>
+              <DateGrid activities={activities.filter(incompleteFilter)}/>
+          </View>
+          <Text style={styles.headerText}>Completed</Text>
+          <View>
+              <DateGrid activities={activities.filter(completeFilter) }/>
+          </View>
+        </ScrollView>
       );
 }

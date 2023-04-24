@@ -73,6 +73,7 @@ export default StyleSheet.create({
             fontSize: 36,
             fontWeight: 'bold',
             color: '#0D4D5E', 
+            alignSelf: "center"
             // textAlign: center,
           },
           monthYear: {

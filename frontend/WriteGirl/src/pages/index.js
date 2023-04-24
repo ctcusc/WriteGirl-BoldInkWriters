@@ -15,7 +15,7 @@ export {default as DoorOpened} from './DoorActivity/DoorOpened'
 export { default as OpenedExercise } from './MonthlyExercises/OpenedExercise'
 export { default as RandomizerWheelPage } from './RandomizerWheelPage/RandomizerWheelPage'
 export { default as AboutUsPage } from './AboutUsPage/AboutUsPage.js'
-
+export { default as PastMonthlyExercisePage } from './ProfilePage/PastMonthlyExercise.js'
 
 import ExamplePage from './ExamplePage';
 import RandomPage1 from './RandomPage1';
