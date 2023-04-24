@@ -1,11 +1,18 @@
 
+
 import React from 'react';
 import './ProfilePage.css';
-import { View, Text, TouchableOpacity, ToastAndroid , StyleSheet, Dimensions, Image} from 'react-native';
+import { View, Text, Button, TouchableWithoutFeedback, TouchableOpacity, ToastAndroid , StyleSheet, Dimensions, Image} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 export default function ProfilePage() {
-    const handleWriteGirlPress = () => {
-        ToastAndroid.show('Welcome to your profile page! Click on the dates to explore your previous writing prompts!', ToastAndroid.SHORT);
-      };
+    const navigation = useNavigation();
+    // const handleWriteGirlPress = () => {
+    //     ToastAndroid.show('Welcome to your profile page! Click on the dates to explore your previous writing prompts!', ToastAndroid.SHORT);
+    //   };
+      const activitytest = { day: 25, month: 'Jan', year: 2023, prompt: 'Activity 6', completed: false };
+      function handleButtonPress() {
+        navigation.navigate('ActivityPage', {activitytest});
+      }
       const DateGrid = ({ activities }) => {
         return (
           <View style={styles.gridContainer}>
@@ -52,13 +59,8 @@ export default function ProfilePage() {
                 <Text style={styles.smallText}>she/her</Text>
                 <Text style={styles.medText}>email: jane.doe@example.com</Text>
                 <Text style={styles.medText}>location: los angeles, california</Text>
-                <TouchableOpacity 
-                  onPress={() => {
-                    navigation.navigate('About Us Page')
-                  }} 
-                  style={{ backgroundColor: '#C5DA01', borderRadius: 10, padding: 15, marginTop: 10 }}
-                >
-                <Text style={{ color: '#0D4D5E', fontSize: 16}}>What is WriteGirl?</Text>
+                <TouchableOpacity onPress={handleWriteGirlPress} style={{ backgroundColor: '#C5DA01', borderRadius: 10, padding: 15, marginTop: 10 }}>
+                <Text style={{ color: '#0D4D5E', fontSize: 16}}>what is WriteGirl?</Text>
                 </TouchableOpacity>
                 <Image source={require('./needhelp.png')} style={{ width: 200, height: 240, paddingTop: 10 }} />
             
@@ -76,4 +78,90 @@ export default function ProfilePage() {
         </View>
         </>
       );
+
+
+
 }
+
+const styles = StyleSheet.create({
+    container: {
+    //   flex: 1,
+      backgroundColor: '#359FAB',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderBottomLeftRadius: 20,
+      borderBottomRightRadius: 20,
+      borderColor: 'black',
+      paddingTop: 70,
+      paddingBottom: 40,
+
+    //   flex: 0.5, 
+    },
+    bottomContainer: {
+        flex: 1,
+        backgroundColor: '#F0EBE8',
+        alignItems: 'left',
+        justifyContent: 'left',
+
+      },
+    bigText: {
+        fontFamily: 'sans-serif',
+        fontSize: 30, 
+        fontWeight: 'bold',
+        color: 'white',
+        // textAlign: center,
+    },
+    smallText: {
+        fontFamily: 'sans-serif',
+        fontSize: 16, 
+        fontWeight: 'bold',
+        color: 'white',
+        // textAlign: center,
+    },
+    medText: {
+        fontFamily: 'sans-serif',
+        fontSize: 18, 
+        fontWeight: 'bold',
+        color: 'white',
+    },
+    headerText:{
+        color: '#0D4D5E', 
+        fontSize: 28,
+        paddingLeft: 40,
+        paddingTop: 10,
+    },
+    gridContainer: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'start',
+        paddingHorizontal: 20,
+        padding: 20,
+      },
+      item: {
+        width: '27%',
+        aspectRatio: 1,
+        borderRadius: 25,
+        backgroundColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center',
+        // marginBottom: 10,
+        marginLeft: 30,
+        marginTop: 10,
+      },
+      dateContainer: {
+        justifyContent: 'left',
+        alignItems: 'left',
+      },
+      day: {
+        fontSize: 36,
+        fontWeight: 'bold',
+        color: '#0D4D5E', 
+        // textAlign: center,
+      },
+      monthYear: {
+        fontSize: 20,
+        color: '#0D4D5E', 
+      },
+
+  });
+
