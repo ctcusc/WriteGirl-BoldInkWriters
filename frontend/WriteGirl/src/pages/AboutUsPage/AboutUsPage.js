@@ -1,5 +1,5 @@
 import {useEffect, useRef, useState } from "react";
-import {Animated, Dimensions, Easing, Text, View, Image, TextInput, TouchableOpacity, ScrollView} from "react-native";
+import {Animated, Dimensions, Easing, Text, View, Image, TextInput, TouchableOpacity, ScrollView, Linking} from "react-native";
 
 import styles from './AboutUsPageStyles.js';
 const books = require('./AboutPageBooks.png');
@@ -9,6 +9,8 @@ const moneyBag = require('./AboutUsMoneyBag.png');
 const donateIcon = require('./AboutUsDonateIcon.png');
 const arrow = require('./AboutUsArrow.png');
 const fold = require('./AboutUsFold.png');
+const HomeLink = 'https://www.writegirl.org';
+const DonateLink = 'https://www.writegirl.org/donate';
 
 export default function AboutPage() {
     const [donation, setDonation] = useState("");
@@ -89,7 +91,7 @@ export default function AboutPage() {
 
                 <View style={styles.learnMoreLayout}>
                     <View style={styles.learnMoreButton}>
-                        <TouchableOpacity style={styles.booksButton}>
+                        <TouchableOpacity style={styles.booksButton} onPress={() => Linking.openURL(HomeLink)}>
                             <Image source={books} style={styles.booksImage}/>
                         </TouchableOpacity>
                         <Text style={styles.iconText}>
@@ -97,7 +99,7 @@ export default function AboutPage() {
                         </Text>
                     </View>
                     <View style={styles.learnMoreButton}>
-                        <TouchableOpacity style={styles.mainPageButton}>
+                        <TouchableOpacity style={styles.mainPageButton} onPress={() => Linking.openURL(HomeLink)}>
                             <Image source={mainPage} style={styles.mainPageImage}/>
                         </TouchableOpacity>
                         <Text style={styles.iconText}>
@@ -105,7 +107,7 @@ export default function AboutPage() {
                         </Text>
                     </View>
                     <View style={styles.learnMoreButton}>
-                        <TouchableOpacity style={styles.otherProgButton}>
+                        <TouchableOpacity style={styles.otherProgButton} onPress={() => Linking.openURL(HomeLink)}>
                             <Image source={otherProg} style={styles.otherProgImage}/>
                         </TouchableOpacity>
                         <Text style={styles.iconText}>
@@ -118,24 +120,13 @@ export default function AboutPage() {
                     <Text style={styles.bottomTitle}>
                         <Text style={{fontWeight: "bold"}}>Donate</Text> Now
                     </Text>
-                    <View style={styles.donateInputLayout}>
-                        <Image source={moneyBag} style={styles.moneyBag}/>
-                        <Text style={styles.dollarSign}>
-                            $
-                        </Text>
-                        <TextInput style={styles.donateInput}
-                            placeholderTextColor="#FFF"
-                            onChangeText={(donation) => setDonation(donation)}
-                            keyboardType="numeric"
-                        />
-                    </View>
                 </View>
 
                 <View style={styles.bottomDonateLayout}>
                     <Text style={styles.donationDescription}>
                         Like our services? Donate now to ensure we can continue hosting events, and inviting speakers!
                     </Text>
-                    <TouchableOpacity style={styles.donateButton}>
+                    <TouchableOpacity style={styles.donateButton} onPress={() => Linking.openURL(DonateLink)}>
                         <Image source={donateIcon} style={styles.donateImage}/>
                     </TouchableOpacity>
                 </View>
