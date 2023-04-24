@@ -52,7 +52,8 @@ const styles = StyleSheet.create({
       paddingHorizontal: "10%",
       alignItems: 'center',
       justifyContent: 'center',
-      alignSelf: 'center'
+      alignSelf: 'center',
+      marginTop: "15%"
       },
       openText: {
         color: '#0D4D5E', 
@@ -258,7 +259,13 @@ const styles = StyleSheet.create({
       right: '45%',
       // bottom: '5%',
       marginLeft: "10%",
-      marginTop: '10%',
+      width: "10%"
+    },
+    backArrowDoorOpen:{
+      // position: 'relative',
+      right: '50%',
+      // bottom: '5%',
+      marginLeft: "10%",
       width: "10%"
     },
     backText:{

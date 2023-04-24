@@ -48,7 +48,7 @@ export default function DoorOpened({navigation, route}) {
                     <Text style={styles.backText}>←</Text>
                 </TouchableOpacity> */}
 
-                    <TouchableOpacity style={styles.backArrow} onPress={() => {
+                    <TouchableOpacity style={styles.backArrowDoorOpen} onPress={() => {
                         navigation.navigate('Door Activity');
                     }}>
                         <Text style={styles.backText}>←</Text>
