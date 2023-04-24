@@ -54,8 +54,8 @@ export default function RandomizerWheelPage({ navigation, route }) {
                       <Text style={styles.modaltext}>Congratulations!</Text>
                       <Text style={styles.modaltext}>You got this {words[selectedWordIndex].toLowerCase()}:</Text>
                       <Text style={styles.modaltext}>{selectedWord}</Text>
-                      <TouchableOpacity onPress={() => setIsModalVisible(false)}>
-                          <Text style={styles.closebutton}>close</Text>
+                      <TouchableOpacity onPress={() => setIsModalVisible(false)} style={styles.closebutton}>
+                          <Text style={styles.closebuttontext}>close</Text>
                       </TouchableOpacity>
                   </View>
               </TouchableOpacity>

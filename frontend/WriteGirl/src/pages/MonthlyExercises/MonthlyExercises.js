@@ -97,7 +97,7 @@ export default function MonthlyExercises({ navigation, route }) {
           />
       </Pressable> */}
 
-    <TouchableOpacity style={styles.backArrow} onPress={() => {
+      <TouchableOpacity style={styles.backArrow} onPress={() => {
           navigation.navigate('Home Tabs', { screen: 'Home Page' });
       }}>
           <Text style={styles.backText}>←</Text>

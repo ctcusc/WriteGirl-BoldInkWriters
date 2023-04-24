@@ -250,6 +250,18 @@ const styles = StyleSheet.create({
         // resizeMode: 'contain',
         alignItems: 'center',
     },
+    backArrow:{
+      position: 'relative',
+      right: '45%',
+      bottom: '5%',
+      marginLeft: "10%",
+      marginTop: '30%',
+    },
+    backText:{
+        fontSize: 35,
+        fontWeight: 500,
+        color: "#49A5AD",
+    }
       
 });
 

@@ -80,7 +80,7 @@ export default function OpenedExercise({ navigation, route }) {
                 ) : null}
                 <KeyboardAwareScrollView contentContainerStyle={styles.container}>
                     {/* BACK BUTTON */}
-                    <Pressable style={styles.arrContainer} onPress={() => { navigation.navigate('Home') }}>
+                    <Pressable style={styles.arrContainer} onPress={() => { navigation.navigate('Monthly Exercises') }}>
                         <Image
                             style={styles.backArrow}
                             source={require('./assets/backArrowIcon.png')}
@@ -115,11 +115,12 @@ export default function OpenedExercise({ navigation, route }) {
                                     setDone(false)
                                     navigation.navigate('Monthly Exercises', { id: data.id, arrId: route.params.arrId })
                                 } else { 
+                                    setDone(true)
                                     setShowConfetti(true);
                                     setTimeout(() => {
                                         setShowConfetti(false);
                                     }, 4000);
-                                    setDone(true) }
+                                    }
                             }}
                         >
                             <Text style={

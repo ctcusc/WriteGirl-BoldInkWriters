@@ -129,15 +129,21 @@ const styles = StyleSheet.create({
         backgroundColor: '#C5DA01',
         paddingLeft: 30,
         paddingRight: 30,
+        // width: '100%',
+        // height: '120%',
         paddingTop: 5,
         paddingBottom: 5,
         borderRadius: 20,
-        textAlign: 'center',
         marginTop: '5%',
         shadowRadius: 5,
         shadowColor: '#E1E0DE',
         shadowOpacity: 1,
         shadowOffset: {width: 0, height: 4},
+        fontSize: 25
+    },
+    closebuttontext: {
+        color: '#0D4D5E',
+        textAlign: 'center',
         fontSize: 25
     },
 

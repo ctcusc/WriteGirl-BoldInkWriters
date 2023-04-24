@@ -95,6 +95,18 @@ const styles = StyleSheet.create({
         alignSelf: "center",
         fontSize: width/15,
         color: "white",
+    },
+    backArrow:{
+        // position: 'relative',
+        right: '45%',
+        // bottom: '5%',
+        // marginLeft: "0%",
+        // marginTop: '30%',
+    },
+    backText:{
+        fontSize: 35,
+        fontWeight: 500,
+        color: "#49A5AD",
     }
 
 })

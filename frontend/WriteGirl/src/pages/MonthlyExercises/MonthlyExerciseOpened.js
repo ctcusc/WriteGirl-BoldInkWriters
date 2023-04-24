@@ -24,7 +24,9 @@ export default function MonthlyExerciseOpened({navigation}) {
             <View style={styles.page}>
                 <View style = {styles.openDiv}>
                 {/* Back arrow */}
-                <TouchableOpacity style={styles.backArrow}>
+                <TouchableOpacity style={styles.backArrow} onPress={() => {
+                    navigation.navigate('Home Tabs', { screen: 'Monthly Exercises' });
+                }}>
                     <Text style={styles.backText}>←</Text>
                 </TouchableOpacity>
                 
