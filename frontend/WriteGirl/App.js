@@ -7,6 +7,7 @@ import { createBottomTabNavigator, BottomTabBar } from '@react-navigation/bottom
 
 // TODO: add your page here!
 import NavBar, {CreateAccountPage, HomePage, WritingExperiments, ExamplePage, ProfilePage, MonthlyExercises, SignInPage, ScreenSaverPage, ScreenSaverSetup, DoorActivity, DoorOpened, RandomizerWheelPage, AboutUsPage, ResourcesPage} from "./src/pages" 
+import ActivityPage from './src/pages/ProfilePage/ActivityPage';
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator();
@@ -66,6 +67,9 @@ export default function App({navigation}) {
             <Stack.Screen name="Randomizer Wheel" component={RandomizerWheelPage} />
             <Stack.Screen name="Door Opened" component={DoorOpened} />
             <Stack.Screen name="Door Activity" component={DoorActivity} />
+            <Stack.Screen name="ActivityPage" component={ActivityPage} />
+
+
             
       </Stack.Navigator>
     </NavigationContainer>
