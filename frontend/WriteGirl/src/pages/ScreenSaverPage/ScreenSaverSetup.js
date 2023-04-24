@@ -94,7 +94,7 @@ export default function ScreenSaverSetup({ navigation }) {
 
     // get prompts and content from database
     useEffect(() => {
-        fetch(`http://localhost:8000/api/screen-saver-prompt`, {
+        fetch(`http://" + process.env.IP + ":8000/api/screen-saver-prompt`, {
             method: "GET",
         })
         .then((res) => {

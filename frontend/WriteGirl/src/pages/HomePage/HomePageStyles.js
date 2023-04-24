@@ -24,18 +24,18 @@ const styles = StyleSheet.create({
     },
     welcometext1: {
         fontSize: 20,
-        color: '#0D4D5E',
-        fontFamily: 'Hubballi'
+        color: "#0D4D5E",
+        // fontFamily: 'Hubballi'
     },
     welcomenametext: {
         fontSize: 50,
         fontWeight: 400,
-        color: '#0D4D5E',
-        fontFamily: 'Hubballi_bold'
+        color: "#0D4D5E",
+        // fontFamily: 'Hubballi_bold'
     },
     welcometext2: {
         fontSize: 20,
-        color: '#0D4D5E',
+        color: "#0D4D5E",
         alignSelf: 'center',
         fontFamily: 'DroidSansBold'
     },
@@ -63,12 +63,12 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-end'
     },
     tiptext: {
-        color: '#0D4D5E',
+        color: "#0D4D5E",
         fontSize: 18,
         paddingRight: 30,
         paddingLeft: 30,
         paddingBottom: '6%',
-        fontFamily: 'Hubballi'
+        // fontFamily: 'Hubballi'
     },
     tipimagecontainer: {
         width: "70%",
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFFFFF"
     },
     exercisesbutton: {
-        color: '#0D4D5E',
+        color: "#0D4D5E",
         backgroundColor: '#C5DA01',
         width: '50%',
         height: '120%',
@@ -126,14 +126,14 @@ const styles = StyleSheet.create({
     exercisestext1: {
         fontSize: 27,
         fontWeight: 'bold',
-        color: '#0D4D5E',
+        color: "#0D4D5E",
         fontFamily: 'DroidSans',
         alignSelf: 'center'
     },
     exerciseimg: {
         width: '100%',
         height: '80%',
-        justifySelf: 'flex-start',
+        // justifySelf: 'flex-start',
         // aspectRatio: 1,
         resizeMode: 'cover',
         borderTopLeftRadius: 20,
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
         paddingRight: 15,
     },
     rating: {
-        color: '#0D4D5E',
+        color: "#0D4D5E",
         backgroundColor: '#C5DA01',
         borderBottomLeftRadius: 30,
         borderTopLeftRadius: 30,
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
         width: '80%',
         height: 25,
         fontSize: 20,
-        fontWeight: 150
+        fontWeight: 200
     },
     jumpstartView: {
         // marginTop: '5%',

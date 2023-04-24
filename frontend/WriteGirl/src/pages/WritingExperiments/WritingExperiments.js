@@ -8,7 +8,7 @@ export default function WritingExperiments({navigation}) {
   const fetchPrompt = async() => {
     setRefPrompt("Generating...")
     try{
-        const response = await fetch("http://localhost:8000/api/reflectionprompt/", {
+        const response = await fetch("http://" + process.env.IP + ":8000/api/reflectionprompt/", {
             method: 'GET',
             headers: {'Content-Type': 'application/json'}
         })

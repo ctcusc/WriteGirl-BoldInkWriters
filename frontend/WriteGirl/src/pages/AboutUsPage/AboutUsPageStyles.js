@@ -124,7 +124,7 @@ learnMoreButton: {
 
 iconText: {
     fontSize: 12,
-    color: "0d4d5e",
+    color: "#0d4d5e",
 },
 
 booksButton: {

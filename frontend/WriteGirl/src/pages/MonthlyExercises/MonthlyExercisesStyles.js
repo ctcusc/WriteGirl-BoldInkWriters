@@ -14,19 +14,13 @@ const styles = StyleSheet.create({
   },
   arrContainer: {
     paddingTop: '2%',
-  },
-  backArrow: {
-    // height: '100%',
-    width: '100%',
-    marginLeft: '3%',
-    resizeMode: 'cover',
-  },  
+  }, 
   titleContainer: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
     marginBottom: "8%",
-    marginTop: "15%"
+    // marginTop: "0%"
   },
   titleBold: {
     fontSize: width/15,
@@ -109,7 +103,7 @@ const styles = StyleSheet.create({
       right: '45%',
       bottom: '5%',
       marginLeft: "10%",
-      marginTop: '15%',
+      marginTop: '30%',
   },
   backText:{
       fontSize: 35,

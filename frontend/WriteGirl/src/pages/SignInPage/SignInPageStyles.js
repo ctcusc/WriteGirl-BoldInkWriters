@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
         // marginBottom: '5%',
     },
     subTitleText: {
-        fontWeights: "bold",
         color: "#fff",
         fontSize: 25,
         alignSelf: "flex-start",

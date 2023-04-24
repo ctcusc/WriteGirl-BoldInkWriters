@@ -24,7 +24,7 @@ export default function MonthlyExercises({ navigation, route }) {
 
   // fetch exercise prompts
   useEffect(() => {
-    fetch(`http://localhost:8000/api/monthly-exercise-prompt/`, {
+    fetch("http://" + process.env.IP + ":8000/api/monthly-exercise-prompt/", {
       method: "GET",
     })
     .then((res) => {
@@ -37,7 +37,11 @@ export default function MonthlyExercises({ navigation, route }) {
     .then((data) => {
       // get date to display
       setMonth(data[0].month)
-    })
+    }).catch(function(error) {
+      console.log('Monthly Exercise Fetch Error: ' + error.message);
+       // ADD THIS THROW error
+        // throw error;
+      });
   }, [])
 
   // check viewed array to see how many exercises are done
@@ -157,7 +161,7 @@ export default function MonthlyExercises({ navigation, route }) {
                   : styles.exerciseDescription
               }
             >
-              {datum.description}
+              {datum.description.substring(0, 25) + "..."}
             </Text>
           </Pressable>
         );

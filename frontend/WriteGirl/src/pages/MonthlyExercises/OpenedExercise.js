@@ -8,6 +8,15 @@ import { NativeBaseProvider } from "native-base";
 // import stockVid from './assets/stockVid.mp4'
 
 export default function OpenedExercise({ navigation, route }) {
+    const [showConfetti, setShowConfetti] = useState(false);
+
+    const handleConfetti = () => {
+        setShowConfetti(true);
+        setTimeout(() => {
+            setShowConfetti(false);
+        }, 4000);
+    }
+
     const [data, setData] = useState(route.params.data)
     const [done, setDone] = useState(false) //set style for button
 
@@ -62,7 +71,13 @@ export default function OpenedExercise({ navigation, route }) {
         // </ScrollView>
 
         <NativeBaseProvider>
-            <SafeAreaView >
+            <SafeAreaView style={styles.container}>
+                {showConfetti ? (
+                    <Image
+                        style={{ width: '100%', height: '100%', position: 'absolute', zIndex: 999 }}
+                        source={require('./croppedconfetti.gif')}
+                    />
+                ) : null}
                 <KeyboardAwareScrollView contentContainerStyle={styles.container}>
                     {/* BACK BUTTON */}
                     <Pressable style={styles.arrContainer} onPress={() => { navigation.navigate('Home') }}>
@@ -99,7 +114,12 @@ export default function OpenedExercise({ navigation, route }) {
                                 if(done) {
                                     setDone(false)
                                     navigation.navigate('Monthly Exercises', { id: data.id, arrId: route.params.arrId })
-                                } else { setDone(true) }
+                                } else { 
+                                    setShowConfetti(true);
+                                    setTimeout(() => {
+                                        setShowConfetti(false);
+                                    }, 4000);
+                                    setDone(true) }
                             }}
                         >
                             <Text style={

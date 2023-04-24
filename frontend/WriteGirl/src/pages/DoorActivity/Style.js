@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
       },
       promptTitle:{
         color: '#0D4D5E',
-        fontFamily: 'Hubballi',
+        // fontFamily: 'Hubballi',
         // fontStyle: 'normal',
         fontSize: 30,
         fontWeight: 700,
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
       },
       prompt:{
         color: '#0D4D5E',
-        fontFamily: 'Hubballi',
+        // fontFamily: 'Hubballi',
         fontStyle: 'normal',
         fontSize: 30,
         paddingTop: 15,
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
       helpText:{
         paddingVertical: '5%',
         textAlign: 'center',
-        fontFamily: 'Hubballi',
+        // fontFamily: 'Hubballi',
         color: '#0D4D5E',
         fontSize: 15,
         color: '#49A5AD',
@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
         // paddingRight: 30,
         // paddingLeft: 30,
         padding: '10%',
-        fontFamily: 'Hubballi',
+        // fontFamily: 'Hubballi',
         alignSelf: 'center',
         textAlign: 'center'
     },
