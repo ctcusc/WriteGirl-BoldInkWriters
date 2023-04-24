@@ -80,6 +80,15 @@ export default StyleSheet.create({
             fontSize: 20,
             color: '#0D4D5E', 
           },
+          signOutText: {
+            fontFamily: 'sans-serif',
+            fontSize: 15, 
+            fontWeight: 'bold',
+            color: 'white',
+            alignSelf: 'flex-end',
+            marginRight: 20,
+            textDecorationLine: 'underline',
+          },
    
 });
 

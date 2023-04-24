@@ -5,7 +5,7 @@ import styles from './ProfilePageStyles.js';
 import { View, Text, TouchableOpacity, ToastAndroid , StyleSheet, Dimensions, Image, ScrollView} from 'react-native';
 import { useState, useEffect } from 'react';
 import { auth } from "../../../firebaseConfig";
-
+import { signOut } from "firebase/auth";
 
 export default function ProfilePage({ navigation }) {
     // const handleWriteGirlPress = () => {
@@ -16,6 +16,18 @@ export default function ProfilePage({ navigation }) {
     const[userInfo, setUserInfo] = useState();
     const[userToken, setUserToken] = useState("");
     const [userLocation, setUserLocation] = useState("");
+
+    // sign out user
+    const logOut = async () => {
+      await signOut(auth).then(() => {
+        // Sign-out successful.
+        // console.log("sign out successful")
+        navigation.navigate('Sign In')
+      }).catch((error) => {
+        // An error happened.
+        console.log("log out error:", error)
+      });
+    }
 
     useEffect(() => {
       // get user token
@@ -63,20 +75,20 @@ export default function ProfilePage({ navigation }) {
 
       const DateGrid = ({ activities }) => {
         return (
-          <TouchableOpacity onPress={() => {
-            navigation.navigate('Past Monthly Exercise')
-          }}
-          style={styles.gridContainer}>
+          <View style={styles.gridContainer}>
             {/* map through the activities and create a grid item for each */}
             {activities.map((activity, index) => (
-              <View style={styles.item} key={index}>
+              // <View style={styles.item} key={index}>
+              <TouchableOpacity style={styles.item} key={index} onPress={() => {
+                navigation.navigate('Past Monthly Exercise', { data: activity, arrId: index })
+              }} >
                 <View style={styles.dateContainer}>
                   <Text style={styles.day}>{activity.day}</Text>
                   <Text style={styles.monthYear}>{activity.month} {activity.year}</Text>
                 </View>
-              </View>
+              </TouchableOpacity>
             ))}
-          </TouchableOpacity>
+          </View>
         );
       };
       function completeFilter(item) {
@@ -103,11 +115,12 @@ export default function ProfilePage({ navigation }) {
       return (
         <ScrollView>
           <View style = {styles.container}>
+            <Text style={styles.signOutText} onPress={() => {logOut()}}>Sign Out</Text>
             <View style={styles.internalContainer}>
                 <Text style={styles.bigText}>{userInfo ? (userInfo.firstName + " " + userInfo.lastName) : null}</Text>
                 {/* <Text style={styles.smallText}>she/her</Text> */}
-                <Text style={styles.medText}>email: {userInfo ? userInfo.email : null}</Text>
-                <Text style={styles.medText}>location: {userLocation}</Text>
+                <Text style={styles.medText}>{userInfo ? userInfo.email : null}</Text>
+                <Text style={styles.medText}>{userLocation}</Text>
                 <TouchableOpacity 
                   onPress={() => {
                     navigation.navigate('About Us Page')
@@ -116,7 +129,7 @@ export default function ProfilePage({ navigation }) {
                 >
                 <Text style={{ color: '#0D4D5E', fontSize: 16}}>What is WriteGirl?</Text>
                 </TouchableOpacity>
-                <Image source={require('./needhelp.png')} style={{ width: 200, height: 240, paddingTop: 10 }} />
+                <Image source={require('./needhelp.png')} style={{ width: 72, height: 86, paddingTop: 10, alignSelf: 'center' }} />
             </View>
           </View>
 
