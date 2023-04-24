@@ -1,21 +1,29 @@
 
 import React from 'react';
 import './ProfilePage.css';
-import { View, Text, TouchableOpacity, ToastAndroid , StyleSheet, Dimensions, Image} from 'react-native';
+import { View, Text, Button, TouchableWithoutFeedback, TouchableOpacity, ToastAndroid , StyleSheet, Dimensions, Image} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 export default function ProfilePage() {
+    const navigation = useNavigation();
     const handleWriteGirlPress = () => {
         ToastAndroid.show('Welcome to your profile page! Click on the dates to explore your previous writing prompts!', ToastAndroid.SHORT);
       };
+      const activitytest = { day: 25, month: 'Jan', year: 2023, prompt: 'Activity 6', completed: false };
+      function handleButtonPress() {
+        navigation.navigate('ActivityPage', {activitytest});
+      }
       const DateGrid = ({ activities }) => {
         return (
           <View style={styles.gridContainer}>
             {/* map through the activities and create a grid item for each */}
             {activities.map((activity, index) => (
               <View style={styles.item} key={index}>
+                  <TouchableWithoutFeedback onPress={ handleButtonPress }>
                 <View style={styles.dateContainer}>
                   <Text style={styles.day}>{activity.day}</Text>
                   <Text style={styles.monthYear}>{activity.month} {activity.year}</Text>
                 </View>
+                </TouchableWithoutFeedback>
               </View>
             ))}
           </View>
@@ -54,10 +62,6 @@ export default function ProfilePage() {
                 <Text style={{ color: '#0D4D5E', fontSize: 16}}>what is WriteGirl?</Text>
                 </TouchableOpacity>
                 <Image source={require('./needhelp.png')} style={{ width: 200, height: 240, paddingTop: 10 }} />
-            
-
-
-            
             
             </View>
 
