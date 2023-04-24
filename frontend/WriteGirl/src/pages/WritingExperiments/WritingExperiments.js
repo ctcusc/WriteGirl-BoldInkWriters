@@ -45,10 +45,10 @@ export default function WritingExperiments({navigation}) {
             <Text style={styles.title}>Spin the Randomizer Wheel!</Text>
           </TouchableOpacity>
         
-          <TouchableOpacity style={styles.otherButtons}>
-            <Text style={styles.title} onPress={() => {
+          <TouchableOpacity style={styles.otherButtons} onPress={() => {
                 navigation.navigate('Door Activity')
               }}>
+            <Text style={styles.title}>
                 Open the Doors!</Text>
           </TouchableOpacity>
           
