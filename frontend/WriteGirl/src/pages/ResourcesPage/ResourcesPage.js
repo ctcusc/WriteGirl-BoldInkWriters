@@ -1,5 +1,5 @@
 import {styles} from './ResourcesPageStyles.js';
-import { Text, Image, TouchableOpacity, View, Animated, state} from "react-native";
+import { Text, Image, TouchableOpacity, View, Animated, state, ScrollView} from "react-native";
 import {useState, useRef} from 'react';
 const backButtonImage = require('../../../assets/BackButton.png');
 const samplePepTalk1 = "Relax and don't forget to breathe :)";
@@ -64,7 +64,11 @@ export default function ResourcesPage() {
     };
 
     return (
-        <View style = {styles.container}>
+        <ScrollView 
+        style = {{
+            backgroundColor: "#49a5ad",
+        }}
+        contentContainerStyle = {styles.container}>
 
             <Text style={styles.title}>
                 Resources 
@@ -96,6 +100,6 @@ export default function ResourcesPage() {
                     </Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </ScrollView>
     )
 }

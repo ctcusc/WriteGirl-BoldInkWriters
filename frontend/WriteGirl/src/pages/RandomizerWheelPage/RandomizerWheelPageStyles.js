@@ -122,6 +122,22 @@ const styles = StyleSheet.create({
         color: '#0D4D5E',
         fontSize: 20
     },
+    closebutton: {
+        color: '#0D4D5E',
+        backgroundColor: '#C5DA01',
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingTop: 5,
+        paddingBottom: 5,
+        borderRadius: 20,
+        textAlign: 'center',
+        marginTop: '5%',
+        shadowRadius: 5,
+        shadowColor: '#E1E0DE',
+        shadowOpacity: 1,
+        shadowOffset: {width: 0, height: 4},
+        fontSize: 25
+    },
 
     backImage: {
         resizeMode: 'stretch',
@@ -130,12 +146,30 @@ const styles = StyleSheet.create({
     },
 
     backButton: {
-        width: "33px",
-        height: "27px",
+        width: "25pt",
+        height: "20pt",
         marginRight: "85%",
-        marginTop: "20px",
+        marginTop: "15pt",
         marginBottom: "10%",
         position: "absolute",
+    },
+
+    backArrow:{
+        position: 'relative',
+        right: '45%',
+        bottom: '5%',
+        color:  '#49A5AD',
+        backgroundColor: '#49A5AD',
+        borderColor: '#49A5AD',
+        marginLeft: "3%",
+        marginTop: '3%',
+    },
+    backText:{
+        fontSize: '35px',
+        fontWeight: 500,
+        color: "#FFFFFF",
+        borderColor: '#49A5AD',
+        backgroundColor: '#49A5AD',
     }
 
 });

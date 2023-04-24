@@ -8,13 +8,14 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'flex-start',
+        height: "150%",
     },
 
     backButton: {
-        width: "33px",
-        height: "27px",
+        width: "25pt",
+        height: "20pt",
         marginRight: "85%",
-        marginTop: "20px",
+        marginTop: "15pt",
         position: "absolute",
     },
 
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
         marginTop: "5%",
         fontStyle: "normal",
         fontWeight: 400,
-        fontSize: "20px",
+        fontSize: 15,
         color: "#fff",
         textAlign: "center",
     },
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
 
     tipTitle: {
         color: "#0d4d5e",
-        fontSize: "20px",
+        fontSize: 15,
         fontWeight: 450,
         position: "absolute",
         textAlign: "center",
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
         height: "66px",
         fontStyle: "normal",
         fontWeight: 200,
-        fontSize: "18px",
+        fontSize: 18,
         textAlign: "center",
         position: "absolute",
         marginTop: "40%",
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
         height: "66px",
         fontStyle: "normal",
         fontWeight: 200,
-        fontSize: "18px",
+        fontSize: 18,
         textAlign: "center",
         position: "absolute",
         marginTop: "30%",
@@ -99,12 +100,12 @@ const styles = StyleSheet.create({
         paddingVertical: "5px",
         position: "absolute",
         width: "140px",
-        height: "33px",
+        height: "25pt",
         marginTop: "60%",
         marginBottom: "5%",
 
         backgroundColor: "#c5da01",
-        borderRadius: "20px",
+        borderRadius: "15pt",
     },
 
     generateText: {
@@ -112,7 +113,7 @@ const styles = StyleSheet.create({
         height: "23px",
         fontStyle: "normal",
         fontWeight: 400,
-        fontSize: "20px",
+        fontSize: 15,
         color: "#0d4d5e",
         flex: "none",
         textAlign: "center",

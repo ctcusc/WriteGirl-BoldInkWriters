@@ -2,20 +2,23 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         justifyContent: 'center',
         height: '100%',
+        backgroundColor: '#F0EBE8'
       },
     page:{
-        backgroundColor: '#F5F5F5',
+        flex: 1,
+        backgroundColor: '#F0EBE8',
         height: '100%',
         overflow: 'scroll',
         
       },
     chooseText:{
       color: '#0D4D5E',
-      fontFamily: 'Droid Sans',
+      fontFamily: 'DroidSans',
       fontStyle: 'normal',
-      fontSize: '27px',
+      fontSize: '20pt',
       fontWeight: 700,
       lineHeight: '32px',
       textAlign: 'center',
@@ -31,6 +34,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
     doorDiv:{
+      flex: 1,
       width: "90%",
       margin: "auto",
     },
@@ -52,13 +56,21 @@ const styles = StyleSheet.create({
         fontWeight: 700,
         fontSize: '30px',
       },
+      promptTitle:{
+        color: '#0D4D5E',
+        fontFamily: 'Hubballi',
+        // fontStyle: 'normal',
+        fontSize: 30,
+        fontWeight: 700,
+        paddingTop: 10,
+      },
       prompt:{
         color: '#0D4D5E',
         fontFamily: 'Hubballi',
         fontStyle: 'normal',
-        fontSize: '20px',
-        lineHeight: '19px',
-        paddingTop: '20px',
+        fontSize: 30,
+        // lineHeight: '19px',
+        paddingTop: 15,
       },
       interactive: {
         // Absolutely positioned to the `openDoor` container
@@ -74,7 +86,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Inter',
         fontStyle: 'normal',
         fontWeight: 400,
-        fontSize: '20px',
+        fontSize: '15pt',
         lineHeight: '24px',
         fontColor: '#0D4D5E',
       },
@@ -95,7 +107,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Inter',
         fontStyle: 'normal',
         fontWeight: 400,
-        fontSize: '25px',
+        fontSize: '19pt',
         lineHeight: '30px',
         fontColor: '#FFFFFF',
       },
@@ -104,7 +116,7 @@ const styles = StyleSheet.create({
         position: 'relative',
         marginLeft: '45%',
         marginRight: '10%',
-        marginBottom: '50px',
+        marginBottom: '38pt',
         backgroundColor: '#FFFFFF',
         borderRadius: 20,
         filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
@@ -113,30 +125,38 @@ const styles = StyleSheet.create({
         position: 'relative',
         borderRadius: 30,
         backgroundColor: '#0D4D5E',
+        marginTop: '70%',
+        // minHeight: '60%',
         minWidth: '22%',
+        width: '30%',
+        //Increase vertical height
+        // height: '150px',
+
       },
       exploreText:{
         color: '#FFFFFF',
-        fontFamily: 'Poppins',
+        fontFamily: 'DroidSans',
         paddingVertical: '5%',
         paddingHorizontal: '10%',
         textAlign: 'center',
-
+        fontSize: '15pt',
       },
       doorActivityText:{
-        fontFamily: 'Poppins',
+        fontFamily: 'DroidSans',
         fontStyle: 'normal',
         fontWeight: 400,
-        fontSize: '20px',
+        fontSize: '20pt',
         lineHeight: '30px',
-        fontColor: '#0D4D5E',
+        color: '#0D4D5E',
+        textAlign: 'center',
+        marginTop: '37%',
       },
       helpText:{
         paddingVertical: '5%',
         textAlign: 'center',
         fontFamily: 'Hubballi',
         fontColor: '#0D4D5E',
-        fontSize: '20px',
+        fontSize: '15pt',
         fontColor: '#49A5AD',
       },
       backArrow:{
@@ -151,8 +171,10 @@ const styles = StyleSheet.create({
       },
       alert:{
         margin: '10%',
+        marginTop: '20%',
         maxW:"400",
         maxH:"800",
+        height: '80%',
         borderRadius:30,
         backgroundColor:"#FFFFFF",
         filter:"drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25))",
@@ -164,10 +186,10 @@ const styles = StyleSheet.create({
       },
 
       backButton: {
-          width: "33px",
-          height: "27px",
+          width: "25pt",
+          height: "20pt",
           marginRight: "85%",
-          marginTop: "20px",
+          marginTop: "15pt",
           marginBottom: "10%",
           position: "absolute",
       },
