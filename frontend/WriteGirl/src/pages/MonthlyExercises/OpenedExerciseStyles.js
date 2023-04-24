@@ -107,6 +107,9 @@ const styles = StyleSheet.create({
         fontSize: 35,
         fontWeight: 500,
         color: "#49A5AD",
+    },
+    scroll: {
+        marginBottom: "10%"
     }
 
 })

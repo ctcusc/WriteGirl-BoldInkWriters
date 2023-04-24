@@ -98,7 +98,9 @@ export default function OpenedExercise({ navigation, route }) {
                         
 
                         <Text style={styles.title}>{data.title}</Text>
-                        <Text style={styles.description}>{data.description}</Text>
+                        <ScrollView style={styles.scroll}>
+                            <Text style={styles.description}>{data.description}</Text>
+                        </ScrollView>
 
                     </View>
 
