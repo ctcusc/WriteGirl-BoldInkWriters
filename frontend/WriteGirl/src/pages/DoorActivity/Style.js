@@ -17,9 +17,9 @@ const styles = StyleSheet.create({
       },
     chooseText:{
       color: '#0D4D5E',
-      fontFamily: 'DroidSans',
+      // fontFamily: 'DroidSans',
       fontStyle: 'normal',
-      fontSize: 20,
+      fontSize: 30,
       fontWeight: 700,
       lineHeight: 32,
       textAlign: 'center',
@@ -259,6 +259,7 @@ const styles = StyleSheet.create({
       // bottom: '5%',
       marginLeft: "10%",
       marginTop: '10%',
+      width: "10%"
     },
     backText:{
         fontSize: 35,

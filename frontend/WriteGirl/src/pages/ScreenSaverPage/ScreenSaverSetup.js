@@ -94,7 +94,7 @@ export default function ScreenSaverSetup({ navigation }) {
 
     // get prompts and content from database
     useEffect(() => {
-        fetch(`http://" + process.env.IP + ":8000/api/screen-saver-prompt`, {
+        fetch("http://" + process.env.IP + ":8000/api/screen-saver-prompt", {
             method: "GET",
         })
         .then((res) => {
@@ -108,20 +108,13 @@ export default function ScreenSaverSetup({ navigation }) {
 
     return (
         <NativeBaseProvider>
-                <TouchableOpacity onPress={() => {
-                    navigation.navigate('Home Tabs', { screen: 'Writing Experiments' });
-                }}>
-                    <Text style={styles.backText}>←</Text>
-                </TouchableOpacity>
             <SafeAreaView style={styles.container}>
 
-                {/* BACK ARROW */}
-                {/* <Pressable style={styles.arrContainer} onPress={() => { navigation.navigate('Writing Experiments') }}>
-                    <Image
-                        style={styles.backArrow}
-                        source={require('./backArrowIcon.png')}
-                    />
-                </Pressable> */}
+                <TouchableOpacity style={styles.backArrow} onPress={() => {
+                        navigation.navigate('Home Tabs', { screen: 'Writing Experiments' });
+                    }}>
+                    <Text style={styles.backText}>←</Text>
+                </TouchableOpacity>
 
                 <View>
                     <Text style={styles.title}>Pick a prompt and set a timer!</Text>

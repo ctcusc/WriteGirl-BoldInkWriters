@@ -9,14 +9,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#49A5AD',
         borderBottomLeftRadius: 40,
         borderBottomRightRadius: 40,
-        alignItems: 'center',
+        // alignItems: 'center',
         // marginTop: 0
         // alignSelf: 'flex-start'
     },
     headertext: {
         fontSize: 30,
         color: "#FFFFFF",
-        paddingTop: '25%'
+        paddingTop: '5%',
+        alignSelf: 'center'
     },
 
     wheelcontainer: {
@@ -164,14 +165,9 @@ const styles = StyleSheet.create({
     },
 
     backArrow:{
-        position: 'relative',
-        right: '45%',
-        bottom: '5%',
-        color:  '#49A5AD',
-        backgroundColor: '#49A5AD',
-        borderColor: '#49A5AD',
-        marginLeft: "3%",
-        marginTop: '3%',
+        marginTop: "5%",
+        marginLeft: "5%",
+        width: "10%"
     },
     backText:{
         fontSize: 35,
