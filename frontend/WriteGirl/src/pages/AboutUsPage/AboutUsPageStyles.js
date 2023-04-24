@@ -1,10 +1,12 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 export default StyleSheet.create({
 
 container: {
-    height: "100%",
-    width: "100%",
+    height: height,
+    width: width,
     alignItems: "center",
     justifyContent: "flex-start",
 },
@@ -17,19 +19,22 @@ containerFull: {
 },
 
 topLayout: {
-    width: "100%",
-    height: "100%",
+    width: width,
+    height: height,
     alignItems: "flex-start",
     justifyContent: "flex-start",
-    backgroundColor: "#49A5AD",
+    backgroundColor: "#F0EBE8",
     zIndex: 1,
 },
 
-flap: {
-    padding: 10,
-    margin: 5,
-    height: 25,
-    width: 25,
+backArrowLayout: {
+    height: '42px',
+    width: '42px',
+},
+
+backArrow: {
+    height: '100%',
+    width: '100%',
     resizeMode: 'stretch',
 },
 
@@ -37,13 +42,13 @@ title: {
     textAlign: "left",
     marginTop: "7%",
     marginLeft: "10%",
-    color: "#FFF",
+    color: "#0D4D5E",
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 700,
 },
 
 subtitle: {
-    color: "#FFF",
+    color: "#0D4D5E",
     marginLeft: "10%",
     fontSize: 14,
     marginBottom: "7%",
@@ -52,14 +57,15 @@ subtitle: {
 },
 
 bottomLayout: {
+    position: 'absolute',
     backgroundColor: "#FFF",
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
-    height: "50%",
+    height: height * 0.5,
     width: "100%",
     alignItems: "flex-start",
     justifyContent: "flex-start",
-    marginTop: "-50%",
+    marginTop: height * 0.5,
     zIndex: 2,
 },
 
@@ -69,7 +75,7 @@ bottomTitleLayout: {
     justifyContent: "flex-start",
     height: "15%",
     width: "90%",
-    marginTop: "5%",
+    marginTop: '5%',
     marginLeft: "5%",
     marginRight: "5%",
 },
@@ -87,8 +93,10 @@ bottomBottomTitleLayout: {
 bottomTitle: {
     color: "#0d4d5e",
     height: "100%",
+    width: '50%',
     adjustsFontSizeToFit: "true",
     allowFontScaling: "true",
+    fontWeight: 700,
     fontSize: 19,
 },
 

@@ -1,35 +1,59 @@
-import { useState } from "react";
-import {Animated, Text, View, Image, TextInput, TouchableOpacity, ScrollView} from "react-native";
-import { signOut } from "firebase/auth";
-import { auth } from "../../../firebaseConfig";
-
+import {useEffect, useRef, useState } from "react";
+import {Animated, Dimensions, Easing, Text, View, Image, TextInput, TouchableOpacity, ScrollView, Linking} from "react-native";
 import styles from './AboutUsPageStyles.js';
+
 const books = require('./AboutPageBooks.png');
 const mainPage = require('./AboutUsMainPage.png');
 const otherProg = require('./AboutUsOtherProg.png');
-const moneyBag = require('./AboutUsMoneyBag.png');
 const donateIcon = require('./AboutUsDonateIcon.png');
-const arrow = require('./AboutUsArrow.png');
-const fold = require('./AboutUsFold.png');
+const downArrow = require('./downArrow.png');
+const upArrow = require('./upArrow.png');
+// const fold = require('./flap.png');
+const backArrow = require('./backArrow.png');
 
-export default function AboutPage({ navigation }) {
-    const [donation, setDonation] = useState("");
-    const [isOpenBottom, setIsOpenBottom] = useState(false);
-    const foldBottom = () => setIsOpenBottom(isOpenBottom != isOpenBottom);
+const HomeLink = 'https://www.writegirl.org';
+const DonateLink = 'https://www.writegirl.org/donate';
 
+//state that keeps track of if the bottom part is folded or not
+let isFolded = false;
 
-    // sign out user
-    const onClick = async () => {
-      await signOut(auth).then(() => {
-        // Sign-out successful.
-        // console.log("sign out successful")
-        navigation.navigate('Sign In')
-      }).catch((error) => {
-        // An error happened.
-        console.log("log out error:", error)
-      });
-    }
+export default function AboutPage({navigation}) {
+    //animation value to fold the bottom part down
+    const foldMove = useRef(new Animated.Value(0)).current;
+    const [image, setImage] = useState(downArrow);
 
+    const move = () => {
+        if (isFolded) {
+            foldUp();
+        }
+        else {
+            foldDown();
+        }
+        isFolded = !isFolded;
+    };
+
+    //two methods used for overall moving and functionality of animations
+    const foldDown = () => {
+        Animated.timing(foldMove, {
+            toValue: Dimensions.get('window').height * 0.33,
+            duration: 1000,
+            useNativeDriver: true,
+        }).start(() => {
+            setImage(upArrow);
+        });
+    };
+
+    const foldUp = () => {
+        Animated.timing(foldMove, {
+            toValue: 0,
+            duration: 1000,
+            useNativeDriver: true,
+        }).start(() => {
+            setImage(downArrow);
+        });
+    };
+
+    
 
     return (
         <View style={styles.containerFull}>
@@ -39,7 +63,10 @@ export default function AboutPage({ navigation }) {
             <Text style={styles.backText}> ←</Text>
         </TouchableOpacity>
         <View style={styles.container}>
-            <ScrollView contentContainerStyle={styles.topLayout}>
+            <View style={styles.topLayout}>
+                <TouchableOpacity style={styles.backArrowLayout} onPress={() => navigation.navigate('Home')}>
+                    <Image source={backArrow} style={styles.backArrow}/>
+                </TouchableOpacity>
                 <Text style={styles.title}>
                     About Writegirl ✍️
                 </Text>
@@ -75,71 +102,62 @@ export default function AboutPage({ navigation }) {
                     screenwriting,playwriting, persuasive writing,  
                     journal writing, editing and more.
                 </Text>
-            </ScrollView>
 
-            <Animated.View style={styles.bottomLayout}>
-                <View style={styles.bottomTitleLayout}>
-                    <Text style={styles.bottomTitle}>
-                        <Text style={{fontWeight: "bold"}}>Learn</Text> More
-                    </Text>
-                    <TouchableOpacity style={styles.arrowStyle} onPress={foldBottom}>
-                        <Image source={arrow} style={styles.arrow}/>
-                    </TouchableOpacity>
-                </View>
-
-                <View style={styles.learnMoreLayout}>
-                    <View style={styles.learnMoreButton}>
-                        <TouchableOpacity style={styles.booksButton}>
-                            <Image source={books} style={styles.booksImage}/>
+                <Animated.View style={[styles.bottomLayout, {transform: [{translateY: foldMove}] }]}>
+                    <View style={styles.bottomTitleLayout}>
+                        <Text style={styles.bottomTitle}>
+                            Learn More
+                        </Text>
+                        <TouchableOpacity style={styles.arrowStyle} onPress={ move }>
+                            <Image source={image} style={styles.arrow}/>
                         </TouchableOpacity>
-                        <Text style={styles.iconText}>
-                            Books
-                        </Text>
                     </View>
-                    <View style={styles.learnMoreButton}>
-                        <TouchableOpacity style={styles.mainPageButton} onPress={() => {onClick()}}>
-                            <Image source={mainPage} style={styles.mainPageImage}/>
-                        </TouchableOpacity>
-                        <Text style={styles.iconText}>
-                            Main Page
-                        </Text>
-                    </View>
-                    <View style={styles.learnMoreButton}>
-                        <TouchableOpacity style={styles.otherProgButton}>
-                            <Image source={otherProg} style={styles.otherProgImage}/>
-                        </TouchableOpacity>
-                        <Text style={styles.iconText}>
-                            Other Prog
-                        </Text>
-                    </View>
-                </View>
 
-                <View style={styles.bottomBottomTitleLayout}>
-                    <Text style={styles.bottomTitle}>
-                        <Text style={{fontWeight: "bold"}}>Donate</Text> Now
-                    </Text>
-                    <View style={styles.donateInputLayout}>
-                        <Image source={moneyBag} style={styles.moneyBag}/>
-                        <Text style={styles.dollarSign}>
-                            $
-                        </Text>
-                        <TextInput style={styles.donateInput}
-                            placeholderTextColor="#FFF"
-                            onChangeText={(donation) => setDonation(donation)}
-                            keyboardType="numeric"
-                        />
+                    <View style={styles.learnMoreLayout}>
+                        <View style={styles.learnMoreButton}>
+                            <TouchableOpacity style={styles.booksButton} onPress={() => Linking.openURL(HomeLink)}>
+                                <Image source={books} style={styles.booksImage}/>
+                            </TouchableOpacity>
+                            <Text style={styles.iconText}>
+                                Books
+                            </Text>
+                        </View>
+                        <View style={styles.learnMoreButton}>
+                            <TouchableOpacity style={styles.mainPageButton} onPress={() => Linking.openURL(HomeLink)}>
+                                <Image source={mainPage} style={styles.mainPageImage}/>
+                            </TouchableOpacity>
+                            <Text style={styles.iconText}>
+                                Main Page
+                            </Text>
+                        </View>
+                        <View style={styles.learnMoreButton}>
+                            <TouchableOpacity style={styles.otherProgButton} onPress={() => Linking.openURL(HomeLink)}>
+                                <Image source={otherProg} style={styles.otherProgImage}/>
+                            </TouchableOpacity>
+                            <Text style={styles.iconText}>
+                                Other Prog
+                            </Text>
+                        </View>
                     </View>
-                </View>
 
-                <View style={styles.bottomDonateLayout}>
-                    <Text style={styles.donationDescription}>
-                        Like our services? Donate now to ensure we can continue hosting events, and inviting speakers!
-                    </Text>
-                    <TouchableOpacity style={styles.donateButton}>
-                        <Image source={donateIcon} style={styles.donateImage}/>
-                    </TouchableOpacity>
-                </View>
-            </Animated.View>
+                    <View style={styles.bottomBottomTitleLayout}>
+                        <Text style={styles.bottomTitle}>
+                            Donate Now
+                        </Text>
+                    </View>
+
+                    <View style={styles.bottomDonateLayout}>
+                        <Text style={styles.donationDescription}>
+                            Like our services? Donate now to ensure we can continue hosting events, and inviting speakers!
+                        </Text>
+                        <TouchableOpacity style={styles.donateButton} onPress={() => Linking.openURL(DonateLink)}>
+                            <Image source={donateIcon} style={styles.donateImage}/>
+                        </TouchableOpacity>
+                    </View>
+                </Animated.View>
+            </View>
+
+            
         </View>
         </View>
     )
