@@ -11,6 +11,13 @@ container: {
     justifyContent: "flex-start",
 },
 
+containerFull: {
+    height: "100%",
+    width: "100%",
+    // alignItems: "center",
+    justifyContent: "flex-start",
+},
+
 topLayout: {
     width: width,
     height: height,
@@ -94,9 +101,9 @@ bottomTitle: {
 },
 
 arrowStyle: {
-    width: "40px",
-    height: "20px",
-    marginLeft: "50%",
+    width: 30,
+    height: 15,
+    marginLeft: "65%",
 },
 
 arrow: {
@@ -118,14 +125,14 @@ learnMoreButton: {
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
-    height: "50px",
-    width: "60px",
+    height: 38,
+    width: 45,
     marginRight: "20%",
 },
 
 iconText: {
     fontSize: 12,
-    color: "0d4d5e",
+    color: "#0d4d5e",
 },
 
 booksButton: {
@@ -179,8 +186,8 @@ donateInputLayout: {
     borderRadius: 90,
     justifyContent: "flex-start",
     alignItems: "center",
-    height: "35px",
-    width: "120px",
+    height: 35,
+    width: 120,
     marginLeft: "40%",
 },
 
@@ -223,8 +230,8 @@ donationDescription: {
 
 donateButton: {
     backgroundColor: "#c5da01",
-    height: "50px",
-    width: "80px",
+    height: 38,
+    width: 80,
     borderRadius: 90,
     alignItems: "center",
     justifyContent: "center",
@@ -237,4 +244,21 @@ donateImage: {
     backgroundColor: "#f0f5bb",
     borderRadius: 100,
 },
+backArrow:{
+    position: 'relative',
+    right: '45%',
+    bottom: '5%',
+    color:  '#49A5AD',
+    backgroundColor: '#49A5AD',
+    borderColor: '#49A5AD',
+    marginLeft: "3%",
+    marginTop: '3%',
+},
+backText:{
+    fontSize: 35,
+    fontWeight: 500,
+    color: "#FFFFFF",
+    borderColor: '#49A5AD',
+    backgroundColor: '#49A5AD',
+}
 });

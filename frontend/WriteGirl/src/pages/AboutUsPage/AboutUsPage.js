@@ -56,13 +56,19 @@ export default function AboutPage({navigation}) {
     
 
     return (
+        <View style={styles.containerFull}>
+        <TouchableOpacity onPress={() => {
+            navigation.navigate('Home Tabs', { screen: 'Profile Page' });
+        }}>
+            <Text style={styles.backText}> ←</Text>
+        </TouchableOpacity>
         <View style={styles.container}>
             <View style={styles.topLayout}>
                 <TouchableOpacity style={styles.backArrowLayout} onPress={() => navigation.navigate('Home')}>
                     <Image source={backArrow} style={styles.backArrow}/>
                 </TouchableOpacity>
                 <Text style={styles.title}>
-                    About Writegirl ✍🏻
+                    About Writegirl ✍️
                 </Text>
                 <Text style={styles.subtitle}>
                     WriteGirl is a Los Angeles-based
@@ -152,6 +158,7 @@ export default function AboutPage({navigation}) {
             </View>
 
             
+        </View>
         </View>
     )
 }

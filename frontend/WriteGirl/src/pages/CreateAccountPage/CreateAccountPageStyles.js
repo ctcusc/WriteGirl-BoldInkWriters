@@ -5,7 +5,7 @@ const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
 
     container: {
-        backgroundColor: '#FFF',
+        // backgroundColor: '#FFF',
         // padding: 40,
         display: 'flex',
     }, 
@@ -15,14 +15,18 @@ const styles = StyleSheet.create({
     },  
 
     title: {
-        fontSize: 40,
+        fontSize: 35,
         marginTop: 30,
         marginBottom: 20,
+        color: "#0D4D5E",
+        fontWeight: 500,
     },
 
     label: {
-        color: '#000',
+        color: '#0D4D5E',
         fontSize: 20,
+        // fontWeight:
+        // fontFamily: 'DroidSans'
     },
 
     input: {
@@ -33,7 +37,8 @@ const styles = StyleSheet.create({
         height: 60,
         padding: 10,
         marginTop: 5,
-        marginBottom: 25
+        marginBottom: 25,
+        borderRadius: 10
     },
 
     button: {
@@ -126,6 +131,22 @@ const styles = StyleSheet.create({
         // borderWidth: 2,
         // borderColor: '#000',
         borderRadius: 10, 
+    },
+
+    backImage: {
+        resizeMode: 'contain',
+        width: "100%",
+        height: "100%",
+    },
+
+    backButton: {
+        width: 40,
+        height: 50,
+        // marginRight: "85%",
+        marginTop: 15,
+        marginLeft: 0
+        // marginBottom: "%",
+        // position: "absolute",
     },
 
 });

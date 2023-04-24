@@ -5,7 +5,7 @@ const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
 
     container: {
-        backgroundColor: '#49A5AD',
+        backgroundColor: '#F0EBE8',
         display: 'flex',
         paddingTop: 50,
         height: height,
@@ -17,8 +17,9 @@ const styles = StyleSheet.create({
     },
 
     title: {
-        color: '#FFF',
-        fontSize: '20%',
+        color: '#0D4D5E',
+        fontSize: '30%',
+        fontWeight: 700,
         textAlign: 'center',
         paddingTop: '1%',
         paddingBottom: '3%',
@@ -53,21 +54,22 @@ const styles = StyleSheet.create({
     timerContainer: {
         // marginTop: height / 20,
         backgroundColor: '#FAFAFA',
-        borderTopLeftRadius: 20,
-        borderTopRightRadius: 20,
+        // borderTopLeftRadius: 30,
+        // borderTopRightRadius: 30,
+        borderRadius: 30,
         height: height,
         flex: 1,
-        justifyContent: 'flex-end',
-        bottom: 0,
+        // justifyContent: 'flex-end',
         // paddingTop: 3,
         marginTop: '3%',
-        paddingBottom: height/4,
+        paddingBottom: height/6,
     },
 
     timerPicker: {
         flex: 1,
         flexDirection: 'row',
-        marginTop: '5%',
+        marginTop: '10%',
+        marginBottom: '20%'
     },
 
     // timerText: {
@@ -79,20 +81,22 @@ const styles = StyleSheet.create({
     // },
 
     button: {
-        backgroundColor: '#0D4D5E',
+        backgroundColor: '#C5DA01',
         height: 'auto',
-        width: '60%',
-        padding: 10,
+        // widthmi: '60%',
         // marginVertical: 20,
         // marginBottom: '5%',
         borderRadius: 30,
         alignSelf: 'center',
+        marginTop: '10%'
     },
 
     buttonLabel: {
-        color: 'white',
-        fontSize: '10%',
+        color: '#0D4D5E',
+        fontSize: '20%',
         textAlign: 'center',
+        paddingHorizontal: 40,
+        paddingVertical: 10
     },
 
     setupToast: {
@@ -158,6 +162,20 @@ const styles = StyleSheet.create({
         color: '#000',
         borderRadius: 10, 
     },
+    backArrow:{
+        // position: 'relative',
+        // right: '45%',
+        // bottom: '5%',
+        marginLeft: "5%",
+        width: "10%"
+      },
+    backText:{
+        fontSize: 35,
+        fontWeight: 500,
+        color: "#F0EBE8",
+        borderColor: '#F0EBE8',
+        // backgroundColor: '#F0EBE8',
+    }
 
 });
 

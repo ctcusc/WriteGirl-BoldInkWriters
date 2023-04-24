@@ -9,12 +9,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#49A5AD',
         borderBottomLeftRadius: 40,
         borderBottomRightRadius: 40,
-        alignItems: 'center'
+        // alignItems: 'center',
+        // marginTop: 0
+        // alignSelf: 'flex-start'
     },
     headertext: {
         fontSize: 30,
         color: "#FFFFFF",
-        paddingTop: '25%'
+        paddingTop: '5%',
+        alignSelf: 'center'
     },
 
     wheelcontainer: {
@@ -71,16 +74,16 @@ const styles = StyleSheet.create({
         height: '50%',
         justifyContent: 'center',
         alignItems: 'center',
-        position: 'absolute',
-        marginLeft: '-40%'
+        // position: 'absolute',
+        // marginLeft: '20%'
     },
     arrowright: {
         width: '50%',
         height: '50%',
         justifyContent: 'center',
         alignItems: 'center',
-        position: 'absolute',
-        marginRight: '-40%'
+        // position: 'absolute',
+        // marginRight: '-40%'
     },
     arrowimg: {
         width: '50%',
@@ -89,7 +92,8 @@ const styles = StyleSheet.create({
     },
     wordtext: {
         color: '#0D4D5E',
-        fontSize: 20
+        fontSize: 20,
+        // marginVertical: 20
     },
 
     modalcontainer: {
@@ -121,6 +125,56 @@ const styles = StyleSheet.create({
     modaltext: {
         color: '#0D4D5E',
         fontSize: 20
+    },
+    closebutton: {
+        color: '#0D4D5E',
+        backgroundColor: '#C5DA01',
+        paddingLeft: 30,
+        paddingRight: 30,
+        // width: '100%',
+        // height: '120%',
+        paddingTop: 5,
+        paddingBottom: 5,
+        borderRadius: 20,
+        marginTop: '5%',
+        shadowRadius: 5,
+        shadowColor: '#E1E0DE',
+        shadowOpacity: 1,
+        shadowOffset: {width: 0, height: 4},
+        fontSize: 25
+    },
+    closebuttontext: {
+        color: '#0D4D5E',
+        textAlign: 'center',
+        fontSize: 25
+    },
+
+    backImage: {
+        resizeMode: 'stretch',
+        width: "100%",
+        height: "100%",
+    },
+
+    backButton: {
+        width: 25,
+        height: 20,
+        marginRight: "85%",
+        marginTop: 15,
+        marginBottom: "10%",
+        position: "absolute",
+    },
+
+    backArrow:{
+        marginTop: "5%",
+        marginLeft: "5%",
+        width: "10%"
+    },
+    backText:{
+        fontSize: 35,
+        fontWeight: 500,
+        color: "#FFFFFF",
+        borderColor: '#49A5AD',
+        backgroundColor: '#49A5AD',
     }
 
 });
