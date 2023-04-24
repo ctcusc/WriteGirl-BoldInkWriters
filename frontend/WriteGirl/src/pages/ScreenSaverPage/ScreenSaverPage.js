@@ -91,8 +91,9 @@ export default function ScreenSaverPage({ navigation, route }) {
 
     return (
         <NativeBaseProvider>
-        <SafeAreaView style={styles.screensaverContainer}>
+        
         <ImageBackground source={{uri: img}} resizeMode="cover" style={styles.screensaverBg}> 
+        <SafeAreaView style={styles.screensaverContainer}>
 
             {/* BACK ARROW */}
             {/* <Pressable style={styles.arrContainer} onPress={() => { navigation.navigate('Screen Saver Setup') }}>
@@ -101,7 +102,7 @@ export default function ScreenSaverPage({ navigation, route }) {
                     source={require('./backArrowIcon.png')}
                 />
             </Pressable> */}
-            <TouchableOpacity onPress={() => {
+            <TouchableOpacity style={styles.backArrow} onPress={() => {
                 navigation.navigate('Home Tabs', { screen: 'Screen Saver Setup' });
             }}>
                 <Text style={styles.backText}>←</Text>
@@ -122,8 +123,9 @@ export default function ScreenSaverPage({ navigation, route }) {
                 <Text style={styles.screensaverPrompt}>{prompt}</Text>
             </View>
 
-        </ImageBackground>
         </SafeAreaView>
+        </ImageBackground>
+        
         </NativeBaseProvider>
     )
 }
