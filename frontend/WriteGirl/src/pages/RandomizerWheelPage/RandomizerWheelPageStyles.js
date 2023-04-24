@@ -9,7 +9,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#49A5AD',
         borderBottomLeftRadius: 40,
         borderBottomRightRadius: 40,
-        alignItems: 'center'
+        alignItems: 'center',
+        // alignSelf: 'flex-start'
     },
     headertext: {
         fontSize: 30,
@@ -71,16 +72,16 @@ const styles = StyleSheet.create({
         height: '50%',
         justifyContent: 'center',
         alignItems: 'center',
-        position: 'absolute',
-        marginLeft: '-40%'
+        // position: 'absolute',
+        // marginLeft: '20%'
     },
     arrowright: {
         width: '50%',
         height: '50%',
         justifyContent: 'center',
         alignItems: 'center',
-        position: 'absolute',
-        marginRight: '-40%'
+        // position: 'absolute',
+        // marginRight: '-40%'
     },
     arrowimg: {
         width: '50%',
@@ -89,7 +90,8 @@ const styles = StyleSheet.create({
     },
     wordtext: {
         color: '#0D4D5E',
-        fontSize: 20
+        fontSize: 20,
+        // marginVertical: 20
     },
 
     modalcontainer: {
