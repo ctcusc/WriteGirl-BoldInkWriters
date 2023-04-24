@@ -29,12 +29,12 @@ export default function WritingExperiments({navigation}) {
           <View style={styles.reflectionDiv}>
             <Text style={styles.title}>Reflection Prompt Placeholder</Text>
             <Text>{refPrompt === "" ? "Click Generate!" : refPrompt}</Text>
-            <View style={styles.buttonPadding} />
-            <View style={styles.fixToText}>
+            {/* <View style={styles.buttonPadding} /> */}
+            {/* <View style={styles.fixToText}> */}
               <TouchableOpacity disabled={false} style={styles.smallButtons} onPress={() => fetchPrompt()}>
                   <Text style={styles.generate}>Generate!</Text>
               </TouchableOpacity>
-            </View>
+            {/* </View> */}
           </View>
         
           <TouchableOpacity style={styles.otherButtons}
@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     height: '100%',
+    backgroundColor: '#F0EBE8',
   },
   chooseText:{
     color: '#0D4D5E',
@@ -77,7 +78,8 @@ const styles = StyleSheet.create({
     fontWeight: 700,
     lineHeight: 32,
     textAlign: 'center',
-    marginTop: 50,
+    marginTop: 20,
+    
   },
 
   page:{
@@ -110,9 +112,10 @@ const styles = StyleSheet.create({
   },
 
   reflectionDiv: {
+    alignSelf: 'center',
     position: 'relative',
     width: "70%",
-    minHeight: "20%",
+    minHeight: "30%",
     margin: "auto",
     backgroundColor: '#FFFFFF',
     borderRadius: 30,
@@ -120,12 +123,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
+    marginTop: "5%"
   },
   
   otherButtons: {
+    alignSelf: 'center',
     position: 'relative',
     width: "70%",
-    height: "20%",
+    height: "15%",
     margin: 'auto',
     backgroundColor: '#FFFFFF',
     borderRadius: 30,
@@ -133,6 +138,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
+    marginTop: "5%"
   },
 
   buttonPadding: {
@@ -150,9 +156,9 @@ const styles = StyleSheet.create({
 
   smallButtons: {
     // Absolutely positioned to `fixToText` container
-    position:'absolute',
-    right: 20,
-    bottom: 1.5,
+    // position:'absolute',
+    // right: 20,
+    // bottom: 1.5,
     filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
     backgroundColor: '#C5DA01',
     borderRadius: 30,
@@ -161,12 +167,15 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: "auto"
+    // margin: "auto",
+    alignSelf: 'center',
+    marginTop: "10%",
+    // marginVertical: ""
   },
 
   generate:{
     textAlign: 'center',
-    fontFamily: 'Poppins',
+    fontFamily: 'Droid Sans',
     fontStyle: 'normal',
     fontWeight: 400,
     fontSize: 24,

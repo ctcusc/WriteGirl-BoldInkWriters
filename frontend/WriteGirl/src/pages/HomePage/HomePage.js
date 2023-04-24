@@ -245,25 +245,26 @@ let up = false;
         <View style={styles.backgroundView}>
             <SafeAreaView style={styles.container}>
                 <View style={styles.welcome}>
-                    <View style={styles.horizontal}>
-                        <View>
-                        <Text style={styles.welcometext1}>Welcome, {userInfo ? userInfo.firstName : null} 👋</Text>
-                        <Text style={styles.welcometext2}>What inspires you today?</Text>
-                        </View>
+                    {/* <View style={styles.horizontal}> */}
+                        {/* <View> */}
+                        <Text style={styles.welcometext1}>Welcome, </Text>
+                        <Text style={styles.welcomenametext}>{userInfo ? userInfo.firstName : null} 👋</Text>
+                        {/* <Text style={styles.welcometext2}>What inspires you today?</Text> */}
+                        {/* </View> */}
                         {/* <Image style={styles.pic} source={require('./assets/profilePic.png')}/> */}
-                    </View>
+                    {/* </View> */}
                 </View>
 
                 
                 <View style={styles.exercises}>
                     <Image style={styles.exerciseimg} source={require('./assets/exerciseImage.png')}/>
-                    <Text style={styles.rating}>5.0 ⭐</Text>
+                    {/* <Text style={styles.rating}>5.0 ⭐</Text> */}
                     {/* <Text style={styles.rating}>{rating} ⭐</Text> */}
                     <View style={styles.horizontal2}>
                         <Text style={styles.exercisestext1}>{month}</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('Monthly Exercises', {arrId: -1})}>
-                        <Text style={styles.exercisesbutton}>unlock</Text>
-                    </TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.navigate('Monthly Exercises', {arrId: -1})} style={styles.exercisesbutton}>
+                            <Text style={styles.exercisestext1}>unlock</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
                 
@@ -331,11 +332,9 @@ let up = false;
                     {
                         opacity: appearAnim,
                     },
-                    ]}>
-                        complete
-                        </Animated.Text>
+                    ]}>Complete</Animated.Text>
                 </TouchableOpacity>
-                </Animated.View>
+            </Animated.View>
             {/* </Animated.View> */}
             {/* </SafeAreaView > */}
             

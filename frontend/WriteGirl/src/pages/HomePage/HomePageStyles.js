@@ -7,24 +7,34 @@ const styles = StyleSheet.create({
         backgroundColor: '#F0EBE8'
       },
     container: {
-      paddingLeft: 40,
-      paddingRight:40,
-      paddingBottom: 80,
+    //   paddingLeft: 40,
+    //   paddingRight:40,
+    //   paddingBottom: 80,
+        marginHorizontal: 20,
+        marginBottom: 90,
       flex:1,
       justifyContent:'space-between',
       backgroundColor: '#F0EBE8'
     },
     welcome: {
         height: '20%',
-        paddingTop: 50
+        paddingTop: 50,
+        paddingRight: 50,
+        paddingLeft: 50
     },
     welcometext1: {
-        fontSize: '1.1rem',
+        fontSize: 20,
         color: '#0D4D5E',
         fontFamily: 'Hubballi'
     },
+    welcomenametext: {
+        fontSize: 50,
+        fontWeight: 400,
+        color: '#0D4D5E',
+        fontFamily: 'Hubballi_bold'
+    },
     welcometext2: {
-        fontSize: '1.6rem',
+        fontSize: 20,
         color: '#0D4D5E',
         alignSelf: 'center',
         fontFamily: 'DroidSansBold'
@@ -62,16 +72,18 @@ const styles = StyleSheet.create({
     },
     tipimagecontainer: {
         width: "70%",
+        // height: "100%",
         justifyContent: 'flex-start',
         alignItems: 'flex-end'
     },
     tipimage: {
-        width: 180,
-        height: 81,
+        width: "100%",
+        height: "100%",
         resizeMode: 'contain',
         alignItems: 'center',
         textAlign: 'left',
         justifyContent: 'center',
+        resizeMode:'contain',
     },
 
     exercises: {
@@ -92,13 +104,18 @@ const styles = StyleSheet.create({
     exercisesbutton: {
         color: '#0D4D5E',
         backgroundColor: '#C5DA01',
-        paddingLeft: 30,
-        paddingRight: 30,
-        paddingTop: 5,
-        paddingBottom: 5,
+        width: '50%',
+        height: '120%',
+        // alignContent: 'center',
+        // justifyContent: 'center',
+        // paddingLeft: 30,
+        // paddingRight: 30,
+        // paddingTop: 5,
+        // paddingBottom: 5,
         borderRadius: 20,
         textAlign: 'center',
-        marginTop: '5%',
+        // marginTop: '5%',
+        // marginBottom: '5%',
         shadowRadius: 5,
         shadowColor: '#E1E0DE',
         shadowOpacity: 1,
@@ -110,7 +127,8 @@ const styles = StyleSheet.create({
         fontSize: 27,
         fontWeight: 'bold',
         color: '#0D4D5E',
-        fontFamily: 'DroidSans'
+        fontFamily: 'DroidSans',
+        alignSelf: 'center'
     },
     exerciseimg: {
         width: '100%',
@@ -154,7 +172,9 @@ const styles = StyleSheet.create({
     },
 
     jumpstart: {
-        marginTop: '180%',
+        marginTop: '170%',
+        // marginBottom: '0%',
+        // justifySelf: 'flex-end',
         position: 'absolute',
         height: '100%',
         width: '100%',
@@ -229,19 +249,24 @@ const styles = StyleSheet.create({
 
     completeButton: {
         backgroundColor: '#272e32',
-        width: 249,
-        height: 33,
+        width: 270,
+        height: 10,
         alignItems: 'center',
         borderRadius: 15,
         position: 'absolute',
         marginTop: '100%',
-        alignSelf: 'center',
+        paddingBottom: 5,
+        // alignSelf: 'center',
+        // alignContent: 'center',
     },
     completeText: {
         color: "#ffffff",
-        fontSize: 19,
+        fontSize: 25,
         fontWeight: 200,
         textAlign: 'center',
+        alignSelf: 'center',
+        padding: "15%",
+        fontFamily: 'Droid Sans',
     }
 
 
