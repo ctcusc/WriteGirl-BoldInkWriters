@@ -48,7 +48,7 @@ export default function Sign_In_Page({navigation}) {
     }
 
     return (         
-      <NativeBaseProvider>
+      <NativeBaseProvider style={styles.bigView}>
         <ImageBackground source={require('./background.png')} resizeMode="cover" style={styles.screensaverBg}>
         <SafeAreaView >
             <KeyboardAwareScrollView style={styles.container}>

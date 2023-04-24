@@ -3,8 +3,10 @@ const { width, height } = Dimensions.get('window');
 
 
 const styles = StyleSheet.create({
+    bigView: {
+        backgroundColor: '#B1E5D9',
+    },
     container: {
-        // backgroundColor: '#0D4D5E',
         display: 'flex',
         height: height,
         width: width,
@@ -19,15 +21,16 @@ const styles = StyleSheet.create({
     }, 
     screensaverBg: {
         display: 'flex',
-        opacity: 0.7,
+        opacity: 1,
         height: height,
         width: width,
     },
     imageView: {
-        width: '60%',
+        width: '80%',
         height: 104,
-        marginLeft: '20%',
-        marginTop: '20%'
+        // marginLeft: '20%',
+        marginTop: '20%',
+        alignSelf: 'center'
     },
     image: {
         width: '100%',
@@ -38,9 +41,9 @@ const styles = StyleSheet.create({
         fontWeight: 700,
         color: "#fff",
         fontSize: 30,
-        marginTop: "5%",
+        marginTop: "10%",
         marginLeft: "10%",
-        marginBottom: '5%',
+        // marginBottom: '5%',
     },
     subTitleText: {
         fontWeights: "bold",
@@ -54,7 +57,7 @@ const styles = StyleSheet.create({
         // placeholderTextColor: "#003f5c",
         backgroundColor: '#fff',
         borderColor: '#000',
-        borderWidth: 2,
+        borderWidth: 1,
         borderRadius: 15,
         width: 250,
         padding: 10,
@@ -67,7 +70,7 @@ const styles = StyleSheet.create({
         alignSelf: "flex-end",
         color: "#fff",
         marginRight: "10%",
-        marginTop: '2%',
+        marginTop: '3%',
     },
     subButtonText: {
         fontSize: 16,
@@ -86,7 +89,7 @@ const styles = StyleSheet.create({
         marginTop: '10%',
     },
     loginText: {
-        fontWeight: 600,
+        fontWeight: 400,
         color: "#0d4d5e",
         fontSize: 25,
     },
