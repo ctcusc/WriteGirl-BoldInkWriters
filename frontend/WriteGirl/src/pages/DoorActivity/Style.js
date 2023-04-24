@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F0EBE8',
         height: '100%',
         overflow: 'scroll',
+        alignItems: 'center'
         
       },
     chooseText:{
@@ -30,26 +31,28 @@ const styles = StyleSheet.create({
       display: 'flex',
       width: "90%",
       minHeight: "20%",
-      margin: "auto",
+      // margin: "auto",
       alignItems: 'center',
     },
     doorDiv:{
       flex: 1,
       width: "90%",
-      margin: "auto",
+      // marginTop: 0,
+      // margin: "auto",
       alignItems: 'center',
       alignSelf: "center"
     },
     openDoor: {
-      position: 'relative',
+      // position: 'relative',
       filter: 'drop-shadow(0px 4px 4px #E1E0DE)',
       backgroundColor: '#FFFFFF',
       borderRadius: 30,
       width: "100%",
-      paddingVertical: "60%",
-      paddingHorizontal: "20%",
+      paddingVertical: "20%",
+      paddingHorizontal: "10%",
       alignItems: 'center',
       justifyContent: 'center',
+      alignSelf: 'center'
       },
       openText: {
         color: '#0D4D5E', 
@@ -57,6 +60,7 @@ const styles = StyleSheet.create({
         fontStyle: 'normal',
         fontWeight: 700,
         fontSize: 30,
+        textAlign: 'center'
       },
       promptTitle:{
         color: '#0D4D5E',
@@ -65,13 +69,15 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: 700,
         paddingTop: 10,
+        textAlign: 'center'
       },
       prompt:{
         color: '#0D4D5E',
         // fontFamily: 'Hubballi',
         fontStyle: 'normal',
-        fontSize: 30,
+        fontSize: 25,
         paddingTop: 15,
+        textAlign: 'center'
       },
       interactive: {
         // Absolutely positioned to the `openDoor` container
@@ -92,10 +98,11 @@ const styles = StyleSheet.create({
         color: '#0D4D5E',
       },
       compButton:{
-        position: 'relative',
-        width: "90%",
-        height: "5%",
-        margin: 'auto',
+        // position: 'relative',
+        width: "100%",
+        // height: "15%",
+        marginTop: "10%",
+        // margin: 'auto',
         backgroundColor: '#49A5AD',
         filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
         borderRadius: 20,
@@ -108,9 +115,10 @@ const styles = StyleSheet.create({
         fontFamily: 'Inter',
         fontStyle: 'normal',
         fontWeight: 400,
-        fontSize: 19,
+        fontSize: 20,
         lineHeight: 30,
         color: '#FFFFFF',
+        padding: 2
       },
 
       helpButton:{
@@ -123,13 +131,14 @@ const styles = StyleSheet.create({
         filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
       },
       exploreButton:{
-        position: 'relative',
+        // position: 'relative',
         borderRadius: 30,
         backgroundColor: '#0D4D5E',
-        marginTop: '70%',
+        marginTop: '10%',
         // minHeight: '60%',
-        minWidth: '22%',
-        width: '30%',
+        minWidth: '30%',
+        marginBottom: "30%"
+        // width: '30%',
         //Increase vertical height
         // height: '150px',
 
@@ -140,17 +149,18 @@ const styles = StyleSheet.create({
         paddingVertical: '5%',
         paddingHorizontal: '10%',
         textAlign: 'center',
-        fontSize: 15,
+        fontSize: 20,
       },
       doorActivityText:{
         fontFamily: 'DroidSans',
         fontStyle: 'normal',
         fontWeight: 400,
-        fontSize: 20,
+        fontSize: 25,
         lineHeight: 30,
         color: '#0D4D5E',
         textAlign: 'center',
-        marginTop: '37%',
+        marginTop: '40%',
+        alignSelf: "center"
       },
       helpText:{
         paddingVertical: '5%',
@@ -160,25 +170,19 @@ const styles = StyleSheet.create({
         fontSize: 15,
         color: '#49A5AD',
       },
-      backArrow:{
-        position: 'relative',
-        right: '45%',
-        bottom: '5%',
-      },
-      backText:{
-        fontSize: 35,
-        fontWeight: 500,
-        color: '#49A5AD',
-      },
       alert:{
-        margin: '10%',
-        marginTop: '20%',
-        maxW:"400",
-        maxH:"800",
-        height: '80%',
+        // marginTop: "30%",
+        marginLeft: '15%',
+        marginRight: '15%',
+        // margin: '10%',
+        marginTop: '45%',
+        minW:"400",
+        minH:"800",
+        // height: '80%',
         borderRadius:30,
         backgroundColor:"#FFFFFF",
         filter:"drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25))",
+        alignContent: "center"
       },
       backImage: {
           resizeMode: 'stretch',
@@ -204,13 +208,13 @@ const styles = StyleSheet.create({
         filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))'
       },
       doorImage: {
-        resizeMode: 'stretch',
+        resizeMode: 'contain',
         width: "100%",
         height: "100%",
       },
     tip: {
       height: '20%',
-      marginTop: '10%',
+      marginTop: '15%',
       marginLeft: '5%',
       marginBottom: '5%',
       flexDirection: 'row',
@@ -220,11 +224,10 @@ const styles = StyleSheet.create({
         // width: 74.72,
         // height: 112.33,
         alignSelf: 'flex-end',
-        marginLeft: "5%",
+        // marginLeft: "5%",
+        // marginTop: "5%",
         resizeMode: 'contain',
         // marginTop: "20%"
-
-        
     },
     tiptext: {
         color: '#0D4D5E',
@@ -251,11 +254,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     backArrow:{
-      position: 'relative',
+      // position: 'relative',
       right: '45%',
-      bottom: '5%',
+      // bottom: '5%',
       marginLeft: "10%",
-      marginTop: '30%',
+      marginTop: '10%',
     },
     backText:{
         fontSize: 35,

@@ -25,10 +25,10 @@ export default function DoorOpened({navigation, route}) {
 
     const renderDoorData = () => {
       return(
-        <>
-        <Text style = {styles.openText}>{data ? data.title : ""}</Text>
-        <Text style = {styles.prompt}>{data ? data.instruction : ""}</Text>
-        </>
+        <View>
+            <Text style={styles.openText}> {data ? data.title : ""}</Text>
+            <Text style={styles.prompt}> {data ? data.instruction : ""}</Text>
+        </View>
       )
     }
 
@@ -48,18 +48,22 @@ export default function DoorOpened({navigation, route}) {
                     <Text style={styles.backText}>←</Text>
                 </TouchableOpacity> */}
 
-                <TouchableOpacity style={styles.backArrow} onPress={() => {
-                    navigation.navigate('Door Activity');
-                }}>
-                    <Text style={styles.backText}>←</Text>
-                </TouchableOpacity>
+                    <TouchableOpacity style={styles.backArrow} onPress={() => {
+                        navigation.navigate('Door Activity');
+                    }}>
+                        <Text style={styles.backText}>←</Text>
+                    </TouchableOpacity>
                 
                     <View style={styles.openDoor}>
                         {/* <Text style = {styles.openText}>Door Opened!</Text> */}
-                        {data 
+                        {/* {data 
                           ? renderDoorData()
                           : "Door loading..."
-                        }
+                        } */}
+                        <Text>{data 
+                          ? renderDoorData()
+                          : "Door loading..."
+                        }</Text>
                         {/* <TouchableOpacity style={styles.interactive}>
                             <Text style={styles.intText}>see exhibits</Text>
                         </TouchableOpacity> */}

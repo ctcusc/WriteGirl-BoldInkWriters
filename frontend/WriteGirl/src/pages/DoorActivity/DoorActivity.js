@@ -36,14 +36,13 @@ export default function DoorActivity({navigation}) {
 
     return(
         <SafeAreaView style={styles.container}>
-            <View style = {styles.page }>
-                <TouchableOpacity onPress={() => {
-                        navigation.navigate('Home Tabs', { screen: 'Writing Experiments' });
-                    }} >
-                        <Text style={styles.backText}> ←</Text>
-                </TouchableOpacity>
+            <View style = {styles.page }>    
+            <TouchableOpacity style={styles.backArrow} onPress={() => {
+                            navigation.navigate('Home Tabs', { screen: 'Writing Experiments' });
+                        }} >
+                            <Text style={styles.backText}> ←</Text>
+            </TouchableOpacity>
                 <View style = {styles.doorDiv}>
-                    
                     <Text style={styles.chooseText}>Choose a Door!</Text>
 
                     <FlatList
@@ -85,9 +84,10 @@ export default function DoorActivity({navigation}) {
                 <View style={styles.tip}>
                     <Image style={styles.tipbox} source={require('../../../assets/helpPuddle.png')}/>
                     <TouchableOpacity style={styles.tipimagecontainer} onPress={() => setIsModalVisible(true)}>
-                            <ImageBackground style={styles.tipimage} source={require('../../../assets/speech.png')}>
+                            <Image  source={require('../../../assets/needhelp.png')}/>
+                            {/* <ImageBackground style={styles.tipimage} source={require('../../../assets/needhelp.png')}>
                                 <Text style={styles.tiptext}>Need any help?</Text>
-                            </ImageBackground>
+                            </ImageBackground> */}
                     </TouchableOpacity>
                 </View>
 

@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 40,
         borderBottomRightRadius: 40,
         alignItems: 'center',
+        // marginTop: 0
         // alignSelf: 'flex-start'
     },
     headertext: {
