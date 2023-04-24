@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
       marginTop: '15%',
   },
   backText:{
-      fontSize: '35px',
+      fontSize: 35,
       fontWeight: 500,
       color: "#49A5AD",
   }

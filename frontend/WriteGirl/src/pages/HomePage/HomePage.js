@@ -320,7 +320,7 @@ let up = false;
                         {/* {modeTitle} */}
                         {jumpstartData ? ("Use this " + jumpstartData.mediaType.toLowerCase() + " for inspiration.") : "JUMPSTART LOADING..."}
                     </Text>
-                    <br></br>
+                    {/* <br></br> */}
                     {/* {mode} */}
                     {renderMode()}
                 </Animated.View>

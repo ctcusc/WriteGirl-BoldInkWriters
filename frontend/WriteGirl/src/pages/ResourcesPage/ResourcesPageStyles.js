@@ -12,10 +12,10 @@ const styles = StyleSheet.create({
     },
 
     backButton: {
-        width: "25pt",
-        height: "20pt",
+        width: 25,
+        height: 20,
         marginRight: "85%",
-        marginTop: "15pt",
+        marginTop: 15,
         position: "absolute",
     },
 
@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
 
     title: {
         position: "absolute",
-        width: "133px",
-        height: "32px",
+        width: 133,
+        height: 32,
         marginTop: "5%",
         fontStyle: "normal",
         fontWeight: 400,
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
 
     tipsView: {
         backgroundColor: "#fff",
-        borderRadius: "30px",
+        borderRadius: 30,
         justifyContent: "flex-start",
         alignItems: "center",
         width: "70%",
@@ -53,15 +53,15 @@ const styles = StyleSheet.create({
         fontWeight: 450,
         position: "absolute",
         textAlign: "center",
-        width: "170px",
-        height: "51px",
+        width: 170,
+        height: 51,
         marginTop: "10%",
     },
 
     tip: {
         color: "#0d4d5e",
-        width: "194px",
-        height: "66px",
+        width: 194,
+        height: 66,
         fontStyle: "normal",
         fontWeight: 200,
         fontSize: 18,
@@ -76,15 +76,15 @@ const styles = StyleSheet.create({
         height: "30%",
         marginTop: "20%",
         backgroundColor: "#fff",
-        borderRadius: "30px",
+        borderRadius: 30,
         justifyContent: "flex-start",
         alignItems: "center",
     },
 
     pepTalk: {
         color: "#0d4d5e",
-        width: "194px",
-        height: "66px",
+        width: 194,
+        height: 66,
         fontStyle: "normal",
         fontWeight: 200,
         fontSize: 18,
@@ -96,21 +96,21 @@ const styles = StyleSheet.create({
     generateButton: {
         justifyContent: "center",
         alignItems: "center",
-        paddingHorizontal: "30px",
-        paddingVertical: "5px",
+        paddingHorizontal: 30,
+        paddingVertical: 5,
         position: "absolute",
-        width: "140px",
-        height: "25pt",
+        width: 140,
+        height: 25,
         marginTop: "60%",
         marginBottom: "5%",
 
         backgroundColor: "#c5da01",
-        borderRadius: "15pt",
+        borderRadius: 15,
     },
 
     generateText: {
-        width: "90px",
-        height: "23px",
+        width: 90,
+        height: 23,
         fontStyle: "normal",
         fontWeight: 400,
         fontSize: 15,

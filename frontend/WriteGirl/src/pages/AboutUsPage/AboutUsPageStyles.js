@@ -93,8 +93,8 @@ bottomTitle: {
 },
 
 arrowStyle: {
-    width: "30pt",
-    height: "15pt",
+    width: 30,
+    height: 15,
     marginLeft: "65%",
 },
 
@@ -117,8 +117,8 @@ learnMoreButton: {
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
-    height: "38pt",
-    width: "45pt",
+    height: 38,
+    width: 45,
     marginRight: "20%",
 },
 
@@ -178,8 +178,8 @@ donateInputLayout: {
     borderRadius: 90,
     justifyContent: "flex-start",
     alignItems: "center",
-    height: "35px",
-    width: "120px",
+    height: 35,
+    width: 120,
     marginLeft: "40%",
 },
 
@@ -222,8 +222,8 @@ donationDescription: {
 
 donateButton: {
     backgroundColor: "#c5da01",
-    height: "38pt",
-    width: "80px",
+    height: 38,
+    width: 80,
     borderRadius: 90,
     alignItems: "center",
     justifyContent: "center",
@@ -247,7 +247,7 @@ backArrow:{
     marginTop: '3%',
 },
 backText:{
-    fontSize: '35px',
+    fontSize: 35,
     fontWeight: 500,
     color: "#FFFFFF",
     borderColor: '#49A5AD',

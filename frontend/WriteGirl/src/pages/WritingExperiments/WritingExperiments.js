@@ -73,9 +73,9 @@ const styles = StyleSheet.create({
     color: '#0D4D5E',
     fontFamily: 'DroidSans',
     fontStyle: 'normal',
-    fontSize: '27px',
+    fontSize: 27,
     fontWeight: 700,
-    lineHeight: '32px',
+    lineHeight: 32,
     textAlign: 'center',
     marginTop: 50,
   },
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
   buttonPadding: {
     paddingVertical: "1%",
     paddingHorizontal: "5%",
-    height: "5vh",
+    height: 5,
   },
 
   fixToText: {
@@ -151,8 +151,8 @@ const styles = StyleSheet.create({
   smallButtons: {
     // Absolutely positioned to `fixToText` container
     position:'absolute',
-    right: "20vw",
-    bottom: "1.5vh",
+    right: 20,
+    bottom: 1.5,
     filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
     backgroundColor: '#C5DA01',
     borderRadius: 30,

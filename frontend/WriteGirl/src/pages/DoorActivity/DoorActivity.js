@@ -28,12 +28,12 @@ export default function DoorActivity({navigation}) {
                     <FlatList
                     data={imgArr}
                     renderItem={({ item, index }) => {
-                        const doorImage = require('../../../assets/door' + index + '.png');
+                        // const doorImage = require('../../../assets/door' + index + '.png');
                         return (
                         <TouchableOpacity onPress={() => navigation.navigate("Door Opened", {id: index+1})}
                         style={styles.doorIcon} >
                         <Image
-                            source={{ uri: doorImage }}
+                            // source={{ uri: doorImage }}
                             style={{ width: "100%", height: 120 }}
                         />
                         </TouchableOpacity>

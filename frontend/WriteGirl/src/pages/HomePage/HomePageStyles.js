@@ -66,8 +66,8 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end'
     },
     tipimage: {
-        width: '180pt',
-        height: '81pt',
+        width: 180,
+        height: 81,
         resizeMode: 'contain',
         alignItems: 'center',
         textAlign: 'left',
@@ -171,8 +171,8 @@ const styles = StyleSheet.create({
     },
     jumpstartbutton: {
         justifyContent: 'center',
-        height: '19pt',
-        width: '27pt',
+        height: 19,
+        width: 27,
         marginTop: "5%",
         // marginBottom: "5%",
     },
@@ -187,8 +187,8 @@ const styles = StyleSheet.create({
         color: '#ffffff',
         textAlign: 'center',
         width: '80%',
-        height: '25pt',
-        fontSize: '20pt',
+        height: 25,
+        fontSize: 20,
         fontWeight: 150
     },
     jumpstartView: {
@@ -207,13 +207,13 @@ const styles = StyleSheet.create({
     }, 
     jumpstartTitle: {
         color: '#ffffff',
-        fontSize: '15pt',
+        fontSize: 15,
         fontWeight: 400,
         marginTop: '10%',
     },
     wordJumpstart: {
         color: '#ffffff',
-        fontSize: '38pt',
+        fontSize: 38,
         fontWeight: 400,
         textAlign: 'center',
     },
@@ -229,17 +229,17 @@ const styles = StyleSheet.create({
 
     completeButton: {
         backgroundColor: '#272e32',
-        width: '249pt',
-        height: '33pt',
+        width: 249,
+        height: 33,
         alignItems: 'center',
-        borderRadius: '15pt',
+        borderRadius: 15,
         position: 'absolute',
         marginTop: '100%',
         alignSelf: 'center',
     },
     completeText: {
         color: "#ffffff",
-        fontSize: '19pt',
+        fontSize: 19,
         fontWeight: 200,
         textAlign: 'center',
     }

@@ -135,10 +135,10 @@ const styles = StyleSheet.create({
     },
 
     backButton: {
-        width: "25pt",
-        height: "20pt",
+        width: 25,
+        height: 20,
         marginRight: "85%",
-        marginTop: "15pt",
+        marginTop: 15,
         marginBottom: "10%",
         position: "absolute",
     },
