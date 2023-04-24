@@ -1,17 +1,37 @@
 import {View, Text, Button, StyleSheet, SafeAreaView, TouchableOpacity} from 'react-native';
 import { TouchableHighlight } from 'react-native-gesture-handler';
+import { useState, useEffect } from 'react';
 
 export default function WritingExperiments({navigation}) {
+  const [refPrompt, setRefPrompt] = useState("")
+
+  const fetchPrompt = async() => {
+    setRefPrompt("Generating...")
+    try{
+        const response = await fetch("http://localhost:8000/api/reflectionprompt/", {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'}
+        })
+        const response_data = await response.json();
+        setRefPrompt(response_data.prompt)
+        return response_data;
+    }catch (err) {
+      console.log("err in generating reflection prompt");
+      console.log(err)
+      return
+    }
+  }
 
   return (
     <SafeAreaView style={styles.container}>
       <View style = {styles.page}>  
       <Text style={styles.chooseText}>Writing Experiments</Text>
           <View style={styles.reflectionDiv}>
-            <Text style={styles.title}>Reflection Prompt</Text>
+            <Text style={styles.title}>Reflection Prompt Placeholder</Text>
+            <Text>{refPrompt === "" ? "Click Generate!" : refPrompt}</Text>
             <View style={styles.buttonPadding} />
             <View style={styles.fixToText}>
-              <TouchableOpacity disabled={false} style={styles.smallButtons} >
+              <TouchableOpacity disabled={false} style={styles.smallButtons} onPress={() => fetchPrompt()}>
                   <Text style={styles.generate}>Generate!</Text>
               </TouchableOpacity>
             </View>

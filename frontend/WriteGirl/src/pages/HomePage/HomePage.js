@@ -8,6 +8,7 @@ export default function HomePage({navigation, route}) {
   const[userInfo, setUserInfo] = useState();
   const[userToken, setUserToken] = useState("");
 //   const[month, setMonth] = useState("")
+  const [advice, setAdvice] = useState("")
 
   const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
@@ -20,6 +21,7 @@ export default function HomePage({navigation, route}) {
     }
     fetchToken()
   }, [])
+
 
   useEffect(() => {
     // get user name and data
@@ -53,25 +55,42 @@ export default function HomePage({navigation, route}) {
     setMonth(monthNames[monthIndex])
   }, [])
 
+  // get advice/tip
+  useEffect(() => {
+    setAdvice("Loading message...")
+    try{
+      const fetchAdvice = async() => {
+        try{
+          const response = await fetch("http://localhost:8000/api/advice/", {
+                method: 'GET',
+                headers: {'Content-Type': 'application/json'}
+            })
+            const response_data = await response.json();
+            setAdvice(response_data.advice)
+            return response_data;
+        } catch (err) {
+          console.log("Advice err", err)
+          return;
+        }
+      }
+      fetchAdvice()
+    } catch (err) {
+      console.log("Advice err", err)
+      return;
+    }
+  }, [])
 
-//different titles for the 
-const wordJumpstart = "Use this word for inspiration:";
-const pictureJumpstart = "Use this picture for inspiration:";
 
+
+
+// ****** JUMPSTART CODE *******
+const [jumpstartData, setJumpstartData] = useState()
 
 const dummyImage = require('./assets/JumpstartDummyImage.png');
 const downArrow = require('./assets/downArrow.png');
 const upArrow = require('./assets/Vector3.png');
 
-const wordMode = (
-<Text style={styles.wordJumpstart}>
-    SILLY
-</Text>
-);
 
-const pictureMode = (
-    <Image source={dummyImage} style={styles.jumpstartImage}/>
-);
 
 const downMode = (
     <View></View>
@@ -84,7 +103,6 @@ const upMode = (
 const blue = '#359fab';
 const black = '#1a1e21';
 
-let modeNumber = 0;
 let up = false;
 
 
@@ -92,9 +110,9 @@ let up = false;
     *  0 = word
     *  1 = audio
     *  2 = picture
+    *  3 = video
     */}
-    const [mode, setMode] = useState(wordMode);
-    const [modeTitle, setModeTitle] = useState(wordJumpstart);
+    const [mode, setMode] = useState(); // populate with type of media variable
     const [color, setColor] = useState(blue);
     const [image, setImage] = useState(upArrow);
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -107,37 +125,40 @@ let up = false;
     const [month, setMonth] = useState(0);
     const [tip, setTip] = useState(0);
 
-    // runs on the first render
-    // fetches name, rating, month, tip from backend
-    // useEffect(() => {
-    //     // repeat for each field
-    //     fetch("http://localhost:3000/api/name/", {
-    //         method: 'GET',
-    //         headers: {'Content-Type': 'application/json'}
-    //     })
-    //     .then((response) => {
-    //         response.json()
-    //     })
-    //     .then((data) => {
-    //         setName(response_data["prompt"]);
-    //     })
-    // }, [])
+    // render data based on type of mode
+    const renderMode = () => {
+      if(mode === 0) { //word
+        return(
+          <Text style={styles.wordJumpstart}>
+              {jumpstartData ? jumpstartData.textOnlyPrompt : "SILLY"}
+          </Text>
+        )
+      } else if(mode === 1) { //audio
+        return(
+          <View></View>
+        )
+      } else if(mode === 2) { //picture
+        return(
+          <Image source={jumpstartData ? jumpstartData.media[0].url : dummyImage} style={styles.jumpstartImage}/>
+        )
+      } else if(mode === 3) { //video
+        return(
+          <View></View>
+        )
+      } else { return; }
+    }
 
-    //changing the modes to either word or picture
-    const changeMode = () => {
-        modeNumber = (modeNumber + 1) % 2;
-        switch(modeNumber) {
-            case 0:
-                setMode(wordMode);
-                setModeTitle(wordJumpstart);
-                
-                break;
-            case 1:
-                setMode(pictureMode);
-                setModeTitle(pictureJumpstart);
-                break;
-        }
-    };
+    // set the mode
+    useEffect(() => {
+      if(jumpstartData) {
+        //setting media mode type
+        if(jumpstartData.mediaType === "Word") { setMode(0); }
+        else if(jumpstartData.mediaType === "Audio") { setMode(1); }
+        else if(jumpstartData.mediaType === "Picture") { setMode(2); }
+        else if(jumpstartData.mediaType === "Video") { setMode(3); }
+      }
+    }, [jumpstartData])
+
 
     //changing the color and the position of the jumpstart
     const shift = () => {
@@ -193,6 +214,33 @@ let up = false;
 
 
 
+    // open jumpstart and call airtable API
+    const openJumpstart = async() => {
+      try {
+        shift();
+
+        if(!jumpstartData) { //fetch data from airtable
+          const response = await fetch("http://localhost:8000/api/jumpstart/", {
+              method: 'GET',
+              headers: {'Content-Type': 'application/json'}
+          })
+          const response_data = await response.json();
+          setJumpstartData(response_data)
+
+          console.log(response_data)
+        }
+
+
+        // shift; //animate jumpstart up
+        return;
+      } catch (err) {
+        console.log("HomePage.js:openJumpstart error", err);
+        return;
+      }
+    }
+
+
+
     return (
         <View style={styles.backgroundView}>
             <SafeAreaView style={styles.container}>
@@ -223,7 +271,7 @@ let up = false;
                     <Image style={styles.tipbox} source={require('./assets/icon.png')}/>
                     <View style={styles.tipimagecontainer} >
                         <ImageBackground style={styles.tipimage} source={require('./assets/speech-bubble.png')}>
-                            <Text style={styles.tiptext}>Listening to music is a great way to set the mood for writing 🎼</Text>
+                            <Text style={styles.tiptext}>{advice}</Text>
                             {/* <Text style={styles.tiptext}>{tip}</Text> */}
                         </ImageBackground>
                     </View>
@@ -244,7 +292,7 @@ let up = false;
                     transform: [{translateY: moveAnim}]
                 },
             ]}>
-                <TouchableOpacity style={styles.jumpstartbutton} onPress={shift}>
+                <TouchableOpacity style={styles.jumpstartbutton} onPress={() => openJumpstart()}>
                     <Image style={styles.jumpstartarrow} source={image}/>
                 </TouchableOpacity>
                 <Animated.Text style={[styles.jumpstarttext,
@@ -269,13 +317,15 @@ let up = false;
                 },
                 ]}>
                     <Text style={styles.jumpstartTitle}>
-                        {modeTitle}
+                        {/* {modeTitle} */}
+                        {jumpstartData ? ("Use this " + jumpstartData.mediaType.toLowerCase() + " for inspiration.") : "JUMPSTART LOADING..."}
                     </Text>
-                    {/* <br></br> */}
-                    {mode}
+                    <br></br>
+                    {/* {mode} */}
+                    {renderMode()}
                 </Animated.View>
 
-                <TouchableOpacity style={styles.completeButton} onPress={changeMode}>
+                <TouchableOpacity style={styles.completeButton} >
 
                     <Animated.Text style={[styles.completeText,
                     {

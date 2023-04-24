@@ -108,7 +108,7 @@ export default function ScreenSaverSetup({ navigation }) {
 
     return (
         <NativeBaseProvider>
-             <TouchableOpacity style={styles.backArrow} onPress={() => {
+                <TouchableOpacity onPress={() => {
                     navigation.navigate('Home Tabs', { screen: 'Writing Experiments' });
                 }}>
                     <Text style={styles.backText}>←</Text>
@@ -153,7 +153,7 @@ export default function ScreenSaverSetup({ navigation }) {
                             }}
                         >
                             <View style={styles.cardContainer}>
-                                <Text style={styles.promptText}> {item.title} </Text>
+                                {/* <Text style={styles.promptText}> {item.title} </Text> */}
                                 {renderMedia(item)}
                             </View>
                         </View>
@@ -194,7 +194,7 @@ export default function ScreenSaverSetup({ navigation }) {
                                 navigation.navigate('Screen Saver Page', { promptId: promptIndex, time: minSecs })
                             // }
                         }}>
-                            <Text style={styles.buttonLabel}>Set Timer</Text>
+                            <Text style={styles.buttonLabel}>set timer</Text>
                         </Pressable>
                     </View>
 

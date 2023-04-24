@@ -1,12 +1,66 @@
 
 import React from 'react';
 // import './ProfilePage.css';
-// import styles from './ProfilePageStyles.js';
+import styles from './ProfilePage.css';
 import { View, Text, TouchableOpacity, ToastAndroid , StyleSheet, Dimensions, Image, ScrollView} from 'react-native';
+import { useState, useEffect } from 'react';
+import { auth } from "../../../firebaseConfig";
+
+
 export default function ProfilePage({ navigation }) {
     // const handleWriteGirlPress = () => {
     //     ToastAndroid.show('Welcome to your profile page! Click on the dates to explore your previous writing prompts!', ToastAndroid.SHORT);
     //   };
+
+    //get user data
+    const[userInfo, setUserInfo] = useState();
+    const[userToken, setUserToken] = useState("");
+    const [userLocation, setUserLocation] = useState("");
+
+    useEffect(() => {
+      // get user token
+      const fetchToken = async () => {
+        const token = await auth.currentUser.getIdToken();
+        setUserToken(token);
+      }
+      fetchToken()
+    }, [])
+
+    useEffect(() => {
+      // get user name and data
+      if(userToken) {
+        try{
+          fetch(`http://localhost:8000/api/account/`, {
+            method: "GET",
+            headers: { 
+              'Content-Type': 'application/json', 
+              Authorization: `Bearer ${userToken}` 
+            }
+          })
+          .then((res) => {
+              console.log("/api/account/", res)
+              return res.json()
+          })
+          .then((data) => {
+              setUserInfo(data)
+              // console.log(data)
+              return data
+          })
+          .then((data) => {
+            let loc = "";
+            if(data.city && data.state) { loc = data.city + ", " + data.state }
+            else if(data.city && data.country) { loc = data.city + ", " + data.country }
+            else if(data.state && data.country) { loc = data.state + ", " + data.country }
+            else { loc = data.country }
+            setUserLocation(loc)
+            return;
+          })
+        } catch (err) {
+          console.log("ProfilePage.js:onAuthStateChanged", err)
+        }
+      }
+    }, [userToken])
+
       const DateGrid = ({ activities }) => {
         return (
           <View style={styles.gridContainer}>
@@ -47,10 +101,10 @@ export default function ProfilePage({ navigation }) {
         <>
         <View style =  {styles.container}>
             <View style={styles.internalContainer}>
-                <Text style={styles.bigText}>Jane Doe</Text>
-                <Text style={styles.smallText}>she/her</Text>
-                <Text style={styles.medText}>email: jane.doe@example.com</Text>
-                <Text style={styles.medText}>location: los angeles, california</Text>
+                <Text style={styles.bigText}>{userInfo ? (userInfo.firstName + " " + userInfo.lastName) : null}</Text>
+                {/* <Text style={styles.smallText}>she/her</Text> */}
+                <Text style={styles.medText}>email: {userInfo ? userInfo.email : null}</Text>
+                <Text style={styles.medText}>location: {userLocation}</Text>
                 <TouchableOpacity 
                   onPress={() => {
                     navigation.navigate('About Us Page')

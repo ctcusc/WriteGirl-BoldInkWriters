@@ -31,26 +31,37 @@ import base from "../airtable"
     });
   }
 
-  export const getAllPrompts = async (req: Request, res: Response) => {
+  export const getRandomPrompt = async (req: Request, res: Response) => {
     // const result = await ScreenSaverPrompt.findAll()
     // return res.json(result)
-    let prompts: any = [];
-    base('Reflection Prompt').select({
-    }).eachPage(function page(records, fetchNextPage) {
-        // This function (`page`) will get called for each page of records.
-        records.forEach(function(record) {
-            // console.log('Retrieved', record);
-            prompts.push(record.fields)
-        });
+    // let prompts: any = [];
+    // base('Reflection Prompt').select({
+    // }).eachPage(function page(records, fetchNextPage) {
+    //     // This function (`page`) will get called for each page of records.
+    //     records.forEach(function(record) {
+    //         // console.log('Retrieved', record);
+    //         prompts.push(record.fields)
+    //     });
     
-        // To fetch the next page of records, call `fetchNextPage`.
-        // If there are more records, `page` will get called again.
-        // If there are no more records, `done` will get called.
-        fetchNextPage();
+    //     // To fetch the next page of records, call `fetchNextPage`.
+    //     // If there are more records, `page` will get called again.
+    //     // If there are no more records, `done` will get called.
+    //     fetchNextPage();
     
-    }, function done(err) {
-        if (err) { console.error(err); return; }
-        console.log(prompts)
-        return res.json(prompts)
+    // }, function done(err) {
+    //     if (err) { console.error(err); return; }
+    //     console.log(prompts)
+    //     return res.json(prompts)
+    // });
+    base('Reflection Prompt').select().firstPage((err, records) => {
+      if (err) {
+          console.error(err);
+          return;
+      }
+      if(records.length < 1) { console.log("No propmts for this category available"); return res.json(-1); }
+      // records contains an array of all records in the table
+      const randomIndex = Math.floor(Math.random() * records.length);
+      const randomRecord = records[randomIndex];
+      return res.json(randomRecord.fields)
     });
 }

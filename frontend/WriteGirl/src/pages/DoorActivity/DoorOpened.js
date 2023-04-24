@@ -23,6 +23,15 @@ export default function DoorOpened({navigation, route}) {
         })
     }, [route]);
 
+    const renderDoorData = () => {
+      return(
+        <>
+        <Text style = {styles.openText}>{data ? data.title : ""}</Text>
+        <Text style = {styles.prompt}>{data ? data.instruction : ""}</Text>
+        </>
+      )
+    }
+
     // //Airtable API call for prompt
     // let apiToken = DOOR_ACTIVITY;
     // let table = base.gerTable("Door Activity Prompts");
@@ -47,8 +56,10 @@ export default function DoorOpened({navigation, route}) {
                 
                     <View style={styles.openDoor}>
                         {/* <Text style = {styles.openText}>Door Opened!</Text> */}
-                        <Text style = {styles.openText}>{data ? data.title : ""}</Text>
-                        <Text style = {styles.prompt}>{data ? data.instruction : ""}</Text>
+                        {data 
+                          ? renderDoorData()
+                          : "Door loading..."
+                        }
                         {/* <TouchableOpacity style={styles.interactive}>
                             <Text style={styles.intText}>see exhibits</Text>
                         </TouchableOpacity> */}
