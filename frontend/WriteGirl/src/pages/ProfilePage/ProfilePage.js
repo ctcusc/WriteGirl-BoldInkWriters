@@ -113,34 +113,37 @@ export default function ProfilePage({ navigation }) {
     
     
       return (
-        <ScrollView>
+        <View>
           <View style = {styles.container}>
             <Text style={styles.signOutText} onPress={() => {logOut()}}>Sign Out</Text>
             <View style={styles.internalContainer}>
-                <Text style={styles.bigText}>{userInfo ? (userInfo.firstName + " " + userInfo.lastName) : null}</Text>
+                <Text style={styles.bigText}>Jane Doe{userInfo ? (userInfo.firstName + " " + userInfo.lastName) : null}</Text>
                 {/* <Text style={styles.smallText}>she/her</Text> */}
-                <Text style={styles.medText}>{userInfo ? userInfo.email : null}</Text>
-                <Text style={styles.medText}>{userLocation}</Text>
+                <Text style={styles.medText}>janedoe@gmail.com{userInfo ? userInfo.email : null}</Text>
+                <Text style={styles.medText}>los angeles, california{userLocation}</Text>
                 <TouchableOpacity 
                   onPress={() => {
                     navigation.navigate('About Us Page')
                   }} 
-                  style={{ backgroundColor: '#C5DA01', borderRadius: 10, padding: 15, marginTop: 10 }}
+                  style={styles.aboutusbutton}
                 >
-                <Text style={{ color: '#0D4D5E', fontSize: 16}}>What is WriteGirl?</Text>
+                  <Text style={styles.aboutbuttontext}>What is WriteGirl?</Text>
                 </TouchableOpacity>
-                <Image source={require('./needhelp.png')} style={{ width: 72, height: 86, paddingTop: 10, alignSelf: 'center' }} />
+                <Image source={require('./needhelp.png')} style={styles.inky} />
             </View>
           </View>
+          
+          <ScrollView  style={styles.scroll}>
+            <Text style={styles.headerText}>In progress</Text>
+            <View>
+                <DateGrid activities={activities.filter(incompleteFilter)}/>
+            </View>
+            <Text style={styles.headerText}>Completed</Text>
+            <View>
+                <DateGrid activities={activities.filter(completeFilter) }/>
+            </View>
+          </ScrollView>
 
-          <Text style={styles.headerText}>In progress</Text>
-          <View>
-              <DateGrid activities={activities.filter(incompleteFilter)}/>
-          </View>
-          <Text style={styles.headerText}>Completed</Text>
-          <View>
-              <DateGrid activities={activities.filter(completeFilter) }/>
-          </View>
-        </ScrollView>
+        </View>
       );
 }
