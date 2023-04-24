@@ -72,6 +72,7 @@ export default function App({navigation}) {
       DroidSansBold: require('./assets/fonts/DroidSans-Bold.ttf'),
       Hubballi: require('./assets/fonts/Hubballi-Regular.ttf'),
   });
+  console.disableYellowBox = true; 
 
   return (
     <NavigationContainer>

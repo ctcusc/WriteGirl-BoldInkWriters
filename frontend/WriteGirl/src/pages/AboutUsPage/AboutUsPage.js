@@ -57,15 +57,12 @@ export default function AboutPage({navigation}) {
 
     return (
         <View style={styles.containerFull}>
-        <TouchableOpacity onPress={() => {
-            navigation.navigate('Home Tabs', { screen: 'Profile Page' });
-        }}>
-            <Text style={styles.backText}> ←</Text>
-        </TouchableOpacity>
         <View style={styles.container}>
             <View style={styles.topLayout}>
-                <TouchableOpacity style={styles.backArrowLayout} onPress={() => navigation.navigate('Home')}>
-                    <Image source={backArrow} style={styles.backArrow}/>
+                <TouchableOpacity style={styles.backArrow} onPress={() => {
+                        navigation.navigate('Home Tabs', { screen: 'Profile Page' });
+                    }}>
+                    <Text style={styles.backText}>←</Text>
                 </TouchableOpacity>
                 <Text style={styles.title}>
                     About Writegirl ✍️
@@ -115,7 +112,7 @@ export default function AboutPage({navigation}) {
 
                     <View style={styles.learnMoreLayout}>
                         <View style={styles.learnMoreButton}>
-                            <TouchableOpacity style={styles.booksButton} onPress={() => Linking.openURL(HomeLink)}>
+                            <TouchableOpacity style={styles.topButton} onPress={() => Linking.openURL(HomeLink)}>
                                 <Image source={books} style={styles.booksImage}/>
                             </TouchableOpacity>
                             <Text style={styles.iconText}>
