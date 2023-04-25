@@ -55,7 +55,7 @@ export default function DoorActivity({navigation}) {
                         style={styles.doorIcon} >
                         <Image
                             source={ item.image }
-                            style={{ width: "100%" }}
+                            style={styles.doorPic}
                         />
                         </TouchableOpacity>
                         );
@@ -82,9 +82,9 @@ export default function DoorActivity({navigation}) {
                             <Text style={styles.helpText}>Need any help?</Text>
                 </TouchableOpacity> */}
                 <View style={styles.tip}>
-                    <Image style={styles.tipbox} source={require('../../../assets/helpPuddle.png')}/>
-                    <TouchableOpacity style={styles.tipimagecontainer} onPress={() => setIsModalVisible(true)}>
-                            <Image  source={require('../../../assets/needhelp.png')}/>
+                    <Image source={require('../../../assets/helpPuddle.png')} style={styles.puddle}/>
+                    <TouchableOpacity style={styles.bubble} onPress={() => setIsModalVisible(true)}>
+                            <Image source={require('../../../assets/needhelp.png')} style={styles.bubble}/>
                             {/* <ImageBackground style={styles.tipimage} source={require('../../../assets/needhelp.png')}>
                                 <Text style={styles.tiptext}>Need any help?</Text>
                             </ImageBackground> */}

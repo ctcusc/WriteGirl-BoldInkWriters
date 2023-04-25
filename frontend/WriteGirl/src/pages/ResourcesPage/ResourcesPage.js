@@ -50,7 +50,7 @@ export default function ResourcesPage() {
 
     const generatePepTalk = async() => {
         try{
-          const response = await fetch("http://" + process.env.IP + ":8000/api/advice/1", {
+          const response = await fetch("http://localhost:8000/api/advice/1", {
                 method: 'GET',
                 headers: {'Content-Type': 'application/json'}
             })
@@ -67,7 +67,7 @@ export default function ResourcesPage() {
     useEffect(() => {
       const generateTip = async() => {
           try{
-            const response = await fetch("http://" + process.env.IP + ":8000/api/advice/0", {
+            const response = await fetch("http://localhost:8000/api/advice/0", {
                   method: 'GET',
                   headers: {'Content-Type': 'application/json'}
               })

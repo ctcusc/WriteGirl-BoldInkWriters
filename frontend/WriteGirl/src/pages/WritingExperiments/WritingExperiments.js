@@ -8,7 +8,7 @@ export default function WritingExperiments({navigation}) {
   const fetchPrompt = async() => {
     setRefPrompt("Generating...")
     try{
-        const response = await fetch("http://" + process.env.IP + ":8000/api/reflectionprompt/", {
+        const response = await fetch("http://localhost:8000/api/reflectionprompt/", {
             method: 'GET',
             headers: {'Content-Type': 'application/json'}
         })
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   },
   chooseText:{
     color: '#0D4D5E',
-    fontFamily: 'DroidSans',
+    // fontFamily: 'DroidSans',
     fontStyle: 'normal',
     fontSize: 27,
     // fontWeight: 700,
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   title: {
     textAlign: 'center',
     marginVertical: 8,
-    fontFamily: 'DroidSans',
+    // fontFamily: 'DroidSans',
     fontStyle: 'normal',
     // fontWeight: 400,
     fontSize: 25,
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
 
   generate:{
     textAlign: 'center',
-    fontFamily: 'Droid Sans',
+    // fontFamily: 'Droid Sans',
     fontStyle: 'normal',
     // fontWeight: 400,
     fontSize: 24,

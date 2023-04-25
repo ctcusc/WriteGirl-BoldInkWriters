@@ -8,7 +8,9 @@ export default function DoorOpened({navigation, route}) {
     useEffect(() => {
         // Get random prompt id
         let randomNum = Math.floor(Math.random() * 9) + 1;
-        let url = "http://" + process.env.IP + ":8000/api/dooractivity/" + route.params.id;
+        // let url = "http://" + process.env.IP + ":8000/api/dooractivity/" + route.params.id;
+        let url = "http://localhost:8000/api/dooractivity/" + route.params.id;
+
         console.log(url)
         fetch(url, {
             method: "GET",

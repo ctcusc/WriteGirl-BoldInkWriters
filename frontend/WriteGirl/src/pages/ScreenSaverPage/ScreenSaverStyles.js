@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     },
 
     backarrow: {
+        marginTop: 10,
         height: 100,
         width: 'auto',
     },
@@ -123,12 +124,12 @@ const styles = StyleSheet.create({
         paddingTop: '2%',
     },
 
-    backArrow: {
-        // height: '100%',
-        width: '10%',
-        marginLeft: '3%',
-        resizeMode: 'cover',
-    },  
+    // backArrow: {
+    //     // height: '100%',
+    //     width: '10%',
+    //     marginLeft: '3%',
+    //     resizeMode: 'contain',
+    // },  
 
     timeText: {
         color: 'white',
@@ -172,8 +173,8 @@ const styles = StyleSheet.create({
     backText:{
         fontSize: 35,
         // fontWeight: 500,
-        color: "#F0EBE8",
-        borderColor: '#F0EBE8',
+        color: "#0D4D5E",
+        // borderColor: '#F0EBE8',
         // backgroundColor: '#F0EBE8',
     }
 

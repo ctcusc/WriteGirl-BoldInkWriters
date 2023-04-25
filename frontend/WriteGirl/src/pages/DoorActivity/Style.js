@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: '5%',
       },
       intText:{
-        fontFamily: 'Inter',
+        // fontFamily: 'Inter',
         fontStyle: 'normal',
         // fontWeight: 400,
         fontSize: 15,
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
       compText:{
         textAlign: 'center',
         color: '#FFFFFF',
-        fontFamily: 'Inter',
+        // fontFamily: 'Inter',
         fontStyle: 'normal',
         // fontWeight: 400,
         fontSize: 20,
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#0D4D5E',
         marginTop: '10%',
         // minHeight: '60%',
-        minWidth: '30%',
+        minWidth: '50%',
         marginBottom: "30%"
         // width: '30%',
         //Increase vertical height
@@ -146,14 +146,14 @@ const styles = StyleSheet.create({
       },
       exploreText:{
         color: '#FFFFFF',
-        fontFamily: 'DroidSans',
+        // fontFamily: 'DroidSans',
         paddingVertical: '5%',
         paddingHorizontal: '10%',
         textAlign: 'center',
         fontSize: 20,
       },
       doorActivityText:{
-        fontFamily: 'DroidSans',
+        // fontFamily: 'DroidSans',
         fontStyle: 'normal',
         // fontWeight: 400,
         fontSize: 25,
@@ -200,8 +200,8 @@ const styles = StyleSheet.create({
           position: "absolute",
       },
       doorIcon:{
-        width: "28%", 
-        height: 90,
+        width: 97, 
+        height: 130,
         marginVertical: 25, 
         marginHorizontal: 10, 
         marginLeft: 10, 
@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
       },
     tip: {
       height: '20%',
-      marginTop: '15%',
+      marginTop: 0,
       marginLeft: '5%',
       marginBottom: '5%',
       flexDirection: 'row',
@@ -241,18 +241,20 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     tipimagecontainer: {
-        width: "70%",
+        // width: "70%",
         // height: "100%",
-        justifyContent: 'flex-start',
-        alignSelf: 'flex-end',
+        width: 217, 
+        height: 69,
+        // justifyContent: 'flex-start',
+        // alignSelf: 'flex-end',
         resizeMode: 'contain',
     },
     tipimage: {
-        width: "100%",
-        padding: '10%',
+      width: 217, 
+      height: 69,
         // height: "100%",
         // resizeMode: 'contain',
-        alignItems: 'center',
+        resizeMode: 'contain',
     },
     backArrow:{
       // position: 'relative',
@@ -272,6 +274,21 @@ const styles = StyleSheet.create({
         fontSize: 35,
         // fontWeight: 500,
         color: "#49A5AD",
+    },
+    doorPic: {
+      width: "100%", 
+      height: "100%",
+      resizeMode: 'contain',
+    },
+    puddle: {
+      width: 114, 
+      height: 140,
+      resizeMode: 'contain',
+    },
+    bubble: {
+      width: 173, 
+      height: 55,
+      resizeMode: 'contain',
     }
       
 });

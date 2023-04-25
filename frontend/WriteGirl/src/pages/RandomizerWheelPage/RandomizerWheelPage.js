@@ -77,7 +77,7 @@ export default function RandomizerWheelPage({ navigation, route }) {
 
     const getPrompt = async() => {
       try{
-        const response = await fetch("http://" + process.env.IP + ":8000/api/randomizer-wheel-prompt/" + words[selectedWordIndex], {
+        const response = await fetch("http://localhost:8000/api/randomizer-wheel-prompt/" + words[selectedWordIndex], {
             method: 'GET',
             headers: {'Content-Type': 'application/json'}
         })

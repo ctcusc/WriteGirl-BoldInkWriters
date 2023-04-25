@@ -42,7 +42,7 @@ export default function ProfilePage({ navigation }) {
       // get user name and data
       if(userToken) {
         try{
-          fetch(`http://" + process.env.IP + ":8000/api/account/`, {
+          fetch(`http://8000:8000/api/account/`, {
             method: "GET",
             headers: { 
               'Content-Type': 'application/json', 

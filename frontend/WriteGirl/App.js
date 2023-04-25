@@ -36,21 +36,21 @@ function HomeTabs() {
             tabBarOptions: { showIcon: true },
             title: '',
             tabBarIcon: (focused, tintColor) => (
-              <Image source={require('./assets/tabs/home.png')}/>
+              <Image source={require('./assets/tabs/home.png')}  style={{ width: 30, height: 30, paddig: 2, resizeMode: "contain" }}/>
             )    
           }}/>
           <Tab.Screen name="Writing Experiments" component={WritingExperiments} options={{
             tabBarOptions: { showIcon: true },
             title: '',
             tabBarIcon: (focused, tintColor) => (
-              <Image source={require('./assets/tabs/exercises.png')}/>
+              <Image source={require('./assets/tabs/exercises.png')}  style={{ width: 30, height: 30, paddig: 2, resizeMode: "contain" }}/>
             )    
           }}/>
           <Tab.Screen name="Resources" component={ResourcesPage} options={{
             tabBarOptions: { showIcon: true },
             title: '',
             tabBarIcon: (focused, tintColor) => (
-              <Image source={require('./assets/tabs/resources.png')}/>
+              <Image source={require('./assets/tabs/resources.png')}  style={{ width: 20, height: 20, paddig: 2, resizeMode: "contain" }}/>
             )    
           }}/>
           {/* <Tab.Screen name="Screen Saver Setup" component={ScreenSaverSetup} /> */}
@@ -58,7 +58,7 @@ function HomeTabs() {
             tabBarOptions: { showIcon: true },
             title: '',
             tabBarIcon: (focused, tintColor) => (
-              <Image source={require('./assets/tabs/profile.png')}/>
+              <Image source={require('./assets/tabs/profile.png')} style={{ width: 20, height: 20, paddig: 2, resizeMode: "contain" }}/>
             )    
           }}/>
       </Tab.Navigator>

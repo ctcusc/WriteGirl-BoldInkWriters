@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     titleText: {
-        fontWeight: 700,
+        // fontWeight: 700,
         color: "#fff",
         fontSize: 30,
         marginTop: "10%",
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
         marginTop: '10%',
     },
     loginText: {
-        fontWeight: 400,
+        // fontWeight: 400,
         color: "#0d4d5e",
         fontSize: 25,
     },

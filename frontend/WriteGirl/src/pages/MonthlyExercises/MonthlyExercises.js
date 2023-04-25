@@ -24,7 +24,7 @@ export default function MonthlyExercises({ navigation, route }) {
 
   // fetch exercise prompts
   useEffect(() => {
-    fetch("http://" + process.env.IP + ":8000/api/monthly-exercise-prompt/", {
+    fetch("http://localhost:8000/api/monthly-exercise-prompt/", {
       method: "GET",
     })
     .then((res) => {

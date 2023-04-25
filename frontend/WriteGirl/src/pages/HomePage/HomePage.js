@@ -27,7 +27,7 @@ export default function HomePage({navigation, route}) {
     // get user name and data
     if(userToken) {
       try{
-        fetch(`http://localhost:8000/api/account/`, {
+        fetch(`http://8000:8000/api/account/`, {
           method: "GET",
           headers: { 
             'Content-Type': 'application/json', 
@@ -61,7 +61,7 @@ export default function HomePage({navigation, route}) {
     try{
       const fetchAdvice = async() => {
         try{
-          const response = await fetch("http://" + process.env.IP +":8000/api/advice/", {
+          const response = await fetch("http://localhost:8000/api/advice/", {
                 method: 'GET',
                 headers: {'Content-Type': 'application/json'}
             })
@@ -220,7 +220,7 @@ let up = false;
         shift();
 
         if(!jumpstartData) { //fetch data from airtable
-          const response = await fetch("http://" + process.env.IP + ":8000/api/jumpstart/", {
+          const response = await fetch("http://localhost:8000/api/jumpstart/", {
               method: 'GET',
               headers: {'Content-Type': 'application/json'}
           })

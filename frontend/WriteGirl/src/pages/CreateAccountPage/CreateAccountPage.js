@@ -49,7 +49,7 @@ export default function CreateAccountPage({ navigation }) {
         const myUser = user;
         // console.log("myuser", user)
 
-        const response = await fetch(`http://localhost:8000/api/signup/`, {
+        const response = await fetch(`http://8000:8000/api/signup/`, {
           method: "POST",
           headers: { 
             'Content-Type': 'application/json', 

@@ -17,7 +17,7 @@ export default function ScreenSaverPage({ navigation, route }) {
 
     const [data, setData] = useState();
     useEffect(() => {
-        let url = "http://" + process.env.IP + ":8000/api/screen-saver-prompt/" + promptId;
+        let url = "http://localhost:8000/api/screen-saver-prompt/" + promptId;
         fetch(url, {
             method: "GET",
         })

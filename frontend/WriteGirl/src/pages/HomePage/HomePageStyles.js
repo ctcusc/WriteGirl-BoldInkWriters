@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         height: '20%',
         paddingTop: 50,
         paddingRight: 50,
-        paddingLeft: 50
+        paddingLeft: 30
     },
     welcometext1: {
         fontSize: 20,
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: "#0D4D5E",
         alignSelf: 'center',
-        fontFamily: 'DroidSansBold'
+        // fontFamily: 'DroidSansBold'
     },
     pic: {
         width:40,
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
 
     tip: {
         height: '20%',
-        marginTop: '5%',
+        marginTop: '0%',
         marginBottom: '5%',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -121,12 +121,12 @@ const styles = StyleSheet.create({
         shadowOpacity: 1,
         shadowOffset: {width: 0, height: 4},
         fontSize: 25,
-        fontFamily: 'DroidSans'
+        // fontFamily: 'DroidSans'
     },
     exercisestext1: {
         fontSize: 27,
         color: "#0D4D5E",
-        fontFamily: 'DroidSans',
+        // fontFamily: 'DroidSans',
         alignSelf: 'center'
     },
     exerciseimg: {
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-end',
         marginTop: '10%',
         zIndex: 999,
-        fontFamily: 'DroidSans'
+        // fontFamily: 'DroidSans'
     },
 
     jumpstart: {
@@ -249,14 +249,14 @@ const styles = StyleSheet.create({
     completeButton: {
         backgroundColor: '#272e32',
         width: 270,
-        height: 10,
+        height: 40,
         alignItems: 'center',
         borderRadius: 15,
         position: 'absolute',
         marginTop: '100%',
         paddingBottom: 5,
         // alignSelf: 'center',
-        // alignContent: 'center',
+        alignContent: 'center',
     },
     completeText: {
         color: "#ffffff",
@@ -264,8 +264,8 @@ const styles = StyleSheet.create({
         // fontWeight: 200,
         textAlign: 'center',
         alignSelf: 'center',
-        padding: "15%",
-        fontFamily: 'Droid Sans',
+        // padding: "15%",
+        // fontFamily: 'Droid Sans',
     }
 
 
