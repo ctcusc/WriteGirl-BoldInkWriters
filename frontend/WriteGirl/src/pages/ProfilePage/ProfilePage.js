@@ -42,7 +42,7 @@ export default function ProfilePage({ navigation }) {
       // get user name and data
       if(userToken) {
         try{
-          fetch("http://localhost:8000/api/account/", {
+          fetch(`http://" + process.env.IP + ":8000/api/account/`, {
             method: "GET",
             headers: { 
               'Content-Type': 'application/json', 
@@ -66,10 +66,7 @@ export default function ProfilePage({ navigation }) {
             else { loc = data.country }
             setUserLocation(loc)
             return;
-          }).catch(function(error) {
-            console.log('There has been a problem with your fetch operation: ' + error.message);
-              throw error;
-            });
+          })
         } catch (err) {
           console.log("ProfilePage.js:onAuthStateChanged", err)
         }

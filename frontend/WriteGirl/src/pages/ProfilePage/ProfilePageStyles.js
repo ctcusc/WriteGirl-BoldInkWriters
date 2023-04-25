@@ -26,21 +26,21 @@ export default StyleSheet.create({
     
           },
         bigText: {
-            // fontFamily: 'sans-serif',
+            fontFamily: 'sans-serif',
             fontSize: 30, 
             fontWeight: 700,
             color: 'white',
             alignSelf: 'center'
         },
         smallText: {
-            // fontFamily: 'sans-serif',
+            fontFamily: 'sans-serif',
             fontSize: 16, 
             fontWeight: 'bold',
             color: 'white',
             alignSelf: 'center'
         },
         medText: {
-            // fontFamily: 'sans-serif',
+            fontFamily: 'sans-serif',
             fontSize: 18, 
             fontWeight: '400',
             color: 'white',
@@ -92,7 +92,7 @@ export default StyleSheet.create({
             alignSelf: "center",
           },
           signOutText: {
-            // fontFamily: 'sans-serif',
+            fontFamily: 'sans-serif',
             fontSize: 15, 
             fontWeight: 'bold',
             color: 'white',

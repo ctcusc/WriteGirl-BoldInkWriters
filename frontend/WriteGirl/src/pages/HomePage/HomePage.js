@@ -64,10 +64,7 @@ export default function HomePage({navigation, route}) {
           const response = await fetch("http://" + process.env.IP +":8000/api/advice/", {
                 method: 'GET',
                 headers: {'Content-Type': 'application/json'}
-            }).catch(function(error) {
-                console.log('There has been a problem with your fetch operation: ' + error.message);
-                throw error;
-            });
+            })
             const response_data = await response.json();
             setAdvice(response_data.advice)
             return response_data;
