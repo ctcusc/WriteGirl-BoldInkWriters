@@ -6,7 +6,7 @@ import { styles } from "./SignInPageStyles.js";
 import { Toast, useToast, Box, NativeBaseProvider} from "native-base";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebaseConfig";
-import {CreateAccountPage} from "../" 
+// import {CreateAccountPage} from "../" 
 
 
 // const logo = require('...../assets/adaptive-icon.png');

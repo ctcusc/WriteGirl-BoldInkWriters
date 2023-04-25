@@ -12,45 +12,42 @@ const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator();
 
 function HomeTabs() {
+  console.disableYellowBox = true; 
   return (
-      <Tab.Navigator 
+      <Tab.Navigator
         screenOptions={{
           headerShown: false
         }}
-        
-        // screenOptions={({ route }) => ({
-        //   tabBarButton: [
-        //     "Screen Saver Setup",
-        //     "Screen Saver Page",
-        //     "Door Opened"
-        //   ].includes(route.name) 
-        //     ? () => {
-        //         return null;
-        //       }
-        //     : undefined,
-        // })}
       >
-          {/* <Tab.Screen name="Monthly Exercises" component={MonthlyExercises} /> */}
-          {/* <Tab.Screen name="Monthly Exercise Opened" component={OpenedExercise} /> */}
+
           <Tab.Screen name="Home Page" component={HomePage} options={{
             tabBarOptions: { showIcon: true },
             title: '',
             tabBarIcon: (focused, tintColor) => (
-              <Image source={require('./assets/tabs/home.png')}/>
+              <View>
+                <Text> </Text>
+                <Image source={require('./assets/tabs/home.png')}/>
+              </View>
             )    
           }}/>
           <Tab.Screen name="Writing Experiments" component={WritingExperiments} options={{
             tabBarOptions: { showIcon: true },
             title: '',
             tabBarIcon: (focused, tintColor) => (
-              <Image source={require('./assets/tabs/exercises.png')}/>
+              <View>
+                <Text> </Text>
+                <Image source={require('./assets/tabs/exercises.png')}/>
+              </View>
             )    
           }}/>
           <Tab.Screen name="Resources" component={ResourcesPage} options={{
             tabBarOptions: { showIcon: true },
             title: '',
             tabBarIcon: (focused, tintColor) => (
-              <Image source={require('./assets/tabs/resources.png')}/>
+              <View>
+                <Text> </Text>
+                <Image source={require('./assets/tabs/resources.png')}/>
+              </View>
             )    
           }}/>
           {/* <Tab.Screen name="Screen Saver Setup" component={ScreenSaverSetup} /> */}
@@ -58,7 +55,10 @@ function HomeTabs() {
             tabBarOptions: { showIcon: true },
             title: '',
             tabBarIcon: (focused, tintColor) => (
-              <Image source={require('./assets/tabs/profile.png')}/>
+              <View>
+                <Text> </Text>
+                <Image source={require('./assets/tabs/profile.png')}/>
+              </View>
             )    
           }}/>
       </Tab.Navigator>

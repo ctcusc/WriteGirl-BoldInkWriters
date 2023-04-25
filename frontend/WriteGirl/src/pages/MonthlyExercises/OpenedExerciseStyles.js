@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     exerciseContainer: {
         backgroundColor: "#FFF",
         height: containerHeight,
-        width: containerWidth,
+        width: 7*width/8,
         marginTop: "10%",
         // width: "70%",
         // borderWidth: 2, 
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     completeButton: {
         backgroundColor: '#49A5AD',
         height: 'auto',
-        width: containerWidth,
+        width: 7*width/8,
         padding: 10,
         marginVertical: 40,
         marginBottom: 30,
