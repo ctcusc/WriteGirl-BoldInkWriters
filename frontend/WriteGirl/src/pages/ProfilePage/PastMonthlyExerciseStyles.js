@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   },
   titleBold: {
     fontSize: width/15,
-    fontWeight: "bold",
+    // fontWeight: "bold",
     color: "#0D4D5E",
   },
   titleRegular: {
@@ -76,13 +76,13 @@ const styles = StyleSheet.create({
   },
   exerciseTitle: {
     fontSize: exerciseContw*0.065,
-    fontWeight: "bold",
+    // fontWeight: "bold",
     color: "#545454",
     paddingBottom: 4,
   },
   activeExerciseTitle: {
     fontSize: exerciseContw*0.065,
-    fontWeight: "bold",
+    // fontWeight: "bold",
     color: "white",
     paddingBottom: 4,
   },
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   },
   backText:{
       fontSize: 35,
-      fontWeight: 500,
+      // fontWeight: 500,
       color: "#49A5AD",
   }
 });

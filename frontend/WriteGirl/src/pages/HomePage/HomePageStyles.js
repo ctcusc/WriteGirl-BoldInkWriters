@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     },
     welcomenametext: {
         fontSize: 50,
-        fontWeight: 400,
+        // fontWeight: 400,
         color: "#0D4D5E",
         // fontFamily: 'Hubballi_bold'
     },
@@ -125,7 +125,6 @@ const styles = StyleSheet.create({
     },
     exercisestext1: {
         fontSize: 27,
-        fontWeight: 'bold',
         color: "#0D4D5E",
         fontFamily: 'DroidSans',
         alignSelf: 'center'
@@ -209,7 +208,7 @@ const styles = StyleSheet.create({
         width: '80%',
         height: 25,
         fontSize: 20,
-        fontWeight: 200
+        // fontWeight: 200
     },
     jumpstartView: {
         // marginTop: '5%',
@@ -228,13 +227,13 @@ const styles = StyleSheet.create({
     jumpstartTitle: {
         color: '#ffffff',
         fontSize: 15,
-        fontWeight: 400,
+        // fontWeight: 400,
         marginTop: '10%',
     },
     wordJumpstart: {
         color: '#ffffff',
         fontSize: 38,
-        fontWeight: 400,
+        // fontWeight: 400,
         textAlign: 'center',
     },
     jumpstartImage: {
@@ -262,7 +261,7 @@ const styles = StyleSheet.create({
     completeText: {
         color: "#ffffff",
         fontSize: 25,
-        fontWeight: 200,
+        // fontWeight: 200,
         textAlign: 'center',
         alignSelf: 'center',
         padding: "15%",

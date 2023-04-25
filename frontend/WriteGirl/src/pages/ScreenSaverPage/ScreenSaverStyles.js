@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     title: {
         color: '#0D4D5E',
         fontSize: '30%',
-        fontWeight: 700,
+        // fontWeight: 700,
         textAlign: 'center',
         paddingTop: '1%',
         paddingBottom: '3%',
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
       },
     backText:{
         fontSize: 35,
-        fontWeight: 500,
+        // fontWeight: 500,
         color: "#F0EBE8",
         borderColor: '#F0EBE8',
         // backgroundColor: '#F0EBE8',

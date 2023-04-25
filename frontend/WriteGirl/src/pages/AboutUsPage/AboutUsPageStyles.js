@@ -33,7 +33,7 @@ title: {
     marginLeft: "10%",
     color: "#0D4D5E",
     fontSize: 30,
-    fontWeight: 700,
+    // fontWeight: 700,
 },
 
 subtitle: {
@@ -85,7 +85,7 @@ bottomTitle: {
     width: '50%',
     // adjustsFontSizeToFit: "true",
     allowFontScaling: "true",
-    fontWeight: 700,
+    // fontWeight: 700,
     fontSize: 30,
 },
 
@@ -257,7 +257,7 @@ backArrow:{
   },
 backText:{
     fontSize: 35,
-    fontWeight: 500,
+    //fontWeight: 500,
     color: "#359FAB",
     // borderColor: '#F0EBE8',
     // backgroundColor: '#F0EBE8',

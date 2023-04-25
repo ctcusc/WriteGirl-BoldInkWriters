@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     },
     backText:{
         fontSize: 35,
-        fontWeight: 500,
+        // fontWeight: 500,
         color: "#FFFFFF",
         borderColor: '#49A5AD',
         backgroundColor: '#49A5AD',

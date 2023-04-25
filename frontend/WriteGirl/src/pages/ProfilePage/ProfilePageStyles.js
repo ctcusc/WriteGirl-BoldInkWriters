@@ -28,21 +28,21 @@ export default StyleSheet.create({
         bigText: {
             fontFamily: 'sans-serif',
             fontSize: 30, 
-            fontWeight: 700,
+            // fontWeight: 700,
             color: 'white',
             alignSelf: 'center'
         },
         smallText: {
             fontFamily: 'sans-serif',
             fontSize: 16, 
-            fontWeight: 'bold',
+            // fontWeight: 'bold',
             color: 'white',
             alignSelf: 'center'
         },
         medText: {
             fontFamily: 'sans-serif',
             fontSize: 18, 
-            fontWeight: '400',
+            // fontWeight: '400',
             color: 'white',
             alignSelf: 'center'
         },
@@ -51,7 +51,7 @@ export default StyleSheet.create({
             fontSize: 28,
             paddingLeft: 40,
             paddingTop: 10,
-            fontWeight: 500
+            // fontWeight: 500
             
         },
         gridContainer: {
@@ -80,7 +80,7 @@ export default StyleSheet.create({
           },
           day: {
             fontSize: 36,
-            fontWeight: 'bold',
+            // fontWeight: 'bold',
             color: '#0D4D5E', 
             alignSelf: "center",
             // paddingHorizontal: 10
@@ -94,7 +94,7 @@ export default StyleSheet.create({
           signOutText: {
             fontFamily: 'sans-serif',
             fontSize: 15, 
-            fontWeight: 'bold',
+            // fontWeight: 'bold',
             color: 'white',
             alignSelf: 'flex-end',
             marginRight: 20,
@@ -109,7 +109,7 @@ export default StyleSheet.create({
           aboutbuttontext: {
               color: '#0D4D5E', 
               fontSize: 16, 
-              fontWeight: 400,
+              // fontWeight: 400,
               alignSelf: "center"
           },
           aboutusbutton: {

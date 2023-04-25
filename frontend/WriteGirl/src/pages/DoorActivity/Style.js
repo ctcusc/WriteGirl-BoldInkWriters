@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
       // fontFamily: 'DroidSans',
       fontStyle: 'normal',
       fontSize: 30,
-      fontWeight: 700,
+      // fontWeight: 700,
       lineHeight: 32,
       textAlign: 'center',
     },
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         color: '#0D4D5E', 
         // font: 'Droid Sans',
         fontStyle: 'normal',
-        fontWeight: 700,
+        // fontWeight: 700,
         fontSize: 30,
         textAlign: 'center'
       },
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
         // fontFamily: 'Hubballi',
         // fontStyle: 'normal',
         fontSize: 30,
-        fontWeight: 700,
+        // fontWeight: 700,
         paddingTop: 10,
         textAlign: 'center'
       },
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
       intText:{
         fontFamily: 'Inter',
         fontStyle: 'normal',
-        fontWeight: 400,
+        // fontWeight: 400,
         fontSize: 15,
         lineHeight: 24,
         color: '#0D4D5E',
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
         fontFamily: 'Inter',
         fontStyle: 'normal',
-        fontWeight: 400,
+        // fontWeight: 400,
         fontSize: 20,
         lineHeight: 30,
         color: '#FFFFFF',
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
       doorActivityText:{
         fontFamily: 'DroidSans',
         fontStyle: 'normal',
-        fontWeight: 400,
+        // fontWeight: 400,
         fontSize: 25,
         lineHeight: 30,
         color: '#0D4D5E',
@@ -270,7 +270,7 @@ const styles = StyleSheet.create({
     },
     backText:{
         fontSize: 35,
-        fontWeight: 500,
+        // fontWeight: 500,
         color: "#49A5AD",
     }
       

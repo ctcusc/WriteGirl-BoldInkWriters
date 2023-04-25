@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: width/15,
-        fontWeight: "bold",
+        // fontWeight: "bold",
         alignSelf: "center",
         flexWrap: "wrap",
         marginTop: containerHeight/15,
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     },
     backText:{
         fontSize: 35,
-        fontWeight: 500,
+        // fontWeight: 500,
         color: "#49A5AD",
     },
     scroll: {
