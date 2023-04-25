@@ -117,9 +117,9 @@ export default function ProfilePage({ navigation }) {
           <View style = {styles.container}>
             <Text style={styles.signOutText} onPress={() => {logOut()}}>Sign Out</Text>
             <View style={styles.internalContainer}>
-                <Text style={styles.bigText}>Jane Doe{userInfo ? (userInfo.firstName + " " + userInfo.lastName) : null}</Text>
+                <Text style={styles.bigText}>CTC Demo{userInfo ? (userInfo.firstName + " " + userInfo.lastName) : null}</Text>
                 {/* <Text style={styles.smallText}>she/her</Text> */}
-                <Text style={styles.medText}>janedoe@gmail.com{userInfo ? userInfo.email : null}</Text>
+                <Text style={styles.medText}>asd@asd.com{userInfo ? userInfo.email : null}</Text>
                 <Text style={styles.medText}>los angeles, california{userLocation}</Text>
                 <TouchableOpacity 
                   onPress={() => {

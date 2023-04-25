@@ -248,7 +248,7 @@ let up = false;
                     {/* <View style={styles.horizontal}> */}
                         {/* <View> */}
                         <Text style={styles.welcometext1}>Welcome, </Text>
-                        <Text style={styles.welcomenametext}>{userInfo ? userInfo.firstName : null} 👋</Text>
+                        <Text style={styles.welcomenametext}>CTC{userInfo ? userInfo.firstName : null} 👋</Text>
                         {/* <Text style={styles.welcometext2}>What inspires you today?</Text> */}
                         {/* </View> */}
                         {/* <Image style={styles.pic} source={require('./assets/profilePic.png')}/> */}
